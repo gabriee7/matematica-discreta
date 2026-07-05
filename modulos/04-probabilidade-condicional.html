@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 4 — Probabilidade Condicional | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="01-espaco-amostral.html">Mod. 1</a>
+      <a href="02-espacos-equiprovaveis.html">Mod. 2</a>
+      <a href="03-teoremas-adicao.html">Mod. 3</a>
+      <a href="04-probabilidade-condicional.html" class="active">Mod. 4</a>
+      <a href="05-independencia-tentativas.html">Mod. 5</a>
+      <a href="06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="../lista/lista-completa.html">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>Nesta página</h2>
+  <ul>
+    <li><a href="#teoria">Teoria</a></li>
+    <li><a href="#exemplo5">Exemplo 5 (aula)</a></li>
+    <li><a href="#ex14">Questão 14</a></li>
+    <li><a href="#ex15">Questão 15</a></li>
+    <li><a href="#ex16">Questão 16</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Módulo 4 — Probabilidade Condicional</h1>
+  <p class="subtitle">A probabilidade muda quando você já sabe algo sobre o resultado — e a forma exata do que
+  você sabe importa mais do que parece.</p>
+
+  <h2 id="teoria">Teoria</h2>
+  <div class="theory-box">
+    <p><span class="badge badge-prereq">📌</span> Se \(E\) é um evento com \(P(E)>0\), a
+    <strong>probabilidade condicional</strong> de \(A\) dado \(E\) é:</p>
+    \[P(A \mid E) = \frac{P(A \cap E)}{P(E)} \quad\Longrightarrow\quad P(A \cap E) = P(A\mid E)\cdot P(E)\]
+    <p><span class="badge badge-ok">✅</span> <strong>Teorema 5.</strong> Em um espaço equiprovável:</p>
+    \[P(A\mid E) = \frac{|A \cap E|}{|E|}\]
+    <p>Ou seja: <em>o espaço amostral encolhe para \(E\)</em> — você conta apenas dentro de \(E\), não mais
+    dentro de \(S\) inteiro.</p>
+  </div>
+
+  <div class="exercise" id="exemplo5">
+    <h3>Exemplo 5 (aula)</h3>
+    <div class="enunciado">a) Lançamento de 2 dados. E={soma é 6}, A={2 aparece em um dos dados}. Calcule
+    P(A|E). b) Um casal tem 2 crianças. Ache a probabilidade de ambas serem meninos, sabendo que:
+    i) pelo menos uma é menino; ii) a mais velha é menino.</div>
+
+    <div class="step"><strong class="step-label">a) Resolução</strong>
+    \(E=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\), \(|E|=5\). Dentro de \(E\), os pares em que o número 2 aparece:
+    \((2,4)\) e \((4,2)\), \(|A\cap E|=2\).
+    \[P(A\mid E) = \frac{2}{5}\]</div>
+
+    <div class="step"><strong class="step-label">b) Resolução — a armadilha clássica</strong>
+    Espaço amostral de sexos dos dois filhos, do mais velho para o mais novo:
+    \(S=\{MM, MF, FM, FF\}\), equiprovável.<br>
+    <strong>(i)</strong> "Pelo menos um menino" = \(E_1=\{MM,MF,FM\}\), \(|E_1|=3\). "Ambos meninos" \(\cap E_1
+    = \{MM\}\):
+    \[P(\text{ambos} \mid E_1) = \frac{1}{3}\]
+    <strong>(ii)</strong> "O mais velho é menino" = \(E_2=\{MM,MF\}\), \(|E_2|=2\). "Ambos meninos"
+    \(\cap E_2 = \{MM\}\):
+    \[P(\text{ambos} \mid E_2) = \frac{1}{2}\]</div>
+
+    <div class="step"><strong class="step-label">Armadilha</strong>
+    <span class="badge badge-trap">❗</span> As duas condições parecem dizer "quase a mesma coisa", mas
+    definem eventos condicionantes diferentes — \(E_1\) tem 3 elementos, \(E_2\) tem 2 — e por isso as
+    respostas diferem (\(1/3\) vs. \(1/2\)). Esta é a armadilha mais citada de probabilidade condicional em
+    provas: leia a condição literalmente, não "pelo sentido geral".</div>
+  </div>
+
+  <h2>Exercícios da Lista III</h2>
+
+  <div class="exercise" id="ex14">
+    <h3>Questão 14 — Dado lançado, A={2,4,6}, B={1,2}, C={1,2,3,4}</h3>
+    <div class="enunciado">a) P(A e B), P(A ou C). b) P(A|B), P(B|A). c) P(A|C), P(C|A). d) P(B|C), P(C|B).
+    e) A e B são independentes? A e C? B e C?</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Espaço equiprovável \(|S|=6\). Aplica-se o Teorema 5 (\(P(A|E)=|A\cap E|/|E|\)) repetidamente, com
+    cuidado para não trocar numerador e denominador entre \(P(A|B)\) e \(P(B|A)\).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    Interseções necessárias: \(A\cap B=\{2\}\); \(A\cap C=\{2,4\}\); \(B\cap C=\{1,2\}\).<br>
+    <strong>a)</strong> \(P(A\cap B) = 1/6\). \(A\cup C=\{1,2,3,4,6\}\): \(P(A\cup C)=5/6\).<br>
+    <strong>b)</strong> \(P(A\mid B) = \dfrac{|A\cap B|}{|B|} = \dfrac{1}{2}\).
+    \(P(B\mid A) = \dfrac{|A\cap B|}{|A|} = \dfrac{1}{3}\).<br>
+    <strong>c)</strong> \(P(A\mid C) = \dfrac{|A\cap C|}{|C|} = \dfrac{2}{4} = \dfrac{1}{2}\).
+    \(P(C\mid A) = \dfrac{|A\cap C|}{|A|} = \dfrac{2}{3}\).<br>
+    <strong>d)</strong> \(P(B\mid C) = \dfrac{|B\cap C|}{|C|} = \dfrac{2}{4} = \dfrac{1}{2}\).
+    \(P(C\mid B) = \dfrac{|B\cap C|}{|B|} = \dfrac{2}{2} = 1\).<br>
+    <strong>e)</strong> Teste \(P(X\cap Y) = P(X)P(Y)\):<br>
+    \(A,B\): \(P(A\cap B)=1/6\); \(P(A)P(B)=(3/6)(2/6)=1/6\) → <strong>iguais → independentes (Sim)</strong>.<br>
+    \(A,C\): \(P(A\cap C)=2/6=1/3\); \(P(A)P(C)=(3/6)(4/6)=1/3\) → <strong>iguais → independentes (Sim)</strong>.<br>
+    \(B,C\): \(P(B\cap C)=2/6=1/3\); \(P(B)P(C)=(2/6)(4/6)=2/9\) → <strong>diferentes → dependentes (Não)</strong>.</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1/6, 5/6; b) 1/2, 1/3; c) 1/2, 2/3; d) 1/2, 1; e) Sim, Sim, Não.
+    <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-trap">❗</span> \(P(C|B)=1\) não significa que \(C\) e \(B\) sejam o mesmo evento
+    — significa que \(B \subseteq C\) (todo elemento de B também está em C), então, condicionado a B, C
+    ocorre sempre. <span class="badge badge-pattern">🔁</span> Teste de independência: sempre compare
+    \(P(X\cap Y)\) contra \(P(X)\cdot P(Y)\) — nunca "pareça razoável", calcule os dois números.</div>
+  </div>
+
+  <div class="exercise" id="ex15">
+    <h3>Questão 15 — P(A)=0.6, P(B)=0.3, P(A∩B)=0.2</h3>
+    <div class="enunciado">Ache: a) P(A∪B). b) P(A|B). c) P(B|A).</div>
+
+    <div class="step"><strong class="step-label">1–4. Resolução</strong>
+    <strong>a)</strong> Princípio da adição (Módulo 3): \(P(A\cup B) = 0.6+0.3-0.2 = 0.7\).<br>
+    <strong>b)</strong> \(P(A\mid B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{0.2}{0.3} = \dfrac{2}{3}\).<br>
+    <strong>c)</strong> \(P(B\mid A) = \dfrac{P(A\cap B)}{P(A)} = \dfrac{0.2}{0.6} = \dfrac{1}{3}\).</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 0.7, b) 2/3, c) 1/3. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Exercício-modelo direto da definição de probabilidade
+    condicional — útil para memorizar a fórmula sem a distração de contar elementos de conjuntos.</div>
+  </div>
+
+  <div class="exercise" id="ex16">
+    <h3>Questão 16 — Par de dados, sabendo que os números são distintos</h3>
+    <div class="enunciado">a) A soma seja par. b) A soma exceda 9.</div>
+
+    <div class="step"><strong class="step-label">1. Leitura e extração de dados</strong>
+    <span class="badge badge-trap">❗</span> O condicionante "números distintos" já reduz o espaço amostral:
+    dos 36 pares \((d_1,d_2)\), 6 têm \(d_1=d_2\) (os "dobros"), restando \(36-6=30\) pares com números
+    distintos. Todo o cálculo seguinte ocorre <em>dentro</em> desses 30, não dos 36 originais.</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Probabilidade condicional em espaço equiprovável, com o evento condicionante \(E\)={números distintos},
+    \(|E|=30\).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Soma par com números distintos ocorre quando os dois valores têm a mesma paridade
+    (par+par ou ímpar+ímpar) mas são diferentes entre si. Ímpares distintos ordenados: de \(\{1,3,5\}\),
+    \(3\times2=6\) pares ordenados distintos. Pares distintos: de \(\{2,4,6\}\), também \(3\times2=6\).
+    Total: \(6+6=12\) casos favoráveis.
+    \[P = \frac{12}{30} = \frac{2}{5}\]
+    <strong>b)</strong> Soma \(>9\) com números distintos: soma 10 → \((4,6),(6,4)\) (excluído \((5,5)\), não
+    distintos); soma 11 → \((5,6),(6,5)\); soma 12 → só \((6,6)\), excluído por não ser distinto. Total:
+    \(2+2=4\) casos.
+    \[P = \frac{4}{30} = \frac{2}{15}\]</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança no caminho</th></tr>
+      <tr><td>Não houvesse a condição "distintos"</td><td>O espaço volta a ser 36 (Questão 8f, soma>10 dá 1/12 — compare com este resultado condicional 2/15, que é maior porque exclui exatamente o caso (6,6) do denominador também.</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 2/5, b) 2/15. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-trap">❗</span> Armadilha central desta questão: usar \(|S|=36\) no denominador
+    em vez de \(|E|=30\). Sempre que o enunciado começa com "sabendo que..." ou "dado que...", o espaço
+    amostral do cálculo é o evento condicionante, não o espaço original.</div>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="03-teoremas-adicao.html">← Módulo 3</a> · <a href="../index.html">Início</a> ·
+  <a href="05-independencia-tentativas.html">Módulo 5 →</a>
+</footer>
+</body>
+</html>
