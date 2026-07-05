@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 3 — Teoremas e Princípio da Adição | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="01-espaco-amostral.html">Mod. 1</a>
+      <a href="02-espacos-equiprovaveis.html">Mod. 2</a>
+      <a href="03-teoremas-adicao.html" class="active">Mod. 3</a>
+      <a href="04-probabilidade-condicional.html">Mod. 4</a>
+      <a href="05-independencia-tentativas.html">Mod. 5</a>
+      <a href="06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="../lista/lista-completa.html">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>Nesta página</h2>
+  <ul>
+    <li><a href="#teoria">Teoria</a></li>
+    <li><a href="#exemplo4">Exemplo 4 (aula)</a></li>
+    <li><a href="#ex11">Questão 11</a></li>
+    <li><a href="#ex12">Questão 12</a></li>
+    <li><a href="#ex13">Questão 13</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Módulo 3 — Teoremas sobre Espaços de Probabilidade Finitos</h1>
+  <p class="subtitle">As regras estruturais que toda função de probabilidade precisa obedecer.</p>
+
+  <h2 id="teoria">Teoria</h2>
+  <div class="theory-box">
+    <p><span class="badge badge-ok">✅</span> <strong>Teorema 1.</strong> Para todo evento \(A\):
+    (i) \(0 \leq P(A) \leq 1\); (ii) \(P(S)=1\); (iii) se \(A\) e \(B\) são mutuamente excludentes,
+    \(P(A\cup B) = P(A)+P(B)\).</p>
+    <p><span class="badge badge-ok">✅</span> <strong>Teorema 2.</strong> Se \(p=P(E)\), então \(1-p\) é a
+    probabilidade de \(E\) não ocorrer: \(P(E^c) = 1-P(E)\).</p>
+    <p><span class="badge badge-ok">✅</span> <strong>Teorema 3.</strong> (i) \(P(\emptyset)=0\);
+    (ii) se \(A \subseteq B\), então \(P(A) \leq P(B)\) (monotonicidade).</p>
+    <p><span class="badge badge-ok">✅</span> <strong>Teorema 4 — Princípio da Adição</strong> (caso geral,
+    sem exigir exclusão mútua):</p>
+    \[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]
+    <p>Este é o teorema mais usado da lista de exercícios — ele generaliza o Teorema 1(iii): quando
+    \(A \cap B = \emptyset\), a fórmula se reduz a \(P(A\cup B)=P(A)+P(B)\).</p>
+  </div>
+
+  <div class="exercise" id="exemplo4">
+    <h3>Exemplo 4 (aula) — 100 estudantes, matemática e química</h3>
+    <div class="enunciado">100 estudantes: 30 estudam matemática, 20 estudam química, 10 estudam ambas.
+    Calcule a probabilidade de o aluno selecionado ser de matemática ou química.</div>
+    <div class="step"><strong class="step-label">Resolução</strong>
+    \(P(M) = 30/100 = 0.3\), \(P(Q) = 20/100 = 0.2\), \(P(M\cap Q) = 10/100 = 0.1\).
+    \[P(M\cup Q) = 0.3 + 0.2 - 0.1 = 0.4\]</div>
+    <div class="step"><strong class="step-label">Armadilha</strong>
+    <span class="badge badge-trap">❗</span> Somar \(0.3+0.2=0.5\) sem subtrair a interseção conta os 10 alunos
+    de "ambas" duas vezes — superestimando o resultado.</div>
+  </div>
+
+  <h2>Exercícios da Lista III</h2>
+
+  <div class="exercise" id="ex11">
+    <h3>Questão 11 — Qual função é uma probabilidade válida?</h3>
+    <div class="enunciado">\(S=\{a_1,a_2,a_3\}\). a) \(P(a_1)=\frac14,P(a_2)=\frac13,P(a_3)=\frac12\).
+    b) \(P(a_1)=\frac23,P(a_2)=-\frac13,P(a_3)=\frac23\). c) \(P(a_1)=\frac16,P(a_2)=\frac13,P(a_3)=\frac12\).
+    d) \(P(a_1)=0,P(a_2)=\frac13,P(a_3)=\frac23\).</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Verificação direta das duas condições da definição de espaço de probabilidade finito
+    (Módulo 2): cada \(p_i \geq 0\) e \(\sum p_i = 1\).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Soma: \(\frac14+\frac13+\frac12 = \frac{3}{12}+\frac{4}{12}+\frac{6}{12} =
+    \frac{13}{12} \neq 1\). <span class="badge badge-trap">❗</span> Inválida (soma excede 1).<br>
+    <strong>b)</strong> \(P(a_2) = -\frac13 < 0\). <span class="badge badge-trap">❗</span> Inválida
+    (probabilidade negativa, viola \(p_i\geq0\) mesmo sem checar a soma).<br>
+    <strong>c)</strong> Soma: \(\frac16+\frac13+\frac12 = \frac16+\frac26+\frac36 = \frac66 = 1\), e todos
+    \(\geq 0\). <span class="badge badge-ok">✅</span> Válida.<br>
+    <strong>d)</strong> Soma: \(0+\frac13+\frac23=1\), todos \(\geq0\) (zero é permitido, pois a condição é
+    \(p_i \geq 0\), não \(p_i>0\)). <span class="badge badge-ok">✅</span> Válida.</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: opções corretas são c) e d). <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Ao validar uma distribuição, checar primeiro a não-negatividade
+    (é uma rejeição instantânea, como em b) e só depois somar tudo — economiza esforço quando alguma
+    probabilidade já é claramente negativa.</div>
+  </div>
+
+  <div class="exercise" id="ex12">
+    <h3>Questão 12 — Distribuição de probabilidade num dado viciado</h3>
+    <div class="enunciado">\(P(1)=0.1, P(2)=0.4, P(3)=0.1, P(4)=0.1, P(5)=0.2, P(6)=0.1\). A={número par},
+    B={2,3,4,5}, C={1,2}. a) P(A), P(B), P(C). b) P(A∩B), P(A∪C), P(B∩C).</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Espaço de probabilidade finito não-equiprovável — soma-se diretamente as probabilidades dos pontos que
+    compõem cada evento (definição do Módulo 2), não se usa \(|E|/|S|\) (isso só vale em espaços
+    equiprováveis).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    \(A=\{2,4,6\}\): \(P(A)=0.4+0.1+0.1=0.6\).<br>
+    \(B=\{2,3,4,5\}\): \(P(B)=0.4+0.1+0.1+0.2=0.8\).<br>
+    \(C=\{1,2\}\): \(P(C)=0.1+0.4=0.5\).<br>
+    \(A\cap B = \{2,4\}\) (pares que também estão em B): \(P=0.4+0.1=0.5\).<br>
+    \(A\cup C = \{1,2,4,6\}\): \(P=0.1+0.4+0.1+0.1=0.7\).<br>
+    \(B\cap C = \{2\}\) (único elemento comum entre {2,3,4,5} e {1,2}): \(P=0.4\).</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 0.6, 0.8, 0.5; b) 0.5, 0.7, 0.4. <span class="answer-final">Bate com o gabarito.</span>
+    Sanity-check via princípio da adição: \(P(A\cup C) = P(A)+P(C)-P(A\cap C) = 0.6+0.5-P(\{2\}) =
+    1.1-0.4=0.7\) ✓.</div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-trap">❗</span> Armadilha comum: aplicar \(|E|/|S|\) mesmo quando a distribuição
+    não é uniforme — aqui \(|B|=4\) mas \(P(B)=0.8\), muito diferente de \(4/6\). A fórmula de espaço
+    equiprovável só vale quando todos os \(p_i\) são iguais.</div>
+  </div>
+
+  <div class="exercise" id="ex13">
+    <h3>Questão 13 — Dados P(A), P(B̄) e P(A∪B)</h3>
+    <div class="enunciado">\(P(A)=0.6\), \(P(\bar{B})=0.3\), \(P(A\cup B)=0.8\). Ache: a) \(P(A\cap B)\);
+    b) \(P(A\cap\bar{B})\); c) \(P(\bar{A}\cap\bar{B})\); d) \(P(\bar{A}\cup\bar{B})\).</div>
+
+    <div class="step"><strong class="step-label">1. Leitura e extração de dados</strong>
+    <span class="badge badge-trap">❗</span> O dado fornecido é \(P(\bar{B})=0.3\), não \(P(B)\)! Pelo
+    Teorema 2, \(P(B) = 1-P(\bar{B}) = 1-0.3 = 0.7\). Esse é o primeiro passo obrigatório antes de qualquer
+    outra conta.</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Uso combinado do princípio da adição (Teorema 4) e das leis de De Morgan para complementos de uniões e
+    interseções.</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Isolando \(P(A\cap B)\) na fórmula do princípio da adição:
+    \[P(A\cap B) = P(A)+P(B)-P(A\cup B) = 0.6+0.7-0.8 = 0.5\]
+    <strong>b)</strong> \(A\) se decompõe em \(A\cap B\) e \(A\cap \bar{B}\) (partição de \(A\)):
+    \[P(A\cap\bar{B}) = P(A) - P(A\cap B) = 0.6-0.5 = 0.1\]
+    <strong>c)</strong> Por De Morgan, \(\bar{A}\cap\bar{B} = \overline{A\cup B}\):
+    \[P(\bar{A}\cap\bar{B}) = 1-P(A\cup B) = 1-0.8 = 0.2\]
+    <strong>d)</strong> Por De Morgan, \(\bar{A}\cup\bar{B} = \overline{A\cap B}\):
+    \[P(\bar{A}\cup\bar{B}) = 1-P(A\cap B) = 1-0.5 = 0.5\]</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 0.5, b) 0.1, c) 0.2, d) 0.5. <span class="answer-final">Bate com o gabarito.</span>
+    Sanity-check: \(P(A\cap B)+P(A\cap\bar B) = 0.5+0.1=0.6=P(A)\) ✓ (partição consistente).</div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> As leis de De Morgan transformam complemento de união em
+    interseção de complementos e vice-versa: \(\overline{A\cup B}=\bar A\cap\bar B\) e
+    \(\overline{A\cap B}=\bar A\cup\bar B\). <span class="badge badge-trap">❗</span> A armadilha desta
+    questão inteira está em (b): confundir se o dado é \(P(B)\) ou \(P(\bar B)\) muda todas as respostas
+    seguintes.</div>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="02-espacos-equiprovaveis.html">← Módulo 2</a> · <a href="../index.html">Início</a> ·
+  <a href="04-probabilidade-condicional.html">Módulo 4 →</a>
+</footer>
+</body>
+</html>
