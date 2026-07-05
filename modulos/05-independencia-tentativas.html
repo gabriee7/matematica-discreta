@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 5 — Independência e Tentativas Repetidas | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="01-espaco-amostral.html">Mod. 1</a>
+      <a href="02-espacos-equiprovaveis.html">Mod. 2</a>
+      <a href="03-teoremas-adicao.html">Mod. 3</a>
+      <a href="04-probabilidade-condicional.html">Mod. 4</a>
+      <a href="05-independencia-tentativas.html" class="active">Mod. 5</a>
+      <a href="06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="../lista/lista-completa.html">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>Nesta página</h2>
+  <ul>
+    <li><a href="#teoria">Teoria</a></li>
+    <li><a href="#exemplo6">Exemplo 6 (aula)</a></li>
+    <li><a href="#exemplo7">Exemplo 7 (aula)</a></li>
+    <li><a href="#ex17">Questão 17</a></li>
+    <li><a href="#ex18">Questão 18</a></li>
+    <li><a href="#ex19">Questão 19</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Módulo 5 — Eventos Independentes e Tentativas Repetidas</h1>
+  <p class="subtitle">Quando um evento não altera a chance de outro — e como isso vira a distribuição
+  binomial.</p>
+
+  <h2 id="teoria">Teoria</h2>
+  <div class="theory-box">
+    <p><span class="badge badge-prereq">📌</span> \(A\) e \(B\) são <strong>independentes</strong> se a
+    ocorrência de um não influencia a probabilidade do outro. Formalmente, \(B\) é independente de \(A\) se
+    \(P(B) = P(B\mid A)\), o que é equivalente a:</p>
+    \[P(A \cap B) = P(A)\cdot P(B)\]
+    <p><span class="badge badge-prereq">📌</span> <strong>Tentativas independentes repetidas.</strong> Se
+    \(S\) é um espaço de probabilidade finito, o espaço de \(n\) tentativas independentes é \(S^n\)
+    (n-uplas ordenadas de elementos de \(S\)), onde a probabilidade de cada n-upla é o produto das
+    probabilidades de seus componentes.</p>
+    <div class="note-complement"><strong>Complemento (não está nas aulas, mas conecta diretamente com os
+    exercícios da lista):</strong> quando um experimento binário (sucesso com probabilidade \(p\), fracasso
+    com \(1-p\)) é repetido \(n\) vezes de forma independente, a probabilidade de exatamente \(k\) sucessos é
+    dada pela <strong>distribuição binomial</strong>:</p>
+    \[P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}\]
+    </div>
+  </div>
+
+  <div class="exercise" id="exemplo6">
+    <h3>Exemplo 6 (aula)</h3>
+    <div class="enunciado">a) 3 lançamentos de moeda. A={1º lance é cara}, B={2º lance é cara},
+    C={exatamente duas caras seguidas}. Quais pares são independentes? b) Tiro ao alvo: atirador A acerta com
+    \(P=1/4\), atirador B acerta com \(P=2/5\). Ambos atiram. Qual a probabilidade de que pelo menos um
+    acerte?</div>
+
+    <div class="step"><strong class="step-label">a) Resolução</strong>
+    \(S=\{CCC,CCK,CKC,CKK,KCC,KCK,KKC,KKK\}\) (C=cara, K=coroa), 8 elementos equiprováveis.<br>
+    \(A\) (1º é cara) = \(\{CCC,CCK,CKC,CKK\}\), \(P(A)=1/2\).<br>
+    \(B\) (2º é cara) = \(\{CCC,CCK,KCC,KCK\}\), \(P(B)=1/2\).<br>
+    \(C\) (exatamente duas caras <em>seguidas</em>, não três) = \(\{CCK, KCC\}\), \(P(C)=2/8=1/4\).<br>
+    Testando cada par com \(P(X\cap Y)=P(X)P(Y)\):<br>
+    \(A\cap B=\{CCC,CCK\}\), \(P=2/8=1/4\); \(P(A)P(B)=1/4\). <strong>Iguais → independentes.</strong><br>
+    \(A\cap C=\{CCK\}\), \(P=1/8\); \(P(A)P(C)=(1/2)(1/4)=1/8\). <strong>Iguais → independentes.</strong><br>
+    \(B\cap C\): ambos elementos de \(C\) (CCK e KCC) têm 2º lance = cara, logo \(B\cap C = C = \{CCK,KCC\}\),
+    \(P=1/4\); \(P(B)P(C)=(1/2)(1/4)=1/8\). <strong>Diferentes → dependentes.</strong></div>
+
+    <div class="step"><strong class="step-label">b) Resolução</strong>
+    "Pelo menos um acerta" = complemento de "nenhum acerta". Como os atiradores são independentes, a
+    probabilidade de nenhum acertar é o produto dos complementos individuais:
+    \[P(\text{nenhum acerta}) = (1-\tfrac14)(1-\tfrac25) = \tfrac34 \cdot \tfrac35 = \tfrac{9}{20}\]
+    \[P(\text{pelo menos um}) = 1 - \frac{9}{20} = \frac{11}{20}\]</div>
+
+    <div class="step"><strong class="step-label">Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "Pelo menos um evento independente ocorre, dentre vários"
+    quase sempre se resolve pelo complemento: \(1 - \prod_i (1-p_i)\).</div>
+  </div>
+
+  <div class="exercise" id="exemplo7">
+    <h3>Exemplo 7 (aula) — Corrida de cavalos, 2 competições</h3>
+    <div class="enunciado">Três cavalos a, b, c com \(P(a)=\frac12, P(b)=\frac13, P(c)=\frac16\). Competem 2
+    vezes hoje. Calcule a probabilidade de cada elemento do espaço amostral.</div>
+
+    <div class="step"><strong class="step-label">Resolução</strong>
+    O espaço de 2 tentativas repetidas é \(S^2 = \{a,b,c\}\times\{a,b,c\}\), 9 elementos, cada um com
+    probabilidade igual ao produto das probabilidades de seus componentes:
+    \[P(a,a)=\tfrac12\cdot\tfrac12=\tfrac14 \quad P(a,b)=\tfrac12\cdot\tfrac13=\tfrac16 \quad
+    P(a,c)=\tfrac12\cdot\tfrac16=\tfrac{1}{12}\]
+    \[P(b,a)=\tfrac16 \quad P(b,b)=\tfrac13\cdot\tfrac13=\tfrac19 \quad P(b,c)=\tfrac13\cdot\tfrac16=\tfrac{1}{18}\]
+    \[P(c,a)=\tfrac{1}{12} \quad P(c,b)=\tfrac{1}{18} \quad P(c,c)=\tfrac16\cdot\tfrac16=\tfrac{1}{36}\]
+    Sanity-check: a soma das 9 probabilidades deve ser 1 — de fato,
+    \(\frac14+\frac16+\frac{1}{12}+\frac16+\frac19+\frac{1}{18}+\frac{1}{12}+\frac{1}{18}+\frac{1}{36}=1\)
+    (comum denominador 36: \(9+6+3+6+4+2+3+2+1=36\)) ✓.</div>
+  </div>
+
+  <h2>Exercícios da Lista III</h2>
+
+  <div class="exercise" id="ex17">
+    <h3>Questão 17 — Cavalos a, b, c correm 3 vezes</h3>
+    <div class="enunciado">\(P(a)=0.3, P(b)=0.5, P(c)=0.2\). a) Mesmo cavalo ganha as 3 corridas.
+    b) Cada um dos 3 cavalos vence exatamente uma vez.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Espaço de 3 tentativas independentes repetidas, \(S^3\) — mesma estrutura do Exemplo 7, mas com 3
+    competições em vez de 2.</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> "Mesmo cavalo ganha as 3" é a união de 3 eventos mutuamente excludentes — a vence
+    3x, ou b vence 3x, ou c vence 3x. Cada probabilidade é o cubo da probabilidade individual (tentativas
+    independentes):
+    \[P = (0.3)^3 + (0.5)^3 + (0.2)^3 = 0.027 + 0.125 + 0.008 = 0.16\]
+    <strong>b)</strong> "Cada cavalo vence exatamente uma vez" é uma permutação das 3 corridas entre os 3
+    cavalos: existem \(3! = 6\) ordens diferentes (quem vence a 1ª, a 2ª, a 3ª), e cada ordem tem
+    probabilidade \(0.3\times0.5\times0.2\) (produto das 3 probabilidades, independente da ordem, pois a
+    multiplicação é comutativa):
+    \[P = 3! \times (0.3)(0.5)(0.2) = 6 \times 0.03 = 0.18\]</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 0.16, b) 0.18. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "O mesmo resultado se repete \(n\) vezes" → soma dos cubos
+    (ou potências \(n\)) das probabilidades individuais. "Cada resultado distinto ocorre exatamente uma vez
+    em \(n\) tentativas" → \(n!\) vezes o produto das probabilidades (regra da permutação combinada com
+    tentativas independentes).</div>
+  </div>
+
+  <div class="exercise" id="ex18">
+    <h3>Questão 18 — Antônio, lance de 3 pontos, p=0.4, 5 tentativas</h3>
+    <div class="enunciado">a) Exatamente duas vezes. b) Pelo menos uma vez.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Distribuição binomial: \(n=5\) tentativas independentes, sucesso (acertar) com \(p=0.4\).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> \(P(X=2) = \binom{5}{2}(0.4)^2(0.6)^3 = 10 \times 0.16 \times 0.216 = 0.3456\).<br>
+    <strong>b)</strong> "Pelo menos uma vez" = complemento de "zero acertos":
+    \[P(X\geq1) = 1-(0.6)^5 = 1-0.07776 = 0.92224\]</div>
+
+    <div class="note-complement"><strong>Nota sobre o gabarito oficial:</strong> o PDF da Lista III lista a
+    resposta do item (b) como <code>1-(0,6)⁵=0,07776</code>. Matematicamente, \((0.6)^5 = 0.07776\), mas
+    \(1-(0.6)^5 = 0.92224\), não \(0.07776\) — o valor no gabarito parece ser um erro de transcrição
+    (foi anotado o valor de \((0.6)^5\), não o de \(1-(0.6)^5\), embora a fórmula escrita esteja correta). A
+    resolução acima segue a fórmula corretamente aplicada: <span class="answer-final">0.92224</span>.
+    Compare com a Questão 19(b), que usa a mesma fórmula e cujo valor no gabarito (0,7599) está correto.</div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-warn">⚠️</span> Sempre calcule o complemento até o fim — \((1-p)^n\) é apenas a
+    probabilidade de <em>zero</em> sucessos; "pelo menos um" exige o passo final \(1 - (1-p)^n\).</div>
+  </div>
+
+  <div class="exercise" id="ex19">
+    <h3>Questão 19 — Jogador de baseball, média 0.3, 4 tentativas</h3>
+    <div class="enunciado">a) Exatamente uma vez. b) Pelo menos uma vez.</div>
+
+    <div class="step"><strong class="step-label">1–4. Resolução</strong>
+    Binomial com \(n=4\), \(p=0.3\).<br>
+    <strong>a)</strong> \(P(X=1) = \binom{4}{1}(0.3)^1(0.7)^3 = 4 \times 0.3 \times 0.343 = 0.4116\).<br>
+    <strong>b)</strong> \(P(X\geq1) = 1-(0.7)^4 = 1-0.2401 = 0.7599\).</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 0.4116, b) 0.7599. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Estrutura idêntica à Questão 18 — reconhecer o padrão
+    binomial (\(n\) tentativas independentes, probabilidade fixa \(p\) de sucesso) é o que importa, não
+    decorar cada exercício separadamente.</div>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="04-probabilidade-condicional.html">← Módulo 4</a> · <a href="../index.html">Início</a> ·
+  <a href="06-comportamento-assintotico.html">Módulo 6 →</a>
+</footer>
+</body>
+</html>
