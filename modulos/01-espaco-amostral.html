@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 1 — Espaço Amostral e Eventos | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="01-espaco-amostral.html" class="active">Mod. 1</a>
+      <a href="02-espacos-equiprovaveis.html">Mod. 2</a>
+      <a href="03-teoremas-adicao.html">Mod. 3</a>
+      <a href="04-probabilidade-condicional.html">Mod. 4</a>
+      <a href="05-independencia-tentativas.html">Mod. 5</a>
+      <a href="06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="../lista/lista-completa.html">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>Nesta página</h2>
+  <ul>
+    <li><a href="#teoria">Teoria</a></li>
+    <li><a href="#exemplo1a">Exemplo 1a (aula)</a></li>
+    <li><a href="#exemplo1b">Exemplo 1b (aula)</a></li>
+    <li><a href="#ex1">Exercício 1 (Lista)</a></li>
+    <li><a href="#ex2">Exercício 2 (Lista)</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Módulo 1 — Espaço Amostral, Eventos e Operações de Conjuntos</h1>
+  <p class="subtitle">Base conceitual de toda a probabilidade discreta: sem isto, nada do resto faz sentido.</p>
+
+  <h2 id="teoria">Teoria</h2>
+  <div class="theory-box">
+    <p><span class="badge badge-prereq">📌</span> O <strong>espaço amostral</strong> \(S\) é o conjunto de todos os
+    resultados possíveis de um experimento. Um elemento particular de \(S\) é uma <em>amostra</em>. Um
+    <strong>evento</strong> \(E\) é qualquer subconjunto de \(S\).</p>
+    <p>\(\emptyset\) (conjunto vazio) e \(S\) são, eles próprios, eventos: \(\emptyset\) é o <em>evento
+    impossível</em>, \(S\) é o <em>evento certo</em>.</p>
+    <p>Como eventos são conjuntos, combinam-se com as operações usuais de conjuntos:</p>
+    <ul>
+      <li>\(A \cup B\): ocorre se \(A\) ocorre, ou \(B\) ocorre, ou ambos.</li>
+      <li>\(A \cap B\): ocorre se \(A\) e \(B\) ocorrem simultaneamente.</li>
+      <li>\(A^c\) (também escrito \(\bar{A}\)): ocorre se \(A\) <em>não</em> ocorre.</li>
+    </ul>
+    <p><span class="badge badge-ok">✅</span> \(A\) e \(B\) são <strong>mutuamente excludentes</strong> se
+    \(A \cap B = \emptyset\) — não podem ocorrer ao mesmo tempo.</p>
+  </div>
+
+  <h2>Exemplos do professor (Exemplo 1, Aula 11)</h2>
+
+  <div class="exercise" id="exemplo1a">
+    <h3>Exemplo 1a — Lançamento de um dado</h3>
+    <div class="enunciado">Experimento: lançamento de um dado. Seja \(A=\{2,4,6\}\), \(B=\{1,3,5\}\) e
+    \(C=\{2,3,5\}\). Defina \(S\), \(A\cup B\), \(B\cap C\) e \(\bar{C}\).</div>
+
+    <div class="step"><strong class="step-label">1. Dados</strong>
+    Um dado de 6 faces é lançado uma vez; os resultados possíveis são os números de 1 a 6.</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Definição direta de espaço amostral e operações de conjuntos — não há cálculo de probabilidade aqui,
+    apenas a construção do modelo.</div>
+
+    <div class="step"><strong class="step-label">3. Resolução</strong>
+    \(S = \{1,2,3,4,5,6\}\).<br>
+    \(A \cup B = \{2,4,6\} \cup \{1,3,5\} = \{1,2,3,4,5,6\} = S\) — note que \(A\) e \(B\) particionam \(S\)
+    (são mutuamente excludentes e cobrem todo o espaço).<br>
+    \(B \cap C = \{1,3,5\} \cap \{2,3,5\} = \{3,5\}\).<br>
+    \(\bar{C} = S \setminus C = \{1,4,6\}\).</div>
+
+    <div class="step"><strong class="step-label">4. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> \(A\) e \(B\) aqui são complementares um do outro
+    (\(B = \bar{A}\)), por isso \(A \cup B = S\) e \(A \cap B = \emptyset\). Reconhecer quando dois eventos
+    dados no enunciado são, na verdade, complementares evita recalcular probabilidades desnecessariamente.</div>
+  </div>
+
+  <div class="exercise" id="exemplo1b">
+    <h3>Exemplo 1b — Lançamento de uma moeda três vezes</h3>
+    <div class="enunciado">Considerando \(C\) (cara) e \(K\) (coroa), defina \(S\). Seja
+    \(A=\){duas ou mais caras aparecem} e \(B=\){todos os lances são iguais}. Defina \(A\), \(B\) e
+    \(A \cap B\).</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Experimento composto (3 lançamentos independentes de uma moeda) — o espaço amostral é o produto
+    cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\), com \(2^3=8\) resultados.</div>
+
+    <div class="step"><strong class="step-label">3. Resolução</strong>
+    \(S = \{CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK\}\).<br>
+    \(A = \{CCC, CCK, CKC, KCC\}\) (exatamente 2 ou 3 caras).<br>
+    \(B = \{CCC, KKK\}\) (os 3 lances iguais entre si).<br>
+    \(A \cap B = \{CCC\}\) — o único elemento comum é o caso de 3 caras, que está tanto em "2 ou mais caras"
+    quanto em "todos iguais".</div>
+
+    <div class="step"><strong class="step-label">4. Armadilha</strong>
+    <span class="badge badge-trap">❗</span> \(KKK\) está em \(B\) mas não em \(A\) (0 caras não é "duas ou
+    mais"). É fácil incluir \(KKK\) em \(A\cap B\) por engano ao ler rápido demais o enunciado de \(B\).</div>
+  </div>
+
+  <h2>Exercícios da Lista III</h2>
+
+  <div class="exercise" id="ex1">
+    <h3>Questão 1 — Notação de conjuntos para combinações de eventos</h3>
+    <div class="enunciado">Sejam A, B e C eventos. Reescreva usando notação de conjuntos:
+    a) A e B, mas C não ocorre. b) A ou C, mas B não ocorre. c) Nenhum dos eventos ocorre.
+    d) Pelo menos dois eventos ocorrem.</div>
+
+    <div class="step"><strong class="step-label">1. Leitura e extração de dados</strong>
+    Não há números — o problema pede a <em>tradução</em> de linguagem natural para operações de conjuntos
+    (∪, ∩, complemento).</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    <span class="badge badge-prereq">📌</span> Problema de tradução lógica: "e" → ∩; "ou" → ∪; "não ocorre" →
+    complemento. "Pelo menos dois" exige decompor em casos (união de interseções par a par).</div>
+
+    <div class="step"><strong class="step-label">3–4. Estratégia e resolução</strong>
+    <strong>a)</strong> "A e B, mas C não ocorre" = A ocorre \(\cap\) B ocorre \(\cap\) C não ocorre:
+    \[A \cap B \cap C^c\]
+    <strong>b)</strong> "A ou C, mas B não ocorre" = (A ocorre ou C ocorre) \(\cap\) B não ocorre:
+    \[(A \cup C) \cap B^c\]
+    <strong>c)</strong> "Nenhum ocorre" = não-A \(\cap\) não-B \(\cap\) não-C. Por De Morgan isso também é o
+    complemento da união:
+    \[(A \cup B \cup C)^c = A^c \cap B^c \cap C^c\]
+    <strong>d)</strong> "Pelo menos dois" significa que algum par específico ocorre simultaneamente (podendo os
+    três ocorrer também, o que já está coberto porque se os três ocorrem, todo par ocorre):
+    \[(A \cap B) \cup (A \cap C) \cup (B \cap C)\]</div>
+
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>"Exatamente dois eventos"</td><td>Precisa excluir o caso dos três simultâneos: \((A\cap B\cap C^c)\cup(A\cap C\cap B^c)\cup(B\cap C\cap A^c)\).</td></tr>
+      <tr><td>"Nenhum ou todos"</td><td>União de dois casos extremos: \((A^c\cap B^c\cap C^c)\cup(A\cap B\cap C)\).</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Confere com o gabarito oficial da lista: a) \(A\cap B\cap C^c\); b) \((A\cup C)\cap B^c\);
+    c) \((A\cup B\cup C)^c = A^c\cap B^c\cap C^c\); d) \((A\cap B)\cup(A\cap C)\cup(B\cap C)\).
+    <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Este é o padrão-mestre para toda questão de "traduzir frase em
+    conjuntos": isole cada evento nomeado, identifique o conectivo lógico (e/ou/não), e monte a expressão de
+    dentro para fora. <span class="badge badge-trap">❗</span> Armadilha comum: confundir "não A e não B"
+    (\(A^c \cap B^c\)) com "não (A e B)" (\((A\cap B)^c = A^c \cup B^c\)) — são leis de De Morgan, e o
+    resultado muda de ∩ para ∪.</div>
+  </div>
+
+  <div class="exercise" id="ex2">
+    <h3>Questão 2 — Dado e duas moedas</h3>
+    <div class="enunciado">Um dado e duas moedas são jogados. a) Descreva um espaço amostral conveniente S e
+    ache n(S). b) Expresse A={duas caras e um número par}, B={2 ocorre}, C={exatamente uma cara e um número
+    ímpar}. c) Expresse (i) A e B, (ii) apenas B, (iii) B e C.</div>
+
+    <div class="step"><strong class="step-label">1. Dados</strong>
+    Experimento composto: 2 moedas (K/C cada) + 1 dado (1 a 6). Resultado é uma tripla ordenada
+    (moeda1, moeda2, dado).</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Espaço amostral como produto cartesiano de experimentos independentes:
+    \[S = \{K,C\} \times \{K,C\} \times \{1,2,\dots,6\}\]</div>
+
+    <div class="step"><strong class="step-label">3. Estratégia</strong>
+    Contar \(n(S)\) pela regra do produto (\(2 \times 2 \times 6\)), depois filtrar cada evento listando os
+    elementos que satisfazem a condição descrita.</div>
+
+    <div class="step"><strong class="step-label">4. Resolução passo a passo</strong>
+    <strong>a)</strong> \(n(S) = 2 \cdot 2 \cdot 6 = 24\).<br>
+    <strong>b)</strong> Escrevendo cada resultado como (moeda1 moeda2)(número):<br>
+    \(A\) = {duas caras E número par} → as duas moedas precisam ser \(K\) e \(K\), número par (2,4,6):
+    \[A = \{KK2, KK4, KK6\}\]
+    \(B\) = {2 ocorre no dado}, qualquer combinação de moedas:
+    \[B = \{KK2, KC2, CK2, CC2\}\]
+    \(C\) = {exatamente uma cara E número ímpar} → uma cara e uma coroa (em qualquer ordem: KC ou CK), número
+    ímpar (1,3,5):
+    \[C = \{KC1, KC3, KC5, CK1, CK3, CK5\}\]
+    <strong>c)</strong>
+    (i) \(A \cap B\): interseção de \(A\) e \(B\) — o único elemento comum entre \(\{KK2,KK4,KK6\}\) e
+    \(\{KK2,KC2,CK2,CC2\}\) é \(KK2\):
+    \[A \cap B = \{KK2\}\]
+    (ii) "apenas B" = \(B \cap A^c\) — elementos de \(B\) que não estão em \(A\):
+    \[B \setminus A = \{KC2, CK2, CC2\}\]
+    (iii) \(B \cap C\): \(B\) exige número par (2); \(C\) exige número ímpar. Não há elemento que satisfaça
+    ambos:
+    \[B \cap C = \emptyset\]</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança no caminho</th></tr>
+      <tr><td>Fossem 3 moedas em vez de 2</td><td>\(n(S) = 2^3 \cdot 6 = 48\); listar os eventos exige mais cuidado com a combinatória de caras/coroas.</td></tr>
+      <tr><td>"pelo menos uma cara" em vez de "exatamente uma"</td><td>Passa a incluir também KK, exigindo somar mais casos (ou usar o complemento "nenhuma cara").</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Confere com o gabarito: \(n(S)=24\); A, B, C como acima; (i) {KK2}; (ii) {KC2,CK2,CC2}; (iii) ∅.
+    <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Sempre que o experimento combina sub-experimentos
+    independentes (moedas + dado), o espaço amostral é o produto cartesiano, e \(n(S)\) é o produto das
+    cardinalidades. <span class="badge badge-trap">❗</span> \(B \cap C = \emptyset\) porque os eventos B e C
+    impõem condições incompatíveis sobre a mesma variável (par vs. ímpar) — sempre cheque se duas condições
+    do enunciado se referem à mesma "coordenada" do resultado antes de tentar listar interseções.</div>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Voltar ao início</a> · Próximo: <a href="02-espacos-equiprovaveis.html">Módulo 2 — Espaços Equiprováveis</a>
+</footer>
+</body>
+</html>
