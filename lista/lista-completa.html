@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Exercícios III — Completa | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="../modulos/01-espaco-amostral.html">Mod. 1</a>
+      <a href="../modulos/02-espacos-equiprovaveis.html">Mod. 2</a>
+      <a href="../modulos/03-teoremas-adicao.html">Mod. 3</a>
+      <a href="../modulos/04-probabilidade-condicional.html">Mod. 4</a>
+      <a href="../modulos/05-independencia-tentativas.html">Mod. 5</a>
+      <a href="../modulos/06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="lista-completa.html" class="active">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>As 22 questões</h2>
+  <ul>
+    <li><a href="#q1">1. Notação de conjuntos</a></li>
+    <li><a href="#q2">2. Dado e 2 moedas</a></li>
+    <li><a href="#q3">3. Probabilidades básicas</a></li>
+    <li><a href="#q4">4. Carta 1–50</a></li>
+    <li><a href="#q5">5. Garotas olhos azuis</a></li>
+    <li><a href="#q6">6. Fila meninos/meninas</a></li>
+    <li><a href="#q7">7. Três moedas</a></li>
+    <li><a href="#q8">8. Dois dados</a></li>
+    <li><a href="#q9">9. Mãos de cartas</a></li>
+    <li><a href="#q10">10. Loteria Daily3</a></li>
+    <li><a href="#q11">11. Função de probabilidade</a></li>
+    <li><a href="#q12">12. Distribuição dada</a></li>
+    <li><a href="#q13">13. P(B̄) e princípio da adição</a></li>
+    <li><a href="#q14">14. Condicional no dado</a></li>
+    <li><a href="#q15">15. Condicional direta</a></li>
+    <li><a href="#q16">16. Dados, números distintos</a></li>
+    <li><a href="#q17">17. Cavalos, 3 corridas</a></li>
+    <li><a href="#q18">18. Antônio, lance de 3</a></li>
+    <li><a href="#q19">19. Baseball</a></li>
+    <li><a href="#q20">20. O, Ω, Θ (5 provas)</a></li>
+    <li><a href="#q21">21. Complexidade do programa</a></li>
+    <li><a href="#q22">22. Transitividade de O</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Lista de Exercícios III — Completa (22 questões)</h1>
+  <p class="subtitle">Todas as questões da lista, com resposta final e link para a resolução completa
+  (protocolo de 7 passos) no módulo correspondente.</p>
+
+  <div class="theory-box">
+    <p>Esta página é um índice rápido de consulta. Cada questão abaixo mostra o enunciado resumido e a
+    resposta final; para ver a resolução passo a passo completa (leitura de dados, classificação, estratégia,
+    verificação e generalização), siga o link "Ver resolução completa" para o módulo correspondente.</p>
+  </div>
+
+  <h2>Probabilidade Discreta</h2>
+
+  <div class="exercise" id="q1">
+    <h3>1. Sejam A, B, C eventos — notação de conjuntos</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) A e B, mas C não ocorre</td><td>\(A \cap B \cap C^c\)</td></tr>
+      <tr><td>b) A ou C, mas B não ocorre</td><td>\((A \cup C) \cap B^c\)</td></tr>
+      <tr><td>c) Nenhum dos eventos ocorre</td><td>\((A\cup B\cup C)^c = A^c\cap B^c\cap C^c\)</td></tr>
+      <tr><td>d) Pelo menos dois ocorrem</td><td>\((A\cap B)\cup(A\cap C)\cup(B\cap C)\)</td></tr>
+    </table>
+    <p><a href="../modulos/01-espaco-amostral.html#ex1">Ver resolução completa no Módulo 1 →</a></p>
+  </div>
+
+  <div class="exercise" id="q2">
+    <h3>2. Um dado e duas moedas são jogados</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) S, n(S)</td><td>\(S=\{K,C\}\times\{K,C\}\times\{1,\dots,6\}\), n(S) = 24</td></tr>
+      <tr><td>b) A, B, C</td><td>A={KK2,KK4,KK6}; B={KK2,KC2,CK2,CC2}; C={KC1,KC3,KC5,CK1,CK3,CK5}</td></tr>
+      <tr><td>c) (i) A∩B</td><td>{KK2}</td></tr>
+      <tr><td>c) (ii) apenas B</td><td>{KC2,CK2,CC2}</td></tr>
+      <tr><td>c) (iii) B∩C</td><td>∅</td></tr>
+    </table>
+    <p><a href="../modulos/01-espaco-amostral.html#ex2">Ver resolução completa no Módulo 1 →</a></p>
+  </div>
+
+  <div class="exercise" id="q3">
+    <h3>3. Probabilidades básicas</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Ímpar no dado</td><td>1/2</td></tr>
+      <tr><td>b) Uma ou mais caras em 4 moedas</td><td>15/16</td></tr>
+      <tr><td>c) Um ou ambos excedem 4 (2 dados)</td><td>5/9</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex3">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q4">
+    <h3>4. Carta numerada de 1 a 50</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Maior que 10</td><td>4/5</td></tr>
+      <tr><td>b) Divisível por 5</td><td>1/5</td></tr>
+      <tr><td>c) Maior que 10 e divisível por 5</td><td>4/25</td></tr>
+      <tr><td>d) Maior que 10 ou divisível por 5</td><td>21/25</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex4">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q5">
+    <h3>5. 10 garotas, 3 de olhos azuis, escolhem-se 2</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Ambas azuis</td><td>1/15</td></tr>
+      <tr><td>b) Nenhuma azul</td><td>7/15</td></tr>
+      <tr><td>c) Pelo menos uma azul</td><td>8/15</td></tr>
+      <tr><td>d) Exatamente uma azul</td><td>7/15</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex5">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q6">
+    <h3>6. 3 meninos e 3 meninas em fila</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) As 3 meninas juntas</td><td>1/5</td></tr>
+      <tr><td>b) Alternados</td><td>1/10</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex6">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q7">
+    <h3>7. Três moedas</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Tamanho de S</td><td>8</td></tr>
+      <tr><td>b) Uma cara e duas coroas</td><td>3/8</td></tr>
+      <tr><td>c) Só coroas</td><td>1/8</td></tr>
+      <tr><td>d) Só coroas ou só caras</td><td>1/4</td></tr>
+      <tr><td>e) Só coroas e só caras</td><td>0</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex7">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q8">
+    <h3>8. Dois dados</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Tamanho de S</td><td>36</td></tr>
+      <tr><td>b) Dois valores = 1</td><td>1/36</td></tr>
+      <tr><td>c) Par (mesmo valor)</td><td>1/6</td></tr>
+      <tr><td>d) Soma 7</td><td>1/6</td></tr>
+      <tr><td>e) 1 em pelo menos um dado</td><td>11/36</td></tr>
+      <tr><td>f) Soma > 10</td><td>1/12</td></tr>
+      <tr><td>g) Soma ímpar</td><td>1/2</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex8">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q9">
+    <h3>9. Mãos de 2 cartas de um baralho de 52</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Tamanho de S</td><td>1326</td></tr>
+      <tr><td>b) Ambas espadas</td><td>1/17</td></tr>
+      <tr><td>c) Nenhuma espada</td><td>19/34</td></tr>
+      <tr><td>d) Exatamente uma espada</td><td>13/34</td></tr>
+      <tr><td>e) Pelo menos uma espada</td><td>15/34</td></tr>
+      <tr><td>f) Ambas figuras</td><td>11/221</td></tr>
+      <tr><td>g) Ambas figuras de espadas</td><td>1/442</td></tr>
+      <tr><td>h) Ambas figuras ou ambas espadas</td><td>47/442</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex9">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q10">
+    <h3>10. Loteria Daily3</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Sequência exata</td><td>1/1000</td></tr>
+      <tr><td>b) Lote, 3 números distintos</td><td>3/500</td></tr>
+      <tr><td>c) Lote, dois números iguais</td><td>3/1000</td></tr>
+    </table>
+    <p><a href="../modulos/02-espacos-equiprovaveis.html#ex10">Ver resolução completa no Módulo 2 →</a></p>
+  </div>
+
+  <div class="exercise" id="q11">
+    <h3>11. Qual função é uma probabilidade válida em S={a₁,a₂,a₃}?</h3>
+    <p><span class="answer-final">Opções corretas: c) e d).</span></p>
+    <p><a href="../modulos/03-teoremas-adicao.html#ex11">Ver resolução completa no Módulo 3 →</a></p>
+  </div>
+
+  <div class="exercise" id="q12">
+    <h3>12. Distribuição de probabilidade dada</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) P(A), P(B), P(C)</td><td>0.6, 0.8, 0.5</td></tr>
+      <tr><td>b) P(A∩B), P(A∪C), P(B∩C)</td><td>0.5, 0.7, 0.4</td></tr>
+    </table>
+    <p><a href="../modulos/03-teoremas-adicao.html#ex12">Ver resolução completa no Módulo 3 →</a></p>
+  </div>
+
+  <div class="exercise" id="q13">
+    <h3>13. P(A)=0.6, P(B̄)=0.3, P(A∪B)=0.8</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) P(A∩B)</td><td>0.5</td></tr>
+      <tr><td>b) P(A∩B̄)</td><td>0.1</td></tr>
+      <tr><td>c) P(Ā∩B̄)</td><td>0.2</td></tr>
+      <tr><td>d) P(Ā∪B̄)</td><td>0.5</td></tr>
+    </table>
+    <p><a href="../modulos/03-teoremas-adicao.html#ex13">Ver resolução completa no Módulo 3 →</a></p>
+  </div>
+
+  <div class="exercise" id="q14">
+    <h3>14. Dado lançado — A={2,4,6}, B={1,2}, C={1,2,3,4}</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) P(A∩B), P(A∪C)</td><td>1/6, 5/6</td></tr>
+      <tr><td>b) P(A|B), P(B|A)</td><td>1/2, 1/3</td></tr>
+      <tr><td>c) P(A|C), P(C|A)</td><td>1/2, 2/3</td></tr>
+      <tr><td>d) P(B|C), P(C|B)</td><td>1/2, 1</td></tr>
+      <tr><td>e) Independentes? A,B / A,C / B,C</td><td>Sim / Sim / Não</td></tr>
+    </table>
+    <p><a href="../modulos/04-probabilidade-condicional.html#ex14">Ver resolução completa no Módulo 4 →</a></p>
+  </div>
+
+  <div class="exercise" id="q15">
+    <h3>15. P(A)=0.6, P(B)=0.3, P(A∩B)=0.2</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) P(A∪B)</td><td>0.7</td></tr>
+      <tr><td>b) P(A|B)</td><td>2/3</td></tr>
+      <tr><td>c) P(B|A)</td><td>1/3</td></tr>
+    </table>
+    <p><a href="../modulos/04-probabilidade-condicional.html#ex15">Ver resolução completa no Módulo 4 →</a></p>
+  </div>
+
+  <div class="exercise" id="q16">
+    <h3>16. Par de dados, sabendo que os números são distintos</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Soma par</td><td>2/5</td></tr>
+      <tr><td>b) Soma excede 9</td><td>2/15</td></tr>
+    </table>
+    <p><a href="../modulos/04-probabilidade-condicional.html#ex16">Ver resolução completa no Módulo 4 →</a></p>
+  </div>
+
+  <div class="exercise" id="q17">
+    <h3>17. Cavalos a, b, c — 3 corridas</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Mesmo cavalo ganha as 3</td><td>0.16</td></tr>
+      <tr><td>b) Cada um vence exatamente uma vez</td><td>0.18</td></tr>
+    </table>
+    <p><a href="../modulos/05-independencia-tentativas.html#ex17">Ver resolução completa no Módulo 5 →</a></p>
+  </div>
+
+  <div class="exercise" id="q18">
+    <h3>18. Antônio, lance de 3 pontos, p=0.4, 5 tentativas</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Exatamente duas vezes</td><td>0.3456</td></tr>
+      <tr><td>b) Pelo menos uma vez</td><td>0.92224 <span class="badge badge-warn">⚠️ ver nota</span></td></tr>
+    </table>
+    <p><a href="../modulos/05-independencia-tentativas.html#ex18">Ver resolução completa e nota sobre o
+    gabarito no Módulo 5 →</a></p>
+  </div>
+
+  <div class="exercise" id="q19">
+    <h3>19. Jogador de baseball, média 0.3, 4 tentativas</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resposta</th></tr>
+      <tr><td>a) Exatamente uma vez</td><td>0.4116</td></tr>
+      <tr><td>b) Pelo menos uma vez</td><td>0.7599</td></tr>
+    </table>
+    <p><a href="../modulos/05-independencia-tentativas.html#ex19">Ver resolução completa no Módulo 5 →</a></p>
+  </div>
+
+  <h2>Comportamento Assintótico</h2>
+
+  <div class="exercise" id="q20">
+    <h3>20. Cinco demonstrações de O, Ω, Θ (sem gabarito oficial)</h3>
+    <table class="data-table">
+      <tr><th>Item</th><th>Resultado</th></tr>
+      <tr><td>a) n² é O(n⁴)</td><td>c=1, m=1</td></tr>
+      <tr><td>b) n·sen(n) é O(n)</td><td>c=1, m=0</td></tr>
+      <tr><td>c) n(n+1)(n+2) é Θ(n³)</td><td>c₁=1, c₂=6, m=1</td></tr>
+      <tr><td>d) n(n+5)/2 é Ω(n²)</td><td>c=1/2, m=0</td></tr>
+      <tr><td>e) n³+2n²+n+5 é Ω(n³)</td><td>c=1, m=0</td></tr>
+    </table>
+    <p><a href="../modulos/06-comportamento-assintotico.html#ex20">Ver demonstrações completas no Módulo 6 →</a></p>
+  </div>
+
+  <div class="exercise" id="q21">
+    <h3>21. Complexidade de programa com O(n), O(n²), O(log n)</h3>
+    <p><span class="answer-final">O(n²)</span> — o termo de maior ordem domina a soma.</p>
+    <p><a href="../modulos/06-comportamento-assintotico.html#ex21">Ver resolução completa no Módulo 6 →</a></p>
+  </div>
+
+  <div class="exercise" id="q22">
+    <h3>22. Transitividade: f=O(g), g=O(h) ⟹ f=O(h)</h3>
+    <p><span class="answer-final">Demonstrado com c = c₁c₂ e m = max(m₁,m₂).</span></p>
+    <p><a href="../modulos/06-comportamento-assintotico.html#ex22">Ver demonstração completa no Módulo 6 →</a></p>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="../index.html">← Início</a>
+</footer>
+</body>
+</html>
