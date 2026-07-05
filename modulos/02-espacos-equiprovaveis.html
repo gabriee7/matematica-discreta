@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Módulo 2 — Espaços Equiprováveis | COM06851</title>
+<link rel="stylesheet" href="../styles.css">
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../index.html">COM06851 — Matemática Discreta
+      <small>Probabilidade Discreta &amp; Comportamento Assintótico</small>
+    </a>
+    <nav class="top-nav">
+      <a href="../index.html">Início</a>
+      <a href="01-espaco-amostral.html">Mod. 1</a>
+      <a href="02-espacos-equiprovaveis.html" class="active">Mod. 2</a>
+      <a href="03-teoremas-adicao.html">Mod. 3</a>
+      <a href="04-probabilidade-condicional.html">Mod. 4</a>
+      <a href="05-independencia-tentativas.html">Mod. 5</a>
+      <a href="06-comportamento-assintotico.html">Mod. 6</a>
+      <a href="../lista/lista-completa.html">Lista Completa</a>
+    </nav>
+  </div>
+</header>
+
+<div class="layout">
+<aside class="toc">
+  <h2>Nesta página</h2>
+  <ul>
+    <li><a href="#teoria">Teoria</a></li>
+    <li><a href="#exemplo2">Exemplo 2 (aula)</a></li>
+    <li><a href="#exemplo3">Exemplo 3 (aula)</a></li>
+    <li><a href="#ex3">Questão 3</a></li>
+    <li><a href="#ex4">Questão 4</a></li>
+    <li><a href="#ex5">Questão 5</a></li>
+    <li><a href="#ex6">Questão 6</a></li>
+    <li><a href="#ex7">Questão 7</a></li>
+    <li><a href="#ex8">Questão 8</a></li>
+    <li><a href="#ex9">Questão 9</a></li>
+    <li><a href="#ex10">Questão 10</a></li>
+  </ul>
+</aside>
+
+<main>
+  <h1>Módulo 2 — Espaços de Probabilidade Finitos e Equiprováveis</h1>
+  <p class="subtitle">Quando todo resultado tem a mesma chance: contar é calcular probabilidade.</p>
+
+  <h2 id="teoria">Teoria</h2>
+  <div class="theory-box">
+    <p><span class="badge badge-prereq">📌</span> Um <strong>espaço de probabilidade finito</strong> associa a
+    cada ponto \(a_i \in S\) um número real \(p_i\) (a probabilidade de \(a_i\)) tal que:</p>
+    <ul>
+      <li>(i) \(p_i \geq 0\) para todo \(i\);</li>
+      <li>(ii) \(p_1 + p_2 + \dots + p_n = 1\).</li>
+    </ul>
+    <p>A probabilidade de um evento \(A\) é a soma das probabilidades dos pontos que pertencem a \(A\).
+    O conjunto unitário \(\{a_i\}\) é um <em>evento elementar</em>, e escreve-se \(P(a_i)\) em vez de
+    \(P(\{a_i\})\).</p>
+    <p><span class="badge badge-ok">✅</span> Um espaço é <strong>equiprovável</strong> quando todo ponto tem a
+    mesma probabilidade. Se \(S\) tem \(n\) pontos, cada ponto vale \(1/n\), e se um evento \(E\) tem \(r\)
+    pontos favoráveis:</p>
+    \[P(E) = \frac{\text{número de elementos em } E}{\text{número de elementos em } S} = \frac{|E|}{|S|}\]
+    <div class="note-complement"><strong>Complemento (não está explícito nas aulas, mas é usado nos
+    exercícios):</strong> para contar \(|E|\) e \(|S|\) sem listar manualmente, usa-se a
+    <strong>combinação</strong> \(C(n,k) = \binom{n}{k} = \dfrac{n!}{k!(n-k)!}\) quando a ordem não importa
+    (ex.: escolher 2 cartas de um baralho), e o <strong>arranjo</strong>/regra do produto quando a ordem
+    importa (ex.: filas, sequências).</div>
+  </div>
+
+  <div class="exercise" id="exemplo2">
+    <h3>Exemplo 2 (aula) — Número de caras em 3 lançamentos</h3>
+    <div class="enunciado">Observa-se o número de caras obtidas em 3 lançamentos de moeda. Defina S, calcule
+    P de cada elemento. Seja A={pelo menos uma cara} e B={todas caras ou todas coroas}. Calcule P(A) e P(B).</div>
+    <div class="step"><strong class="step-label">Resolução</strong>
+    \(S=\{CCC,CCK,CKC,CKK,KCC,KCK,KKC,KKK\}\), 8 elementos igualmente prováveis, logo \(P(a_i)=1/8\) para cada.<br>
+    \(A\) = complemento de {nenhuma cara} = \(S \setminus \{KKK\}\), 7 elementos: \(P(A) = 7/8\).<br>
+    \(B = \{CCC, KKK\}\): \(P(B) = 2/8 = 1/4\).</div>
+    <div class="step"><strong class="step-label">Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "Pelo menos uma cara" é o complemento de "nenhuma cara" —
+    calcular o complemento é quase sempre mais rápido que somar todos os casos favoráveis diretamente.</div>
+  </div>
+
+  <div class="exercise" id="exemplo3">
+    <h3>Exemplo 3 (aula) — Carta de baralho</h3>
+    <div class="enunciado">Seleciona-se uma carta de um baralho de 52. A={carta de espadas}, B={carta é
+    figura}. Calcule P(A), P(B) e P(A∩B).</div>
+    <div class="step"><strong class="step-label">Resolução</strong>
+    \(|S|=52\). Espadas: 13 cartas → \(P(A)=13/52=1/4\).<br>
+    Figuras (valete, dama, rei) por naipe: 3 por naipe × 4 naipes = 12 → \(P(B)=12/52=3/13\).<br>
+    Figuras de espadas: 3 → \(P(A\cap B)=3/52\).</div>
+  </div>
+
+  <h2>Exercícios da Lista III</h2>
+
+  <div class="exercise" id="ex3">
+    <h3>Questão 3 — Probabilidades básicas</h3>
+    <div class="enunciado">a) Número ímpar no lançamento de um dado. b) Uma ou mais caras em 4 moedas.
+    c) Um ou ambos números excedem 4 em 2 dados.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Três espaços equiprováveis distintos: dado (6 pontos), 4 moedas (\(2^4=16\) pontos), 2 dados (36 pontos).
+    Em (b) e (c), "pelo menos" sugere usar o complemento.</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Ímpares em \(\{1,\dots,6\}\): \(\{1,3,5\}\), \(|E|=3\), \(|S|=6\):
+    \[P = \frac{3}{6} = \frac{1}{2}\]
+    <strong>b)</strong> "Uma ou mais caras" = complemento de "nenhuma cara" (todas coroas), que tem
+    1 caso em \(2^4=16\):
+    \[P = 1 - \frac{1}{16} = \frac{15}{16}\]
+    <strong>c)</strong> "Um ou ambos excedem 4" = complemento de "nenhum dado excede 4", isto é, ambos os
+    dados caem em \(\{1,2,3,4\}\) (4 valores em 6): \(P(\text{nenhum excede}) = \left(\frac{4}{6}\right)^2 =
+    \frac{16}{36} = \frac{4}{9}\).
+    \[P = 1 - \frac{4}{9} = \frac{5}{9}\]</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança</th></tr>
+      <tr><td>"ambos excedem 4" (em vez de "um ou ambos")</td><td>Calcula-se diretamente \((2/6)^2=1/9\), sem complemento.</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1/2, b) 15/16, c) 5/9. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Toda vez que o enunciado contém "pelo menos" ou "um ou mais",
+    considere calcular o complemento ("nenhum"/"zero"). É quase sempre a conta mais simples.</div>
+  </div>
+
+  <div class="exercise" id="ex4">
+    <h3>Questão 4 — Carta numerada de 1 a 50</h3>
+    <div class="enunciado">a) Maior que 10. b) Divisível por 5. c) Maior que 10 e divisível por 5.
+    d) Maior que 10 ou divisível por 5.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Espaço equiprovável com \(|S|=50\). O item (d) é um caso de <strong>princípio da adição</strong>
+    (Módulo 3): \(P(A\cup B) = P(A)+P(B)-P(A\cap B)\), então (a), (b) e (c) são os insumos para (d).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Números de 11 a 50: \(50-10=40\) valores: \(P = 40/50 = 4/5\).<br>
+    <strong>b)</strong> Múltiplos de 5 entre 1 e 50: \(5,10,\dots,50\), total \(50/5=10\): \(P=10/50=1/5\).<br>
+    <strong>c)</strong> Maior que 10 <em>e</em> múltiplo de 5: \(15,20,\dots,50\), total 8 valores:
+    \(P = 8/50 = 4/25\).<br>
+    <strong>d)</strong> Aplicando o princípio da adição com \(A\)=maior que 10, \(B\)=divisível por 5:
+    \[P(A\cup B) = \frac{4}{5}+\frac{1}{5}-\frac{4}{25} = \frac{20}{25}+\frac{5}{25}-\frac{4}{25} = \frac{21}{25}\]</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 4/5, b) 1/5, c) 4/25, d) 21/25. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-trap">❗</span> Armadilha comum: somar \(P(A)+P(B)\) direto em (d) sem subtrair a
+    interseção — dá \(1\), que é maior que 1 menos a sobreposição e superestima a probabilidade real.</div>
+  </div>
+
+  <div class="exercise" id="ex5">
+    <h3>Questão 5 — 10 garotas, 3 de olhos azuis, escolhem-se 2</h3>
+    <div class="enunciado">a) Ambas azuis. b) Nenhuma azul. c) Pelo menos uma azul. d) Exatamente uma azul.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Escolher 2 pessoas de um grupo de 10 sem se importar com a ordem → combinação. \(|S| = C(10,2) = 45\).</div>
+
+    <div class="step"><strong class="step-label">3. Estratégia</strong>
+    Para cada evento, conte quantas formas de escolher 2 pessoas satisfazem a condição, usando \(C(n,k)\)
+    separadamente no grupo de azuis (3) e no grupo de não-azuis (7).</div>
+
+    <div class="step"><strong class="step-label">4. Resolução</strong>
+    \(|S| = \binom{10}{2} = 45\).<br>
+    <strong>a)</strong> Ambas azuis: \(\binom{3}{2} = 3\): \(P = 3/45 = 1/15\).<br>
+    <strong>b)</strong> Nenhuma azul (ambas dentre as 7 não-azuis): \(\binom{7}{2} = 21\): \(P = 21/45 = 7/15\).<br>
+    <strong>c)</strong> Pelo menos uma azul = complemento de "nenhuma azul":
+    \(P = 1 - 7/15 = 8/15\).<br>
+    <strong>d)</strong> Exatamente uma azul: escolher 1 das 3 azuis e 1 das 7 não-azuis:
+    \(\binom{3}{1}\binom{7}{1} = 21\): \(P = 21/45 = 7/15\).</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança</th></tr>
+      <tr><td>Escolhessem 3 garotas em vez de 2</td><td>\(|S|=\binom{10}{3}=120\); recalcular cada combinação com \(k=3\).</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1/15, b) 7/15, c) 8/15, d) 7/15. <span class="answer-final">Bate com o gabarito.</span>
+    Sanity-check: (b)+(c) = 7/15+8/15 = 1 ✓ (nenhuma azul e pelo menos uma azul são complementares).</div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Problemas de "grupo dividido em duas categorias, escolha sem
+    reposição" seguem sempre este padrão: combine \(\binom{\text{categoria}}{k}\) dentro de cada grupo e use
+    a regra do produto entre grupos quando a condição mistura as duas categorias.</div>
+  </div>
+
+  <div class="exercise" id="ex6">
+    <h3>Questão 6 — 3 meninos e 3 meninas em fila</h3>
+    <div class="enunciado">a) As 3 meninas sentam juntas. b) Meninos e meninas alternados.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Arranjo de 6 pessoas distintas em fila: \(|S| = 6! = 720\) (ordem importa, todos distintos).</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Tratando as 3 meninas como um "bloco": o bloco pode ocupar 4 posições relativas junto
+    com os 3 meninos (4 "itens" para arranjar: bloco + 3 meninos = \(4!\) arranjos), e dentro do bloco as
+    meninas se arranjam de \(3!\) formas:
+    \[P = \frac{4! \cdot 3!}{6!} = \frac{4(3!)(3!)}{6!} = \frac{24 \cdot 6}{720} = \frac{144}{720} = \frac{1}{5}\]
+    <strong>b)</strong> Alternado começa com menino ou com menina (2 padrões): dentro de cada padrão, os 3
+    meninos se arranjam entre si (\(3!\)) e as 3 meninas entre si (\(3!\)):
+    \[P = \frac{2 \cdot 3! \cdot 3!}{6!} = \frac{2(6)(6)}{720} = \frac{72}{720} = \frac{1}{10}\]</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1/5, b) 1/10. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "Elementos de um grupo devem ficar juntos" → técnica do bloco
+    (agrupar e multiplicar pelas permutações internas). "Elementos devem alternar" → contar os padrões de
+    alternância possíveis (aqui, 2: começando com menino ou menina) e multiplicar pelas permutações internas
+    de cada grupo.</div>
+  </div>
+
+  <div class="exercise" id="ex7">
+    <h3>Questão 7 — Três moedas</h3>
+    <div class="enunciado">a) Tamanho do espaço amostral. b) Uma cara e duas coroas. c) Só coroas.
+    d) Só coroas ou só caras. e) Só coroas e só caras.</div>
+
+    <div class="step"><strong class="step-label">1–4. Resolução</strong>
+    \(S = \{KKK,KKC,KCK,KCC,CKK,CKC,CCK,CCC\}\), \(|S|=8\).<br>
+    <strong>b)</strong> Uma cara e duas coroas: \(\{KCC, CKC, CCK\}\), 3 casos: \(P = 3/8\).<br>
+    <strong>c)</strong> Só coroas: \(\{CCC\}\), 1 caso: \(P = 1/8\).<br>
+    <strong>d)</strong> Só coroas OU só caras: \(\{CCC, KKK\}\), 2 casos, eventos mutuamente excludentes:
+    \(P = 1/8 + 1/8 = 2/8 = 1/4\).<br>
+    <strong>e)</strong> Só coroas E só caras simultaneamente é impossível (não há resultado que seja ao mesmo
+    tempo todo cara e todo coroa) — são mutuamente excludentes:
+    \[P = 0\]</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 8, b) 3/8, c) 1/8, d) 1/4, e) 0. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-ok">✅</span> Este item (e) reforça diretamente a definição de eventos
+    mutuamente excludentes do Módulo 1: \(P(A\cap B)=0\) quando \(A\cap B=\emptyset\).</div>
+  </div>
+
+  <div class="exercise" id="ex8">
+    <h3>Questão 8 — Dois dados</h3>
+    <div class="enunciado">a) Tamanho de S. b) Dois valores iguais a 1. c) Par (mesmo valor nos dois).
+    d) Soma 7. e) 1 em pelo menos um dado. f) Soma maior que 10. g) Soma ímpar.</div>
+
+    <div class="step"><strong class="step-label">1–4. Resolução</strong>
+    \(|S| = 6 \times 6 = 36\), todos os pares \((d_1,d_2)\) igualmente prováveis.<br>
+    <strong>b)</strong> Ambos valem 1: só (1,1), 1 caso: \(P=1/36\).<br>
+    <strong>c)</strong> Par (\(d_1=d_2\)): 6 casos, (1,1)...(6,6): \(P=6/36=1/6\).<br>
+    <strong>d)</strong> Soma 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1), 6 casos: \(P=6/36=1/6\).<br>
+    <strong>e)</strong> 1 em pelo menos um dado = complemento de "nenhum dado é 1":
+    \(P(\text{nenhum}=1) = (5/6)^2 = 25/36\); \(P = 1-25/36 = 11/36\).<br>
+    <strong>f)</strong> Soma > 10: soma 11 (2 casos: (5,6),(6,5)) ou soma 12 (1 caso: (6,6)), total 3:
+    \(P = 3/36 = 1/12\).<br>
+    <strong>g)</strong> Soma ímpar: ocorre quando os dois dados têm paridades diferentes (um par, um ímpar).
+    Há \(3\times3=9\) combinações (ímpar,par) e 9 (par,ímpar), total 18: \(P=18/36=1/2\).</div>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 36, b) 1/36, c) 1/6, d) 1/6, e) 11/36, f) 1/12, g) 1/2.
+    <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Para eventos sobre "soma de dois dados", é mais rápido listar
+    os pares por soma-alvo do que enumerar os 36 pares completos. Para "pelo menos um X", o complemento
+    "nenhum X" volta a ser o caminho mais curto.</div>
+  </div>
+
+  <div class="exercise" id="ex9">
+    <h3>Questão 9 — Mãos de 2 cartas de um baralho de 52</h3>
+    <div class="enunciado">a) Tamanho de S. b) Ambas espadas. c) Nenhuma espada. d) Exatamente uma espada.
+    e) Pelo menos uma espada. f) Ambas figuras. g) Ambas figuras de espadas. h) Ambas figuras ou ambas
+    espadas.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Escolha de 2 cartas sem reposição e sem ordem → combinação: \(|S| = \binom{52}{2} = 1326\). O item (h)
+    volta a usar o princípio da adição do Módulo 3.</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>b)</strong> Ambas espadas (13 espadas no baralho): \(\binom{13}{2}=78\): \(P=78/1326=1/17\).<br>
+    <strong>c)</strong> Nenhuma espada (dentre as 39 não-espadas): \(\binom{39}{2}=741\): \(P=741/1326=19/34\).<br>
+    <strong>d)</strong> Exatamente uma espada: \(\binom{13}{1}\binom{39}{1}=507\): \(P=507/1326=13/34\).<br>
+    <strong>e)</strong> Pelo menos uma espada = complemento de (c): \(P = 1-19/34 = 15/34\).<br>
+    <strong>f)</strong> Ambas figuras (12 figuras no baralho: 3 por naipe × 4): \(\binom{12}{2}=66\):
+    \(P=66/1326=11/221\).<br>
+    <strong>g)</strong> Ambas figuras de espadas (3 figuras de espadas): \(\binom{3}{2}=3\): \(P=3/1326=1/442\).<br>
+    <strong>h)</strong> "Ambas figuras" (f) OU "ambas espadas" (b), pelo princípio da adição — a interseção é
+    exatamente (g), "ambas figuras de espadas":
+    \[P = \frac{11}{221} + \frac{1}{17} - \frac{1}{442}\]
+    Colocando em denominador comum 442 (\(221\times2=442\), \(17\times26=442\)):
+    \[P = \frac{22}{442} + \frac{26}{442} - \frac{1}{442} = \frac{47}{442}\]</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança</th></tr>
+      <tr><td>Mão de 3 cartas em vez de 2</td><td>\(|S|=\binom{52}{3}\); cada combinação usa \(k=3\) nas categorias correspondentes.</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1326, b) 1/17, c) 19/34, d) 13/34, e) 15/34, f) 11/221, g) 1/442, h) 47/442.
+    <span class="answer-final">Bate com o gabarito.</span> Sanity-check: (c)+(e) = 19/34+15/34=1 ✓.</div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-trap">❗</span> Em (h), a armadilha é esquecer que "ambas figuras" e "ambas
+    espadas" não são mutuamente excludentes — existe a mão de duas figuras de espadas, que está nas duas
+    categorias. Ignorar a interseção conta esse caso duas vezes.</div>
+  </div>
+
+  <div class="exercise" id="ex10">
+    <h3>Questão 10 — Loteria Daily3 (3 dígitos de 0 a 9, com repetição)</h3>
+    <div class="enunciado">a) Probabilidade de uma sequência exata. b) Probabilidade de um lote, se forem
+    sorteados 3 números distintos. c) Probabilidade de um lote, se dois dos números sorteados forem iguais.</div>
+
+    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    Cada dígito sorteado é independente e pode repetir: \(|S| = 10^3 = 1000\) sequências ordenadas possíveis.
+    "Sequência" exige ordem exata; "lote" aceita qualquer ordem dos mesmos números.</div>
+
+    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <strong>a)</strong> Uma única sequência entre 1000 é a apostada:
+    \[P = \frac{1}{1000}\]
+    <strong>b)</strong> Se os 3 números sorteados são distintos, existem \(3! = 6\) ordens diferentes em que
+    podem ter saído, e qualquer uma delas faz o apostador (jogando "em lote") ganhar:
+    \[P = \frac{6}{1000} = \frac{3}{500}\]
+    <strong>c)</strong> Se dois dos números sorteados são iguais (ex.: \(a,a,b\) com \(a\neq b\)), o número de
+    ordens distintas dessa tripla é \(3!/2! = 3\) (permutação com repetição):
+    \[P = \frac{3}{1000}\]</div>
+
+    <table class="variations">
+      <tr><th>E se...</th><th>Mudança</th></tr>
+      <tr><td>Os 3 números sorteados fossem todos iguais</td><td>Só existe 1 ordem possível (aaa), então \(P=1/1000\), igual ao caso "sequência".</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">6. Verificação</strong>
+    Gabarito: a) 1/1000, b) 3/500, c) 3/1000. <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "Jogar em lote" multiplica a probabilidade da sequência exata
+    pelo número de permutações distintas dos dígitos sorteados — que depende de haver ou não repetição entre
+    eles (\(3!\) se todos distintos, \(3!/2!\) se há um par, \(1\) se os três são iguais).</div>
+  </div>
+
+</main>
+</div>
+
+<footer class="site-footer">
+  <a href="01-espaco-amostral.html">← Módulo 1</a> · <a href="../index.html">Início</a> ·
+  <a href="03-teoremas-adicao.html">Módulo 3 →</a>
+</footer>
+</body>
+</html>
