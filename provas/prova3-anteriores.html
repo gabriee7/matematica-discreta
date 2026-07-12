@@ -942,5 +942,46 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   Discreta (UFES). As respostas manuscritas originais (quando presentes) não foram
   usadas como gabarito — todas as soluções acima foram recalculadas e conferidas do zero.
 </footer>
+
+<div class="photo-lightbox" id="photo-lightbox">
+  <button type="button" class="photo-lightbox-close" id="photo-lightbox-close" aria-label="Fechar zoom">&times;</button>
+  <img id="photo-lightbox-img" src="" alt="">
+</div>
+
+<script>
+(function () {
+  var lightbox = document.getElementById('photo-lightbox');
+  var lightboxImg = document.getElementById('photo-lightbox-img');
+  var closeBtn = document.getElementById('photo-lightbox-close');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.exam-photo img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  lightbox.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
 </body>
 </html>
