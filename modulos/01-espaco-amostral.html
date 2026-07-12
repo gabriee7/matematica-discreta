@@ -70,21 +70,22 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Experimento: lançamento de um dado. Seja \(A=\{2,4,6\}\), \(B=\{1,3,5\}\) e
     \(C=\{2,3,5\}\). Defina \(S\), \(A\cup B\), \(B\cap C\) e \(\bar{C}\).</div>
 
-    <div class="step"><strong class="step-label">1. Dados</strong>
-    Um dado de 6 faces é lançado uma vez; os resultados possíveis são os números de 1 a 6.</div>
+    <div class="step"><strong class="step-label">I. Dados</strong>
+    Um dado de 6 faces é lançado uma vez; os resultados possíveis são os números de 1 a 6 — fixar isso primeiro
+    garante que \(S\) tenha exatamente os elementos certos antes de qualquer operação de conjuntos.</div>
 
-    <div class="step"><strong class="step-label">2. Classificação</strong>
+    <div class="step"><strong class="step-label">II. Classificação</strong>
     Definição direta de espaço amostral e operações de conjuntos — não há cálculo de probabilidade aqui,
     apenas a construção do modelo.</div>
 
-    <div class="step"><strong class="step-label">3. Resolução</strong>
+    <div class="step"><strong class="step-label">III. Resolução</strong>
     \(S = \{1,2,3,4,5,6\}\).<br>
     \(A \cup B = \{2,4,6\} \cup \{1,3,5\} = \{1,2,3,4,5,6\} = S\) — note que \(A\) e \(B\) particionam \(S\)
     (são mutuamente excludentes e cobrem todo o espaço).<br>
     \(B \cap C = \{1,3,5\} \cap \{2,3,5\} = \{3,5\}\).<br>
     \(\bar{C} = S \setminus C = \{1,4,6\}\).</div>
 
-    <div class="step"><strong class="step-label">4. Generalização</strong>
+    <div class="step"><strong class="step-label">IV. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> \(A\) e \(B\) aqui são complementares um do outro
     (\(B = \bar{A}\)), por isso \(A \cup B = S\) e \(A \cap B = \emptyset\). Reconhecer quando dois eventos
     dados no enunciado são, na verdade, complementares evita recalcular probabilidades desnecessariamente.</div>
@@ -104,18 +105,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A=\){duas ou mais caras aparecem} e \(B=\){todos os lances são iguais}. Defina \(A\), \(B\) e
     \(A \cap B\).</div>
 
-    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Experimento composto (3 lançamentos independentes de uma moeda) — o espaço amostral é o produto
-    cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\), com \(2^3=8\) resultados.</div>
+    cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\), com \(2^3=8\) resultados — usar o produto cartesiano
+    garante contar cada sequência de resultados exatamente uma vez.</div>
 
-    <div class="step"><strong class="step-label">3. Resolução</strong>
+    <div class="step"><strong class="step-label">III. Resolução</strong>
     \(S = \{CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK\}\).<br>
     \(A = \{CCC, CCK, CKC, KCC\}\) (exatamente 2 ou 3 caras).<br>
     \(B = \{CCC, KKK\}\) (os 3 lances iguais entre si).<br>
     \(A \cap B = \{CCC\}\) — o único elemento comum é o caso de 3 caras, que está tanto em "2 ou mais caras"
     quanto em "todos iguais".</div>
 
-    <div class="step"><strong class="step-label">4. Armadilha</strong>
+    <div class="step"><strong class="step-label">IV. Armadilha</strong>
     <span class="badge badge-trap">❗</span> \(KKK\) está em \(B\) mas não em \(A\) (0 caras não é "duas ou
     mais"). É fácil incluir \(KKK\) em \(A\cap B\) por engano ao ler rápido demais o enunciado de \(B\).</div>
 
@@ -136,15 +138,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     a) A e B, mas C não ocorre. b) A ou C, mas B não ocorre. c) Nenhum dos eventos ocorre.
     d) Pelo menos dois eventos ocorrem.</div>
 
-    <div class="step"><strong class="step-label">1. Leitura e extração de dados</strong>
+    <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
     Não há números — o problema pede a <em>tradução</em> de linguagem natural para operações de conjuntos
     (∪, ∩, complemento).</div>
 
-    <div class="step"><strong class="step-label">2. Classificação</strong>
+    <div class="step"><strong class="step-label">II. Classificação</strong>
     <span class="badge badge-prereq">📌</span> Problema de tradução lógica: "e" → ∩; "ou" → ∪; "não ocorre" →
     complemento. "Pelo menos dois" exige decompor em casos (união de interseções par a par).</div>
 
-    <div class="step"><strong class="step-label">3–4. Estratégia e resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Estratégia e resolução</strong>
     <strong>a)</strong> "A e B, mas C não ocorre" = A ocorre \(\cap\) B ocorre \(\cap\) C não ocorre:
     \[A \cap B \cap C^c\]
     <strong>b)</strong> "A ou C, mas B não ocorre" = (A ocorre ou C ocorre) \(\cap\) B não ocorre:
@@ -162,12 +164,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"Nenhum ou todos"</td><td>União de dois casos extremos: \((A^c\cap B^c\cap C^c)\cup(A\cap B\cap C)\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Confere com o gabarito oficial da lista: a) \(A\cap B\cap C^c\); b) \((A\cup C)\cap B^c\);
     c) \((A\cup B\cup C)^c = A^c\cap B^c\cap C^c\); d) \((A\cap B)\cup(A\cap C)\cup(B\cap C)\).
     <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Este é o padrão-mestre para toda questão de "traduzir frase em
     conjuntos": isole cada evento nomeado, identifique o conectivo lógico (e/ou/não), e monte a expressão de
     dentro para fora. <span class="badge badge-trap">❗</span> Armadilha comum: confundir "não A e não B"
@@ -189,19 +191,23 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     ache n(S). b) Expresse A={duas caras e um número par}, B={2 ocorre}, C={exatamente uma cara e um número
     ímpar}. c) Expresse (i) A e B, (ii) apenas B, (iii) B e C.</div>
 
-    <div class="step"><strong class="step-label">1. Dados</strong>
+    <div class="step"><strong class="step-label">I. Dados</strong>
     Experimento composto: 2 moedas (K/C cada) + 1 dado (1 a 6). Resultado é uma tripla ordenada
-    (moeda1, moeda2, dado).</div>
+    (moeda1, moeda2, dado) — descrever o resultado dessa forma evita perder informação sobre qual moeda e qual
+    face geraram cada elemento de \(S\).</div>
 
-    <div class="step"><strong class="step-label">2. Classificação</strong>
+    <div class="step"><strong class="step-label">II. Classificação</strong>
     Espaço amostral como produto cartesiano de experimentos independentes:
-    \[S = \{K,C\} \times \{K,C\} \times \{1,2,\dots,6\}\]</div>
+    \[S = \{K,C\} \times \{K,C\} \times \{1,2,\dots,6\}\]
+    — reconhecer a independência dos sub-experimentos é o que justifica montar \(S\) como produto cartesiano
+    em vez de enumerar caso a caso.</div>
 
-    <div class="step"><strong class="step-label">3. Estratégia</strong>
+    <div class="step"><strong class="step-label">III. Estratégia</strong>
     Contar \(n(S)\) pela regra do produto (\(2 \times 2 \times 6\)), depois filtrar cada evento listando os
-    elementos que satisfazem a condição descrita.</div>
+    elementos que satisfazem a condição descrita — assim evita-se contar ou perder resultados ao tentar montar
+    os eventos diretamente sem passar por \(S\).</div>
 
-    <div class="step"><strong class="step-label">4. Resolução passo a passo</strong>
+    <div class="step"><strong class="step-label">IV. Resolução passo a passo</strong>
     <strong>a)</strong> \(n(S) = 2 \cdot 2 \cdot 6 = 24\).<br>
     <strong>b)</strong> Escrevendo cada resultado como (moeda1 moeda2)(número):<br>
     \(A\) = {duas caras E número par} → as duas moedas precisam ser \(K\) e \(K\), número par (2,4,6):
@@ -227,11 +233,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"pelo menos uma cara" em vez de "exatamente uma"</td><td>Passa a incluir também KK, exigindo somar mais casos (ou usar o complemento "nenhuma cara").</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Confere com o gabarito: \(n(S)=24\); A, B, C como acima; (i) {KK2}; (ii) {KC2,CK2,CC2}; (iii) ∅.
     <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Sempre que o experimento combina sub-experimentos
     independentes (moedas + dado), o espaço amostral é o produto cartesiano, e \(n(S)\) é o produto das
     cardinalidades. <span class="badge badge-trap">❗</span> \(B \cap C = \emptyset\) porque os eventos B e C

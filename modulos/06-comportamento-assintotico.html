@@ -69,20 +69,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Para cada par de funções \(g(n)\) e \(f(n)\) abaixo, exiba constantes \(c>0\) e
     \(m>0\) tais que \(|g(n)| \leq c\,|f(n)|\) para todo \(n\geq m\), provando que \(g(n)\) é \(O(f(n))\).</div>
 
-    <div class="step"><strong class="step-label">Exemplo 1: g(n)=(n+1)², f(n)=n²</strong>
+    <div class="step"><strong class="step-label">I. Exemplo 1: g(n)=(n+1)², f(n)=n²</strong>
     Expandindo: \(g(n) = n^2+2n+1\). Quero \(c\) e \(m\) tais que \(n^2+2n+1 \leq c\,n^2\) para \(n\geq m\).
     Tomando \(c=4\), \(m=1\): para \(n\geq1\), \(2n\leq2n^2\) e \(1\leq n^2\), logo
     \(n^2+2n+1 \leq n^2+2n^2+n^2 = 4n^2\). <span class="answer-final">g(n) é O(n²) com c=4, m=1.</span></div>
 
-    <div class="step"><strong class="step-label">Exemplo 2: g(n)=3n³+2n², f(n)=n³</strong>
+    <div class="step"><strong class="step-label">II. Exemplo 2: g(n)=3n³+2n², f(n)=n³</strong>
     Para \(n\geq1\): \(2n^2 \leq 2n^3\), logo \(3n^3+2n^2 \leq 3n^3+2n^3 = 5n^3\).
     <span class="answer-final">g(n) é O(n³) com c=5, m=1.</span></div>
 
-    <div class="step"><strong class="step-label">Exemplo 3: g(n)=n(n-1)/2, f(n)=n²</strong>
+    <div class="step"><strong class="step-label">III. Exemplo 3: g(n)=n(n-1)/2, f(n)=n²</strong>
     \(\dfrac{n(n-1)}{2} = \dfrac{n^2-n}{2} \leq \dfrac{n^2}{2}\) para todo \(n\geq0\) (pois \(-n\leq0\)).
     <span class="answer-final">g(n) é O(n²) com c=1/2, m=1.</span></div>
 
-    <div class="step"><strong class="step-label">Exemplo 4: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
+    <div class="step"><strong class="step-label">IV. Exemplo 4: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
     Para \(n\geq1\), cada monômio de grau menor é \(\leq n^5\) em valor absoluto:
     \(|g(n)| \leq 4n^5+5n^4+2n^3+n^2+3n+2 \leq 4n^5+5n^5+2n^5+n^5+3n^5+2n^5 = 17n^5\).
     <span class="answer-final">g(n) é O(n⁵) com c=17, m=1.</span> (bound intencionalmente frouxo — o objetivo
@@ -95,7 +95,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Trocar \(f(n)=n^5\) por \(f(n)=n^6\) no Exemplo 4</td><td>Continua valendo O (qualquer f de grau maior ou igual também domina), mas com c e m possivelmente menores, já que \(n^6\) cresce mais rápido — a prova de O nunca é única para um dado g.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">V. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Em toda prova de O de um polinômio, o termo de maior grau
     dita a ordem \(f(n)\); os demais termos são majorados (para \(n\geq1\), \(n^k\leq n^d\) se \(k<d\)) e
     somados às respectivas constantes.
@@ -141,7 +141,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <h3>Exemplo do professor — três trechos de programa</h3>
       <div class="enunciado">Três trechos de programa com tempos de execução \(O(n)\), \(O(n^2)\) e
       \(O(n\log n)\). Qual a complexidade assintótica total do programa?</div>
-      <div class="step"><strong class="step-label">Resolução</strong>
+      <div class="step"><strong class="step-label">I. Resolução</strong>
       Pela regra 5 (\(O(f)+O(g)=O(\max(f,g))\)), aplicada duas vezes: primeiro combine \(O(n)\) e
       \(O(n^2)\) → \(O(\max(n,n^2)) = O(n^2)\) (para \(n\) grande, \(n^2\) domina \(n\)); depois combine com
       \(O(n\log n)\) → \(O(\max(n^2, n\log n)) = O(n^2)\) (pois \(n^2\) cresce mais rápido que
@@ -154,7 +154,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
         <tr><td>Adicionar um quarto trecho \(O(2^n)\) (busca exaustiva)</td><td>Mesmo sendo só mais um trecho, ele domina os demais (exponencial vence qualquer polinomial), logo o programa inteiro passa a ser \(O(2^n)\).</td></tr>
       </table>
 
-      <div class="step"><strong class="step-label">Generalização</strong>
+      <div class="step"><strong class="step-label">II. Generalização</strong>
       <span class="badge badge-pattern">🔁</span> Complexidade de blocos sequenciais é sempre o <em>máximo</em>
       entre as complexidades dos blocos, nunca a soma literal — aplique a regra 5 quantas vezes forem
       necessárias para combinar mais de dois trechos.</div>
@@ -174,15 +174,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplos do professor — provando Ω(f(n))</h3>
     <div class="enunciado">Para cada par de funções \(g(n)\) e \(f(n)\) abaixo, exiba constantes \(c>0\) e
     \(m>0\) tais que \(g(n) \geq c\,f(n)\) para todo \(n\geq m\), provando que \(g(n)\) é \(\Omega(f(n))\).</div>
-    <div class="step"><strong class="step-label">Exemplo 1: g(n)=3n³+2n², f(n)=n³</strong>
+    <div class="step"><strong class="step-label">I. Exemplo 1: g(n)=3n³+2n², f(n)=n³</strong>
     \(3n^3+2n^2 \geq 3n^3\) para todo \(n\geq0\) (pois \(2n^2\geq0\)).
     <span class="answer-final">g(n) é Ω(n³) com c=3, m=1.</span></div>
-    <div class="step"><strong class="step-label">Exemplo 2: g(n)=n(n-1)/2, f(n)=n²</strong>
+    <div class="step"><strong class="step-label">II. Exemplo 2: g(n)=n(n-1)/2, f(n)=n²</strong>
     Quero \(c\) tal que \(\frac{n^2-n}{2} \geq c\,n^2\). Testando \(c=\frac14\): a desigualdade
     \(\frac{n^2-n}{2}\geq\frac{n^2}{4}\) equivale a \(2n^2-2n\geq n^2\), isto é, \(n^2-2n\geq0\), isto é,
     \(n(n-2)\geq0\) — verdadeiro para \(n\geq2\).
     <span class="answer-final">g(n) é Ω(n²) com c=1/4, m=2.</span></div>
-    <div class="step"><strong class="step-label">Exemplo 3: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
+    <div class="step"><strong class="step-label">III. Exemplo 3: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
     Descarto os termos positivos \(2n^3\) e \(3n\) (só ajudam a aumentar \(g\)) e busco dominar os negativos:
     \(g(n) \geq 4n^5-5n^4-n^2-2\). Para \(n\geq5\): \(5n^4\leq n^5\) (pois \(5\leq n\)); \(n^2\leq n^5\); e
     \(2\leq n^5\). Logo \(g(n) \geq 4n^5-n^5-n^5-n^5 = n^5\).
@@ -194,7 +194,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedir a prova de Ω para \(g(n)=4n^5-5n^4+2n^3-n^2+3n-2\) com \(f(n)=n^4\) em vez de \(n^5\)</td><td>Continua sendo Ω, mas agora com c e m diferentes — de fato \(g(n)\) também é Ω(n^4) já que n^5 domina n^4; qualquer f de grau menor ou igual ao grau real de g também serve como piso.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">IV. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Em provas de Ω de um polinômio com coeficiente líder positivo,
     descarte (subestime para 0) apenas os termos não-negativos no domínio considerado, mantendo o termo de
     maior grau isolado como piso.
@@ -232,14 +232,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplos do professor — combinando O e Ω em Θ</h3>
     <div class="enunciado">Para cada \(g(n)\) abaixo, use as provas de O e de Ω já obtidas para concluir que
     \(g(n)\) é \(\Theta(f(n))\), exibindo \(c_1, c_2\) e \(m\) explícitos.</div>
-    <div class="step"><strong class="step-label">Exemplo 1: g(n)=3n³+2n², f(n)=n³</strong>
+    <div class="step"><strong class="step-label">I. Exemplo 1: g(n)=3n³+2n², f(n)=n³</strong>
     Já mostramos \(g(n)\) é \(O(n^3)\) com \(c_2=5,m=1\) e \(\Omega(n^3)\) com \(c_1=3,m=1\).
     <span class="answer-final">Θ(n³) com c₁=3, c₂=5, m=1.</span></div>
-    <div class="step"><strong class="step-label">Exemplo 2: g(n)=n(n-1)/2, f(n)=n²</strong>
+    <div class="step"><strong class="step-label">II. Exemplo 2: g(n)=n(n-1)/2, f(n)=n²</strong>
     \(O(n^2)\) com \(c_2=1/2,m=1\); \(\Omega(n^2)\) com \(c_1=1/4,m=2\). Tomando o maior \(m\) entre os dois
     (m=2, já que a cota O também vale para n≥2):
     <span class="answer-final">Θ(n²) com c₁=1/4, c₂=1/2, m=2.</span></div>
-    <div class="step"><strong class="step-label">Exemplo 3: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
+    <div class="step"><strong class="step-label">III. Exemplo 3: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
     \(O(n^5)\) com \(c_2=17,m=1\); \(\Omega(n^5)\) com \(c_1=1,m=5\). Tomando \(m=5\) (o maior dos dois,
     válido para ambas as cotas):
     <span class="answer-final">Θ(n⁵) com c₁=1, c₂=17, m=5.</span></div>
@@ -250,7 +250,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>g(n) tivesse coeficiente líder negativo, ex. \(g(n)=-4n^5+5n^4+\dots\)</td><td>g(n) não seria Θ(n⁵) no sentido usual de crescimento positivo — a definição com valor absoluto ainda permitiria O(n⁵), mas a prova de Ω como piso positivo falharia, pois g(n)→−∞; nesse caso a análise deve considerar \(|g(n)|\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">IV. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Toda prova de Θ é a junção de uma prova de O (cota superior)
     e uma de Ω (cota inferior) já feitas separadamente; o \(m\) final é o maior entre os dois \(m\) individuais,
     pois ambas as desigualdades precisam valer simultaneamente.
@@ -268,7 +268,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(n^2\) é \(O(n^4)\); (b) \(n\cdot\text{sen}(n)\) é \(O(n)\); (c) \(n(n+1)(n+2)\) é \(\Theta(n^3)\); (d)
     \(n(n+5)/2\) é \(\Omega(n^2)\); (e) \(n^3+2n^2+n+5\) é \(\Omega(n^3)\).</div>
 
-    <div class="step"><strong class="step-label">20a) n² é O(n⁴)</strong>
+    <div class="step"><strong class="step-label">I. 20a) n² é O(n⁴)</strong>
     <strong>Classificação:</strong> prova direta de O — basta um par (c,m).<br>
     <strong>Estratégia:</strong> como o grau de \(n^4\) já é maior que o de \(n^2\), a desigualdade
     \(n^2\leq c\,n^4\) é fácil para \(n\geq1\), pois \(n^4/n^2=n^2\geq1\).<br>
@@ -276,14 +276,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     equivale a \(1\leq n^2\), verdadeiro para \(n\geq1\)).
     <span class="answer-final">O(n⁴) com c=1, m=1.</span></div>
 
-    <div class="step"><strong class="step-label">20b) n·sen(n) é O(n)</strong>
+    <div class="step"><strong class="step-label">II. 20b) n·sen(n) é O(n)</strong>
     <strong>Classificação:</strong> prova de O usando um fato conhecido sobre a função seno.<br>
     <strong>Estratégia:</strong> usar \(|\text{sen}(n)|\leq1\) para todo \(n\) real.<br>
     <strong>Resolução:</strong> \(|n\cdot\text{sen}(n)| = |n|\cdot|\text{sen}(n)| \leq |n|\cdot1 = 1\cdot|n|\)
     para todo \(n\).
     <span class="answer-final">O(n) com c=1, m=0 (vale para todo n≥0).</span></div>
 
-    <div class="step"><strong class="step-label">20c) n(n+1)(n+2) é Θ(n³)</strong>
+    <div class="step"><strong class="step-label">III. 20c) n(n+1)(n+2) é Θ(n³)</strong>
     <strong>Classificação:</strong> prova de Θ — precisa mostrar O <em>e</em> Ω.<br>
     <strong>Estratégia:</strong> expandir o produto, depois limitar por cima e por baixo separadamente.<br>
     <strong>Resolução — expansão:</strong>
@@ -294,7 +294,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(n^3+3n^2+2n \geq n^3\). Assim, é \(\Omega(n^3)\) com \(c_1=1,m=1\).<br>
     <span class="answer-final">Θ(n³) com c₁=1, c₂=6, m=1.</span></div>
 
-    <div class="step"><strong class="step-label">20d) n(n+5)/2 é Ω(n²)</strong>
+    <div class="step"><strong class="step-label">IV. 20d) n(n+5)/2 é Ω(n²)</strong>
     <strong>Classificação:</strong> prova de Ω apenas.<br>
     <strong>Estratégia:</strong> expandir e descartar o termo positivo extra, que só ajuda a cota inferior.<br>
     <strong>Resolução:</strong>
@@ -302,7 +302,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Para \(n\geq0\), \(5n\geq0\), logo \(\dfrac{n^2+5n}{2} \geq \dfrac{n^2}{2}\).
     <span class="answer-final">Ω(n²) com c=1/2, m=0 (vale para todo n≥0).</span></div>
 
-    <div class="step"><strong class="step-label">20e) n³+2n²+n+5 é Ω(n³)</strong>
+    <div class="step"><strong class="step-label">V. 20e) n³+2n²+n+5 é Ω(n³)</strong>
     <strong>Classificação:</strong> prova de Ω apenas.<br>
     <strong>Estratégia:</strong> os termos extras (\(2n^2, n, 5\)) são todos não-negativos para \(n\geq0\),
     então descartá-los só reduz o lado esquerdo, preservando a desigualdade.<br>
@@ -317,7 +317,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Fazer as duas provas e casar o maior m</td><td>Provas de Θ — sempre reporte o m que satisfaz simultaneamente O e Ω.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">VI. Verificação</strong>
     Conferindo cada item: (a) \(1\leq n^2\) para \(n\geq1\) ✓; (b) \(|\text{sen}(n)|\leq1\) é identidade
     trigonométrica básica ✓; (c) a expansão \(n^3+3n^2+2n\) foi limitada por \(6n^3\) por cima e \(n^3\) por
     baixo, ambas válidas para \(n\geq1\) ✓; (d) \(5n\geq0\) para \(n\geq0\) ✓; (e) \(2n^2,n,5\geq0\) para
@@ -326,7 +326,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="answer-final">(a) O(n⁴); (b) O(n); (c) Θ(n³); (d) Ω(n²); (e) Ω(n³) — todas demonstradas com
     c e m explícitos.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">VII. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> O padrão de prova em toda esta questão é o mesmo: (1) expandir
     a expressão se necessário; (2) para O, majorar cada termo de grau menor pelo termo de maior grau
     (funciona para \(n\geq1\)); (3) para Ω, descartar (ou seja, subestimar para 0) os termos que só ajudam a
@@ -369,11 +369,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Programa com \(n\) dados de entrada, dividido em: (a) Entrada de dados: \(O(n)\);
     (b) Ordenação (Bolha): \(O(n^2)\); (c) Busca binária: \(O(\log n)\). Qual a complexidade do programa?</div>
 
-    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Soma de três trechos de complexidades diferentes — aplica-se a regra 5 das operações com O:
     \(O(f)+O(g) = O(\max(f,g))\), estendida para três parcelas.</div>
 
-    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Resolução</strong>
     O tempo total é \(O(n) + O(n^2) + O(\log n)\). Comparando o crescimento das três funções para \(n\)
     grande: \(\log n < n < n^2\). Logo o máximo é \(n^2\):
     \[O(n) + O(n^2) + O(\log n) = O(\max(n, n^2, \log n)) = O(n^2)\]</div>
@@ -385,7 +385,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Os três trechos rodarem em <em>paralelo</em> (não sequencialmente) em processadores distintos</td><td>A regra 5 (soma de complexidades = máximo) só vale para execução sequencial; em paralelo, o tempo total seria o próprio \(\max\) de cada trecho isoladamente, mas o raciocínio de "qual domina" muda de interpretação (tempo de parede vs. trabalho total).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6–7. Verificação e generalização</strong>
+    <div class="step"><strong class="step-label">V–VI. Verificação e generalização</strong>
     <span class="answer-final">Complexidade total: O(n²).</span>
     <span class="badge badge-pattern">🔁</span> Mesmo padrão do exemplo do professor sobre 3 trechos de
     programa (O(n), O(n²), O(n log n)) — a complexidade total de um programa sequencial é sempre dominada
@@ -396,15 +396,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 22 — Transitividade de O</h3>
     <div class="enunciado">Demonstre que se \(f(n)=O(g(n))\) e \(g(n)=O(h(n))\), então \(f(n)=O(h(n))\).</div>
 
-    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Prova formal usando diretamente a definição de O — não é uma questão numérica, é uma demonstração geral
     válida para quaisquer \(f, g, h\).</div>
 
-    <div class="step"><strong class="step-label">3. Estratégia</strong>
+    <div class="step"><strong class="step-label">III. Estratégia</strong>
     Escrever as duas hipóteses em termos de suas constantes (\(c_1,m_1\) e \(c_2,m_2\)), substituir uma
-    desigualdade dentro da outra, e mostrar que o resultado tem exatamente a forma da definição de O.</div>
+    desigualdade dentro da outra, e mostrar que o resultado tem exatamente a forma da definição de O — essa
+    substituição funciona porque a definição de O é transitiva por natureza: uma cota sobre uma cota ainda é
+    uma cota.</div>
 
-    <div class="step"><strong class="step-label">4. Demonstração passo a passo</strong>
+    <div class="step"><strong class="step-label">IV. Demonstração passo a passo</strong>
     Por hipótese, \(f(n)=O(g(n))\): existem \(c_1>0, m_1>0\) tais que
     \[f(n) \leq c_1\,g(n) \quad \text{para todo } n\geq m_1\]
     Por hipótese, \(g(n)=O(h(n))\): existem \(c_2>0, m_2>0\) tais que
@@ -424,7 +426,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>\(g\) ou \(h\) pudesse ser negativa para algum \(n\)</td><td>É preciso usar \(|f(n)|\leq c_1|g(n)|\) e \(|g(n)|\leq c_2|h(n)|\) (com valor absoluto) para que a substituição \(|f(n)|\leq c_1c_2|h(n)|\) permaneça válida — sem o valor absoluto a cadeia de desigualdades pode quebrar.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Sanity-check: as constantes exibidas (\(c_1c_2\), \(\max(m_1,m_2)\)) são ambas positivas, como exige a
     definição, e a desigualdade final vale para todo \(n\) na interseção dos domínios onde as hipóteses
     valem — que é exatamente \(n\geq\max(m_1,m_2)\).</div>
@@ -440,7 +442,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(f(n)=O(h(n))\). ∎
     </div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Este é o <strong>padrão-mestre de toda prova de transitividade
     assintótica</strong>: (1) escreva as hipóteses com constantes distintas; (2) substitua uma dentro da
     outra; (3) tome o produto das constantes multiplicativas e o máximo das constantes de corte \(m\). O

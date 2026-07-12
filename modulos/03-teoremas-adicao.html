@@ -66,10 +66,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplo 4 (aula) — 100 estudantes, matemática e química</h3>
     <div class="enunciado">100 estudantes: 30 estudam matemática, 20 estudam química, 10 estudam ambas.
     Calcule a probabilidade de o aluno selecionado ser de matemática ou química.</div>
-    <div class="step"><strong class="step-label">Resolução</strong>
+    <div class="step"><strong class="step-label">I. Resolução</strong>
     \(P(M) = 30/100 = 0.3\), \(P(Q) = 20/100 = 0.2\), \(P(M\cap Q) = 10/100 = 0.1\).
-    \[P(M\cup Q) = 0.3 + 0.2 - 0.1 = 0.4\]</div>
-    <div class="step"><strong class="step-label">Armadilha</strong>
+    \[P(M\cup Q) = 0.3 + 0.2 - 0.1 = 0.4\] — usa-se a forma geral do Teorema 4, com subtração da
+    interseção, porque matemática e química não são mutuamente excludentes (há alunos em ambas).</div>
+    <div class="step"><strong class="step-label">II. Armadilha</strong>
     <span class="badge badge-trap">❗</span> Somar \(0.3+0.2=0.5\) sem subtrair a interseção conta os 10 alunos
     de "ambas" duas vezes — superestimando o resultado.</div>
 
@@ -88,11 +89,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     b) \(P(a_1)=\frac23,P(a_2)=-\frac13,P(a_3)=\frac23\). c) \(P(a_1)=\frac16,P(a_2)=\frac13,P(a_3)=\frac12\).
     d) \(P(a_1)=0,P(a_2)=\frac13,P(a_3)=\frac23\).</div>
 
-    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Verificação direta das duas condições da definição de espaço de probabilidade finito
     (Módulo 2): cada \(p_i \geq 0\) e \(\sum p_i = 1\).</div>
 
-    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Resolução</strong>
     <strong>a)</strong> Soma: \(\frac14+\frac13+\frac12 = \frac{3}{12}+\frac{4}{12}+\frac{6}{12} =
     \frac{13}{12} \neq 1\). <span class="badge badge-trap">❗</span> Inválida (soma excede 1).<br>
     <strong>b)</strong> \(P(a_2) = -\frac13 < 0\). <span class="badge badge-trap">❗</span> Inválida
@@ -109,10 +110,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Enunciado pede também \(P(a_1\text{ ou }a_2)\) na opção válida c)</td><td>Basta somar \(P(a_1)+P(a_2)=\frac16+\frac13=\frac12\), pois pontos amostrais são sempre mutuamente excludentes entre si.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Gabarito: opções corretas são c) e d). <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Ao validar uma distribuição, checar primeiro a não-negatividade
     (é uma rejeição instantânea, como em b) e só depois somar tudo — economiza esforço quando alguma
     probabilidade já é claramente negativa.</div>
@@ -131,12 +132,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">\(P(1)=0.1, P(2)=0.4, P(3)=0.1, P(4)=0.1, P(5)=0.2, P(6)=0.1\). A={número par},
     B={2,3,4,5}, C={1,2}. a) P(A), P(B), P(C). b) P(A∩B), P(A∪C), P(B∩C).</div>
 
-    <div class="step"><strong class="step-label">1–2. Dados e classificação</strong>
+    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Espaço de probabilidade finito não-equiprovável — soma-se diretamente as probabilidades dos pontos que
     compõem cada evento (definição do Módulo 2), não se usa \(|E|/|S|\) (isso só vale em espaços
     equiprováveis).</div>
 
-    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Resolução</strong>
     \(A=\{2,4,6\}\): \(P(A)=0.4+0.1+0.1=0.6\).<br>
     \(B=\{2,3,4,5\}\): \(P(B)=0.4+0.1+0.1+0.2=0.8\).<br>
     \(C=\{1,2\}\): \(P(C)=0.1+0.4=0.5\).<br>
@@ -151,12 +152,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Perguntar \(P(A\cup B\cup C)\)</td><td>Precisa da regra da adição para três eventos: \(P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\), não apenas somar os pares.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Gabarito: a) 0.6, 0.8, 0.5; b) 0.5, 0.7, 0.4. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check via princípio da adição: \(P(A\cup C) = P(A)+P(C)-P(A\cap C) = 0.6+0.5-P(\{2\}) =
     1.1-0.4=0.7\) ✓.</div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-trap">❗</span> Armadilha comum: aplicar \(|E|/|S|\) mesmo quando a distribuição
     não é uniforme — aqui \(|B|=4\) mas \(P(B)=0.8\), muito diferente de \(4/6\). A fórmula de espaço
     equiprovável só vale quando todos os \(p_i\) são iguais.</div>
@@ -177,16 +178,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">\(P(A)=0.6\), \(P(\bar{B})=0.3\), \(P(A\cup B)=0.8\). Ache: a) \(P(A\cap B)\);
     b) \(P(A\cap\bar{B})\); c) \(P(\bar{A}\cap\bar{B})\); d) \(P(\bar{A}\cup\bar{B})\).</div>
 
-    <div class="step"><strong class="step-label">1. Leitura e extração de dados</strong>
+    <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
     <span class="badge badge-trap">❗</span> O dado fornecido é \(P(\bar{B})=0.3\), não \(P(B)\)! Pelo
     Teorema 2, \(P(B) = 1-P(\bar{B}) = 1-0.3 = 0.7\). Esse é o primeiro passo obrigatório antes de qualquer
     outra conta.</div>
 
-    <div class="step"><strong class="step-label">2. Classificação</strong>
+    <div class="step"><strong class="step-label">II. Classificação</strong>
     Uso combinado do princípio da adição (Teorema 4) e das leis de De Morgan para complementos de uniões e
-    interseções.</div>
+    interseções — a questão pede quatro probabilidades diferentes derivadas dos mesmos dados, então
+    identificar de saída quais ferramentas se combinam evita tentar "adivinhar" cada item isoladamente.</div>
 
-    <div class="step"><strong class="step-label">3–4. Resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Resolução</strong>
     <strong>a)</strong> Isolando \(P(A\cap B)\) na fórmula do princípio da adição:
     \[P(A\cap B) = P(A)+P(B)-P(A\cup B) = 0.6+0.7-0.8 = 0.5\]
     <strong>b)</strong> \(A\) se decompõe em \(A\cap B\) e \(A\cap \bar{B}\) (partição de \(A\)):
@@ -203,11 +205,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedisse \(P(\bar A\cap B)\) em vez de \(P(A\cap \bar B)\)</td><td>Troca-se o papel de A e B na partição: \(P(\bar A\cap B)=P(B)-P(A\cap B)=0.7-0.5=0.2\) — atenção a qual conjunto está sendo "recortado".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">6. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     Gabarito: a) 0.5, b) 0.1, c) 0.2, d) 0.5. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check: \(P(A\cap B)+P(A\cap\bar B) = 0.5+0.1=0.6=P(A)\) ✓ (partição consistente).</div>
 
-    <div class="step"><strong class="step-label">7. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> As leis de De Morgan transformam complemento de união em
     interseção de complementos e vice-versa: \(\overline{A\cup B}=\bar A\cap\bar B\) e
     \(\overline{A\cap B}=\bar A\cup\bar B\). <span class="badge badge-trap">❗</span> A armadilha desta

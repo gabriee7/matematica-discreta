@@ -89,12 +89,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Só A ocorre (nem B nem C)</td><td>\(A\cap B^c\cap C^c\) — cada "não ocorre" adicional vira mais um complemento interseccionado.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Cada expressão pode ser conferida testando um elemento hipotético em cada evento e checando se a fórmula
     lógica coincide com a descrição da questão. <span class="answer-final">Todas as quatro traduções batem
     com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Toda tradução de frase em teoria dos conjuntos segue o mesmo
     dicionário: "e"→∩, "ou"→∪, "não ocorre"→complemento, "pelo menos k de n"→união de interseções cobrindo os
     casos com k, k+1, …, n eventos ocorrendo. <span class="badge badge-trap">❗</span> "Pelo menos dois" inclui
@@ -127,11 +127,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"pelo menos uma cara" em vez de "exatamente uma"</td><td>C passaria a incluir também casos com duas caras, exigindo somar mais elementos ou usar o complemento "nenhuma cara".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     \(n(S)=24\); A, B, C conferem elemento a elemento com o gabarito; \(A\cap B=\{KK2\}\), \(B\setminus
-    A=\{KC2,CK2,CC2\}\), \(B\cap C=\emptyset\). <span class="answer-final">Bate com o gabarito.</span></div>
+    A=\{KC2,CK2,CC2\}\), \(B\cap C=\emptyset\) — conferir elemento a elemento evita erros de contagem que a
+    fórmula do produto cartesiano sozinha não revelaria. <span class="answer-final">Bate com o
+    gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Experimento composto por sub-experimentos independentes ⇒
     espaço amostral é o produto cartesiano e \(n(S)\) é o produto das cardinalidades.
     <span class="badge badge-trap">❗</span> \(B\cap C=\emptyset\) porque B exige número par e C exige número
@@ -167,11 +169,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"ambos excedem 4" em vez de "um ou ambos"</td><td>Vira interseção em vez de união: P(ambos > 4) = P(A∩B) = (2/6)² = 1/9, bem menor que 5/9.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
-    a) 3/6=1/2; b) \(1-(1/2)^4=15/16\); c) por inclusão-exclusão, \(2/6+2/6-1/9=5/9\).
+    <div class="step"><strong class="step-label">I. Verificação</strong>
+    a) 3/6=1/2; b) \(1-(1/2)^4=15/16\); c) por inclusão-exclusão, \(2/6+2/6-1/9=5/9\) — recalcular cada item
+    isoladamente confirma que nenhuma etapa anterior carregou erro adiante.
     <span class="answer-final">Todos batem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Um ou mais"/"pelo menos um" quase sempre se resolve mais
     rápido pelo complemento: \(P(\text{pelo menos um})=1-P(\text{nenhum})\).
     <span class="badge badge-trap">❗</span> Em (c), "um ou ambos" é união, não interseção — usar
@@ -202,12 +205,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Divisível por 5 e por 2 (por 10)</td><td>P = 5/50 = 1/10, evento mais restrito que "só por 5", exige interseção em vez de um único critério.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Por inclusão-exclusão: \(P(>10 \cup \text{div }5) = 4/5+1/5-4/25 = 21/25\), consistente com a soma direta
     das cartas {15,20,...,50} que satisfazem pelo menos uma condição.
     <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Em espaços equiprováveis finitos, \(P(E)=n(E)/n(S)\); para
     "ou" use inclusão-exclusão, para "e" use interseção direta dos conjuntos de múltiplos/intervalos.
     <span class="badge badge-trap">❗</span> "Maior que 10" exclui o 10 — atenção a limites estritos vs.
@@ -240,11 +243,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Escolha com reposição (a mesma garota pode repetir)</td><td>Deixaria de ser combinação sem reposição; seria \((3/10)^2\) para "ambas azuis" em vez de \(\binom{3}{2}/\binom{10}{2}\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Soma de a)+c) = P(nenhuma)+P(pelo menos uma) = 1/15+... conferindo com b)+d) = 1: \(1/15+7/15+7/15=15/15=1\).
     <span class="answer-final">Consistente com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Escolha sem reposição e sem ordem ⇒ contar com combinações
     \(\binom{n}{k}\); "pelo menos uma" = \(1-P(\text{nenhuma})\).
     <span class="badge badge-trap">❗</span> "Exatamente uma" não é o mesmo que "pelo menos uma" — aqui
@@ -275,11 +278,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"Meninos juntos E meninas juntas" (dois blocos)</td><td>Trata-se agora de 2 blocos permutáveis entre si: \(2\cdot3!\cdot3!/6! = 1/10\), igual ao caso alternado por coincidência numérica, mas o raciocínio é de blocos, não de alternância.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
-    a) \(4!\cdot3!/6! = 24\cdot6/720 = 1/5\); b) \(2\cdot3!\cdot3!/6! = 72/720 = 1/10\).
+    <div class="step"><strong class="step-label">I. Verificação</strong>
+    a) \(4!\cdot3!/6! = 24\cdot6/720 = 1/5\); b) \(2\cdot3!\cdot3!/6! = 72/720 = 1/10\) — refazer o cálculo com
+    os valores numéricos exatos confirma que a fórmula combinatória foi aplicada corretamente.
     <span class="answer-final">Batem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Elementos de um tipo juntos" ⇒ tratar o grupo como um único
     bloco e multiplicar pelas permutações internas do bloco. "Alternados" ⇒ fixar os dois padrões possíveis
     (MFMFMF / FMFMFM) e permutar dentro de cada gênero.
@@ -313,11 +317,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"pelo menos duas caras" em vez de "uma cara e duas coroas"</td><td>Soma os casos com 2 e 3 caras: \((\binom{3}{2}+\binom{3}{3})/8 = 4/8 = 1/2\), diferente do exato.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Soma das probabilidades de todos os resultados possíveis (0,1,2,3 caras) = \(1/8+3/8+3/8+1/8=1\).
     <span class="answer-final">Distribuição consistente com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Número de caras em n moedas segue \(\binom{n}{k}/2^n\)
     (distribuição binomial com p=1/2). <span class="badge badge-trap">❗</span> "Só coroas ou só caras" são
     eventos disjuntos (mutuamente excludentes), então P(e) = 0 — não confundir com independência.</div>
@@ -353,11 +357,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Dados viciados (não equiprováveis)</td><td>A fórmula n(E)/n(S) deixa de valer; seria necessário somar P(i)·P(j) para cada par favorável usando a distribuição real de cada dado.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     d)+f) cobrem somas 7 e >10; somando a distribuição completa de somas (2 a 12) as probabilidades totalizam 1.
     <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Com dois dados equiprováveis, \(n(S)=36\) e a contagem de pares
     com soma \(s\) segue o "triângulo" \(6-|s-7|\) para \(2\le s\le12\).
     <span class="badge badge-trap">❗</span> "1 em pelo menos um dado" não é \(2\cdot(1/6)\) — isso conta
@@ -396,12 +400,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Cartas retiradas com reposição</td><td>Deixa de ser combinação; P(ambas espadas) = \((13/52)^2=1/16\) em vez de \(\binom{13}{2}/\binom{52}{2}=1/17\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Por inclusão-exclusão, \(P(f\cup e) = 11/221+1/442-1/442\cdot(\text{sobreposição}) = 47/442\), consistente
     com contagem direta de mãos que satisfazem pelo menos uma condição.
     <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Mãos de cartas (sem reposição, sem ordem) sempre usam
     \(\binom{n}{k}\); "nenhuma" costuma ser mais fácil de contar e depois complementar.
     <span class="badge badge-trap">❗</span> "Ambas figuras de espadas" já está contido em "ambas figuras" —
@@ -436,11 +440,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"todos os três iguais" em vez de "dois iguais"</td><td>Só 10 sequências (000,111,...,999) de 1000, então P=10/1000=1/100, bem menor.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Soma dos três casos (todos iguais 10 + dois iguais 270 + todos distintos 720) = 1000 = \(n(S)\).
     <span class="answer-final">Consistente com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Sequência exata" trata a ordem como relevante (n(S)=10^k);
     "lote" agrupa sequências equivalentes por composição de dígitos, exigindo contar arranjos por tipo
     (todos iguais / dois iguais / todos distintos). <span class="badge badge-trap">❗</span> Não confundir
@@ -459,7 +463,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q11">
     <h3>11. Qual função é uma probabilidade válida em S={a₁,a₂,a₃}?</h3>
-    <div class="step"><strong class="step-label">Estratégia</strong>
+    <div class="step"><strong class="step-label">I. Estratégia</strong>
     Uma função \(P\) só é uma distribuição de probabilidade válida em S se (i) \(P(a_i)\ge 0\) para todo
     \(i\), e (ii) \(\sum_i P(a_i) = 1\). Basta checar essas duas condições em cada opção candidata.</div>
 
@@ -470,11 +474,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>S tivesse 4 elementos em vez de 3</td><td>O mesmo teste se aplica, só que somando 4 termos em vez de 3.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">II. Verificação</strong>
     Em c) e d) todos os valores são não negativos e a soma dá exatamente 1; nas demais opções ao menos uma
     das duas condições falha. <span class="answer-final">Opções corretas: c) e d).</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">III. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Para validar qualquer função candidata a distribuição de
     probabilidade discreta, sempre teste as duas condições dos axiomas: não-negatividade e soma total igual
     a 1. <span class="badge badge-trap">❗</span> Não basta a soma dar 1 — um único valor negativo já
@@ -504,11 +508,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedissem P(A∪B∪C)</td><td>Exige inclusão-exclusão com três eventos: soma dos individuais, menos pares, mais a interseção tripla.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Substituindo os valores obtidos de volta em \(P(A\cup C)=P(A)+P(C)-P(A\cap C)\) recupera-se o dado
     original da distribuição. <span class="answer-final">Valores consistentes com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Quando a distribuição de probabilidade pontual é dada
     explicitamente, qualquer \(P(E)\) é apenas a soma dos pesos dos elementos de \(E\); uniões/interseções de
     eventos se resolvem somando/interceptando os conjuntos de índices correspondentes.
@@ -540,11 +544,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>A e B fossem independentes</td><td>Poderíamos checar \(P(A\cap B) = P(A)P(B)\) como atalho — aqui 0.6·0.7=0.42≠0.5, logo A e B NÃO são independentes.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Usando De Morgan, \(P(\bar A\cup\bar B) = 1-P(A\cap B) = 1-0.5 = 0.5\), confirmando d) diretamente sem
     recomputar do zero. <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Complementos e De Morgan simplificam muito: \(\bar
     A\cup\bar B = \overline{A\cap B}\), então \(P(\bar A\cup\bar B)=1-P(A\cap B)\) evita recalcular tudo do
     zero. <span class="badge badge-trap">❗</span> \(P(B̄)\) dado no enunciado não é \(P(B)\) — sempre
@@ -577,12 +581,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Perguntassem P(A∩B∩C)</td><td>\(A\cap B\cap C = \{2\}\), P=1/6 — não basta multiplicar os três marginais mesmo que os pares sejam independentes, pois independência par a par não implica independência conjunta.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Checando \(P(A\cap B)=P(A)P(B)\): \(1/6 = (1/2)(1/3)\) ✓; \(P(B\cap C)=1/3\) mas \(P(B)P(C)=1/3\cdot
     2/3=2/9\ne1/3\), confirmando que B e C não são independentes.
     <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Para testar independência de dois eventos, compare
     \(P(A\cap B)\) com \(P(A)P(B)\) — ou equivalentemente, \(P(A|B)\) com \(P(A)\); se coincidirem, os
     eventos são independentes. <span class="badge badge-trap">❗</span> Independência não é o mesmo que
@@ -618,11 +622,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>A e B fossem mutuamente excludentes</td><td>\(P(A\cap B)=0\), logo \(P(A|B)=P(B|A)=0\) e \(P(A\cup B)=P(A)+P(B)=0.9\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
-    \(P(A|B)\cdot P(B) = (2/3)(0.3) = 0.2 = P(A\cap B)\) ✓; \(P(B|A)\cdot P(A) = (1/3)(0.6) = 0.2\) ✓.
+    <div class="step"><strong class="step-label">I. Verificação</strong>
+    \(P(A|B)\cdot P(B) = (2/3)(0.3) = 0.2 = P(A\cap B)\) ✓; \(P(B|A)\cdot P(A) = (1/3)(0.6) = 0.2\) ✓ —
+    multiplicar de volta pela definição é a forma mais rápida de detectar erro de divisão nas etapas anteriores.
     <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> A definição \(P(A|B) = P(A\cap B)/P(B)\) é o ponto de partida
     de toda questão de probabilidade condicional; sempre confira o resultado multiplicando de volta.
     <span class="badge badge-trap">❗</span> \(P(A|B)\ne P(B|A)\) em geral — aqui \(2/3 \ne 1/3\); não inverter
@@ -651,11 +656,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"soma excede 8" em vez de "excede 9"</td><td>Mais pares entram no evento (soma 9,10,11,12), aumentando a probabilidade condicional para 6/30=1/5.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Espaço reduzido tem \(6\cdot6-6=30\) pares com números distintos; contando diretamente os favoráveis a
-    cada item confirma 12/30=2/5 e 4/30=2/15. <span class="answer-final">Batem com o gabarito.</span></div>
+    cada item confirma 12/30=2/5 e 4/30=2/15 — recontar direto no espaço reduzido evita herdar erros das
+    divisões anteriores. <span class="answer-final">Batem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Condicionar a um evento B reduz o espaço amostral a B; depois
     conta-se favoráveis/total dentro desse novo espaço reduzido, sem precisar da fórmula \(P(A\cap B)/P(B)\)
     quando é mais fácil listar diretamente. <span class="badge badge-trap">❗</span> Esquecer de excluir os 6
@@ -683,12 +689,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Cavalos com mesma probabilidade (p=1/3 cada)</td><td>P(mesmo cavalo ganha as 3) = \(3\cdot(1/3)^3=1/9\); P(cada vence uma vez) = \(3!\cdot(1/3)^3=6/27=2/9\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Em (b), somam-se as 6 permutações possíveis de vencedores (abc, acb, bac, bca, cab, cba), cada uma com
     probabilidade \(p_a p_b p_c\); \(6\cdot p_ap_bp_c=0.18\).
     <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Corridas independentes ⇒ probabilidades se multiplicam;
     "cada evento distinto ocorre uma vez em ordens diferentes" ⇒ somar sobre todas as permutações válidas
     (aqui 3! = 6). <span class="badge badge-trap">❗</span> Não esquecer que as corridas são independentes
@@ -717,11 +723,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"no máximo uma vez" em vez de "pelo menos uma"</td><td>Soma \(P(0)+P(1) = (0.6)^5+5(0.4)(0.6)^4 = 0.07776+0.2592=0.33696\), evento oposto ao de "duas ou mais".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Pelo complemento, \(P(\text{pelo menos uma}) = 1-P(0) = 1-(0.6)^5 = 1-0.07776 = 0.92224\).
     <span class="answer-final">0.92224 confere pelo cálculo do complemento binomial.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Tentativas independentes de Bernoulli repetidas ⇒ distribuição
     binomial \(P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\); "pelo menos uma vez" quase sempre é mais rápido pelo
     complemento \(1-(1-p)^n\). <span class="badge badge-trap">❗</span> O gabarito oficial desta questão
@@ -752,11 +758,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"exatamente duas vezes" em vez de "exatamente uma"</td><td>\(\binom{4}{2}(0.3)^2(0.7)^2=6\cdot0.09\cdot0.49=0.2646\), menor que P(exatamente uma) neste caso.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     \(P(0)=(0.7)^4=0.2401\); \(1-0.2401=0.7599\), consistente com o item b) via complemento.
     <span class="answer-final">0.4116 e 0.7599 conferem com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Mesmo padrão binomial de tentativas independentes com
     probabilidade fixa \(p\) por tentativa: \(P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\).
     <span class="badge badge-trap">❗</span> "Média de rebatidas" 0.3 já é a probabilidade de sucesso por
@@ -791,12 +797,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedissem n(n+1)(n+2) é O(n²) (cota errada)</td><td>Seria falso: o termo dominante é n³, então nenhuma constante c torna n³≤c·n² para todo n suficientemente grande — bom exercício de refutação por contra-exemplo.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">I. Verificação</strong>
     Em cada item, testar valores crescentes de n confirma que a desigualdade com as constantes c, m
     encontradas se mantém para todo \(n\ge m\). <span class="answer-final">Constantes válidas em todos os
     itens conforme o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">II. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Para provar \(f=O(g)\), basta exibir UM par (c,m) que
     funcione; para \(f=\Omega(g)\), idem, mas com a desigualdade invertida; para \(f=\Theta(g)\), exigem-se
     ambas simultaneamente (duas constantes, c₁ e c₂). <span class="badge badge-trap">❗</span> Uma cota O não
@@ -814,7 +820,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q21">
     <h3>21. Complexidade de programa com O(n), O(n²), O(log n)</h3>
-    <div class="step"><strong class="step-label">Estratégia</strong>
+    <div class="step"><strong class="step-label">I. Estratégia</strong>
     Quando trechos de complexidades diferentes são executados em sequência (não aninhados), a complexidade
     total é dominada pelo termo assintoticamente maior: \(O(f)+O(g) = O(\max(f,g))\).</div>
 
@@ -824,11 +830,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Houvesse também um trecho O(2ⁿ)</td><td>O termo exponencial dominaria todos os demais: resultado final seria O(2ⁿ), pois cresce muito mais rápido que n² para n grande.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">II. Verificação</strong>
     Para n grande, \(n^2\) supera \(n\) e \(\log n\) — basta testar n=1000: \(n^2=10^6 \gg n=1000 \gg \log n
     \approx 10\). <span class="answer-final">O(n²)</span> — o termo de maior ordem domina a soma.</div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">III. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Em soma de complexidades de trechos sequenciais, descarte
     todos os termos exceto o de maior ordem de crescimento. <span class="badge badge-trap">❗</span> Esse
     atalho só vale para trechos executados em sequência — laços aninhados multiplicam as ordens em vez de
@@ -844,7 +850,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q22">
     <h3>22. Transitividade: f=O(g), g=O(h) ⟹ f=O(h)</h3>
-    <div class="step"><strong class="step-label">Estratégia</strong>
+    <div class="step"><strong class="step-label">I. Estratégia</strong>
     Por hipótese, existem \(c_1, m_1\) tais que \(|f(n)|\le c_1|g(n)|\) para \(n\ge m_1\), e \(c_2, m_2\) tais
     que \(|g(n)|\le c_2|h(n)|\) para \(n\ge m_2\). Basta encadear as duas desigualdades.</div>
 
@@ -854,12 +860,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Provar a transitividade para Θ</td><td>Precisa combinar as provas de O e Ω simultaneamente, com duas constantes superiores e duas inferiores.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Verificação</strong>
+    <div class="step"><strong class="step-label">II. Verificação</strong>
     Substituindo \(|g(n)|\le c_2|h(n)|\) na primeira desigualdade: \(|f(n)|\le c_1 c_2 |h(n)|\) para todo
     \(n\ge\max(m_1,m_2)\) (onde ambas as hipóteses valem simultaneamente).
     <span class="answer-final">Demonstrado com c = c₁c₂ e m = max(m₁,m₂).</span></div>
 
-    <div class="step"><strong class="step-label">Generalização</strong>
+    <div class="step"><strong class="step-label">III. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Toda prova de transitividade de uma relação assintótica segue
     o mesmo padrão: encadear as duas desigualdades e tomar o produto das constantes multiplicativas e o
     máximo dos limiares. <span class="badge badge-trap">❗</span> É essencial usar \(m=\max(m_1,m_2)\), não
