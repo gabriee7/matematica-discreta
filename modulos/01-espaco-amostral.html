@@ -147,15 +147,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     complemento. "Pelo menos dois" exige decompor em casos (união de interseções par a par).</div>
 
     <div class="step"><strong class="step-label">III–IV. Estratégia e resolução</strong>
-    <strong>a)</strong> "A e B, mas C não ocorre" = A ocorre \(\cap\) B ocorre \(\cap\) C não ocorre:
-    \[A \cap B \cap C^c\]
-    <strong>b)</strong> "A ou C, mas B não ocorre" = (A ocorre ou C ocorre) \(\cap\) B não ocorre:
-    \[(A \cup C) \cap B^c\]
-    <strong>c)</strong> "Nenhum ocorre" = não-A \(\cap\) não-B \(\cap\) não-C. Por De Morgan isso também é o
-    complemento da união:
+    Traduzir: "e"→∩, "ou"→∪, "não ocorre"→complemento.<br>
+    <strong>a)</strong> A ∩ B ∩ (C não ocorre) → \[A \cap B \cap C^c\]
+    <strong>b)</strong> (A ∪ C) ∩ (B não ocorre) → \[(A \cup C) \cap B^c\]
+    <strong>c)</strong> \(A^c \cap B^c \cap C^c\), por De Morgan = \((A\cup B\cup C)^c\) →
     \[(A \cup B \cup C)^c = A^c \cap B^c \cap C^c\]
-    <strong>d)</strong> "Pelo menos dois" significa que algum par específico ocorre simultaneamente (podendo os
-    três ocorrer também, o que já está coberto porque se os três ocorrem, todo par ocorre):
+    <strong>d)</strong> "pelo menos dois" = união dos pares →
     \[(A \cap B) \cup (A \cap C) \cup (B \cap C)\]</div>
 
     <table class="variations">
@@ -208,24 +205,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     os eventos diretamente sem passar por \(S\).</div>
 
     <div class="step"><strong class="step-label">IV. Resolução passo a passo</strong>
-    <strong>a)</strong> \(n(S) = 2 \cdot 2 \cdot 6 = 24\).<br>
-    <strong>b)</strong> Escrevendo cada resultado como (moeda1 moeda2)(número):<br>
-    \(A\) = {duas caras E número par} → as duas moedas precisam ser \(K\) e \(K\), número par (2,4,6):
-    \[A = \{KK2, KK4, KK6\}\]
-    \(B\) = {2 ocorre no dado}, qualquer combinação de moedas:
-    \[B = \{KK2, KC2, CK2, CC2\}\]
-    \(C\) = {exatamente uma cara E número ímpar} → uma cara e uma coroa (em qualquer ordem: KC ou CK), número
-    ímpar (1,3,5):
-    \[C = \{KC1, KC3, KC5, CK1, CK3, CK5\}\]
-    <strong>c)</strong>
-    (i) \(A \cap B\): interseção de \(A\) e \(B\) — o único elemento comum entre \(\{KK2,KK4,KK6\}\) e
-    \(\{KK2,KC2,CK2,CC2\}\) é \(KK2\):
-    \[A \cap B = \{KK2\}\]
-    (ii) "apenas B" = \(B \cap A^c\) — elementos de \(B\) que não estão em \(A\):
-    \[B \setminus A = \{KC2, CK2, CC2\}\]
-    (iii) \(B \cap C\): \(B\) exige número par (2); \(C\) exige número ímpar. Não há elemento que satisfaça
-    ambos:
-    \[B \cap C = \emptyset\]</div>
+    <strong>a)</strong> \(n(S) = 2 \cdot 2 \cdot 6 = 24\)<br>
+    <strong>b)</strong> resultado = (moeda1 moeda2)(número)<br>
+    \(A\) = duas caras, par → \[A = \{KK2, KK4, KK6\}\]
+    \(B\) = 2 no dado → \[B = \{KK2, KC2, CK2, CC2\}\]
+    \(C\) = exatamente 1 cara, ímpar → \[C = \{KC1, KC3, KC5, CK1, CK3, CK5\}\]
+    <strong>c)</strong><br>
+    (i) \(A \cap B\) → único comum = \(KK2\) → \[A \cap B = \{KK2\}\]
+    (ii) \(B \setminus A\) → \[B \setminus A = \{KC2, CK2, CC2\}\]
+    (iii) \(B\) exige par, \(C\) exige ímpar → sem elemento comum → \[B \cap C = \emptyset\]</div>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>

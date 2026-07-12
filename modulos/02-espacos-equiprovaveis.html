@@ -172,14 +172,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Em (b) e (c), "pelo menos" sugere usar o complemento.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Ímpares em \(\{1,\dots,6\}\): \(\{1,3,5\}\), \(|E|=3\), \(|S|=6\):
+    <strong>a)</strong> Ímpares em \(\{1,\dots,6\}\) = \(\{1,3,5\}\) → \(|E|=3\), \(|S|=6\)
     \[P = \frac{3}{6} = \frac{1}{2}\]
-    <strong>b)</strong> "Uma ou mais caras" = complemento de "nenhuma cara" (todas coroas), que tem
-    1 caso em \(2^4=16\):
+    <strong>b)</strong> "≥1 cara" = complemento de "nenhuma cara" → 1 caso em \(2^4=16\)
     \[P = 1 - \frac{1}{16} = \frac{15}{16}\]
-    <strong>c)</strong> "Um ou ambos excedem 4" = complemento de "nenhum dado excede 4", isto é, ambos os
-    dados caem em \(\{1,2,3,4\}\) (4 valores em 6): \(P(\text{nenhum excede}) = \left(\frac{4}{6}\right)^2 =
-    \frac{16}{36} = \frac{4}{9}\).
+    <strong>c)</strong> "≥1 excede 4" = complemento de "nenhum excede 4" → ambos em \(\{1,2,3,4\}\):
+    \(P(\text{nenhum}) = \left(\frac{4}{6}\right)^2 = \frac{16}{36} = \frac{4}{9}\)
     \[P = 1 - \frac{4}{9} = \frac{5}{9}\]</div>
 
     <table class="variations">
@@ -216,11 +214,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (Módulo 3): \(P(A\cup B) = P(A)+P(B)-P(A\cap B)\), então (a), (b) e (c) são os insumos para (d).</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Números de 11 a 50: \(50-10=40\) valores: \(P = 40/50 = 4/5\).<br>
-    <strong>b)</strong> Múltiplos de 5 entre 1 e 50: \(5,10,\dots,50\), total \(50/5=10\): \(P=10/50=1/5\).<br>
-    <strong>c)</strong> Maior que 10 <em>e</em> múltiplo de 5: \(15,20,\dots,50\), total 8 valores:
-    \(P = 8/50 = 4/25\).<br>
-    <strong>d)</strong> Aplicando o princípio da adição com \(A\)=maior que 10, \(B\)=divisível por 5:
+    <strong>a)</strong> 11 a 50 → \(50-10=40\) valores → \(P = 40/50 = 4/5\).<br>
+    <strong>b)</strong> Múltiplos de 5: \(5,10,\dots,50\) → \(50/5=10\) valores → \(P=10/50=1/5\).<br>
+    <strong>c)</strong> \(>10\) <em>e</em> múltiplo de 5: \(15,20,\dots,50\) → 8 valores → \(P = 8/50 = 4/25\).<br>
+    <strong>d)</strong> Princípio da adição, \(A\)=maior que 10, \(B\)=divisível por 5:
     \[P(A\cup B) = \frac{4}{5}+\frac{1}{5}-\frac{4}{25} = \frac{20}{25}+\frac{5}{25}-\frac{4}{25} = \frac{21}{25}\]</div>
 
     <table class="variations">
@@ -304,12 +301,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Arranjo de 6 pessoas distintas em fila: \(|S| = 6! = 720\) (ordem importa, todos distintos).</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Tratando as 3 meninas como um "bloco": o bloco pode ocupar 4 posições relativas junto
-    com os 3 meninos (4 "itens" para arranjar: bloco + 3 meninos = \(4!\) arranjos), e dentro do bloco as
-    meninas se arranjam de \(3!\) formas:
-    \[P = \frac{4! \cdot 3!}{6!} = \frac{4(3!)(3!)}{6!} = \frac{24 \cdot 6}{720} = \frac{144}{720} = \frac{1}{5}\]
-    <strong>b)</strong> Alternado começa com menino ou com menina (2 padrões): dentro de cada padrão, os 3
-    meninos se arranjam entre si (\(3!\)) e as 3 meninas entre si (\(3!\)):
+    <strong>a)</strong> Bloco(3 meninas) + 3 meninos = 4 itens → \(4!\) arranjos externos; dentro do bloco: \(3!\)
+    \[P = \frac{4! \cdot 3!}{6!} = \frac{24 \cdot 6}{720} = \frac{144}{720} = \frac{1}{5}\]
+    <strong>b)</strong> Alternado: 2 padrões (começa M ou F) × \(3!\) (meninos) × \(3!\) (meninas)
     \[P = \frac{2 \cdot 3! \cdot 3!}{6!} = \frac{2(6)(6)}{720} = \frac{72}{720} = \frac{1}{10}\]</div>
 
     <table class="variations">
@@ -342,13 +336,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     d) Só coroas ou só caras. e) Só coroas e só caras.</div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
-    \(S = \{KKK,KKC,KCK,KCC,CKK,CKC,CCK,CCC\}\), \(|S|=8\).<br>
-    <strong>b)</strong> Uma cara e duas coroas: \(\{KCC, CKC, CCK\}\), 3 casos: \(P = 3/8\).<br>
-    <strong>c)</strong> Só coroas: \(\{CCC\}\), 1 caso: \(P = 1/8\).<br>
-    <strong>d)</strong> Só coroas OU só caras: \(\{CCC, KKK\}\), 2 casos, eventos mutuamente excludentes:
-    \(P = 1/8 + 1/8 = 2/8 = 1/4\).<br>
-    <strong>e)</strong> Só coroas E só caras simultaneamente é impossível (não há resultado que seja ao mesmo
-    tempo todo cara e todo coroa) — são mutuamente excludentes:
+    \(S = \{KKK,KKC,KCK,KCC,CKK,CKC,CCK,CCC\}\) → \(|S|=8\).<br>
+    <strong>b)</strong> 1 cara e 2 coroas: \(\{KCC, CKC, CCK\}\) → 3 casos → \(P = 3/8\).<br>
+    <strong>c)</strong> Só coroas: \(\{CCC\}\) → 1 caso → \(P = 1/8\).<br>
+    <strong>d)</strong> Só coroas OU só caras (mutuamente excludentes): \(P = 1/8 + 1/8 = 2/8 = 1/4\).<br>
+    <strong>e)</strong> Só coroas E só caras = impossível (mutuamente excludentes) →
     \[P = 0\]</div>
 
     <table class="variations">
@@ -384,16 +376,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     d) Soma 7. e) 1 em pelo menos um dado. f) Soma maior que 10. g) Soma ímpar.</div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
-    \(|S| = 6 \times 6 = 36\), todos os pares \((d_1,d_2)\) igualmente prováveis.<br>
-    <strong>b)</strong> Ambos valem 1: só (1,1), 1 caso: \(P=1/36\).<br>
-    <strong>c)</strong> Par (\(d_1=d_2\)): 6 casos, (1,1)...(6,6): \(P=6/36=1/6\).<br>
-    <strong>d)</strong> Soma 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1), 6 casos: \(P=6/36=1/6\).<br>
-    <strong>e)</strong> 1 em pelo menos um dado = complemento de "nenhum dado é 1":
-    \(P(\text{nenhum}=1) = (5/6)^2 = 25/36\); \(P = 1-25/36 = 11/36\).<br>
-    <strong>f)</strong> Soma > 10: soma 11 (2 casos: (5,6),(6,5)) ou soma 12 (1 caso: (6,6)), total 3:
-    \(P = 3/36 = 1/12\).<br>
-    <strong>g)</strong> Soma ímpar: ocorre quando os dois dados têm paridades diferentes (um par, um ímpar).
-    Há \(3\times3=9\) combinações (ímpar,par) e 9 (par,ímpar), total 18: \(P=18/36=1/2\).</div>
+    \(|S| = 6 \times 6 = 36\) pares \((d_1,d_2)\), equiprováveis.<br>
+    <strong>b)</strong> Ambos = 1: só (1,1) → 1 caso → \(P=1/36\).<br>
+    <strong>c)</strong> Par (\(d_1=d_2\)): (1,1)...(6,6) → 6 casos → \(P=6/36=1/6\).<br>
+    <strong>d)</strong> Soma 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) → 6 casos → \(P=6/36=1/6\).<br>
+    <strong>e)</strong> "≥1 dado =1" = complemento de "nenhum =1": \(P(\text{nenhum}) = (5/6)^2 = 25/36\) →
+    \(P = 1-25/36 = 11/36\).<br>
+    <strong>f)</strong> Soma > 10: soma 11 (2 casos) + soma 12 (1 caso) = 3 → \(P = 3/36 = 1/12\).<br>
+    <strong>g)</strong> Soma ímpar ⟺ paridades diferentes: \(3\times3=9\) (ímpar,par) + 9 (par,ímpar) = 18 →
+    \(P=18/36=1/2\).</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
@@ -434,17 +425,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     volta a usar o princípio da adição do Módulo 3.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>b)</strong> Ambas espadas (13 espadas no baralho): \(\binom{13}{2}=78\): \(P=78/1326=1/17\).<br>
-    <strong>c)</strong> Nenhuma espada (dentre as 39 não-espadas): \(\binom{39}{2}=741\): \(P=741/1326=19/34\).<br>
-    <strong>d)</strong> Exatamente uma espada: \(\binom{13}{1}\binom{39}{1}=507\): \(P=507/1326=13/34\).<br>
-    <strong>e)</strong> Pelo menos uma espada = complemento de (c): \(P = 1-19/34 = 15/34\).<br>
-    <strong>f)</strong> Ambas figuras (12 figuras no baralho: 3 por naipe × 4): \(\binom{12}{2}=66\):
-    \(P=66/1326=11/221\).<br>
-    <strong>g)</strong> Ambas figuras de espadas (3 figuras de espadas): \(\binom{3}{2}=3\): \(P=3/1326=1/442\).<br>
-    <strong>h)</strong> "Ambas figuras" (f) OU "ambas espadas" (b), pelo princípio da adição — a interseção é
-    exatamente (g), "ambas figuras de espadas":
+    <strong>b)</strong> Ambas espadas: \(\binom{13}{2}=78\) → \(P=78/1326=1/17\).<br>
+    <strong>c)</strong> Nenhuma espada (39 não-espadas): \(\binom{39}{2}=741\) → \(P=741/1326=19/34\).<br>
+    <strong>d)</strong> Exatamente uma espada: \(\binom{13}{1}\binom{39}{1}=507\) → \(P=507/1326=13/34\).<br>
+    <strong>e)</strong> "≥1 espada" = complemento de (c) → \(P = 1-19/34 = 15/34\).<br>
+    <strong>f)</strong> Ambas figuras (12 no baralho): \(\binom{12}{2}=66\) → \(P=66/1326=11/221\).<br>
+    <strong>g)</strong> Ambas figuras de espadas (3): \(\binom{3}{2}=3\) → \(P=3/1326=1/442\).<br>
+    <strong>h)</strong> (f) ∪ (b), interseção = (g), princípio da adição:
     \[P = \frac{11}{221} + \frac{1}{17} - \frac{1}{442}\]
-    Colocando em denominador comum 442 (\(221\times2=442\), \(17\times26=442\)):
+    Denominador comum 442:
     \[P = \frac{22}{442} + \frac{26}{442} - \frac{1}{442} = \frac{47}{442}\]</div>
 
     <table class="variations">

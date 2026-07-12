@@ -142,10 +142,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <div class="enunciado">Três trechos de programa com tempos de execução \(O(n)\), \(O(n^2)\) e
       \(O(n\log n)\). Qual a complexidade assintótica total do programa?</div>
       <div class="step"><strong class="step-label">I. Resolução</strong>
-      Pela regra 5 (\(O(f)+O(g)=O(\max(f,g))\)), aplicada duas vezes: primeiro combine \(O(n)\) e
-      \(O(n^2)\) → \(O(\max(n,n^2)) = O(n^2)\) (para \(n\) grande, \(n^2\) domina \(n\)); depois combine com
-      \(O(n\log n)\) → \(O(\max(n^2, n\log n)) = O(n^2)\) (pois \(n^2\) cresce mais rápido que
-      \(n\log n\)).
+      Regra 5: \(O(f)+O(g)=O(\max(f,g))\), aplicada duas vezes.<br>
+      1ª combinação: \(O(n) + O(n^2) \to O(\max(n,n^2)) = O(n^2)\) (\(n^2\) domina \(n\)).<br>
+      2ª combinação: \(O(n^2) + O(n\log n) \to O(\max(n^2, n\log n)) = O(n^2)\) (\(n^2\) cresce mais que \(n\log n\)).
       <span class="answer-final">Complexidade total: O(n²).</span></div>
 
       <table class="variations">
@@ -374,8 +373,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(O(f)+O(g) = O(\max(f,g))\), estendida para três parcelas.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    O tempo total é \(O(n) + O(n^2) + O(\log n)\). Comparando o crescimento das três funções para \(n\)
-    grande: \(\log n < n < n^2\). Logo o máximo é \(n^2\):
+    Tempo total: \(O(n) + O(n^2) + O(\log n)\).<br>
+    Comparando crescimento: \(\log n < n < n^2\) → máximo é \(n^2\).<br>
     \[O(n) + O(n^2) + O(\log n) = O(\max(n, n^2, \log n)) = O(n^2)\]</div>
 
     <table class="variations">
@@ -407,16 +406,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     uma cota.</div>
 
     <div class="step"><strong class="step-label">IV. Demonstração passo a passo</strong>
-    Por hipótese, \(f(n)=O(g(n))\): existem \(c_1>0, m_1>0\) tais que
-    \[f(n) \leq c_1\,g(n) \quad \text{para todo } n\geq m_1\]
-    Por hipótese, \(g(n)=O(h(n))\): existem \(c_2>0, m_2>0\) tais que
-    \[g(n) \leq c_2\,h(n) \quad \text{para todo } n\geq m_2\]
-    Seja \(m = \max(m_1, m_2)\). Para todo \(n\geq m\), ambas as desigualdades valem simultaneamente.
-    Substituindo a segunda na primeira:
-    \[f(n) \leq c_1\,g(n) \leq c_1\,(c_2\,h(n)) = (c_1 c_2)\,h(n)\]
-    Tomando \(c = c_1 c_2 > 0\) (produto de positivos é positivo), obtemos
-    \[f(n) \leq c\cdot h(n) \quad \text{para todo } n\geq m\]
-    que é exatamente a definição de \(f(n) = O(h(n))\), com constantes \(c=c_1c_2\) e \(m=\max(m_1,m_2)\).
+    Hip. 1: \(f(n)=O(g(n))\) → \(\exists\,c_1>0, m_1>0: f(n) \leq c_1\,g(n),\ \forall n\geq m_1\).<br>
+    Hip. 2: \(g(n)=O(h(n))\) → \(\exists\,c_2>0, m_2>0: g(n) \leq c_2\,h(n),\ \forall n\geq m_2\).<br>
+    Seja \(m = \max(m_1, m_2)\) → para \(n\geq m\), ambas valem simultaneamente.<br>
+    Substituindo a 2ª na 1ª: \(f(n) \leq c_1\,g(n) \leq c_1\,(c_2\,h(n)) = (c_1 c_2)\,h(n)\).<br>
+    Tomando \(c = c_1 c_2 > 0\) (produto de positivos): \(f(n) \leq c\cdot h(n),\ \forall n\geq m\).<br>
+    Isso é exatamente a definição de \(f(n) = O(h(n))\), com \(c=c_1c_2\) e \(m=\max(m_1,m_2)\).
     \(\blacksquare\)</div>
 
     <table class="variations">

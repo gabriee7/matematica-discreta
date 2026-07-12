@@ -67,9 +67,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">100 estudantes: 30 estudam matemática, 20 estudam química, 10 estudam ambas.
     Calcule a probabilidade de o aluno selecionado ser de matemática ou química.</div>
     <div class="step"><strong class="step-label">I. Resolução</strong>
-    \(P(M) = 30/100 = 0.3\), \(P(Q) = 20/100 = 0.2\), \(P(M\cap Q) = 10/100 = 0.1\).
-    \[P(M\cup Q) = 0.3 + 0.2 - 0.1 = 0.4\] — usa-se a forma geral do Teorema 4, com subtração da
-    interseção, porque matemática e química não são mutuamente excludentes (há alunos em ambas).</div>
+    \(P(M) = 30/100 = 0.3\)<br>
+    \(P(Q) = 20/100 = 0.2\)<br>
+    \(P(M\cap Q) = 10/100 = 0.1\) (não excludentes → forma geral do Teorema 4)<br>
+    \[P(M\cup Q) = 0.3 + 0.2 - 0.1 = 0.4\]</div>
     <div class="step"><strong class="step-label">II. Armadilha</strong>
     <span class="badge badge-trap">❗</span> Somar \(0.3+0.2=0.5\) sem subtrair a interseção conta os 10 alunos
     de "ambas" duas vezes — superestimando o resultado.</div>
@@ -94,14 +95,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (Módulo 2): cada \(p_i \geq 0\) e \(\sum p_i = 1\).</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Soma: \(\frac14+\frac13+\frac12 = \frac{3}{12}+\frac{4}{12}+\frac{6}{12} =
-    \frac{13}{12} \neq 1\). <span class="badge badge-trap">❗</span> Inválida (soma excede 1).<br>
-    <strong>b)</strong> \(P(a_2) = -\frac13 < 0\). <span class="badge badge-trap">❗</span> Inválida
-    (probabilidade negativa, viola \(p_i\geq0\) mesmo sem checar a soma).<br>
-    <strong>c)</strong> Soma: \(\frac16+\frac13+\frac12 = \frac16+\frac26+\frac36 = \frac66 = 1\), e todos
-    \(\geq 0\). <span class="badge badge-ok">✅</span> Válida.<br>
-    <strong>d)</strong> Soma: \(0+\frac13+\frac23=1\), todos \(\geq0\) (zero é permitido, pois a condição é
-    \(p_i \geq 0\), não \(p_i>0\)). <span class="badge badge-ok">✅</span> Válida.</div>
+    <strong>a)</strong> \(\frac14+\frac13+\frac12 = \frac{3}{12}+\frac{4}{12}+\frac{6}{12} = \frac{13}{12} \neq 1\)
+    → <span class="badge badge-trap">❗</span> inválida (soma excede 1)<br>
+    <strong>b)</strong> \(P(a_2) = -\frac13 < 0\) → <span class="badge badge-trap">❗</span> inválida (viola \(p_i\geq0\))<br>
+    <strong>c)</strong> \(\frac16+\frac13+\frac12 = \frac16+\frac26+\frac36 = \frac66 = 1\), todos \(\geq 0\)
+    → <span class="badge badge-ok">✅</span> válida<br>
+    <strong>d)</strong> \(0+\frac13+\frac23=1\), todos \(\geq0\) (zero é permitido)
+    → <span class="badge badge-ok">✅</span> válida</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
@@ -138,12 +138,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     equiprováveis).</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    \(A=\{2,4,6\}\): \(P(A)=0.4+0.1+0.1=0.6\).<br>
-    \(B=\{2,3,4,5\}\): \(P(B)=0.4+0.1+0.1+0.2=0.8\).<br>
-    \(C=\{1,2\}\): \(P(C)=0.1+0.4=0.5\).<br>
-    \(A\cap B = \{2,4\}\) (pares que também estão em B): \(P=0.4+0.1=0.5\).<br>
-    \(A\cup C = \{1,2,4,6\}\): \(P=0.1+0.4+0.1+0.1=0.7\).<br>
-    \(B\cap C = \{2\}\) (único elemento comum entre {2,3,4,5} e {1,2}): \(P=0.4\).</div>
+    \(A=\{2,4,6\}\) → \(P(A)=0.4+0.1+0.1=0.6\)<br>
+    \(B=\{2,3,4,5\}\) → \(P(B)=0.4+0.1+0.1+0.2=0.8\)<br>
+    \(C=\{1,2\}\) → \(P(C)=0.1+0.4=0.5\)<br>
+    \(A\cap B = \{2,4\}\) → \(P=0.4+0.1=0.5\)<br>
+    \(A\cup C = \{1,2,4,6\}\) → \(P=0.1+0.4+0.1+0.1=0.7\)<br>
+    \(B\cap C = \{2\}\) → \(P=0.4\)</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
@@ -189,13 +189,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     identificar de saída quais ferramentas se combinam evita tentar "adivinhar" cada item isoladamente.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Isolando \(P(A\cap B)\) na fórmula do princípio da adição:
+    <strong>a)</strong> Isolando \(P(A\cap B)\) no Teorema 4:
     \[P(A\cap B) = P(A)+P(B)-P(A\cup B) = 0.6+0.7-0.8 = 0.5\]
-    <strong>b)</strong> \(A\) se decompõe em \(A\cap B\) e \(A\cap \bar{B}\) (partição de \(A\)):
+    <strong>b)</strong> Partição de \(A\) em \(A\cap B\) e \(A\cap \bar{B}\):
     \[P(A\cap\bar{B}) = P(A) - P(A\cap B) = 0.6-0.5 = 0.1\]
-    <strong>c)</strong> Por De Morgan, \(\bar{A}\cap\bar{B} = \overline{A\cup B}\):
+    <strong>c)</strong> De Morgan: \(\bar{A}\cap\bar{B} = \overline{A\cup B}\) →
     \[P(\bar{A}\cap\bar{B}) = 1-P(A\cup B) = 1-0.8 = 0.2\]
-    <strong>d)</strong> Por De Morgan, \(\bar{A}\cup\bar{B} = \overline{A\cap B}\):
+    <strong>d)</strong> De Morgan: \(\bar{A}\cup\bar{B} = \overline{A\cap B}\) →
     \[P(\bar{A}\cup\bar{B}) = 1-P(A\cap B) = 1-0.5 = 0.5\]</div>
 
     <table class="variations">

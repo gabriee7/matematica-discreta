@@ -65,18 +65,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     i) pelo menos uma é menino; ii) a mais velha é menino.</div>
 
     <div class="step"><strong class="step-label">I. Resolução</strong>
-    \(E=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\), \(|E|=5\). Dentro de \(E\), os pares em que o número 2 aparece:
-    \((2,4)\) e \((4,2)\), \(|A\cap E|=2\).
-    \[P(A\mid E) = \frac{2}{5}\]</div>
+    \(E=\{\text{soma}=6\}=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\) → \(|E|=5\)<br>
+    Dentro de \(E\), pares com o número 2: \((2,4)\), \((4,2)\) → \(|A\cap E|=2\)<br>
+    \[P(A\mid E) = \frac{|A\cap E|}{|E|} = \frac{2}{5}\]</div>
 
     <div class="step"><strong class="step-label">II. Resolução — a armadilha clássica</strong>
-    Espaço amostral de sexos dos dois filhos, do mais velho para o mais novo:
-    \(S=\{MM, MF, FM, FF\}\), equiprovável.<br>
-    <strong>(i)</strong> "Pelo menos um menino" = \(E_1=\{MM,MF,FM\}\), \(|E_1|=3\). "Ambos meninos" \(\cap E_1
-    = \{MM\}\):
+    \(S=\{MM, MF, FM, FF\}\), equiprovável (mais velho, mais novo)<br>
+    <strong>(i)</strong> "Pelo menos um menino" → \(E_1=\{MM,MF,FM\}\) → \(|E_1|=3\)<br>
+    "Ambos meninos" \(\cap\, E_1 = \{MM\}\)<br>
     \[P(\text{ambos} \mid E_1) = \frac{1}{3}\]
-    <strong>(ii)</strong> "O mais velho é menino" = \(E_2=\{MM,MF\}\), \(|E_2|=2\). "Ambos meninos"
-    \(\cap E_2 = \{MM\}\):
+    <strong>(ii)</strong> "O mais velho é menino" → \(E_2=\{MM,MF\}\) → \(|E_2|=2\)<br>
+    "Ambos meninos" \(\cap\, E_2 = \{MM\}\)<br>
     \[P(\text{ambos} \mid E_2) = \frac{1}{2}\]</div>
 
     <div class="step"><strong class="step-label">III. Armadilha</strong>
@@ -221,14 +220,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(|E|=30\) — reconhecer isso primeiro evita usar \(|S|=36\) como denominador por engano.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> Soma par com números distintos ocorre quando os dois valores têm a mesma paridade
-    (par+par ou ímpar+ímpar) mas são diferentes entre si. Ímpares distintos ordenados: de \(\{1,3,5\}\),
-    \(3\times2=6\) pares ordenados distintos. Pares distintos: de \(\{2,4,6\}\), também \(3\times2=6\).
-    Total: \(6+6=12\) casos favoráveis.
+    <strong>a)</strong> Soma par + distintos → mesma paridade, valores diferentes<br>
+    Ímpares distintos de \(\{1,3,5\}\): \(3\times2=6\) pares ordenados<br>
+    Pares distintos de \(\{2,4,6\}\): \(3\times2=6\) pares ordenados<br>
+    Favoráveis \(=6+6=12\)
     \[P = \frac{12}{30} = \frac{2}{5}\]
-    <strong>b)</strong> Soma \(>9\) com números distintos: soma 10 → \((4,6),(6,4)\) (excluído \((5,5)\), não
-    distintos); soma 11 → \((5,6),(6,5)\); soma 12 → só \((6,6)\), excluído por não ser distinto. Total:
-    \(2+2=4\) casos.
+    <strong>b)</strong> Soma \(>9\) + distintos:<br>
+    soma 10 → \((4,6),(6,4)\) (exclui \((5,5)\))<br>
+    soma 11 → \((5,6),(6,5)\)<br>
+    soma 12 → só \((6,6)\), excluído (não distinto)<br>
+    Favoráveis \(=2+2=4\)
     \[P = \frac{4}{30} = \frac{2}{15}\]</div>
 
     <table class="variations">

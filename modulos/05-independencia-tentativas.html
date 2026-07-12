@@ -85,8 +85,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(P=1/4\); \(P(B)P(C)=(1/2)(1/4)=1/8\). <strong>Diferentes → dependentes.</strong></div>
 
     <div class="step"><strong class="step-label">II. b) Resolução</strong>
-    "Pelo menos um acerta" = complemento de "nenhum acerta". Como os atiradores são independentes, a
-    probabilidade de nenhum acertar é o produto dos complementos individuais:
+    "Pelo menos um acerta" → complemento de "nenhum acerta".<br>
+    Atiradores independentes → \(P(\text{nenhum}) = \) produto dos complementos.<br>
     \[P(\text{nenhum acerta}) = (1-\tfrac14)(1-\tfrac25) = \tfrac34 \cdot \tfrac35 = \tfrac{9}{20}\]
     \[P(\text{pelo menos um}) = 1 - \frac{9}{20} = \frac{11}{20}\]</div>
 
@@ -120,15 +120,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     vezes hoje. Calcule a probabilidade de cada elemento do espaço amostral.</div>
 
     <div class="step"><strong class="step-label">I. Resolução</strong>
-    O espaço de 2 tentativas repetidas é \(S^2 = \{a,b,c\}\times\{a,b,c\}\), 9 elementos, cada um com
-    probabilidade igual ao produto das probabilidades de seus componentes:
+    Espaço de 2 tentativas: \(S^2 = \{a,b,c\}\times\{a,b,c\}\), 9 elementos.<br>
+    Cada probabilidade = produto das probabilidades dos componentes:<br>
     \[P(a,a)=\tfrac12\cdot\tfrac12=\tfrac14 \quad P(a,b)=\tfrac12\cdot\tfrac13=\tfrac16 \quad
     P(a,c)=\tfrac12\cdot\tfrac16=\tfrac{1}{12}\]
     \[P(b,a)=\tfrac16 \quad P(b,b)=\tfrac13\cdot\tfrac13=\tfrac19 \quad P(b,c)=\tfrac13\cdot\tfrac16=\tfrac{1}{18}\]
     \[P(c,a)=\tfrac{1}{12} \quad P(c,b)=\tfrac{1}{18} \quad P(c,c)=\tfrac16\cdot\tfrac16=\tfrac{1}{36}\]
-    Sanity-check: a soma das 9 probabilidades deve ser 1 — de fato,
-    \(\frac14+\frac16+\frac{1}{12}+\frac16+\frac19+\frac{1}{18}+\frac{1}{12}+\frac{1}{18}+\frac{1}{36}=1\)
-    (comum denominador 36: \(9+6+3+6+4+2+3+2+1=36\)) ✓.</div>
+    Checagem: soma das 9 probabilidades = 1 →
+    \(\frac14+\frac16+\frac{1}{12}+\frac16+\frac19+\frac{1}{18}+\frac{1}{12}+\frac{1}{18}+\frac{1}{36}=1\)<br>
+    (denominador comum 36: \(9+6+3+6+4+2+3+2+1=36\)) ✓</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
@@ -167,14 +167,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     competições em vez de 2, reconhecer isso primeiro evita recomeçar o raciocínio do zero.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> "Mesmo cavalo ganha as 3" é a união de 3 eventos mutuamente excludentes — a vence
-    3x, ou b vence 3x, ou c vence 3x. Cada probabilidade é o cubo da probabilidade individual (tentativas
-    independentes):
+    <strong>a)</strong> "Mesmo cavalo ganha as 3" → união de 3 eventos excludentes (a vence 3x, ou b, ou c).<br>
+    Tentativas independentes → cada termo é o cubo da probabilidade individual:
     \[P = (0.3)^3 + (0.5)^3 + (0.2)^3 = 0.027 + 0.125 + 0.008 = 0.16\]
-    <strong>b)</strong> "Cada cavalo vence exatamente uma vez" é uma permutação das 3 corridas entre os 3
-    cavalos: existem \(3! = 6\) ordens diferentes (quem vence a 1ª, a 2ª, a 3ª), e cada ordem tem
-    probabilidade \(0.3\times0.5\times0.2\) (produto das 3 probabilidades, independente da ordem, pois a
-    multiplicação é comutativa):
+    <strong>b)</strong> "Cada cavalo vence exatamente uma vez" → permutação das 3 corridas entre os 3 cavalos.<br>
+    Ordens possíveis: \(3! = 6\).<br>
+    Cada ordem tem probabilidade \(0.3\times0.5\times0.2\) (produto comutativo, mesma para todas):
     \[P = 3! \times (0.3)(0.5)(0.2) = 6 \times 0.03 = 0.18\]</div>
 
     <table class="variations">
@@ -212,8 +210,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     padrão binomial logo de início evita tentar enumerar ou somar casos manualmente.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
-    <strong>a)</strong> \(P(X=2) = \binom{5}{2}(0.4)^2(0.6)^3 = 10 \times 0.16 \times 0.216 = 0.3456\).<br>
-    <strong>b)</strong> "Pelo menos uma vez" = complemento de "zero acertos":
+    <strong>a)</strong> \(P(X=2) = \binom{5}{2}(0.4)^2(0.6)^3 = 10 \times 0.16 \times 0.216 = 0.3456\)<br>
+    <strong>b)</strong> "Pelo menos uma vez" → complemento de "zero acertos":
     \[P(X\geq1) = 1-(0.6)^5 = 1-0.07776 = 0.92224\]</div>
 
     <table class="variations">
@@ -252,10 +250,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">a) Exatamente uma vez. b) Pelo menos uma vez.</div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
-    Binomial com \(n=4\), \(p=0.3\) — reconhecer o padrão binomial evita enumerar manualmente as combinações
-    possíveis.<br>
-    <strong>a)</strong> \(P(X=1) = \binom{4}{1}(0.3)^1(0.7)^3 = 4 \times 0.3 \times 0.343 = 0.4116\).<br>
-    <strong>b)</strong> \(P(X\geq1) = 1-(0.7)^4 = 1-0.2401 = 0.7599\).</div>
+    Binomial: \(n=4\), \(p=0.3\).<br>
+    <strong>a)</strong> \(P(X=1) = \binom{4}{1}(0.3)^1(0.7)^3 = 4 \times 0.3 \times 0.343 = 0.4116\)<br>
+    <strong>b)</strong> \(P(X\geq1) = 1-(0.7)^4 = 1-0.2401 = 0.7599\)</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
