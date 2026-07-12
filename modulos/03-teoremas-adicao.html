@@ -71,6 +71,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">Armadilha</strong>
     <span class="badge badge-trap">❗</span> Somar \(0.3+0.2=0.5\) sem subtrair a interseção conta os 10 alunos
     de "ambas" duas vezes — superestimando o resultado.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(P(M) = 30/100,\ P(Q) = 20/100,\ P(M\cap Q) = 10/100\)<br>
+    \[P(M\cup Q) = 30/100 + 20/100 - 10/100 = 40/100 = 2/5 = 0,4 = 40\%\]
+    </div>
   </div>
 
   <h2>Exercícios da Lista III</h2>
@@ -95,6 +101,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>d)</strong> Soma: \(0+\frac13+\frac23=1\), todos \(\geq0\) (zero é permitido, pois a condição é
     \(p_i \geq 0\), não \(p_i>0\)). <span class="badge badge-ok">✅</span> Válida.</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>\(P(a_1)=\frac16,P(a_2)=\frac13,P(a_3)=\frac13\)</td><td>Soma \(=\frac16+\frac26+\frac26=\frac56\neq1\): inválida por soma menor que 1 (falta massa de probabilidade), erro simétrico ao do item a).</td></tr>
+      <tr><td>\(P(a_1)=0,P(a_2)=0,P(a_3)=1\)</td><td>Ainda válida: nada impede que um único ponto concentre toda a probabilidade, desde que \(p_i\geq0\) e a soma seja 1.</td></tr>
+      <tr><td>Enunciado pede também \(P(a_1\text{ ou }a_2)\) na opção válida c)</td><td>Basta somar \(P(a_1)+P(a_2)=\frac16+\frac13=\frac12\), pois pontos amostrais são sempre mutuamente excludentes entre si.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: opções corretas são c) e d). <span class="answer-final">Bate com o gabarito.</span></div>
 
@@ -102,6 +115,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> Ao validar uma distribuição, checar primeiro a não-negatividade
     (é uma rejeição instantânea, como em b) e só depois somar tudo — economiza esforço quando alguma
     probabilidade já é claramente negativa.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    a) \(\frac14+\frac13+\frac12 = \frac{13}{12} \neq 1\) → inválida<br>
+    b) \(P(a_2) = -\frac13 < 0\) → inválida<br>
+    c) \(\frac16+\frac13+\frac12 = \frac66 = 1\), \(p_i\geq0\) → válida<br>
+    d) \(0+\frac13+\frac23 = 1\), \(p_i\geq0\) → válida
+    </div>
   </div>
 
   <div class="exercise" id="ex12">
@@ -122,6 +143,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A\cup C = \{1,2,4,6\}\): \(P=0.1+0.4+0.1+0.1=0.7\).<br>
     \(B\cap C = \{2\}\) (único elemento comum entre {2,3,4,5} e {1,2}): \(P=0.4\).</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>Pedir \(P(A\cap C)\) em vez de \(P(A\cup C)\)</td><td>\(A\cap C=\{2\}\) (único par que também está em \(C=\{1,2\}\)): \(P(A\cap C)=0.4\), bem menor que \(P(A\cup C)=0.7\) — não confundir ∩ com ∪ na hora de listar os pontos comuns.</td></tr>
+      <tr><td>Dado fosse honesto (\(P(i)=1/6\) para todo \(i\))</td><td>Volta a valer \(P(E)=|E|/|S|\): \(P(A)=3/6=0.5\) em vez de 0.6 — a fórmula de espaço equiprovável só é atalho válido quando a distribuição é uniforme.</td></tr>
+      <tr><td>Perguntar \(P(A\cup B\cup C)\)</td><td>Precisa da regra da adição para três eventos: \(P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\), não apenas somar os pares.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 0.6, 0.8, 0.5; b) 0.5, 0.7, 0.4. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check via princípio da adição: \(P(A\cup C) = P(A)+P(C)-P(A\cap C) = 0.6+0.5-P(\{2\}) =
@@ -131,6 +159,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-trap">❗</span> Armadilha comum: aplicar \(|E|/|S|\) mesmo quando a distribuição
     não é uniforme — aqui \(|B|=4\) mas \(P(B)=0.8\), muito diferente de \(4/6\). A fórmula de espaço
     equiprovável só vale quando todos os \(p_i\) são iguais.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(A=\{2,4,6\}\), \(P(A)=0,4+0,1+0,1=0,6=60\%\)<br>
+    \(B=\{2,3,4,5\}\), \(P(B)=0,4+0,1+0,1+0,2=0,8=80\%\)<br>
+    \(C=\{1,2\}\), \(P(C)=0,1+0,4=0,5=50\%\)<br>
+    \(P(A\cap B)=0,4+0,1=0,5=50\%\)<br>
+    \(P(A\cup C)=0,1+0,4+0,1+0,1=0,7=70\%\)<br>
+    \(P(B\cap C)=0,4=40\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex13">
@@ -157,6 +195,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>d)</strong> Por De Morgan, \(\bar{A}\cup\bar{B} = \overline{A\cap B}\):
     \[P(\bar{A}\cup\bar{B}) = 1-P(A\cap B) = 1-0.5 = 0.5\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>Fosse dado \(P(B)=0.7\) diretamente (em vez de \(P(\bar B)=0.3\))</td><td>Pula-se o passo do Teorema 2; o resto da resolução é idêntico — mas é exatamente essa conversão inicial que costuma ser esquecida na prova.</td></tr>
+      <tr><td>\(A\) e \(B\) fossem mutuamente excludentes</td><td>\(P(A\cap B)=0\) obrigatoriamente, então \(P(A\cup B)=P(A)+P(B)\) sem precisar da forma geral do Teorema 4; se o enunciado desse \(P(A\cup B)\ne P(A)+P(B)\) nessas condições, haveria contradição.</td></tr>
+      <tr><td>Pedisse \(P(\bar A\cap B)\) em vez de \(P(A\cap \bar B)\)</td><td>Troca-se o papel de A e B na partição: \(P(\bar A\cap B)=P(B)-P(A\cap B)=0.7-0.5=0.2\) — atenção a qual conjunto está sendo "recortado".</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 0.5, b) 0.1, c) 0.2, d) 0.5. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check: \(P(A\cap B)+P(A\cap\bar B) = 0.5+0.1=0.6=P(A)\) ✓ (partição consistente).</div>
@@ -167,6 +212,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(\overline{A\cap B}=\bar A\cup\bar B\). <span class="badge badge-trap">❗</span> A armadilha desta
     questão inteira está em (b): confundir se o dado é \(P(B)\) ou \(P(\bar B)\) muda todas as respostas
     seguintes.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(P(A)=0,6,\ P(\bar B)=0,3 \Rightarrow P(B)=1-0,3=0,7,\ P(A\cup B)=0,8\)<br>
+    a) \(P(A\cap B) = P(A)+P(B)-P(A\cup B) = 0,6+0,7-0,8 = 0,5 = 50\%\)<br>
+    b) \(P(A\cap\bar B) = P(A)-P(A\cap B) = 0,6-0,5 = 0,1 = 10\%\)<br>
+    c) \(P(\bar A\cap\bar B) = 1-P(A\cup B) = 1-0,8 = 0,2 = 20\%\)<br>
+    d) \(P(\bar A\cup\bar B) = 1-P(A\cap B) = 1-0,5 = 0,5 = 50\%\)<br>
+    Venn: A e B com interseção hachurada
+    </div>
   </div>
 
 </main>

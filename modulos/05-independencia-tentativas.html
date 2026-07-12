@@ -89,9 +89,28 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \[P(\text{nenhum acerta}) = (1-\tfrac14)(1-\tfrac25) = \tfrac34 \cdot \tfrac35 = \tfrac{9}{20}\]
     \[P(\text{pelo menos um}) = 1 - \frac{9}{20} = \frac{11}{20}\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>b) Três atiradores em vez de dois, com \(P=1/4, 2/5, 1/3\)</td><td>O complemento ganha um terceiro fator: \(P(\text{nenhum acerta}) = (3/4)(3/5)(2/3)\); "pelo menos um" continua sendo \(1\) menos esse produto.</td></tr>
+      <tr><td>Pergunta fosse "exatamente um acerta" (item b)</td><td>Não basta o complemento: é preciso somar os 2 casos em que só A acerta ou só B acerta, cada um com o outro errando: \(P(A)(1-P(B)) + (1-P(A))P(B)\).</td></tr>
+      <tr><td>a) C fosse "exatamente uma cara em todo o experimento" em vez de "duas seguidas"</td><td>C mudaria para \(\{CKK,KCK,KKC\}\), alterando P(C) e exigindo refazer os testes de independência com A e B.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Pelo menos um evento independente ocorre, dentre vários"
     quase sempre se resolve pelo complemento: \(1 - \prod_i (1-p_i)\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    a) P(A)=1/2, P(B)=1/2, P(C)=1/4<br>
+    P(A∩B)=1/4=P(A)·P(B) → SÃO INDEPENDENTES<br>
+    P(A∩C)=1/8=P(A)·P(C) → SÃO INDEPENDENTES<br>
+    P(B∩C)=1/4 ≠ P(B)·P(C)=1/8 → NÃO SÃO INDEPENDENTES<br>
+    b) P(a)=1/4, P(b)=2/5<br>
+    P(ā)=3/4, P(b̄)=3/5<br>
+    P(nenhum) = 3/4 · 3/5 = 9/20 = 0,45<br>
+    P(pelo menos 1) = 1 - 9/20 = 11/20 = 0,55
+    </div>
   </div>
 
   <div class="exercise" id="exemplo7">
@@ -109,6 +128,30 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Sanity-check: a soma das 9 probabilidades deve ser 1 — de fato,
     \(\frac14+\frac16+\frac{1}{12}+\frac16+\frac19+\frac{1}{18}+\frac{1}{12}+\frac{1}{18}+\frac{1}{36}=1\)
     (comum denominador 36: \(9+6+3+6+4+2+3+2+1=36\)) ✓.</div>
+
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>3 competições em vez de 2</td><td>O espaço passa a ser \(S^3\), com \(27\) elementos; cada probabilidade é o produto de 3 fatores em vez de 2 (ex.: \(P(a,a,a)=(1/2)^3=1/8\)).</td></tr>
+      <tr><td>Perguntar \(P(\text{mesmo cavalo vence as 2 corridas})\)</td><td>Soma das probabilidades da diagonal: \(P(a,a)+P(b,b)+P(c,c) = 1/4+1/9+1/36 = 7/18\), em vez de listar todos os 9 pares.</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> O espaço de \(n\) tentativas independentes de um mesmo
+    experimento é sempre o produto cartesiano \(S^n\), e a probabilidade de cada n-upla é o produto das
+    probabilidades individuais de cada componente — por isso a soma de todas as \(|S|^n\) probabilidades deve
+    sempre fechar em 1, o que serve como checagem rápida do trabalho.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    P(a)=1/2, P(b)=1/3, P(c)=1/6, S² = 9 elementos<br>
+    P(a,a)=1/2·1/2=1/4=0,25<br>
+    P(a,b)=P(b,a)=1/2·1/3=1/6=0,166...<br>
+    P(a,c)=P(c,a)=1/2·1/6=1/12=0,0833...<br>
+    P(b,b)=1/3·1/3=1/9=0,111...<br>
+    P(b,c)=P(c,b)=1/3·1/6=1/18=0,0555...<br>
+    P(c,c)=1/6·1/6=1/36=0,0277...<br>
+    soma = 36/36 = 1 ✓
+    </div>
   </div>
 
   <h2>Exercícios da Lista III</h2>
@@ -133,6 +176,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     multiplicação é comutativa):
     \[P = 3! \times (0.3)(0.5)(0.2) = 6 \times 0.03 = 0.18\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>4 corridas em vez de 3 (item a)</td><td>Cada termo vira a 4ª potência: \((0.3)^4+(0.5)^4+(0.2)^4 = 0.0081+0.0625+0.0016 = 0.0722\); com mais corridas, ficar preso ao mesmo cavalo fica mais raro.</td></tr>
+      <tr><td>"Exatamente 2 cavalos diferentes vencem (não os 3)" em vez do item b</td><td>Deixa de ser uma simples permutação: é preciso escolher qual cavalo vence 2 vezes e qual vence 1, e contar as \(\binom{3}{2}\) ordens de intercalação para cada escolha — bem mais casos que os \(3!\) do item b.</td></tr>
+      <tr><td>Item b pedisse "b vence pelo menos 2 das 3 corridas"</td><td>Passa a ser uma soma binomial: \(P(X\geq2)=\binom{3}{2}(0.5)^2(0.5)+\binom{3}{3}(0.5)^3\), não mais uma permutação simples.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 0.16, b) 0.18. <span class="answer-final">Bate com o gabarito.</span></div>
 
@@ -141,6 +191,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (ou potências \(n\)) das probabilidades individuais. "Cada resultado distinto ocorre exatamente uma vez
     em \(n\) tentativas" → \(n!\) vezes o produto das probabilidades (regra da permutação combinada com
     tentativas independentes).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    P(a)=0,3 P(b)=0,5 P(c)=0,2<br>
+    a) P = (0,3)³+(0,5)³+(0,2)³ = 0,027+0,125+0,008 = 0,16<br>
+    b) ordens (1ª,2ª,3ª): abc, acb, bac, bca, cab, cba → 3!=6<br>
+    cada ordem: 0,3·0,5·0,2 = 0,03<br>
+    P = 6·0,03 = 0,18
+    </div>
   </div>
 
   <div class="exercise" id="ex18">
@@ -155,6 +214,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>b)</strong> "Pelo menos uma vez" = complemento de "zero acertos":
     \[P(X\geq1) = 1-(0.6)^5 = 1-0.07776 = 0.92224\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>"No máximo uma vez" em vez de "exatamente duas"</td><td>Soma \(P(X=0)+P(X=1) = (0.6)^5 + \binom{5}{1}(0.4)(0.6)^4 = 0.07776+0.2592 = 0.33696\), não apenas um único termo binomial.</td></tr>
+      <tr><td>7 tentativas em vez de 5 (item b)</td><td>\(P(X\geq1)=1-(0.6)^7 = 1-0.0279936 = 0.9720064\) — o complemento encolhe rapidamente conforme \(n\) cresce.</td></tr>
+    </table>
+
     <div class="note-complement"><strong>Nota sobre o gabarito oficial:</strong> o PDF da Lista III lista a
     resposta do item (b) como <code>1-(0,6)⁵=0,07776</code>. Matematicamente, \((0.6)^5 = 0.07776\), mas
     \(1-(0.6)^5 = 0.92224\), não \(0.07776\) — o valor no gabarito parece ser um erro de transcrição
@@ -163,8 +228,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Compare com a Questão 19(b), que usa a mesma fórmula e cujo valor no gabarito (0,7599) está correto.</div>
 
     <div class="step"><strong class="step-label">7. Generalização</strong>
-    <span class="badge badge-warn">⚠️</span> Sempre calcule o complemento até o fim — \((1-p)^n\) é apenas a
-    probabilidade de <em>zero</em> sucessos; "pelo menos um" exige o passo final \(1 - (1-p)^n\).</div>
+    <span class="badge badge-pattern">🔁</span> Distribuição binomial: \(n\) tentativas independentes,
+    sucesso com probabilidade fixa \(p\) → \(P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\); "pelo menos um sucesso" é
+    sempre \(1-(1-p)^n\). <span class="badge badge-warn">⚠️</span> Sempre calcule o complemento até o fim —
+    \((1-p)^n\) é apenas a probabilidade de <em>zero</em> sucessos; "pelo menos um" exige o passo final
+    \(1 - (1-p)^n\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    P(a)=0,4 P(e)=0,6, n=5<br>
+    a) k=2 acertos: strings (a=acerto,e=erro):<br>
+    aaeee, aeaee, aeeae, aeeea, eaaee, eaeae, eaeea, eeaae, eeaea, eeeaa<br>
+    C(5,2)=10<br>
+    P(X=2) = 10·(0,4)²·(0,6)³ = 10·0,16·0,216 = 0,3456<br>
+    b) P(X≥1) = 1-(0,6)⁵ = 1-0,07776 = 0,92224
+    </div>
   </div>
 
   <div class="exercise" id="ex19">
@@ -176,6 +254,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>a)</strong> \(P(X=1) = \binom{4}{1}(0.3)^1(0.7)^3 = 4 \times 0.3 \times 0.343 = 0.4116\).<br>
     <strong>b)</strong> \(P(X\geq1) = 1-(0.7)^4 = 1-0.2401 = 0.7599\).</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>"Exatamente duas vezes" em vez de "exatamente uma" (item a)</td><td>\(P(X=2)=\binom{4}{2}(0.3)^2(0.7)^2 = 6\times0.09\times0.49 = 0.2646\); o coeficiente binomial muda de \(\binom41=4\) para \(\binom42=6\).</td></tr>
+      <tr><td>6 tentativas em vez de 4 (item b)</td><td>\(P(X\geq1)=1-(0.7)^6 = 1-0.117649 = 0.882351\) — mais tentativas tornam "pelo menos um acerto" quase certo.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 0.4116, b) 0.7599. <span class="answer-final">Bate com o gabarito.</span></div>
 
@@ -183,6 +267,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> Estrutura idêntica à Questão 18 — reconhecer o padrão
     binomial (\(n\) tentativas independentes, probabilidade fixa \(p\) de sucesso) é o que importa, não
     decorar cada exercício separadamente.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    P(a)=0,3 P(e)=0,7, n=4<br>
+    a) k=1 acerto: strings: aeee, eaee, eeae, eeea<br>
+    C(4,1)=4<br>
+    P(X=1) = 4·(0,3)¹·(0,7)³ = 4·0,3·0,343 = 0,4116<br>
+    b) P(X≥1) = 1-(0,7)⁴ = 1-0,2401 = 0,7599
+    </div>
   </div>
 
 </main>

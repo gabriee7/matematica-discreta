@@ -83,6 +83,35 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     definem eventos condicionantes diferentes — \(E_1\) tem 3 elementos, \(E_2\) tem 2 — e por isso as
     respostas diferem (\(1/3\) vs. \(1/2\)). Esta é a armadilha mais citada de probabilidade condicional em
     provas: leia a condição literalmente, não "pelo sentido geral".</div>
+
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>"A mais nova é menino" em vez de "a mais velha"</td><td>Por simetria do espaço \(\{MM,MF,FM,FF\}\), o evento condicionante vira \(E_2'=\{MM,FM\}\), mesma cardinalidade 2, resultado idêntico \(1/2\) — a ordem (mais velho/mais novo) não muda a resposta, só o rótulo do evento.</td></tr>
+      <tr><td>"Nenhuma é menina" em vez de "pelo menos um menino"</td><td>É logicamente a mesma condição que "ambas meninos" — o evento condicionante colapsa para \(\{MM\}\) e \(P(\text{ambos}\mid E)=1\), não \(1/3\); reconhecer paráfrases equivalentes evita montar o evento errado.</td></tr>
+      <tr><td>Item (a): E={soma é 7} em vez de 6</td><td>\(E=\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}\), \(|E|=6\); pares com o número 2: (2,5) e (5,2), \(|A\cap E|=2\), logo \(P(A\mid E)=2/6=1/3\) — muda tanto o denominador quanto a contagem favorável.</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">Verificação</strong>
+    Confere com o gabarito: a) \(P(A\mid E)=2/5\); b) i) \(1/3\), ii) \(1/2\).
+    <span class="answer-final">Bate com o gabarito.</span></div>
+
+    <div class="step"><strong class="step-label">Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Para calcular \(P(A\mid E)\) em espaço equiprovável, sempre
+    liste (ou pelo menos conte) \(E\) primeiro, depois filtre dentro de \(E\) os elementos que também
+    satisfazem \(A\) — nunca calcule \(P(A)\) e \(P(E)\) separadamente do espaço original quando dá para
+    contar direto dentro de \(E\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    a) \(E=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\), \(|E|=5\)<br>
+    \(A\cap E=\{(2,4),(4,2)\}\)<br>
+    \(P(A\mid E) = 2/5 = 0,4 = 40\%\)<br><br>
+    b) \(S=\{MM,MF,FM,FF\}\)<br>
+    i) \(E_1=\{MM,MF,FM\}\), \(|E_1|=3\)<br>
+    \(P(\text{ambos}\mid E_1) = 1/3 = 0,333\ldots = 33,3\%\)<br>
+    ii) \(E_2=\{MM,MF\}\), \(|E_2|=2\)<br>
+    \(P(\text{ambos}\mid E_2) = 1/2 = 0,5 = 50\%\)
+    </div>
   </div>
 
   <h2>Exercícios da Lista III</h2>
@@ -110,6 +139,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A,C\): \(P(A\cap C)=2/6=1/3\); \(P(A)P(C)=(3/6)(4/6)=1/3\) → <strong>iguais → independentes (Sim)</strong>.<br>
     \(B,C\): \(P(B\cap C)=2/6=1/3\); \(P(B)P(C)=(2/6)(4/6)=2/9\) → <strong>diferentes → dependentes (Não)</strong>.</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>B={1,3,5} (ímpares) em vez de {1,2}</td><td>\(A\cap B=\emptyset\) (A só tem pares, B só ímpares); \(P(A\cap B)=0\) mas \(P(A)P(B)=(3/6)(3/6)=1/4\neq0\), logo A e B deixam de ser independentes — mutuamente excludentes com probabilidade positiva nunca são independentes.</td></tr>
+      <tr><td>Perguntar P(A∩B∩C) em vez de pares</td><td>\(A\cap B\cap C=\{2\}\), \(P=1/6\); testar independência mútua exigiria também comparar com \(P(A)P(B)P(C)=(3/6)(2/6)(4/6)=1/9\neq1/6\) — independência dois a dois não implica independência conjunta.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 1/6, 5/6; b) 1/2, 1/3; c) 1/2, 2/3; d) 1/2, 1; e) Sim, Sim, Não.
     <span class="answer-final">Bate com o gabarito.</span></div>
@@ -119,6 +154,24 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     — significa que \(B \subseteq C\) (todo elemento de B também está em C), então, condicionado a B, C
     ocorre sempre. <span class="badge badge-pattern">🔁</span> Teste de independência: sempre compare
     \(P(X\cap Y)\) contra \(P(X)\cdot P(Y)\) — nunca "pareça razoável", calcule os dois números.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(S=\{1,2,3,4,5,6\}\), \(|S|=6\)<br>
+    \(A=\{2,4,6\}\), \(B=\{1,2\}\), \(C=\{1,2,3,4\}\)<br>
+    \(A\cap B=\{2\}\), \(A\cap C=\{2,4\}\), \(B\cap C=\{1,2\}\)<br><br>
+    a) \(P(A\cap B)=1/6=0,167=16,7\%\)<br>
+    \(A\cup C=\{1,2,3,4,6\}\), \(P(A\cup C)=5/6=0,833=83,3\%\)<br><br>
+    b) \(P(A\mid B)=1/2=0,5=50\%\)<br>
+    \(P(B\mid A)=1/3=0,333\ldots=33,3\%\)<br><br>
+    c) \(P(A\mid C)=2/4=1/2=0,5=50\%\)<br>
+    \(P(C\mid A)=2/3=0,667=66,7\%\)<br><br>
+    d) \(P(B\mid C)=2/4=1/2=0,5=50\%\)<br>
+    \(P(C\mid B)=2/2=1=100\%\)<br><br>
+    e) \(P(A)P(B)=(3/6)(2/6)=1/6=P(A\cap B)\) → indep.<br>
+    \(P(A)P(C)=(3/6)(4/6)=1/3=P(A\cap C)\) → indep.<br>
+    \(P(B)P(C)=(2/6)(4/6)=2/9\neq1/3=P(B\cap C)\) → dep.
+    </div>
   </div>
 
   <div class="exercise" id="ex15">
@@ -130,12 +183,27 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>b)</strong> \(P(A\mid B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{0.2}{0.3} = \dfrac{2}{3}\).<br>
     <strong>c)</strong> \(P(B\mid A) = \dfrac{P(A\cap B)}{P(A)} = \dfrac{0.2}{0.6} = \dfrac{1}{3}\).</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>A e B mutuamente excludentes (P(A∩B)=0)</td><td>\(P(A\cup B)=0.6+0.3-0=0.9\); \(P(A\mid B)=0/0.3=0\) e \(P(B\mid A)=0/0.6=0\) — saber que um ocorreu torna o outro impossível.</td></tr>
+      <tr><td>P(A∩B)=0.18 (A e B independentes)</td><td>\(P(A)P(B)=0.6\times0.3=0.18\) confirma independência; nesse caso \(P(A\mid B)=P(A)=0.6\) e \(P(B\mid A)=P(B)=0.3\) — condicionar não muda a probabilidade.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 0.7, b) 2/3, c) 1/3. <span class="answer-final">Bate com o gabarito.</span></div>
 
     <div class="step"><strong class="step-label">7. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Exercício-modelo direto da definição de probabilidade
     condicional — útil para memorizar a fórmula sem a distração de contar elementos de conjuntos.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(P(A)=0,6\), \(P(B)=0,3\), \(P(A\cap B)=0,2\)<br><br>
+    a) \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)<br>
+    \(=0,6+0,3-0,2=0,7=70\%\)<br><br>
+    b) \(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{0,2}{0,3}=2/3=0,667=66,7\%\)<br><br>
+    c) \(P(B\mid A)=\dfrac{P(A\cap B)}{P(A)}=\dfrac{0,2}{0,6}=1/3=0,333\ldots=33,3\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex16">
@@ -165,15 +233,30 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
       <tr><td>Não houvesse a condição "distintos"</td><td>O espaço volta a ser 36 (Questão 8f, soma>10 dá 1/12 — compare com este resultado condicional 2/15, que é maior porque exclui exatamente o caso (6,6) do denominador também.</td></tr>
+      <tr><td>Condição fosse "ao menos um dado mostra 6" em vez de "distintos"</td><td>\(E'=\{(6,k)\text{ ou }(k,6)\}\), \(|E'|=11\) (não 30); os casos favoráveis para "soma par" ou "soma>9" precisam ser recontados dentro desse E' bem menor — o denominador muda completamente conforme o condicionante muda.</td></tr>
+      <tr><td>Pedisse P(soma=8 | números distintos)</td><td>Soma 8 com distintos: (2,6),(6,2),(3,5),(5,3) — exclui (4,4); 4 casos favoráveis sobre 30: \(P=4/30=2/15\), mesmo valor numérico do item b) mas por um evento diferente — coincidência que vale a pena checar, não assumir.</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 2/5, b) 2/15. <span class="answer-final">Bate com o gabarito.</span></div>
 
     <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Sempre que o enunciado começa com "sabendo que..." ou "dado
+    que...", o espaço amostral do cálculo é o evento condicionante \(E\), não o espaço original \(S\): conte
+    \(|E|\) primeiro, depois conte os casos favoráveis dentro de \(E\).
     <span class="badge badge-trap">❗</span> Armadilha central desta questão: usar \(|S|=36\) no denominador
-    em vez de \(|E|=30\). Sempre que o enunciado começa com "sabendo que..." ou "dado que...", o espaço
-    amostral do cálculo é o evento condicionante, não o espaço original.</div>
+    em vez de \(|E|=30\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    Distintos: \(36-6=30\), \(E\)={distintos}, \(|E|=30\)<br><br>
+    a) ímpares distintos: \(3\times2=6\); pares distintos: \(3\times2=6\)<br>
+    favoráveis \(=6+6=12\)<br>
+    \(P = 12/30 = 2/5 = 0,4 = 40\%\)<br><br>
+    b) soma 10: \((4,6),(6,4)\); soma 11: \((5,6),(6,5)\)<br>
+    favoráveis \(=2+2=4\)<br>
+    \(P = 4/30 = 2/15 = 0,133\ldots = 13,3\%\)
+    </div>
   </div>
 
 </main>

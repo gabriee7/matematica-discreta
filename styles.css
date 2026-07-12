@@ -432,6 +432,43 @@ table.variations tr:nth-child(even) td, table.data-table tr:nth-child(even) td {
   border-left-style: dashed;
 }
 
+/* ── Board-style recap (notação exata do quadro do professor) ── */
+
+.board-solve {
+  border: 1.5px dashed var(--primary);
+  background: #f8fafc;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(26,86,219,.05) 28px);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.2rem;
+  margin: 1.2rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.93rem;
+  color: #1e3a8a;
+  line-height: 1.75;
+}
+
+.board-solve .board-label {
+  display: inline-block;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: var(--primary-dk);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.55rem;
+}
+
+.board-solve .board-note {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
 footer.site-footer {
   max-width: 1100px;
   margin: 0 auto;

@@ -77,23 +77,83 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplo 2 (aula) — Número de caras em 3 lançamentos</h3>
     <div class="enunciado">Observa-se o número de caras obtidas em 3 lançamentos de moeda. Defina S, calcule
     P de cada elemento. Seja A={pelo menos uma cara} e B={todas caras ou todas coroas}. Calcule P(A) e P(B).</div>
-    <div class="step"><strong class="step-label">Resolução</strong>
+    <div class="step"><strong class="step-label">1. Dados</strong>
+    3 lançamentos independentes de uma moeda; observa-se o número de caras.</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Espaço equiprovável finito: \(|S|=2^3=8\), cada resultado com \(P(a_i)=1/8\).</div>
+
+    <div class="step"><strong class="step-label">3. Resolução passo a passo</strong>
     \(S=\{CCC,CCK,CKC,CKK,KCC,KCK,KKC,KKK\}\), 8 elementos igualmente prováveis, logo \(P(a_i)=1/8\) para cada.<br>
     \(A\) = complemento de {nenhuma cara} = \(S \setminus \{KKK\}\), 7 elementos: \(P(A) = 7/8\).<br>
     \(B = \{CCC, KKK\}\): \(P(B) = 2/8 = 1/4\).</div>
+
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>4 lançamentos em vez de 3</td><td>\(|S|=2^4=16\); "pelo menos uma cara" continua sendo \(1-1/16=15/16\), mas B={todas iguais} passa a ter só 2 casos em 16: \(P(B)=1/8\).</td></tr>
+      <tr><td>B = "exatamente 2 caras" em vez de "todas iguais"</td><td>Deixa de ser complemento direto: conta-se \(\binom{3}{2}=3\) casos, \(P(B)=3/8\).</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">Verificação</strong>
+    \(P(A)+P(\text{nenhuma cara})=7/8+1/8=1\) ✓ (eventos complementares).
+    <span class="answer-final">P(A) = 7/8; P(B) = 1/4.</span></div>
+
     <div class="step"><strong class="step-label">Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Pelo menos uma cara" é o complemento de "nenhuma cara" —
     calcular o complemento é quase sempre mais rápido que somar todos os casos favoráveis diretamente.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    <p class="board-note">Notação do quadro: vírgula decimal.</p>
+    \(S = \{CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK\}\)<br>
+    1/8 &nbsp; 1/8 &nbsp; 1/8 &nbsp; 1/8 &nbsp; 1/8 &nbsp; 1/8 &nbsp; 1/8 &nbsp; 1/8<br>
+    \(A\) = pelo menos 1 cara \(= S - \{KKK\}\)<br>
+    \(P(A) = 7/8 = 0,875 = 87,5\%\)<br>
+    \(B = \{CCC, KKK\}\)<br>
+    \(P(B) = 2/8 = 1/4 = 0,25 = 25\%\)
+    </div>
   </div>
 
   <div class="exercise" id="exemplo3">
     <h3>Exemplo 3 (aula) — Carta de baralho</h3>
     <div class="enunciado">Seleciona-se uma carta de um baralho de 52. A={carta de espadas}, B={carta é
     figura}. Calcule P(A), P(B) e P(A∩B).</div>
-    <div class="step"><strong class="step-label">Resolução</strong>
+    <div class="step"><strong class="step-label">1. Dados</strong>
+    Baralho padrão de 52 cartas, uma carta selecionada ao acaso.</div>
+
+    <div class="step"><strong class="step-label">2. Classificação</strong>
+    Espaço equiprovável finito, \(|S|=52\). A e B não são mutuamente excludentes (há espadas que são figuras),
+    então \(A\cap B\) precisa ser contado à parte.</div>
+
+    <div class="step"><strong class="step-label">3. Resolução passo a passo</strong>
     \(|S|=52\). Espadas: 13 cartas → \(P(A)=13/52=1/4\).<br>
     Figuras (valete, dama, rei) por naipe: 3 por naipe × 4 naipes = 12 → \(P(B)=12/52=3/13\).<br>
     Figuras de espadas: 3 → \(P(A\cap B)=3/52\).</div>
+
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>B = "carta é um Ás" em vez de "figura"</td><td>Só 4 ases no baralho: \(P(B)=4/52=1/13\); \(A\cap B\) = ás de espadas, 1 carta: \(P(A\cap B)=1/52\).</td></tr>
+      <tr><td>Perguntar \(P(A\cup B)\)</td><td>Exige o princípio da adição (Módulo 3): \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=13/52+12/52-3/52=22/52=11/26\).</td></tr>
+    </table>
+
+    <div class="step"><strong class="step-label">Verificação</strong>
+    \(A\cap B\) (3 figuras de espadas) é subconjunto tanto de A (13 espadas) quanto de B (12 figuras) — 3 ≤ 13
+    e 3 ≤ 12, consistente.
+    <span class="answer-final">P(A) = 1/4; P(B) = 3/13; P(A∩B) = 3/52.</span></div>
+
+    <div class="step"><strong class="step-label">Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Sempre que dois eventos sobre um baralho se sobrepõem (aqui,
+    "espadas" e "figura"), identifique explicitamente a interseção antes de somar probabilidades — ela é
+    necessária tanto para \(P(A\cap B)\) quanto para aplicar o princípio da adição depois.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    52 CARTAS →(branches) OURO(13), PAUS(13), COPAS(13), ESPADAS(13)<br>
+    \(A\) = espadas, \(B\) = figura<br>
+    \(P(A) = 13/52 = 1/4 = 0,25 = 25\%\)<br>
+    \(P(B) = 12/52 = 3/13 = 0,2308... \approx 23,1\%\)<br>
+    \(P(A\cap B) = 3/52 = 0,0577... \approx 5,8\%\)
+    </div>
   </div>
 
   <h2>Exercícios da Lista III</h2>
@@ -121,6 +181,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <table class="variations">
       <tr><th>E se...</th><th>Mudança</th></tr>
       <tr><td>"ambos excedem 4" (em vez de "um ou ambos")</td><td>Calcula-se diretamente \((2/6)^2=1/9\), sem complemento.</td></tr>
+      <tr><td>Item (a) pedisse "número par" em vez de "ímpar"</td><td>Mesma contagem por simetria: \(\{2,4,6\}\), \(P=1/2\) também.</td></tr>
+      <tr><td>Item (b) com 5 moedas em vez de 4</td><td>\(|S|=2^5=32\); \(P=1-1/32=31/32\).</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">6. Verificação</strong>
@@ -129,6 +191,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">7. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Toda vez que o enunciado contém "pelo menos" ou "um ou mais",
     considere calcular o complemento ("nenhum"/"zero"). É quase sempre a conta mais simples.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    a) \(S=\{1..6\}\), ímpar \(=\{1,3,5\}\)<br>
+    \(P = 3/6 = 1/2 = 0,5 = 50\%\)<br>
+    b) \(1 - 1/16 = 15/16 = 0,9375 = 93,75\%\)<br>
+    c) \(1 - (4/6)^2 = 1 - 4/9 = 5/9 = 0,555... \approx 55,6\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex4">
@@ -148,12 +218,30 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>d)</strong> Aplicando o princípio da adição com \(A\)=maior que 10, \(B\)=divisível por 5:
     \[P(A\cup B) = \frac{4}{5}+\frac{1}{5}-\frac{4}{25} = \frac{20}{25}+\frac{5}{25}-\frac{4}{25} = \frac{21}{25}\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>"Maior que 10 e divisível por 3" em vez de "por 5"</td><td>Múltiplos de 3 entre 11 e 50: \(12,15,\dots,48\), total 13; refaz-se (c) e (d) com esse novo conjunto.</td></tr>
+      <tr><td>Cartas numeradas de 1 a 100 em vez de 1 a 50</td><td>\(|S|=100\); todas as contagens dobram proporcionalmente, mas as probabilidades individuais permanecem as mesmas por simetria.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 4/5, b) 1/5, c) 4/25, d) 21/25. <span class="answer-final">Bate com o gabarito.</span></div>
 
     <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> "X ou Y" em espaços equiprováveis é sempre um caso do princípio
+    da adição \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\); calcule primeiro os três ingredientes separadamente (aqui,
+    itens a, b, c) e só então combine.
     <span class="badge badge-trap">❗</span> Armadilha comum: somar \(P(A)+P(B)\) direto em (d) sem subtrair a
     interseção — dá \(1\), que é maior que 1 menos a sobreposição e superestima a probabilidade real.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(S = \{1,...,50\}\)<br>
+    a) \(P(A) = 40/50 = 4/5 = 0,8 = 80\%\)<br>
+    b) \(P(B) = 10/50 = 1/5 = 0,2 = 20\%\)<br>
+    c) \(P(A\cap B) = 8/50 = 4/25 = 0,16 = 16\%\)<br>
+    d) \(P(A\cup B) = 4/5+1/5-4/25 = 21/25 = 0,84 = 84\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex5">
@@ -179,6 +267,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <table class="variations">
       <tr><th>E se...</th><th>Mudança</th></tr>
       <tr><td>Escolhessem 3 garotas em vez de 2</td><td>\(|S|=\binom{10}{3}=120\); recalcular cada combinação com \(k=3\).</td></tr>
+      <tr><td>Grupo tivesse 4 de olhos azuis em vez de 3</td><td>\(\binom{4}{2}=6\) para "ambas azuis"; \(P=6/45=2/15\); os demais itens mudam de forma correspondente.</td></tr>
+      <tr><td>Escolha COM reposição em vez de sem</td><td>\(|S|=10^2=100\) (pares ordenados com repetição); as contagens de casos favoráveis usam potências em vez de combinações.</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">6. Verificação</strong>
@@ -189,6 +279,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> Problemas de "grupo dividido em duas categorias, escolha sem
     reposição" seguem sempre este padrão: combine \(\binom{\text{categoria}}{k}\) dentro de cada grupo e use
     a regra do produto entre grupos quando a condição mistura as duas categorias.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    10 GAROTAS: 3 azuis, 7 não-azuis. \(|S|=\binom{10}{2}=45\)<br>
+    a) \(\binom{3}{2}=3\) &rarr; \(P = 3/45 = 1/15 = 0,0666... \approx 6,7\%\)<br>
+    b) \(\binom{7}{2}=21\) &rarr; \(P = 21/45 = 7/15 = 0,4666... \approx 46,7\%\)<br>
+    c) \(P = 1 - 7/15 = 8/15 = 0,5333... \approx 53,3\%\)<br>
+    d) \(\binom{3}{1}\binom{7}{1}=21\) &rarr; \(P = 21/45 = 7/15 \approx 46,7\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex6">
@@ -207,6 +306,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     meninos se arranjam entre si (\(3!\)) e as 3 meninas entre si (\(3!\)):
     \[P = \frac{2 \cdot 3! \cdot 3!}{6!} = \frac{2(6)(6)}{720} = \frac{72}{720} = \frac{1}{10}\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>4 meninos e 4 meninas em vez de 3 e 3</td><td>\(|S|=8!\); bloco de meninas: \(5!\cdot4!/8!\); alternado: \(2\cdot4!\cdot4!/8!\) — mesma técnica, novos números.</td></tr>
+      <tr><td>Apenas 2 das 3 meninas precisam ficar juntas</td><td>Não é mais o bloco inteiro: escolhe-se qual par fica junto (\(\binom{3}{2}\) opções), forma-se o bloco desse par e recombina com os demais.</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 1/5, b) 1/10. <span class="answer-final">Bate com o gabarito.</span></div>
 
@@ -215,6 +320,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (agrupar e multiplicar pelas permutações internas). "Elementos devem alternar" → contar os padrões de
     alternância possíveis (aqui, 2: começando com menino ou menina) e multiplicar pelas permutações internas
     de cada grupo.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    3M+3F em fila. \(|S| = 6! = 720\)<br>
+    a) BLOCO(3F) + 3M: \(4!\cdot3! = 144\) → \(P = 144/720 = 1/5 = 0,2 = 20\%\)<br>
+    b) 2 padrões × \(3!\times3!\): \(2\cdot36 = 72\) → \(P = 72/720 = 1/10 = 0,1 = 10\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex7">
@@ -232,12 +344,30 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     tempo todo cara e todo coroa) — são mutuamente excludentes:
     \[P = 0\]</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>4 moedas em vez de 3</td><td>\(|S|=16\); "duas caras e duas coroas" tem \(\binom{4}{2}=6\) casos: \(P=6/16=3/8\).</td></tr>
+      <tr><td>Item (d) fosse "só coroas OU uma cara" em vez de "só coroas ou só caras"</td><td>Deixa de ser um caso trivial de 2 pontos: {CCC} ∪ {uma cara} tem \(1+3=4\) casos, \(P=4/8=1/2\).</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 8, b) 3/8, c) 1/8, d) 1/4, e) 0. <span class="answer-final">Bate com o gabarito.</span></div>
 
     <div class="step"><strong class="step-label">7. Generalização</strong>
+    <span class="badge badge-pattern">🔁</span> Antes de somar probabilidades de dois eventos descritos em
+    palavras, verifique se eles podem ocorrer juntos: se são mutuamente excludentes (como "só coroas" e "só
+    caras"), \(P(A\cup B)=P(A)+P(B)\) sem subtrair nada.
     <span class="badge badge-ok">✅</span> Este item (e) reforça diretamente a definição de eventos
     mutuamente excludentes do Módulo 1: \(P(A\cap B)=0\) quando \(A\cap B=\emptyset\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(S = \{KKK,KKC,KCK,KCC,CKK,CKC,CCK,CCC\}\), \(|S|=8\)<br>
+    b) \(P = 3/8 = 0,375 = 37,5\%\)<br>
+    c) \(P = 1/8 = 0,125 = 12,5\%\)<br>
+    d) \(P = 1/8+1/8 = 2/8 = 1/4 = 0,25 = 25\%\)<br>
+    e) \(P = 0\)
+    </div>
   </div>
 
   <div class="exercise" id="ex8">
@@ -257,6 +387,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>g)</strong> Soma ímpar: ocorre quando os dois dados têm paridades diferentes (um par, um ímpar).
     Há \(3\times3=9\) combinações (ímpar,par) e 9 (par,ímpar), total 18: \(P=18/36=1/2\).</div>
 
+    <table class="variations">
+      <tr><th>E se a condição fosse...?</th><th>Mudança no raciocínio</th></tr>
+      <tr><td>Item (d) pedisse "soma 8" em vez de "soma 7"</td><td>(2,6),(3,5),(4,4),(5,3),(6,2): 5 casos, \(P=5/36\) (perde a simetria máxima da soma 7).</td></tr>
+      <tr><td>Item (f) pedisse "soma ≥ 10" em vez de "> 10"</td><td>Inclui soma 10: (4,6),(5,5),(6,4), mais os 3 de soma>10, total 6: \(P=6/36=1/6\).</td></tr>
+    </table>
+
     <div class="step"><strong class="step-label">6. Verificação</strong>
     Gabarito: a) 36, b) 1/36, c) 1/6, d) 1/6, e) 11/36, f) 1/12, g) 1/2.
     <span class="answer-final">Bate com o gabarito.</span></div>
@@ -265,6 +401,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> Para eventos sobre "soma de dois dados", é mais rápido listar
     os pares por soma-alvo do que enumerar os 36 pares completos. Para "pelo menos um X", o complemento
     "nenhum X" volta a ser o caminho mais curto.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    2 DADOS: \(|S| = 6\times6 = 36\)<br>
+    b) \(P = 1/36 = 0,0277... \approx 2,8\%\)<br>
+    c) \(P = 6/36 = 1/6 = 0,1666... \approx 16,7\%\)<br>
+    d) \(P = 6/36 = 1/6 \approx 16,7\%\)<br>
+    e) \(P = 1-(5/6)^2 = 11/36 = 0,3055... \approx 30,6\%\)<br>
+    f) \(P = 3/36 = 1/12 = 0,0833... \approx 8,3\%\)<br>
+    g) \(P = 18/36 = 1/2 = 0,5 = 50\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex9">
@@ -294,6 +441,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <table class="variations">
       <tr><th>E se...</th><th>Mudança</th></tr>
       <tr><td>Mão de 3 cartas em vez de 2</td><td>\(|S|=\binom{52}{3}\); cada combinação usa \(k=3\) nas categorias correspondentes.</td></tr>
+      <tr><td>Item (h) pedisse "ambas figuras E ambas espadas" (interseção, não união)</td><td>É exatamente o item (g): \(P=1/442\), sem precisar do princípio da adição.</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">6. Verificação</strong>
@@ -304,6 +452,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-trap">❗</span> Em (h), a armadilha é esquecer que "ambas figuras" e "ambas
     espadas" não são mutuamente excludentes — existe a mão de duas figuras de espadas, que está nas duas
     categorias. Ignorar a interseção conta esse caso duas vezes.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    MÃO DE 2 CARTAS: \(|S| = \binom{52}{2} = 1326\)<br>
+    b) \(P = 78/1326 = 1/17 = 0,0588... \approx 5,9\%\)<br>
+    c) \(P = 741/1326 = 19/34 = 0,5588... \approx 55,9\%\)<br>
+    d) \(P = 507/1326 = 13/34 = 0,3823... \approx 38,2\%\)<br>
+    e) \(P = 1-19/34 = 15/34 = 0,4411... \approx 44,1\%\)<br>
+    f) \(P = 66/1326 = 11/221 = 0,0497... \approx 5,0\%\)<br>
+    g) \(P = 3/1326 = 1/442 = 0,00226... \approx 0,2\%\)<br>
+    h) \(P = 11/221+1/17-1/442 = 47/442 = 0,1063... \approx 10,6\%\)
+    </div>
   </div>
 
   <div class="exercise" id="ex10">
@@ -328,6 +488,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <table class="variations">
       <tr><th>E se...</th><th>Mudança</th></tr>
       <tr><td>Os 3 números sorteados fossem todos iguais</td><td>Só existe 1 ordem possível (aaa), então \(P=1/1000\), igual ao caso "sequência".</td></tr>
+      <tr><td>Loteria com 4 dígitos em vez de 3</td><td>\(|S|=10^4=10000\); "lote" com dígitos distintos passa a ter \(4!=24\) ordens: \(P=24/10000=3/1250\).</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">6. Verificação</strong>
@@ -337,6 +498,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> "Jogar em lote" multiplica a probabilidade da sequência exata
     pelo número de permutações distintas dos dígitos sorteados — que depende de haver ou não repetição entre
     eles (\(3!\) se todos distintos, \(3!/2!\) se há um par, \(1\) se os três são iguais).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    DAILY3: \(|S| = 10^3 = 1000\)<br>
+    a) \(P = 1/1000 = 0,001 = 0,1\%\)<br>
+    b) \(3! = 6\) → \(P = 6/1000 = 3/500 = 0,006 = 0,6\%\)<br>
+    c) \(3!/2! = 3\) → \(P = 3/1000 = 0,003 = 0,3\%\)
+    </div>
   </div>
 
 </main>

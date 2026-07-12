@@ -87,6 +87,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-pattern">🔁</span> \(A\) e \(B\) aqui são complementares um do outro
     (\(B = \bar{A}\)), por isso \(A \cup B = S\) e \(A \cap B = \emptyset\). Reconhecer quando dois eventos
     dados no enunciado são, na verdade, complementares evita recalcular probabilidades desnecessariamente.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(S = \{1,2,3,4,5,6\}\)<br>
+    \(A \cup B = \{1,2,3,4,5,6\} = S\)<br>
+    \(B \cap C = \{3,5\}\)<br>
+    \(\bar{C} = \{1,4,6\}\)
+    </div>
   </div>
 
   <div class="exercise" id="exemplo1b">
@@ -109,6 +117,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">4. Armadilha</strong>
     <span class="badge badge-trap">❗</span> \(KKK\) está em \(B\) mas não em \(A\) (0 caras não é "duas ou
     mais"). É fácil incluir \(KKK\) em \(A\cap B\) por engano ao ler rápido demais o enunciado de \(B\).</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(S = \{CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK\}\)<br>
+    \(A = \{CCC, CCK, CKC, KCC\}\)<br>
+    \(B = \{CCC, KKK\}\)<br>
+    \(A \cap B = \{CCC\}\)
+    </div>
   </div>
 
   <h2>Exercícios da Lista III</h2>
@@ -156,6 +172,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     dentro para fora. <span class="badge badge-trap">❗</span> Armadilha comum: confundir "não A e não B"
     (\(A^c \cap B^c\)) com "não (A e B)" (\((A\cap B)^c = A^c \cup B^c\)) — são leis de De Morgan, e o
     resultado muda de ∩ para ∪.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    a) \(A \cap B \cap C^c\)<br>
+    b) \((A \cup C) \cap B^c\)<br>
+    c) \(A^c \cap B^c \cap C^c\)<br>
+    d) \((A \cap B) \cup (A \cap C) \cup (B \cap C)\)
+    </div>
   </div>
 
   <div class="exercise" id="ex2">
@@ -212,6 +236,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     cardinalidades. <span class="badge badge-trap">❗</span> \(B \cap C = \emptyset\) porque os eventos B e C
     impõem condições incompatíveis sobre a mesma variável (par vs. ímpar) — sempre cheque se duas condições
     do enunciado se referem à mesma "coordenada" do resultado antes de tentar listar interseções.</div>
+
+    <div class="board-solve">
+    <span class="board-label">No quadro</span>
+    \(n(S) = 2\cdot2\cdot6 = 24\)<br>
+    \(A = \{KK2, KK4, KK6\}\)<br>
+    \(B = \{KK2, KC2, CK2, CC2\}\)<br>
+    \(C = \{KC1, KC3, KC5, CK1, CK3, CK5\}\)<br>
+    (i) \(A \cap B = \{KK2\}\)<br>
+    (ii) \(B \setminus A = \{KC2, CK2, CC2\}\)<br>
+    (iii) \(B \cap C = \emptyset\)
+    </div>
   </div>
 
 </main>
