@@ -24,7 +24,10 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;
@@ -33,6 +36,8 @@ body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a { color: var(--primary); }
@@ -40,6 +45,20 @@ a:hover { text-decoration: none; }
 
 code, pre, .mono {
   font-family: 'Courier New', monospace;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* MathJax (CHTML) renders formulas at their natural width, which can exceed
+   a phone's viewport — let each formula scroll horizontally on its own
+   instead of blowing out the page layout. */
+mjx-container {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+mjx-container[display="true"] {
+  margin: 0.6em 0;
 }
 
 /* ── Navbar ── */
@@ -445,6 +464,8 @@ table.variations tr:nth-child(even) td, table.data-table tr:nth-child(even) td {
   font-size: 0.93rem;
   color: #1e3a8a;
   line-height: 1.75;
+  overflow-wrap: break-word;
+  overflow-x: auto;
 }
 
 .board-solve .board-label {
