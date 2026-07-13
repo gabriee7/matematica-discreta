@@ -155,22 +155,29 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     o padrão "dois iguais e dois outros distintos entre si e do par".</div>
     <div class="step"><strong class="step-label">III. Estratégia</strong> a) Uma sequência específica escolhida
     pelo apostador corresponde a exatamente 1 dos 10000 resultados possíveis. b) Um lote com "exatamente dois
-    números iguais" tem o padrão de multiconjunto \(\{x,x,y,z\}\) com \(x,y,z\) distintos; o apostador ganha
-    se o sorteio for qualquer uma das permutações desse multiconjunto: \(4!/2!=12\) sequências ordenadas
-    equivalentes a esse lote.</div>
+    números iguais" tem o padrão \(\{A,A,B,C\}\) (A repetido, B e C distintos entre si e de A) — do mesmo
+    jeito que o quadro resolve a Loteria Daily3: <strong>listar por extenso</strong> todas as arrumações
+    (permutações) possíveis desse padrão, não aplicar a fórmula \(4!/2!\) direto sem mostrar a lista.</div>
     <div class="step"><strong class="step-label">IV. Resolução</strong>
     a) \(P=\dfrac{1}{10000}=0,01\%\).<br>
-    b) \(P=\dfrac{12}{10000}=\dfrac{3}{2500}=0,12\%\).</div>
+    b) Arrumações de A,A,B,C (A repete, B e C não):<br>
+    AABC, AACB, ABAC, ACAB, ABCA, ACBA, BAAC, CAAB, BACA, CABA, BCAA, CBAA → 12 arrumações.<br>
+    \(P=\dfrac{12}{10000}=\dfrac{3}{2500}=0,12\%\).</div>
     <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> "Lote" não pergunta pela distribuição do sorteio em si, e sim pela
     chance de o apostador <em>acertar</em> apostando em um lote com aquele padrão de repetição — por isso o
-    numerador é o número de permutações do multiconjunto apostado, não uma contagem de "quantos sorteios têm
+    numerador é o número de arrumações do padrão apostado, não uma contagem de "quantos sorteios têm
     exatamente um par". O aluno da versão manuscrita confundiu os dois tipos de contagem nesta questão.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 (compare com a Loteria Daily3 da Lista) →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     n(S) = 10⁴ = 10000<br>
     a) P(sequência) = 1/10000 = 0,01%<br>
-    b) lote {x,x,y,z}: 4!/2! = 12 sequências equivalentes<br>
+    b) AABC ACAB BCAA<br>
+    &nbsp;&nbsp;AACB ABCA CBAA<br>
+    &nbsp;&nbsp;ABAC ACBA<br>
+    &nbsp;&nbsp;BAAC CABA<br>
+    &nbsp;&nbsp;CAAB BACA<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12<br>
     P = 12/10000 = 3/2500 = 0,12%
     </div>
     <div class="answer-final">a) 1/10000 = 0,01% &nbsp; b) 3/2500 = 0,12%</div>
