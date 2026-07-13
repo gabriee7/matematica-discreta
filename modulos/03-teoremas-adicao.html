@@ -62,10 +62,36 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A \cap B = \emptyset\), a fórmula se reduz a \(P(A\cup B)=P(A)+P(B)\).</p>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">🧒 Explicando bem devagar</span>
+    <p>Imagine dois círculos desenhados numa folha, meio grudados (o desenho chamado "diagrama de Venn"). Um
+    círculo é o evento A, o outro é o evento B. Quando eles se encostam, a partezinha onde os dois círculos se
+    sobrepõem é o "A e B" (interseção).</p>
+    <p>Se você quer saber "qual a chance de A OU B acontecer" (some os dois círculos inteiros), o erro mais
+    comum é só somar \(P(A)+P(B)\). Mas isso conta a partezinha do meio (onde os dois se sobrepõem) DUAS
+    vezes! Por isso a regra certa é: soma os dois círculos e depois TIRA uma vez a parte do meio, porque ela
+    já foi contada duas vezes sem querer:</p>
+    \[P(A\cup B) = P(A) + P(B) - P(A\cap B)\]
+    <p>Outra ideia importante: se \(A\) e \(B\) nunca podem acontecer juntos (círculos separados, sem
+    encostar), a parte do meio é vazia (\(P(A\cap B)=0\)), e a fórmula vira só \(P(A\cup B)=P(A)+P(B)\) — o
+    caso mais simples.</p>
+    <p>E o "contrário" de um evento (complemento): se a chance de chover é 30%, a chance de NÃO chover é
+    100%-30%=70%. Ou seja, \(P(\bar A) = 1 - P(A)\) — tudo que existe (100%) menos a parte que você já sabe.</p>
+  </div>
+
   <div class="exercise" id="exemplo4">
     <h3>Exemplo 4 (aula) — 100 estudantes, matemática e química</h3>
     <div class="enunciado">100 estudantes: 30 estudam matemática, 20 estudam química, 10 estudam ambas.
     Calcule a probabilidade de o aluno selecionado ser de matemática ou química.</div>
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>100 alunos no total. 30 fazem matemática, 20 fazem química, e 10 DESSES fazem as duas matérias ao
+      mesmo tempo (estão nos dois grupos).</p>
+      <p>Se você simplesmente somar 30+20=50, estaria contando os 10 alunos "das duas matérias" duas vezes —
+      uma vez dentro do grupo de matemática, outra dentro do grupo de química. Para corrigir, tira-se esses 10
+      uma vez: \(30+20-10=40\) alunos fazem matemática OU química. Como são 100 alunos no total,
+      \(P=40/100=0,4=40\%\).</p>
+    </div>
     <div class="step"><strong class="step-label">I. Resolução</strong>
     \(P(M) = 30/100 = 0.3\)<br>
     \(P(Q) = 20/100 = 0.2\)<br>
@@ -89,6 +115,23 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">\(S=\{a_1,a_2,a_3\}\). a) \(P(a_1)=\frac14,P(a_2)=\frac13,P(a_3)=\frac12\).
     b) \(P(a_1)=\frac23,P(a_2)=-\frac13,P(a_3)=\frac23\). c) \(P(a_1)=\frac16,P(a_2)=\frac13,P(a_3)=\frac12\).
     d) \(P(a_1)=0,P(a_2)=\frac13,P(a_3)=\frac23\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Para uma lista de probabilidades ser "válida" de verdade, ela tem que passar em 2 testes bem simples,
+      como uma receita de bolo que precisa ter as medidas certas:</p>
+      <ul>
+        <li><strong>Teste 1:</strong> nenhuma probabilidade pode ser negativa (não existe "menos chance que
+        zero" de algo acontecer).</li>
+        <li><strong>Teste 2:</strong> somando todas as probabilidades da lista, o resultado tem que dar
+        exatamente 1 (ou seja, 100% — é certeza que ALGUMA coisa da lista vai acontecer).</li>
+      </ul>
+      <p>Em b), \(P(a_2)=-\frac13\) já é negativo — reprovado na hora, nem precisa somar o resto.</p>
+      <p>Em a), somando as três frações dá \(\frac{13}{12}\), que é mais que 1 (mais que 100%) — impossível,
+      reprovado.</p>
+      <p>Em c) e d), nenhuma é negativa E a soma das três dá exatamente 1 — aprovadas, são distribuições
+      válidas.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Verificação direta das duas condições da definição de espaço de probabilidade finito
@@ -131,6 +174,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 12 — Distribuição de probabilidade num dado viciado</h3>
     <div class="enunciado">\(P(1)=0.1, P(2)=0.4, P(3)=0.1, P(4)=0.1, P(5)=0.2, P(6)=0.1\). A={número par},
     B={2,3,4,5}, C={1,2}. a) P(A), P(B), P(C). b) P(A∩B), P(A∪C), P(B∩C).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Este dado é "viciado" — não dá a mesma chance pra cada número, tem chances diferentes escritas na
+      tabela do enunciado (tipo o número 2 sair 40% das vezes, bem mais que os outros). Por isso NÃO dá pra
+      usar aquele truque de "quantos eu quero dividido por quantos existem" do Módulo 2 — esse truque só
+      funciona quando todo mundo tem a mesma chance.</p>
+      <p>Aqui, para achar a chance de um grupo (evento), você simplesmente SOMA as chances de cada número que
+      está dentro daquele grupo. Por exemplo, A = "número par" = {2,4,6}. Some as chances de 2, de 4 e de 6
+      escritas na tabela: \(0,4+0,1+0,1=0,6\).</p>
+      <p>Para "A e B" (interseção), primeiro descubra quais números estão nos dois grupos ao mesmo tempo, e
+      só depois some as chances desses números específicos.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Espaço de probabilidade finito não-equiprovável — soma-se diretamente as probabilidades dos pontos que
@@ -177,6 +233,22 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 13 — Dados P(A), P(B̄) e P(A∪B)</h3>
     <div class="enunciado">\(P(A)=0.6\), \(P(\bar{B})=0.3\), \(P(A\cup B)=0.8\). Ache: a) \(P(A\cap B)\);
     b) \(P(A\cap\bar{B})\); c) \(P(\bar{A}\cap\bar{B})\); d) \(P(\bar{A}\cup\bar{B})\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Cuidado no primeiro passo: o enunciado NÃO dá \(P(B)\) direto, dá \(P(\bar B)=0,3\) (a chance de B
+      NÃO acontecer). Para achar \(P(B)\), usa o truque do "contrário": \(P(B) = 1 - 0,3 = 0,7\). Esse passo é
+      fácil de esquecer, então sempre confira se o que foi dado é o evento ou o contrário dele.</p>
+      <p>a) Para achar a parte do meio dos dois círculos (\(P(A\cap B)\)), usa a fórmula do "ou" ao contrário:
+      em vez de somar e tirar a interseção, você já sabe o resultado da soma (\(P(A\cup B)=0,8\)) e "volta"
+      a conta para descobrir a interseção: \(P(A\cap B)=P(A)+P(B)-P(A\cup B)=0,6+0,7-0,8=0,5\).</p>
+      <p>b) O círculo A pode ser dividido em duas partes: a que se sobrepõe com B, e a que fica "só em A".
+      Como você já sabe o círculo inteiro (0,6) e a parte que se sobrepõe (0,5), a parte que sobra é
+      \(0,6-0,5=0,1\).</p>
+      <p>c) e d) usam um truque chamado "Lei de De Morgan" — parece complicado, mas é simples: "nem A nem B"
+      (círculos c) é o mesmo que "o contrário de (A ou B)" — então \(1-P(A\cup B)=1-0,8=0,2\). E "não A ou não
+      B" (item d) é o contrário de "A e B" — \(1-P(A\cap B)=1-0,5=0,5\).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
     <span class="badge badge-trap">❗</span> O dado fornecido é \(P(\bar{B})=0.3\), não \(P(B)\)! Pelo
