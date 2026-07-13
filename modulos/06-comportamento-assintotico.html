@@ -64,10 +64,46 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <em>exiba</em> um par que funcione, não o par "ótimo".</p>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">💡 Explicando bem devagar</span>
+    <p>Imagine uma corrida entre dois carrinhos de brinquedo, mas de "velocidades diferentes de crescer": um
+    carrinho anda \(g(n)\) metros e o outro anda \(f(n)\) metros, dependendo de quanto tempo \(n\) passou. Big-O
+    (\(O\)) é uma forma de dizer <strong>"o carrinho g nunca vai passar muito na frente do carrinho f, se você
+    deixar o f andar um pouco mais rápido (multiplicado por uma constante c)"</strong> — ou seja, f é tipo um
+    "limite de velocidade" que g respeita, a partir de um certo ponto.</p>
+    <p>Os símbolos estranhos \(\exists c, m\) e \(\forall n \geq m\) são só um jeito bem formal de dizer:</p>
+    <ul>
+      <li><strong>\(\exists\)</strong> = "existe" (você só precisa achar UM valor que funcione, não todos).</li>
+      <li><strong>\(\forall n \geq m\)</strong> = "para todo \(n\) a partir de um certo ponto \(m\) em diante"
+      — ou seja, a regra vale "daqui pra frente", não precisa valer no começo (\(n\) pequeno pode ser
+      bagunçado, não importa).</li>
+    </ul>
+    <p>Então a receita de toda prova de \(O\) é: pegue a função \(g(n)\), ache um número \(c\) (uma
+    "multiplicação de segurança") e um ponto de partida \(m\) tal que, a partir dali, \(g(n)\) nunca ultrapassa
+    \(c\) vezes \(f(n)\). Não precisa ser o \(c\) mais "justo" possível — vale até um \(c\) exagerado, desde
+    que a conta feche.</p>
+    <p>Truque prático que resolve praticamente todo exercício: olhe o termo de MAIOR expoente da função (ex.:
+    em \(n^2+2n+1\), é o \(n^2\)) — ele é quem manda no crescimento quando \(n\) fica grande. Os termos
+    menores (2n, 1) ficam "pequenos" perto dele, então dá pra "cobrir" todos eles multiplicando \(f(n)\) por
+    uma constante grande o bastante.</p>
+  </div>
+
   <div class="exercise" id="exemplo-o">
     <h3>Exemplos do professor (Aula 12) — provando O(f(n))</h3>
     <div class="enunciado">Para cada par de funções \(g(n)\) e \(f(n)\) abaixo, exiba constantes \(c>0\) e
     \(m>0\) tais que \(|g(n)| \leq c\,|f(n)|\) para todo \(n\geq m\), provando que \(g(n)\) é \(O(f(n))\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p><strong>Exemplo 1:</strong> \(g(n)=(n+1)^2\). Primeiro, "abra" o quadrado (multiplique tudo):
+      \((n+1)^2 = n^2+2n+1\). Agora eu preciso mostrar que isso nunca passa de "um número vezes \(n^2\)". Cada
+      pedacinho (\(n^2\), \(2n\), \(1\)) dá pra "trocar" por uma cópia de \(n^2\) (usando que, para \(n\geq1\),
+      \(n\) é menor ou igual a \(n^2\), e \(1\) também é menor ou igual a \(n^2\)) — então \(n^2+2n+1\) fica
+      menor ou igual a \(n^2+2n^2+n^2=4n^2\). Achei: \(c=4\), \(m=1\), pronto.</p>
+      <p><strong>Ideia que se repete nos 4 exemplos:</strong> troque cada termo "pequeno" pela maior potência
+      de \(n\) que aparece (multiplicando o coeficiente), some tudo, e esse é o seu \(c\). Não precisa ser o
+      número mais "econômico" — só precisa funcionar.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Exemplo 1: g(n)=(n+1)², f(n)=n²</strong>
     Expandindo: \(g(n) = n^2+2n+1\). Quero \(c\) e \(m\) tais que \(n^2+2n+1 \leq c\,n^2\) para \(n\geq m\).
@@ -141,6 +177,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <h3>Exemplo do professor — três trechos de programa</h3>
       <div class="enunciado">Três trechos de programa com tempos de execução \(O(n)\), \(O(n^2)\) e
       \(O(n\log n)\). Qual a complexidade assintótica total do programa?</div>
+      <div class="eli5">
+        <span class="eli5-label">💡 Passo a passo bem simples</span>
+        <p>Pense em 3 pessoas caminhando: uma anda \(n\) passos, outra \(n^2\) passos, outra \(n\log n\)
+        passos. Se elas andam uma depois da outra (sequencialmente), o tempo TOTAL da caminhada, quando \(n\)
+        é bem grande, é basicamente igual ao tempo da pessoa MAIS LENTA — as outras duas "somem" perto dela,
+        porque \(n^2\) cresce muito mais rápido que \(n\) e que \(n\log n\).</p>
+        <p>Por isso, quando você soma complexidades diferentes, o resultado é sempre a MAIOR delas, nunca a
+        soma "de verdade" — regra prática: ache quem cresce mais rápido, e essa é a resposta.</p>
+      </div>
       <div class="step"><strong class="step-label">I. Resolução</strong>
       Regra 5: \(O(f)+O(g)=O(\max(f,g))\), aplicada duas vezes.<br>
       1ª combinação: \(O(n) + O(n^2) \to O(\max(n,n^2)) = O(n^2)\) (\(n^2\) domina \(n\)).<br>
@@ -167,6 +212,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \[g(n) \geq c \cdot f(n)\]
     <p>\(\Omega\) é o "espelho" de \(O\): enquanto \(O\) dá um teto (limite superior), \(\Omega\) dá um piso
     (limite inferior) para o crescimento de \(g\).</p>
+  </div>
+
+  <div class="eli5">
+    <span class="eli5-label">💡 Explicando bem devagar</span>
+    <p>Se \(O\) é o "teto" (g nunca cresce mais rápido que isso), \(\Omega\) é o "chão" — g NUNCA cresce mais
+    devagar que isso. É a mesma ideia de antes, só que a desigualdade vira ao contrário
+    (\(g(n)\geq c\,f(n)\) em vez de \(\leq\)).</p>
+    <p>Truque prático aqui: quando \(g(n)\) tem vários termos e todos são positivos (ou \(\geq0\) para o
+    \(n\) que está usando), você pode simplesmente JOGAR FORA os termos "extras" — eles só ajudam a deixar
+    \(g(n)\) maior, então tirá-los só torna a prova de "chão" mais fácil (nunca mais difícil). Ficando só com
+    o termo de maior grau, você já tem seu piso.</p>
   </div>
 
   <div class="exercise">
@@ -227,6 +283,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(\Omega\)).</p>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">💡 Explicando bem devagar</span>
+    <p>Se \(O\) é o teto e \(\Omega\) é o chão, \(\Theta\) é dizer as DUAS coisas ao mesmo tempo: "\(g(n)\)
+    está PRESA entre um chão e um teto que são basicamente a mesma função \(f(n)\), só com constantes
+    diferentes na frente". É como dizer que a altura de uma criança está sempre entre 0,9× e 1,1× a média da
+    idade dela — nem mais baixa nem mais alta demais, sempre "no mesmo ritmo" de crescimento.</p>
+    <p>Na prática, provar \(\Theta\) é só juntar uma prova de \(O\) (que você já sabe fazer) com uma prova de
+    \(\Omega\) (que você também já sabe fazer) e usar o MAIOR \(m\) das duas — porque as duas desigualdades
+    (chão e teto) precisam valer ao mesmo tempo, então o ponto de partida tem que servir para as duas.</p>
+  </div>
+
   <div class="exercise">
     <h3>Exemplos do professor — combinando O e Ω em Θ</h3>
     <div class="enunciado">Para cada \(g(n)\) abaixo, use as provas de O e de Ω já obtidas para concluir que
@@ -266,6 +333,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Demonstre, exibindo constantes \(c\) (ou \(c_1,c_2\)) e \(m\) explícitos: (a)
     \(n^2\) é \(O(n^4)\); (b) \(n\cdot\text{sen}(n)\) é \(O(n)\); (c) \(n(n+1)(n+2)\) é \(\Theta(n^3)\); (d)
     \(n(n+5)/2\) é \(\Omega(n^2)\); (e) \(n^3+2n^2+n+5\) é \(\Omega(n^3)\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>Cinco provas seguidas, mas todas usam os mesmos dois truques já explicados: para O (teto), troque
+      cada termo pequeno pela maior potência e some; para Ω (chão), jogue fora os termos positivos "extras" e
+      fique só com o pedaço garantido.</p>
+      <p>(a) e (b) são só O. (c) precisa dos dois (é Θ). (d) e (e) são só Ω. Em (b), o truque extra é lembrar
+      que a função seno NUNCA passa de 1 nem de -1 — então \(n\cdot\text{sen}(n)\) nunca é maior que
+      \(n\times1=n\) em valor absoluto, o que já prova O(n) na hora.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. 20a) n² é O(n⁴)</strong>
     <strong>Classificação:</strong> prova direta de O — basta um par (c,m).<br>
@@ -368,6 +445,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Programa com \(n\) dados de entrada, dividido em: (a) Entrada de dados: \(O(n)\);
     (b) Ordenação (Bolha): \(O(n^2)\); (c) Busca binária: \(O(\log n)\). Qual a complexidade do programa?</div>
 
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>Igual ao exemplo do professor logo antes desta questão: 3 partes do programa rodam uma depois da
+      outra, com velocidades de crescimento \(n\), \(n^2\) e \(\log n\). Quem cresce mais rápido quando \(n\)
+      fica bem grande "engole" as outras duas — e nesse caso é a ordenação, \(n^2\). Resposta: o programa
+      inteiro é \(O(n^2)\), porque a parte mais lenta dita o ritmo de tudo.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Soma de três trechos de complexidades diferentes — aplica-se a regra 5 das operações com O:
     \(O(f)+O(g) = O(\max(f,g))\), estendida para três parcelas.</div>
@@ -394,6 +479,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="ex22">
     <h3>Questão 22 — Transitividade de O</h3>
     <div class="enunciado">Demonstre que se \(f(n)=O(g(n))\) e \(g(n)=O(h(n))\), então \(f(n)=O(h(n))\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>Imagine 3 amigos numa fila de corrida de bicicleta: o f nunca ultrapassa muito o g (f é "dominado"
+      por g), e o g nunca ultrapassa muito o h. Faz sentido que o f também nunca ultrapasse muito o h, certo?
+      Essa é a ideia da questão — se A nunca é muito mais rápido que B, e B nunca é muito mais rápido que C,
+      então A também nunca é muito mais rápido que C.</p>
+      <p>Para provar isso "no papel", você escreve as duas informações que já tem (f ≤ c₁·g e g ≤ c₂·h), e
+      "encaixa" uma dentro da outra: troque o "g" na primeira desigualdade pelo valor que a segunda
+      desigualdade te dá para g. Sobra \(f(n) \leq c_1 c_2\, h(n)\) — exatamente o que você queria provar, com
+      a nova constante sendo o PRODUTO das duas constantes antigas.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Prova formal usando diretamente a definição de O — não é uma questão numérica, é uma demonstração geral
