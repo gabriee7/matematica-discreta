@@ -66,12 +66,49 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     </div>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">💡 Explicando bem devagar</span>
+    <p>Dois eventos são <strong>independentes</strong> quando um não "avisa" nada sobre o outro. Jogar uma
+    moeda duas vezes: o resultado da 1ª jogada (cara ou coroa) não muda em nada a chance da 2ª jogada — elas
+    são independentes. Já "está chovendo" e "tem gente com guarda-chuva na rua" NÃO são independentes: saber
+    uma coisa muda a chance da outra.</p>
+    <p>Para eventos independentes, existe um atalho enorme: a chance dos DOIS acontecerem juntos é só
+    <strong>multiplicar</strong> as chances de cada um: \(P(A\cap B) = P(A)\times P(B)\). Nada de somar ou
+    subtrair, só multiplicar.</p>
+    <p>Quando você repete o MESMO experimento várias vezes (tipo jogar uma moeda 5 vezes, ou um jogador
+    tentando acertar uma cesta 5 vezes), e cada tentativa é independente das outras, existe uma fórmula pronta
+    chamada <strong>distribuição binomial</strong> para responder "qual a chance de dar certo exatamente \(k\)
+    vezes em \(n\) tentativas". Ela tem 3 pedaços, cada um respondendo uma pergunta:</p>
+    <ul>
+      <li>\(\binom{n}{k}\) = "de quantos JEITOS diferentes posso escolher QUAIS tentativas deram certo?"</li>
+      <li>\(p^k\) = "chance de acertar, multiplicada \(k\) vezes (uma vez pra cada acerto)"</li>
+      <li>\((1-p)^{n-k}\) = "chance de errar, multiplicada pelas vezes restantes que erraram"</li>
+    </ul>
+    <p>Multiplique os três pedaços e pronto. É exatamente essa fórmula que vai aparecer o tempo todo daqui pra
+    frente — e nos exercícios abaixo, cada acerto/erro possível é escrito por extenso (tipo "aaeee") pra você
+    ver de onde vem o \(\binom{n}{k}\).</p>
+  </div>
+
   <div class="exercise" id="exemplo6">
     <h3>Exemplo 6 (aula)</h3>
     <div class="enunciado">a) 3 lançamentos de moeda. A={1º lance é cara}, B={2º lance é cara},
     C={exatamente duas caras seguidas}. Quais pares são independentes? b) Tiro ao alvo: atirador A acerta com
     \(P=1/4\), atirador B acerta com \(P=2/5\). Ambos atiram. Qual a probabilidade de que pelo menos um
     acerte?</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>a) 3 moedas jogadas. A pergunta é: A (a 1ª deu cara), B (a 2ª deu cara) e C (deu exatamente 2 caras
+      SEGUIDAS) — quais pares "não se afetam"? Para cada par, você calcula \(P(X\cap Y)\) (a chance real dos
+      dois juntos, contando os casos) e compara com \(P(X)\times P(Y)\) (o que "deveria" dar se fossem
+      independentes). Se bater, são independentes; se não bater, um afeta o outro.</p>
+      <p>Resultado curioso: A e B são independentes (faz sentido, moedas diferentes). A e C também. Mas B e C
+      NÃO são — porque toda vez que C acontece (duas caras seguidas), a 2ª moeda OBRIGATORIAMENTE deu cara,
+      então saber que C aconteceu já "avisa" que B também aconteceu. Isso é o oposto de independência.</p>
+      <p>b) Dois atiradores, cada um atira uma vez. "Pelo menos um acerta" de novo usa o truque do contrário:
+      calcule a chance de os DOIS errarem (multiplicando as chances de erro de cada um, porque são
+      independentes), e depois faça \(1-\)isso.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. a) Resolução</strong>
     \(S=\{CCC,CCK,CKC,CKK,KCC,KCK,KKC,KKK\}\) (C=cara, K=coroa), 8 elementos equiprováveis.<br>
@@ -119,6 +156,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Três cavalos a, b, c com \(P(a)=\frac12, P(b)=\frac13, P(c)=\frac16\). Competem 2
     vezes hoje. Calcule a probabilidade de cada elemento do espaço amostral.</div>
 
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>3 cavalos correm 2 vezes no mesmo dia. Cada corrida é independente da outra (o resultado da 1ª não
+      afeta a 2ª). Para saber a chance de, por exemplo, "cavalo a vence a 1ª corrida E cavalo b vence a 2ª",
+      é só multiplicar a chance de cada coisa separada: \(P(a)\times P(b)\).</p>
+      <p>Existem \(3\times3=9\) combinações possíveis de resultado (quem ganha a 1ª, quem ganha a 2ª), e para
+      cada uma delas você multiplica as duas chances envolvidas. No final, um jeito de conferir se fez tudo
+      certo: somando as 9 probabilidades, o resultado TEM que dar exatamente 1 (100%) — porque com certeza
+      algum desses 9 resultados vai acontecer.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I. Resolução</strong>
     Espaço de 2 tentativas: \(S^2 = \{a,b,c\}\times\{a,b,c\}\), 9 elementos.<br>
     Cada probabilidade = produto das probabilidades dos componentes:<br>
@@ -161,6 +209,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 17 — Cavalos a, b, c correm 3 vezes</h3>
     <div class="enunciado">\(P(a)=0.3, P(b)=0.5, P(c)=0.2\). a) Mesmo cavalo ganha as 3 corridas.
     b) Cada um dos 3 cavalos vence exatamente uma vez.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>a) "O mesmo cavalo ganha as 3 corridas": pode ser sempre o a, ou sempre o b, ou sempre o c — três
+      jeitos diferentes de acontecer, que nunca se misturam (excludentes). Calcule a chance de cada um
+      (multiplicando a probabilidade daquele cavalo 3 vezes, já que são 3 corridas independentes) e SOME os
+      três resultados.</p>
+      <p>b) "Cada cavalo vence exatamente uma vez em 3 corridas": pense em 3 corridas como 3 posições numa
+      fila (1ª, 2ª, 3ª), e você precisa colocar a, b, c nessas posições sem repetir nenhum. Quantos jeitos de
+      arrumar 3 coisas diferentes numa fila? \(3!=6\). Toda arrumação tem a MESMA chance, porque multiplicar
+      \(P(a)\times P(b)\times P(c)\) dá o mesmo número não importa a ordem. Então: multiplique as 3 chances
+      uma vez, e depois multiplique por 6 (as 6 ordens possíveis).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Espaço de 3 tentativas independentes repetidas, \(S^3\) — mesma estrutura do Exemplo 7, mas com 3
@@ -205,6 +266,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 18 — Antônio, lance de 3 pontos, p=0.4, 5 tentativas</h3>
     <div class="enunciado">a) Exatamente duas vezes. b) Pelo menos uma vez.</div>
 
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>Antônio tenta 5 vezes, cada tentativa acerta com chance 0,4 (40%) e erra com chance 0,6 (60%).</p>
+      <p>a) "Exatamente 2 acertos em 5 tentativas": pense em cada tentativa como uma letra, "a" (acertou) ou
+      "e" (errou). Você precisa de sequências de 5 letras com exatamente 2 "a"s, tipo "aaeee", "aeaee",
+      "eeeaa"... Existem \(\binom{5}{2}=10\) sequências assim diferentes (é só escolher QUAIS 2 das 5
+      tentativas foram acerto). Cada uma dessas 10 sequências tem a mesma chance: 0,4 multiplicado 2 vezes
+      (pelos 2 acertos) vezes 0,6 multiplicado 3 vezes (pelos 3 erros). Multiplique essa chance por 10.</p>
+      <p>b) "Pelo menos 1 acerto em 5 tentativas" — de novo o truque do contrário: a única forma de NÃO ter
+      nenhum acerto é errar as 5 vezes seguidas, chance \((0,6)^5\). A resposta é \(1\) menos isso.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Distribuição binomial: \(n=5\) tentativas independentes, sucesso (acertar) com \(p=0.4\) — identificar o
     padrão binomial logo de início evita tentar enumerar ou somar casos manualmente.</div>
@@ -248,6 +321,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="ex19">
     <h3>Questão 19 — Jogador de baseball, média 0.3, 4 tentativas</h3>
     <div class="enunciado">a) Exatamente uma vez. b) Pelo menos uma vez.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">💡 Passo a passo bem simples</span>
+      <p>Mesmo tipo de questão da 18, agora com \(n=4\) tentativas e chance de acerto \(p=0,3\) (30%).</p>
+      <p>a) "Exatamente 1 acerto em 4 tentativas": sequências de 4 letras (a/e) com só um "a" — aeee, eaee,
+      eeae, eeea — são \(\binom{4}{1}=4\) sequências. Multiplique por 0,3 (o acerto) vezes \((0,7)^3\) (os 3
+      erros).</p>
+      <p>b) "Pelo menos 1 acerto": \(1\) menos a chance de errar as 4 vezes seguidas, \((0,7)^4\).</p>
+      <p>Perceba que é exatamente a mesma "receita" da Questão 18 — só os números de entrada mudam
+      (\(n\), \(k\) e \(p\)). Uma vez que você entende o padrão, os números são só substituição.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
     Binomial: \(n=4\), \(p=0.3\).<br>
