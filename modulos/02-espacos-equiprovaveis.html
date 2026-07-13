@@ -74,10 +74,44 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     importa (ex.: filas, sequências).</div>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">🧒 Explicando bem devagar</span>
+    <p>Imagine uma sacola com bolinhas de gude, todas do mesmo tamanho e peso — nenhuma é "mais fácil" de
+    pegar que outra. Isso é um <strong>espaço equiprovável</strong>: todo resultado tem exatamente a mesma
+    chance. Se tem \(n\) bolinhas na sacola, cada bolinha tem chance \(1/n\) de ser a escolhida.</p>
+    <p>Para saber a chance de tirar uma bolinha "vermelha" (o evento que te interessa), você só precisa
+    contar: <strong>quantas bolinhas vermelhas tem (chamamos de "favoráveis")</strong> dividido por
+    <strong>quantas bolinhas tem no total</strong>. É a fórmula \(P(E) = |E|/|S|\) — nada mais que "quantas eu
+    quero" dividido por "quantas existem".</p>
+    <p>Duas formas de contar aparecem o tempo todo:</p>
+    <ul>
+      <li><strong>Quando a ORDEM NÃO importa</strong> (ex.: escolher 2 amigos para um time, tanto faz quem
+      você escolhe primeiro) — usa-se <strong>combinação</strong>, \(\binom{n}{k}\), que se lê "n escolhe k".</li>
+      <li><strong>Quando a ORDEM importa</strong> (ex.: quem chega em 1º e quem chega em 2º numa corrida são
+      coisas diferentes) — usa-se a <strong>regra do produto</strong> (multiplicar as opções em cada posição)
+      ou <strong>arranjo</strong>.</li>
+    </ul>
+    <p>Truque para saber qual usar: se trocar a ordem dá o "mesmo resultado" pra você (escolher João-depois-
+    Maria é igual a Maria-depois-João), é combinação. Se trocar a ordem MUDA o resultado (João em 1º lugar é
+    diferente de João em 2º lugar), é arranjo/produto.</p>
+  </div>
+
   <div class="exercise" id="exemplo2">
     <h3>Exemplo 2 (aula) — Número de caras em 3 lançamentos</h3>
     <div class="enunciado">Observa-se o número de caras obtidas em 3 lançamentos de moeda. Defina S, calcule
     P de cada elemento. Seja A={pelo menos uma cara} e B={todas caras ou todas coroas}. Calcule P(A) e P(B).</div>
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>1) Jogar uma moeda 3 vezes dá \(2\times2\times2=8\) resultados possíveis (mesma árvore de galhos do
+      Módulo 1). Como a moeda é "honesta", cada um dos 8 resultados tem a mesma chance: \(1/8\) cada.</p>
+      <p>2) A = "pelo menos uma cara". Em vez de contar um por um todos os jeitos de ter 1, 2 ou 3 caras, é
+      mais fácil perguntar o contrário: "qual é a ÚNICA forma de NÃO ter nenhuma cara?" — é KKK (as 3 coroas).
+      Só 1 dos 8. Então "pelo menos uma cara" é tudo, MENOS esse 1 caso: \(P(A) = 1 - 1/8 = 7/8\).</p>
+      <p>3) B = "todas iguais" — ou é CCC (3 caras) ou é KKK (3 coroas), só esses 2 casos dos 8:
+      \(P(B) = 2/8 = 1/4\).</p>
+      <p>Ideia-chave que vai se repetir MUITO: sempre que ver "pelo menos um", pense no contrário ("nenhum") —
+      quase sempre é mais fácil de contar.</p>
+    </div>
     <div class="step"><strong class="step-label">I. Dados</strong>
     3 lançamentos independentes de uma moeda; observa-se o número de caras — identificar o experimento exato
     evita confundir "número de caras" com "sequência de caras e coroas", que teria outro espaço amostral.</div>
@@ -121,6 +155,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplo 3 (aula) — Carta de baralho</h3>
     <div class="enunciado">Seleciona-se uma carta de um baralho de 52. A={carta de espadas}, B={carta é
     figura}. Calcule P(A), P(B) e P(A∩B).</div>
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>1) Um baralho tem 52 cartas, divididas em 4 "famílias" (naipes) de 13 cartas cada: ouros, paus, copas
+      e espadas. Como você tira 1 carta ao acaso, cada uma das 52 tem a mesma chance de sair.</p>
+      <p>2) A = "é de espadas": tem 13 cartas de espadas entre as 52, então \(P(A)=13/52\), que simplificando
+      dá \(1/4\) — faz sentido, porque é exatamente 1 de cada 4 naipes.</p>
+      <p>3) B = "é uma figura" (valete, dama ou rei): cada naipe tem 3 figuras, e são 4 naipes, então
+      \(3\times4=12\) figuras no total: \(P(B)=12/52\).</p>
+      <p>4) \(P(A\cap B)\) = "é DE ESPADAS E é figura" ao mesmo tempo: só as figuras de espadas contam — são 3
+      (valete, dama, rei de espadas): \(P(A\cap B)=3/52\).</p>
+      <p>Repare que precisamos contar \(A\cap B\) separadamente porque uma carta pode ser as duas coisas ao
+      mesmo tempo (espadas E figura) — isso vai ser importante no Módulo 3, quando juntamos "ou".</p>
+    </div>
     <div class="step"><strong class="step-label">I. Dados</strong>
     Baralho padrão de 52 cartas, uma carta selecionada ao acaso — fixar o tamanho do baralho antes de contar
     evita erros de contagem nos itens seguintes.</div>
@@ -167,6 +214,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">a) Número ímpar no lançamento de um dado. b) Uma ou mais caras em 4 moedas.
     c) Um ou ambos números excedem 4 em 2 dados.</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>a) No dado de 6 lados, os ímpares são 1, 3, 5 — são 3 números "bons" em 6 possíveis:
+      \(P=3/6=1/2\) (metade das faces).</p>
+      <p>b) 4 moedas: pense de novo no truque "pelo menos um" = 1 − "nenhum". "Nenhuma cara" é só 1 jeito
+      (KKKK) entre \(2^4=16\): \(P = 1 - 1/16 = 15/16\).</p>
+      <p>c) 2 dados: "um ou ambos passam de 4" também usa o truque do contrário — "nenhum passa de 4" quer
+      dizer que os DOIS dados caíram em {1,2,3,4}. Chance de um dado cair aí: \(4/6\). Como os dois dados são
+      jogados juntos (independentes), multiplica-se: \((4/6)\times(4/6)=4/9\). Então a resposta é
+      \(P = 1-4/9 = 5/9\).</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Três espaços equiprováveis distintos: dado (6 pontos), 4 moedas (\(2^4=16\) pontos), 2 dados (36 pontos).
     Em (b) e (c), "pelo menos" sugere usar o complemento.</div>
@@ -209,6 +268,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">a) Maior que 10. b) Divisível por 5. c) Maior que 10 e divisível por 5.
     d) Maior que 10 ou divisível por 5.</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Imagine 50 cartõezinhos numerados de 1 a 50 numa caixa.</p>
+      <p>a) "Maior que 10" são os números de 11 até 50 — conte: \(50-10=40\) números. \(P=40/50=4/5\).</p>
+      <p>b) "Divisível por 5" são 5, 10, 15, ..., 50 — dá pra contar de 5 em 5: são 10 números.
+      \(P=10/50=1/5\).</p>
+      <p>c) "Maior que 10 E divisível por 5" (as duas coisas ao mesmo tempo): de 15 até 50, de 5 em 5 — são
+      8 números. \(P=8/50=4/25\).</p>
+      <p>d) "Maior que 10 OU divisível por 5" — aqui é tentador só somar (a)+(b), mas isso contaria os números
+      que são as DUAS coisas (o item c) duas vezes! Por isso a fórmula certa é somar os dois grupos e depois
+      TIRAR a parte que foi contada duas vezes: \(4/5+1/5-4/25=21/25\). Essa é a "regra do OU" que o Módulo 3
+      explica com mais detalhe.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Espaço equiprovável com \(|S|=50\). O item (d) é um caso de <strong>princípio da adição</strong>
     (Módulo 3): \(P(A\cup B) = P(A)+P(B)-P(A\cap B)\), então (a), (b) e (c) são os insumos para (d).</div>
@@ -250,6 +323,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="ex5">
     <h3>Questão 5 — 10 garotas, 3 de olhos azuis, escolhem-se 2</h3>
     <div class="enunciado">a) Ambas azuis. b) Nenhuma azul. c) Pelo menos uma azul. d) Exatamente uma azul.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>10 garotas, 3 delas de olhos azuis, 7 de outra cor. Você escolhe 2 garotas, sem se importar com a
+      ordem (escolher "Ana e Bia" é igual a escolher "Bia e Ana") — por isso é uma <strong>combinação</strong>.
+      O total de jeitos de escolher 2 de 10 é \(\binom{10}{2}=45\) — pense nisso como "quantos pares diferentes
+      dá pra formar".</p>
+      <p>a) "Ambas azuis": escolher 2 das 3 azuis, \(\binom{3}{2}=3\) jeitos. \(P=3/45\).</p>
+      <p>b) "Nenhuma azul": escolher 2 das 7 não-azuis, \(\binom{7}{2}=21\) jeitos. \(P=21/45\).</p>
+      <p>c) "Pelo menos uma azul" = o contrário de "nenhuma azul": \(P=1-21/45\).</p>
+      <p>d) "Exatamente uma azul": escolher 1 azul (3 jeitos) E 1 não-azul (7 jeitos); como as duas escolhas
+      acontecem juntas, multiplica-se: \(3\times7=21\) jeitos. \(P=21/45\).</p>
+      <p>Confira sempre: "nenhuma azul" + "pelo menos uma azul" tem que dar exatamente 1 (100%) — se não der,
+      alguma conta está errada.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Escolher 2 pessoas de um grupo de 10 sem se importar com a ordem → combinação. \(|S| = C(10,2) = 45\).</div>
@@ -297,6 +385,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 6 — 3 meninos e 3 meninas em fila</h3>
     <div class="enunciado">a) As 3 meninas sentam juntas. b) Meninos e meninas alternados.</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>6 crianças diferentes em fila. Aqui a ORDEM importa muito (João na frente é diferente de João atrás),
+      então usamos fatorial: o total de filas possíveis é \(6! = 6\times5\times4\times3\times2\times1=720\).</p>
+      <p>a) "As 3 meninas juntas": imagine as 3 meninas grudadas formando UM bloco só. Agora você está
+      arrumando 4 "coisas" na fila (o bloco + os 3 meninos): \(4!=24\) jeitos de arrumar essas 4 coisas. Mas
+      dentro do bloco, as 3 meninas também podem trocar de ordem entre si: \(3!=6\) jeitos. Multiplicando:
+      \(24\times6=144\) filas boas. \(P=144/720=1/5\).</p>
+      <p>b) "Alternado" (menino-menina-menino-menina... ou o contrário): só existem 2 "moldes" possíveis
+      (começar com menino ou começar com menina). Para cada molde, os 3 meninos podem trocar de posição entre
+      si (\(3!\)) e as 3 meninas também (\(3!\)): \(2\times6\times6=72\) filas boas. \(P=72/720=1/10\).</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Arranjo de 6 pessoas distintas em fila: \(|S| = 6! = 720\) (ordem importa, todos distintos).</div>
 
@@ -334,6 +435,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 7 — Três moedas</h3>
     <div class="enunciado">a) Tamanho do espaço amostral. b) Uma cara e duas coroas. c) Só coroas.
     d) Só coroas ou só caras. e) Só coroas e só caras.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>3 moedas jogadas: como no Módulo 1, são \(2^3=8\) resultados possíveis, todos igualmente prováveis.</p>
+      <p>b) "1 cara e 2 coroas" — liste os resultados com exatamente essa mistura: KCC, CKC, CCK (a cara pode
+      estar na 1ª, 2ª ou 3ª posição). São 3 dos 8: \(P=3/8\).</p>
+      <p>c) "Só coroas" tem um único jeito de acontecer: CCC. \(P=1/8\).</p>
+      <p>d) "Só coroas OU só caras" — como esses dois casos não têm nenhum resultado em comum (não dá pra ser
+      "só coroas" e "só caras" ao mesmo tempo), é só somar: \(1/8+1/8=2/8=1/4\).</p>
+      <p>e) "Só coroas E só caras" ao mesmo tempo — pense bem: isso é IMPOSSÍVEL, as 3 moedas não podem ser
+      todas coroa e todas cara ao mesmo tempo. Por isso \(P=0\).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
     \(S = \{KKK,KKC,KCK,KCC,CKK,CKC,CCK,CCC\}\) → \(|S|=8\).<br>
@@ -374,6 +487,22 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 8 — Dois dados</h3>
     <div class="enunciado">a) Tamanho de S. b) Dois valores iguais a 1. c) Par (mesmo valor nos dois).
     d) Soma 7. e) 1 em pelo menos um dado. f) Soma maior que 10. g) Soma ímpar.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>2 dados jogados juntos: pense numa tabela de 6 linhas (dado 1) por 6 colunas (dado 2) — são
+      \(6\times6=36\) quadradinhos, cada um um resultado possível igualmente provável.</p>
+      <p>b) "Os dois deram 1": só o quadradinho (1,1). \(P=1/36\).</p>
+      <p>c) "Deram o mesmo valor": a "diagonal" da tabela, (1,1),(2,2),...,(6,6) — 6 quadradinhos.
+      \(P=6/36=1/6\).</p>
+      <p>d) "Soma 7": procure na tabela os pares que somam 7 — (1,6),(2,5),(3,4),(4,3),(5,2),(6,1), são 6.
+      \(P=6/36=1/6\).</p>
+      <p>e) "Pelo menos um dado deu 1" — de novo, mais fácil pelo contrário: "nenhum dado deu 1" significa os
+      dois caíram em {2,3,4,5,6} (5 opções cada), \((5/6)\times(5/6)=25/36\). Resposta: \(1-25/36=11/36\).</p>
+      <p>f) "Soma maior que 10": só soma 11 (2 quadradinhos) e soma 12 (1 quadradinho) = 3. \(P=3/36=1/12\).</p>
+      <p>g) "Soma ímpar": a soma só é ímpar se um dado deu par e o outro deu ímpar (par+ímpar=ímpar). Isso dá
+      metade dos 36 quadradinhos: \(P=18/36=1/2\).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
     \(|S| = 6 \times 6 = 36\) pares \((d_1,d_2)\), equiprováveis.<br>
@@ -419,6 +548,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">a) Tamanho de S. b) Ambas espadas. c) Nenhuma espada. d) Exatamente uma espada.
     e) Pelo menos uma espada. f) Ambas figuras. g) Ambas figuras de espadas. h) Ambas figuras ou ambas
     espadas.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Tirar 2 cartas de um baralho de 52 sem devolver a primeira (sem reposição) e sem ligar pra ordem: o
+      total de "mãos" possíveis é \(\binom{52}{2}=1326\) — pense como "quantos pares diferentes de cartas dá
+      pra formar".</p>
+      <p>b,c,d,e seguem o mesmo padrão da Questão 5 (garotas de olhos azuis), só que agora o grupo "especial"
+      são as 13 espadas e o grupo "comum" são as 39 cartas que não são espadas: escolher 2 espadas
+      (\(\binom{13}{2}\)), 2 não-espadas (\(\binom{39}{2}\)), ou 1 de cada (\(13\times39\)).</p>
+      <p>f) e g) repetem a ideia com "figuras" (12 no baralho: valete, dama, rei × 4 naipes) e "figuras de
+      espadas" (só 3: valete, dama, rei de espadas).</p>
+      <p>h) "Ambas figuras OU ambas espadas" — de novo a regra do OU do Módulo 3: some as duas chances e tire
+      a parte que conta duas vezes (mão de 2 figuras de espadas, que é ao mesmo tempo "ambas figuras" e "ambas
+      espadas"): \(P(f)+P(b)-P(g)\).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Escolha de 2 cartas sem reposição e sem ordem → combinação: \(|S| = \binom{52}{2} = 1326\). O item (h)
@@ -468,6 +612,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 10 — Loteria Daily3 (3 dígitos de 0 a 9, com repetição)</h3>
     <div class="enunciado">a) Probabilidade de uma sequência exata. b) Probabilidade de um lote, se forem
     sorteados 3 números distintos. c) Probabilidade de um lote, se dois dos números sorteados forem iguais.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Uma loteria sorteia 3 dígitos, cada um de 0 a 9, e PODE repetir o mesmo dígito duas vezes. Como são
+      3 sorteios independentes com 10 opções cada: \(10\times10\times10=1000\) resultados possíveis.</p>
+      <p>a) Jogar "na sequência exata" (a ordem tem que bater certinho): só 1 dos 1000 resultados te dá a
+      vitória. \(P=1/1000\).</p>
+      <p>b) Jogar "em lote" quando os 3 números sorteados são todos diferentes: agora você ganha não importa
+      em qual ORDEM eles saíram — e existem \(3!=6\) ordens diferentes para embaralhar 3 números distintos
+      (tipo 1-2-3, 1-3-2, 2-1-3...). Cada uma dessas 6 ordens é um resultado que te faz ganhar:
+      \(P=6/1000\).</p>
+      <p>c) Se dois dos números sorteados são iguais (tipo 1-1-2), tem MENOS jeitos de embaralhar, porque
+      trocar as duas casas com o número repetido não muda nada — só existem 3 arrumações diferentes (112, 121,
+      211), não 6. \(P=3/1000\).</p>
+    </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Cada dígito sorteado é independente e pode repetir: \(|S| = 10^3 = 1000\) sequências ordenadas possíveis.
