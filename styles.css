@@ -282,19 +282,7 @@ aside.toc details[open] > summary::after { content: " ▴"; }
 
 aside.toc details[open] > summary { margin-bottom: 0.6rem; }
 
-/* No desktop a lista fica sempre visivel, independente do atributo open —
-   o <summary> vira so um rotulo, sem interatividade. */
-@media (min-width: 769px) {
-  aside.toc summary {
-    cursor: default;
-    pointer-events: none;
-    background: transparent;
-    border: none;
-    padding: 0;
-  }
-  aside.toc summary::after { content: ""; }
-  aside.toc details > ul { display: block !important; }
-}
+/* Recolhivel em qualquer tamanho de tela — clique no resumo para expandir. */
 
 main {
   min-width: 0;
