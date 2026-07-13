@@ -68,7 +68,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       {maçã, banana} e B = {banana, uva}, então A∪B = {maçã, banana, uva} — juntou tudo, sem repetir.</li>
       <li><strong>∩ (interseção) = "E"</strong>: pegue só o que está nos DOIS grupos ao mesmo tempo. No mesmo
       exemplo, A∩B = {banana} — é a única fruta que está nas duas listas.</li>
-      <li><strong>complemento (\(\bar{A}\) ou \(A^c\)) = "o contrário"</strong>: tudo que está na caixa S mas
+      <li><strong>complemento (\(\bar{A}\) ou \(\overline{A}\)) = "o contrário"</strong>: tudo que está na caixa S mas
       NÃO está no grupo A. Se S = todas as frutas da fruteira e A = frutas amarelas, \(\bar{A}\) = todas as
       frutas da fruteira que não são amarelas.</li>
     </ul>
@@ -87,7 +87,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <ul>
       <li>\(A \cup B\): ocorre se \(A\) ocorre, ou \(B\) ocorre, ou ambos.</li>
       <li>\(A \cap B\): ocorre se \(A\) e \(B\) ocorrem simultaneamente.</li>
-      <li>\(A^c\) (também escrito \(\bar{A}\)): ocorre se \(A\) <em>não</em> ocorre.</li>
+      <li>\(\overline{A}\) (também escrito \(\bar{A}\)): ocorre se \(A\) <em>não</em> ocorre.</li>
     </ul>
     <p><span class="badge badge-ok">✅</span> \(A\) e \(B\) são <strong>mutuamente excludentes</strong> se
     \(A \cap B = \emptyset\) — não podem ocorrer ao mesmo tempo.</p>
@@ -203,10 +203,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       fácil: toda vez que você ler <strong>"e"</strong>, escreve ∩. Toda vez que ler <strong>"ou"</strong>,
       escreve ∪. Toda vez que ler <strong>"não ocorre"</strong>, coloca uma barrinha em cima da letra (o
       "contrário" daquele evento).</p>
-      <p>a) "A e B, mas C não ocorre" → A ocorre <u>e</u> B ocorre <u>e</u> C não ocorre → \(A\cap B\cap C^c\).</p>
-      <p>b) "A ou C, mas B não ocorre" → (A <u>ou</u> C) <u>e</u> B não ocorre → \((A\cup C)\cap B^c\).</p>
+      <p>a) "A e B, mas C não ocorre" → A ocorre <u>e</u> B ocorre <u>e</u> C não ocorre → \(A\cap B\cap \overline{C}\).</p>
+      <p>b) "A ou C, mas B não ocorre" → (A <u>ou</u> C) <u>e</u> B não ocorre → \((A\cup C)\cap \overline{B}\).</p>
       <p>c) "Nenhum dos três ocorre" → A não ocorre <u>e</u> B não ocorre <u>e</u> C não ocorre →
-      \(A^c\cap B^c\cap C^c\).</p>
+      \(\overline{A}\cap \overline{B}\cap \overline{C}\).</p>
       <p>d) "Pelo menos dois" é a mais difícil: significa que existe algum par (dois deles) acontecendo junto.
       Então lista-se cada par possível (A-e-B, A-e-C, B-e-C) e junta tudo com "ou": se qualquer um desses
       pares acontecer, já vale.</p>
@@ -222,36 +222,36 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">III–IV. Estratégia e resolução</strong>
     Traduzir: "e"→∩, "ou"→∪, "não ocorre"→complemento.<br>
-    <strong>a)</strong> A ∩ B ∩ (C não ocorre) → \[A \cap B \cap C^c\]
-    <strong>b)</strong> (A ∪ C) ∩ (B não ocorre) → \[(A \cup C) \cap B^c\]
-    <strong>c)</strong> \(A^c \cap B^c \cap C^c\), por De Morgan = \((A\cup B\cup C)^c\) →
-    \[(A \cup B \cup C)^c = A^c \cap B^c \cap C^c\]
+    <strong>a)</strong> A ∩ B ∩ (C não ocorre) → \[A \cap B \cap \overline{C}\]
+    <strong>b)</strong> (A ∪ C) ∩ (B não ocorre) → \[(A \cup C) \cap \overline{B}\]
+    <strong>c)</strong> \(\overline{A} \cap \overline{B} \cap \overline{C}\), por De Morgan = \(\overline{A\cup B\cup C}\) →
+    \[\overline{A\cup B\cup C} = \overline{A} \cap \overline{B} \cap \overline{C}\]
     <strong>d)</strong> "pelo menos dois" = união dos pares →
     \[(A \cap B) \cup (A \cap C) \cup (B \cap C)\]</div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...</th><th>Mudança no raciocínio</th></tr>
-      <tr><td>"Exatamente dois eventos"</td><td>Precisa excluir o caso dos três simultâneos: \((A\cap B\cap C^c)\cup(A\cap C\cap B^c)\cup(B\cap C\cap A^c)\).</td></tr>
-      <tr><td>"Nenhum ou todos"</td><td>União de dois casos extremos: \((A^c\cap B^c\cap C^c)\cup(A\cap B\cap C)\).</td></tr>
+      <tr><td>"Exatamente dois eventos"</td><td>Precisa excluir o caso dos três simultâneos: \((A\cap B\cap \overline{C})\cup(A\cap C\cap \overline{B})\cup(B\cap C\cap \overline{A})\).</td></tr>
+      <tr><td>"Nenhum ou todos"</td><td>União de dois casos extremos: \((\overline{A}\cap \overline{B}\cap \overline{C})\cup(A\cap B\cap C)\).</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">V. Verificação</strong>
-    Confere com o gabarito oficial da lista: a) \(A\cap B\cap C^c\); b) \((A\cup C)\cap B^c\);
-    c) \((A\cup B\cup C)^c = A^c\cap B^c\cap C^c\); d) \((A\cap B)\cup(A\cap C)\cup(B\cap C)\).
+    Confere com o gabarito oficial da lista: a) \(A\cap B\cap \overline{C}\); b) \((A\cup C)\cap \overline{B}\);
+    c) \(\overline{A\cup B\cup C} = \overline{A}\cap \overline{B}\cap \overline{C}\); d) \((A\cap B)\cup(A\cap C)\cup(B\cap C)\).
     <span class="answer-final">Bate com o gabarito.</span></div>
 
     <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> Este é o padrão-mestre para toda questão de "traduzir frase em
     conjuntos": isole cada evento nomeado, identifique o conectivo lógico (e/ou/não), e monte a expressão de
     dentro para fora. <span class="badge badge-trap">❗</span> Armadilha comum: confundir "não A e não B"
-    (\(A^c \cap B^c\)) com "não (A e B)" (\((A\cap B)^c = A^c \cup B^c\)) — são leis de De Morgan, e o
+    (\(\overline{A} \cap \overline{B}\)) com "não (A e B)" (\(\overline{A\cap B} = \overline{A} \cup \overline{B}\)) — são leis de De Morgan, e o
     resultado muda de ∩ para ∪.</div>
 
     <div class="board-solve">
     <span class="board-label">No quadro</span>
-    a) \(A \cap B \cap C^c\)<br>
-    b) \((A \cup C) \cap B^c\)<br>
-    c) \(A^c \cap B^c \cap C^c\)<br>
+    a) \(A \cap B \cap \overline{C}\)<br>
+    b) \((A \cup C) \cap \overline{B}\)<br>
+    c) \(\overline{A} \cap \overline{B} \cap \overline{C}\)<br>
     d) \((A \cap B) \cup (A \cap C) \cup (B \cap C)\)
     </div>
   </div>

@@ -88,17 +88,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <a href="../modulos/01-espaco-amostral.html#ex1">Módulo 1</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
-      <tr><td>a) A e B, mas C não ocorre</td><td>\(A \cap B \cap C^c\)</td></tr>
-      <tr><td>b) A ou C, mas B não ocorre</td><td>\((A \cup C) \cap B^c\)</td></tr>
-      <tr><td>c) Nenhum dos eventos ocorre</td><td>\((A\cup B\cup C)^c = A^c\cap B^c\cap C^c\)</td></tr>
+      <tr><td>a) A e B, mas C não ocorre</td><td>\(A \cap B \cap \overline{C}\)</td></tr>
+      <tr><td>b) A ou C, mas B não ocorre</td><td>\((A \cup C) \cap \overline{B}\)</td></tr>
+      <tr><td>c) Nenhum dos eventos ocorre</td><td>\(\overline{A\cup B\cup C} = \overline{A}\cap \overline{B}\cap \overline{C}\)</td></tr>
       <tr><td>d) Pelo menos dois ocorrem</td><td>\((A\cap B)\cup(A\cap C)\cup(B\cap C)\)</td></tr>
     </table>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
       <tr><td>"Pelo menos um" em vez de "nenhum"</td><td>É o complemento de "nenhum ocorre": \(A\cup B\cup C\) — não confundir com "pelo menos dois".</td></tr>
-      <tr><td>"Exatamente dois" em vez de "pelo menos dois"</td><td>É preciso excluir o caso em que os três ocorrem: \((A\cap B\cap C^c)\cup(A\cap C\cap B^c)\cup(B\cap C\cap A^c)\).</td></tr>
-      <tr><td>Só A ocorre (nem B nem C)</td><td>\(A\cap B^c\cap C^c\) — cada "não ocorre" adicional vira mais um complemento interseccionado.</td></tr>
+      <tr><td>"Exatamente dois" em vez de "pelo menos dois"</td><td>É preciso excluir o caso em que os três ocorrem: \((A\cap B\cap \overline{C})\cup(A\cap C\cap \overline{B})\cup(B\cap C\cap \overline{A})\).</td></tr>
+      <tr><td>Só A ocorre (nem B nem C)</td><td>\(A\cap \overline{B}\cap \overline{C}\) — cada "não ocorre" adicional vira mais um complemento interseccionado.</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">I. Verificação</strong>
@@ -115,9 +115,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/01-espaco-amostral.html#ex1">Ver resolução completa no Módulo 1 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
-    a) \(A\cap B\cap C^c\)<br>
-    b) \((A\cup C)\cap B^c\)<br>
-    c) \(A^c\cap B^c\cap C^c\)<br>
+    a) \(A\cap B\cap \overline{C}\)<br>
+    b) \((A\cup C)\cap \overline{B}\)<br>
+    c) \(\overline{A}\cap \overline{B}\cap \overline{C}\)<br>
     d) \((A\cap B)\cup(A\cap C)\cup(B\cap C)\)
     </div>
   </div>
@@ -171,7 +171,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     B={KK2,KC2,CK2,CC2}<br>
     C={KC1,KC3,KC5,CK1,CK3,CK5}<br>
     A∩B = {KK2}<br>
-    B∩A^c = {KC2,CK2,CC2}<br>
+    B∩Ā = {KC2,CK2,CC2}<br>
     B∩C = ∅
     </div>
   </div>
