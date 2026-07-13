@@ -219,7 +219,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     ou equivalentemente, 1 seja cara e 2 sejam coroas... cuidado: "duas coroas" com a moeda 3 = cara
     (não-coroa) exige que as 2 coroas estejam entre as outras 3 moedas.</div>
     <div class="step"><strong class="step-label">IV. Resolução</strong>
-    2 coroas entre as 3 restantes: \(\binom{3}{2}=3\) formas.<br>
+    moeda3 = C fixa → sobram moeda1, moeda2, moeda4 livres (ordem 1-2-4):<br>
+    CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK → 8 sequências, \(n(S')=8\)<br>
+    exatamente 2 K no total ⇒ exatamente 2 K entre as 3 livres: <strong>CKK</strong>, <strong>KCK</strong>,
+    <strong>KKC</strong> → 3 favoráveis<br>
     \(P=3/8=37,5\%\).</div>
     <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> Condicionar em "moeda 3 = cara" reduz o espaço amostral de 16
@@ -229,8 +232,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/04-probabilidade-condicional.html">Ver teoria no Módulo 4 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     moeda3 = C fixa → n(S') = 2³ = 8<br>
-    2 coroas no total ⇒ 1 coroa entre as 3 restantes: C(3,1)... <br>
-    (2 coroas entre as 3 livres): C(3,2) = 3<br>
+    CCC CCK CKC CKK KCC KCK KKC KKK<br>
+    2 K entre as 3 livres: CKK, KCK, KKC → 3<br>
     P = 3/8 = 0,375 = 37,5%
     </div>
     <div class="answer-final">P(exatamente 2 coroas | 3ª é cara) = 3/8 = 37,5%</div>
@@ -511,6 +514,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     prováveis entre si. Contar quantas dessas 4 incluem Bruno: fixar Bruno e escolher 2 dos 3 restantes
     (Antônio, Clayton, Edmar): \(\binom{3}{2}=3\).</div>
     <div class="step"><strong class="step-label">IV. Resolução</strong>
+    D excluído → sobram Antônio (A), Bruno (B), Clayton (C), Edmar (E); comissões de 3 dentre esses 4:<br>
+    {A,B,C}, {A,B,E}, {A,C,E}, {B,C,E} → 4 comissões, \(n(S')=4\)<br>
+    contêm Bruno: <strong>{A,B,C}</strong>, <strong>{A,B,E}</strong>, <strong>{B,C,E}</strong> → 3 favoráveis<br>
     \(P(\text{Bruno}\mid D\notin\text{comissão})=\dfrac{3}{4}=75\%\).</div>
     <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> Depois de condicionar, o denominador correto é 4 (comissões
