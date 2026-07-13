@@ -58,11 +58,45 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     dentro de \(S\) inteiro.</p>
   </div>
 
+  <div class="eli5">
+    <span class="eli5-label">🧒 Explicando bem devagar</span>
+    <p>Imagine que você tem uma caixa cheia de bolinhas de cores diferentes, e alguém te diz: "psst, eu já sei
+    que a bolinha que vamos tirar é vermelha ou azul (não vai ser verde nem amarela)". Isso muda o jogo! Agora
+    você não pensa mais em TODAS as bolinhas da caixa — você só pensa nas vermelhas e azuis, porque já sabe
+    que as outras estão fora.</p>
+    <p>É exatamente isso que "probabilidade condicional" quer dizer: \(P(A\mid E)\) se lê "a chance de A,
+    SABENDO que E já aconteceu". A "caixa" (espaço amostral) encolhe de \(S\) inteiro para só o pedaço \(E\)
+    que você já sabe que é verdade. Daí a fórmula:</p>
+    \[P(A \mid E) = \frac{|A \cap E|}{|E|}\]
+    <p>Em português bem simples: "de tudo que já sei que é E, quanto disso também é A?" — o denominador NÃO é
+    mais o tamanho da caixa toda, é o tamanho do pedaço que sobrou depois que você recebeu a informação extra.
+    Esse é o erro mais comum do módulo inteiro: usar o tamanho da caixa toda em vez do pedaço que sobrou.</p>
+  </div>
+
   <div class="exercise" id="exemplo5">
     <h3>Exemplo 5 (aula)</h3>
     <div class="enunciado">a) Lançamento de 2 dados. E={soma é 6}, A={2 aparece em um dos dados}. Calcule
     P(A|E). b) Um casal tem 2 crianças. Ache a probabilidade de ambas serem meninos, sabendo que:
     i) pelo menos uma é menino; ii) a mais velha é menino.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>a) 2 dados: quero saber a chance de "o número 2 aparecer em algum dado" SABENDO que a soma deu 6.
+      Primeiro liste só os pares que somam 6: (1,5),(2,4),(3,3),(4,2),(5,1) — são 5 pares (essa é a nova
+      "caixa" encolhida). Agora, dentro só desses 5, quantos têm o número 2? Dois: (2,4) e (4,2). Resposta:
+      \(2/5\).</p>
+      <p>b) Um casal tem 2 filhos. Existem 4 combinações possíveis, todas igual chance: Menino-Menino,
+      Menino-Menina, Menina-Menino, Menina-Menina (a ordem é "mais velho, mais novo").</p>
+      <p>i) "Sabendo que pelo menos um é menino" — isso deixa de fora só a combinação Menina-Menina. Sobram 3
+      combinações possíveis (a nova "caixa"): MM, MF, FM. Dessas 3, só 1 tem os dois meninos (MM). Resposta:
+      \(1/3\).</p>
+      <p>ii) "Sabendo que o MAIS VELHO é menino" — isso é uma informação diferente! Só sobram as combinações
+      onde a 1ª posição é M: MM e MF. São 2 (a nova "caixa"). Dessas 2, 1 tem os dois meninos (MM). Resposta:
+      \(1/2\).</p>
+      <p>Por que (i) e (ii) dão respostas diferentes se parecem "a mesma coisa"? Porque NÃO são a mesma
+      informação: "pelo menos um menino" deixa 3 possibilidades abertas, "o mais velho é menino" deixa só 2.
+      Ler a frase com atenção, palavra por palavra, é o que resolve essa pegadinha clássica.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Resolução</strong>
     \(E=\{\text{soma}=6\}=\{(1,5),(2,4),(3,3),(4,2),(5,1)\}\) → \(|E|=5\)<br>
@@ -121,6 +155,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">a) P(A e B), P(A ou C). b) P(A|B), P(B|A). c) P(A|C), P(C|A). d) P(B|C), P(C|B).
     e) A e B são independentes? A e C? B e C?</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Cuidado com a ordem das letras! \(P(A\mid B)\) ("chance de A sabendo B") e \(P(B\mid A)\) ("chance de
+      B sabendo A") são coisas DIFERENTES — o de baixo da fração (o "tamanho da caixa encolhida") muda:</p>
+      <ul>
+        <li>\(P(A\mid B)\): a caixa encolhe pro tamanho de B, e você olha quanto de A está lá dentro.</li>
+        <li>\(P(B\mid A)\): a caixa encolhe pro tamanho de A, e você olha quanto de B está lá dentro.</li>
+      </ul>
+      <p>Para o item (e), "independentes" quer dizer: saber que um aconteceu NÃO muda nada a chance do outro
+      — é como jogar uma moeda duas vezes, o resultado da 1ª não influencia a 2ª. Para testar isso sem
+      "achismo", existe uma contadura exata: calcule \(P(A\cap B)\) (a chance dos dois juntos) e compare com
+      \(P(A)\times P(B)\) (o que seria "esperado" se fossem independentes). Se der o mesmo número, são
+      independentes; se der diferente, um influencia o outro.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Espaço equiprovável \(|S|=6\). Aplica-se o Teorema 5 (\(P(A|E)=|A\cap E|/|E|\)) repetidamente, com
     cuidado para não trocar numerador e denominador entre \(P(A|B)\) e \(P(B|A)\).</div>
@@ -178,6 +227,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Questão 15 — P(A)=0.6, P(B)=0.3, P(A∩B)=0.2</h3>
     <div class="enunciado">Ache: a) P(A∪B). b) P(A|B). c) P(B|A).</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Essa questão já te dá os três números prontos (0,6 / 0,3 / 0,2), então é só encaixar na fórmula
+      certa, sem precisar contar elementos de conjunto.</p>
+      <p>a) É a regra do "ou" do Módulo 3: soma os dois círculos e tira a parte do meio (que já foi contada
+      duas vezes): \(0,6+0,3-0,2=0,7\).</p>
+      <p>b) \(P(A\mid B)\): "de tudo que é B (0,3, o novo tamanho da caixa), quanto também é A?" — a parte que
+      é as duas coisas junto (\(A\cap B\)=0,2) dividida pelo novo tamanho da caixa (0,3): \(0,2/0,3=2/3\).</p>
+      <p>c) \(P(B\mid A)\): mesma ideia, mas agora a caixa que encolhe é A (0,6): \(0,2/0,6=1/3\).</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–IV. Resolução</strong>
     <strong>a)</strong> Princípio da adição (Módulo 3): \(P(A\cup B) = 0.6+0.3-0.2 = 0.7\).<br>
     <strong>b)</strong> \(P(A\mid B) = \dfrac{P(A\cap B)}{P(B)} = \dfrac{0.2}{0.3} = \dfrac{2}{3}\).<br>
@@ -209,6 +269,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="ex16">
     <h3>Questão 16 — Par de dados, sabendo que os números são distintos</h3>
     <div class="enunciado">a) A soma seja par. b) A soma exceda 9.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>2 dados jogados, mas alguém te avisou: "os dois números são diferentes" (não caiu o mesmo número nos
+      dois). Isso já é uma informação que encolhe a caixa! Dos 36 pares possíveis, 6 têm os dois números
+      iguais (1-1, 2-2, ..., 6-6) — esses ficam de fora. Sobram \(36-6=30\) pares na nova caixa.</p>
+      <p>A partir de agora, TUDO se conta dentro desses 30, nunca mais nos 36 originais — esse é o passo que
+      mais gente esquece.</p>
+      <p>a) "Soma par com números diferentes": a soma só é par se os dois números forem da mesma "família"
+      (os dois ímpares, ou os dois pares) — porque ímpar+ímpar=par e par+par=par, mas ímpar+par=ímpar. Conte
+      os pares distintos de números ímpares {1,3,5} e os pares distintos de números pares {2,4,6}, some tudo,
+      e divida pelos 30.</p>
+      <p>b) "Soma maior que 9 com números diferentes": liste as somas 10, 11 e 12 e risque os pares que têm o
+      mesmo número duas vezes (tipo 5-5 ou 6-6), porque esses já foram excluídos pela condição "diferentes".</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
     <span class="badge badge-trap">❗</span> O condicionante "números distintos" já reduz o espaço amostral:
