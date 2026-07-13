@@ -82,10 +82,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     "multiplicação de segurança") e um ponto de partida \(m\) tal que, a partir dali, \(g(n)\) nunca ultrapassa
     \(c\) vezes \(f(n)\). Não precisa ser o \(c\) mais "justo" possível — vale até um \(c\) exagerado, desde
     que a conta feche.</p>
-    <p>Truque prático que resolve praticamente todo exercício: olhe o termo de MAIOR expoente da função (ex.:
-    em \(n^2+2n+1\), é o \(n^2\)) — ele é quem manda no crescimento quando \(n\) fica grande. Os termos
-    menores (2n, 1) ficam "pequenos" perto dele, então dá pra "cobrir" todos eles multiplicando \(f(n)\) por
-    uma constante grande o bastante.</p>
+    <p>Truque prático que o professor usa em toda prova: escreva \(g(n)\leq c\cdot f(n)\) e DIVIDA os dois
+    lados por \(f(n)\) — isso deixa o \(c\) sozinho de um lado, igual a uma soma de frações do tipo
+    \(1/n^k\). Como cada uma dessas frações fica menor conforme \(n\) cresce, o "pior caso" (o valor que
+    \(c\) precisa cobrir) sempre acontece no menor \(n\) permitido — quase sempre \(n=1\). Substitua \(n=1\),
+    calcule o número, e esse é o seu \(c\).</p>
   </div>
 
   <div class="exercise" id="exemplo-o">
@@ -94,71 +95,102 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(m>0\) tais que \(|g(n)| \leq c\,|f(n)|\) para todo \(n\geq m\), provando que \(g(n)\) é \(O(f(n))\).</div>
 
     <div class="eli5">
-      <span class="eli5-label">💡 Passo a passo bem simples</span>
-      <p><strong>Exemplo 1:</strong> \(g(n)=(n+1)^2\). Primeiro, "abra" o quadrado (multiplique tudo):
-      \((n+1)^2 = n^2+2n+1\). Agora eu preciso mostrar que isso nunca passa de "um número vezes \(n^2\)". Cada
-      pedacinho (\(n^2\), \(2n\), \(1\)) dá pra "trocar" por uma cópia de \(n^2\) (usando que, para \(n\geq1\),
-      \(n\) é menor ou igual a \(n^2\), e \(1\) também é menor ou igual a \(n^2\)) — então \(n^2+2n+1\) fica
-      menor ou igual a \(n^2+2n^2+n^2=4n^2\). Achei: \(c=4\), \(m=1\), pronto.</p>
-      <p><strong>Ideia que se repete nos 4 exemplos:</strong> troque cada termo "pequeno" pela maior potência
-      de \(n\) que aparece (multiplicando o coeficiente), some tudo, e esse é o seu \(c\). Não precisa ser o
-      número mais "econômico" — só precisa funcionar.</p>
+      <span class="eli5-label">💡 Passo a passo bem simples (do jeito exato do quadro)</span>
+      <p>O professor NÃO "estima por cima" termo a termo — ele faz uma conta algébrica direta, sempre nos
+      mesmos 5 passos:</p>
+      <ol>
+        <li>Escreve o alvo: \(g(n) \leq c\cdot f(n)\), \(\forall n\geq m\).</li>
+        <li>Substitui \(g(n)\) por extenso e <strong>divide os dois lados por \(f(n)\)</strong> — isso "isola"
+        o \(c\) sozinho de um lado: \(c \geq \text{[uma soma de termos } 1/n^k\text{]}\).</li>
+        <li>Repara se essa soma de frações CRESCE ou DECRESCE conforme \(n\) aumenta (cada \(1/n^k\) fica
+        menor quando \(n\) cresce, então a soma toda decresce).</li>
+        <li>Como decresce, o "pior caso" (o maior valor que \(c\) precisa cobrir) acontece no MENOR \(n\)
+        permitido — geralmente \(n=1\). Substitui \(n=1\) e calcula o número exato.</li>
+        <li>Escolhe \(c\) igual a esse número (ou maior) e \(m=1\), e conclui \(g(n)=O(f(n))\).</li>
+      </ol>
+      <p>Repare que isso é bem diferente de "trocar cada termo pela maior potência" — é uma conta exata que
+      dá o \(c\) mínimo necessário, não uma estimativa frouxa.</p>
     </div>
 
     <div class="step"><strong class="step-label">I. Exemplo 1: g(n)=(n+1)², f(n)=n²</strong>
-    Expandindo: \(g(n) = n^2+2n+1\). Quero \(c\) e \(m\) tais que \(n^2+2n+1 \leq c\,n^2\) para \(n\geq m\).
-    Tomando \(c=4\), \(m=1\): para \(n\geq1\), \(2n\leq2n^2\) e \(1\leq n^2\), logo
-    \(n^2+2n+1 \leq n^2+2n^2+n^2 = 4n^2\). <span class="answer-final">g(n) é O(n²) com c=4, m=1.</span></div>
+    \(g(n)\leq c\cdot f(n),\ \forall n\geq m\)<br>
+    \((n+1)^2\leq c\cdot n^2,\ \forall n\geq m\)<br>
+    \(n^2+2n+1\leq c\cdot n^2,\ \forall n\geq m\)<br>
+    Dividindo por \(n^2\): \(c\geq 1+\dfrac{2}{n}+\dfrac{1}{n^2},\ \forall n\geq1\)<br>
+    \(1+\dfrac{2}{n}+\dfrac{1}{n^2}\) tem seu maior valor possível quando \(n\) for o menor valor possível.<br>
+    Logo, para \(n=1\): \(c\geq1+2+1 \Rightarrow c\geq4\).
+    <span class="answer-final">Ou seja, para c=4 e m=1, g(n)=O(f(n)).</span></div>
 
     <div class="step"><strong class="step-label">II. Exemplo 2: g(n)=3n³+2n², f(n)=n³</strong>
-    Para \(n\geq1\): \(2n^2 \leq 2n^3\), logo \(3n^3+2n^2 \leq 3n^3+2n^3 = 5n^3\).
-    <span class="answer-final">g(n) é O(n³) com c=5, m=1.</span></div>
+    \(g(n)\leq c\cdot f(n),\ \forall n\geq m\)<br>
+    \(3n^3+2n^2\leq c\cdot n^3,\ \forall n\geq m\)<br>
+    Dividindo por \(n^3\): \(c\geq3+\dfrac{2}{n},\ \forall n\geq1\)<br>
+    \(3+\dfrac{2}{n}\) tem seu maior valor quando \(n\) for o menor valor possível.<br>
+    Logo, para \(n=1\): \(c\geq3+2 \Rightarrow c\geq5\).
+    <span class="answer-final">Ou seja, para c=5 e m=1, g(n)=O(f(n)).</span></div>
 
     <div class="step"><strong class="step-label">III. Exemplo 3: g(n)=n(n-1)/2, f(n)=n²</strong>
-    \(\dfrac{n(n-1)}{2} = \dfrac{n^2-n}{2} \leq \dfrac{n^2}{2}\) para todo \(n\geq0\) (pois \(-n\leq0\)).
-    <span class="answer-final">g(n) é O(n²) com c=1/2, m=1.</span></div>
+    \(g(n)\leq c\cdot f(n),\ \forall n\geq m\)<br>
+    \(\dfrac{n(n-1)}{2}\leq c\cdot n^2,\ \forall n\geq m\)<br>
+    Dividindo por \(n^2\): \(c\geq\dfrac12-\dfrac{1}{2n},\ \forall n\geq1\)<br>
+    Com \(c=\tfrac12\), temos que \(c\geq\tfrac12-\tfrac1{2n}\) para qualquer valor de \(n\geq1\) (a expressão
+    nunca chega a \(\tfrac12\), só se aproxima).
+    <span class="answer-final">Se c=1/2 e m=1, g(n)=O(f(n)).</span></div>
 
     <div class="step"><strong class="step-label">IV. Exemplo 4: g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵</strong>
-    Para \(n\geq1\), cada monômio de grau menor é \(\leq n^5\) em valor absoluto:
-    \(|g(n)| \leq 4n^5+5n^4+2n^3+n^2+3n+2 \leq 4n^5+5n^5+2n^5+n^5+3n^5+2n^5 = 17n^5\).
-    <span class="answer-final">g(n) é O(n⁵) com c=17, m=1.</span> (bound intencionalmente frouxo — o objetivo
-    é exibir <em>algum</em> par válido, não o mais justo.)</div>
+    \(g(n)\leq c\cdot f(n),\ \forall n\geq m\)<br>
+    \(4n^5-5n^4+2n^3-n^2+3n-2\leq c\cdot n^5,\ \forall n\geq m\)<br>
+    Dividindo por \(n^5\): \(c\geq4-\dfrac{5}{n}+\dfrac{2}{n^2}-\dfrac{1}{n^3}+\dfrac{3}{n^4}-\dfrac{2}{n^5},\
+    \forall n\geq1\)<br>
+    Os termos negativos (\(-5/n,-1/n^3,-2/n^5\)) só ajudam (tornam o lado direito menor); para um \(c\)
+    seguro, basta majorar descartando-os: \(c\geq4+\dfrac{2}{n^2}+\dfrac{3}{n^4}\), que tem seu maior valor
+    quando \(n\) for o valor mínimo (\(n=1\)).<br>
+    Logo, para \(n=1\): \(c\geq4+2+3 \Rightarrow c\geq9\).
+    <span class="answer-final">Portanto, com c=9 e m=1, g(n)=O(f(n)).</span></div>
 
     <table class="variations">
       <tr><th>E se a condição fosse...?</th><th>Como muda a resolução</th></tr>
-      <tr><td>No Exemplo 1, \(g(n) = (n+1)^3\) em vez de \((n+1)^2\)</td><td>Expandir dá \(n^3+3n^2+3n+1\); agora \(f(n)=n^3\) é o candidato natural (não \(n^2\)) — o grau de \(f\) precisa acompanhar o grau de \(g\), senão nenhum par (c,m) fixo funciona.</td></tr>
-      <tr><td>No Exemplo 4, pedirem o <em>menor</em> \(c\) inteiro possível com \(m=1\)</td><td>A cota \(c=17\) é frouxa; um c menor (ex.: c=5) ainda funciona pois basta \(4n^5-5n^4+2n^3-n^2+3n-2 \leq c\,n^5\) valer — o exercício só exige exibir <em>um</em> par válido, não o ótimo, mas se pedirem o menor c, é preciso refinar a estimativa termo a termo.</td></tr>
-      <tr><td>Trocar \(f(n)=n^5\) por \(f(n)=n^6\) no Exemplo 4</td><td>Continua valendo O (qualquer f de grau maior ou igual também domina), mas com c e m possivelmente menores, já que \(n^6\) cresce mais rápido — a prova de O nunca é única para um dado g.</td></tr>
+      <tr><td>No Exemplo 1, \(g(n) = (n+1)^3\) em vez de \((n+1)^2\)</td><td>Expandir dá \(n^3+3n^2+3n+1\); agora \(f(n)=n^3\) é o candidato natural (não \(n^2\)) — dividindo por \(n^3\) dá \(c\geq1+3/n+3/n^2+1/n^3\), decrescente, valor máximo em n=1: c≥1+3+3+1=8.</td></tr>
+      <tr><td>No Exemplo 4, pedirem o <em>menor</em> \(c\) exato (sem descartar os termos negativos)</td><td>Seria preciso analisar a função \(4-5/n+2/n^2-1/n^3+3/n^4-2/n^5\) com cálculo (derivada) para achar seu máximo exato em \(n\geq1\) — mais trabalhoso; por isso o professor prefere descartar os termos negativos e aceitar um c um pouco maior, já que o exercício só pede <em>um</em> par válido.</td></tr>
+      <tr><td>Trocar \(f(n)=n^5\) por \(f(n)=n^6\) no Exemplo 4</td><td>Dividir por \(n^6\) em vez de \(n^5\) dá termos ainda menores (todos com \(n\) a mais no denominador); o c necessário fica menor, pois \(n^6\) cresce mais rápido — a prova de O nunca é única para um dado g.</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">V. Generalização</strong>
-    <span class="badge badge-pattern">🔁</span> Em toda prova de O de um polinômio, o termo de maior grau
-    dita a ordem \(f(n)\); os demais termos são majorados (para \(n\geq1\), \(n^k\leq n^d\) se \(k<d\)) e
-    somados às respectivas constantes.
+    <span class="badge badge-pattern">🔁</span> Padrão-mestre de toda prova de O de um polinômio: (1) escreva
+    \(g(n)\leq c\cdot f(n)\); (2) divida os dois lados por \(f(n)\) para isolar \(c\); (3) verifique que a
+    expressão resultante (soma de termos \(1/n^k\)) é decrescente em \(n\); (4) avalie no menor \(n\) do
+    domínio (em geral \(n=1\)) — esse é o \(c\) mínimo necessário; (5) se houver termos negativos, pode
+    descartá-los para simplificar (isso só aumenta o \(c\) exigido, nunca invalida a prova).
     <span class="badge badge-trap">❗</span> Armadilha: esquecer o valor absoluto quando \(g(n)\) pode ser
     negativa para algum \(n\) — a definição exige \(|g(n)|\leq c|f(n)|\), não apenas \(g(n)\leq c f(n)\).</div>
 
     <div class="board-solve">
     <span class="board-label">No quadro</span>
-    <strong>Ex.1:</strong> \(g(n)=(n+1)^2=n^2+2n+1\), \(f(n)=n^2\). Mostrar \(\exists c,m: g(n)\leq c\,f(n),
-    \forall n\geq m\).<br>
-    Para \(n\geq1\): \(2n\leq2n^2\), \(1\leq n^2\).<br>
-    \(g(n)=n^2+2n+1\leq n^2+2n^2+n^2=(1+2+1)n^2\) [circulado: (1+2+1)]<br>
-    \(c=4,\ m=1\Rightarrow g(n)\leq4n^2,\ \forall n\geq1\). Logo \(g(n)=O(n^2)\). ∎<br><br>
+    <strong>Ex.1:</strong> g(n)=(n+1)²=n²+2n+1, f(n)=n²<br>
+    g(n)≤c.f(n), ∀n≥m<br>
+    n²+2n+1≤c.n², ∀n≥m<br>
+    c≥1+2/n+1/n², ∀n≥1<br>
+    1+2/n+1/n² vai ter o seu maior valor possível quando n for o menor valor possível.<br>
+    Logo, para n=1, c≥1+2+1 ⟹ c≥4.<br>
+    Ou seja, para c=4 e m=1 temos g(n)=O(f(n)). ∎<br><br>
 
-    <strong>Ex.2:</strong> \(g(n)=3n^3+2n^2\), \(f(n)=n^3\).<br>
-    Para \(n\geq1\): \(2n^2\leq2n^3\).<br>
-    \(g(n)\leq3n^3+2n^3=(3+2)n^3\) [circulado: (3+2)]<br>
-    \(c=5,\ m=1\Rightarrow g(n)\leq5n^3\). Logo \(g(n)=O(n^3)\). ∎<br><br>
+    <strong>Ex.2:</strong> g(n)=3n³+2n², f(n)=n³<br>
+    3n³+2n²≤c.n³, ∀n≥m<br>
+    c≥3+2/n, ∀n≥1<br>
+    c≥3+2 ⟹ c≥5 (para n=1)<br>
+    Logo com c=5 e m=1, g(n)=O(f(n)). ∎<br><br>
 
-    <strong>Ex.3:</strong> \(g(n)=\dfrac{n(n-1)}{2}=\dfrac{n^2-n}{2}\), \(f(n)=n^2\).<br>
-    Para \(n\geq0\): \(-n\leq0\Rightarrow\dfrac{n^2-n}{2}\leq\dfrac{n^2}{2}\).<br>
-    \(c=\tfrac12,\ m=1\Rightarrow g(n)\leq\tfrac12n^2\). Logo \(g(n)=O(n^2)\). ∎<br><br>
+    <strong>Ex.3:</strong> g(n)=n(n-1)/2, f(n)=n²<br>
+    n(n-1)/2≤c.n², ∀n≥m<br>
+    c≥1/2-1/(2n), ∀n≥1<br>
+    Com c=1/2, temos que c≥1/2-1/(2n) para qualquer valor de n≥1.<br>
+    Logo, se c=1/2 e m=1, g(n)=O(f(n)). ∎<br><br>
 
-    <strong>Ex.4:</strong> \(g(n)=4n^5-5n^4+2n^3-n^2+3n-2\), \(f(n)=n^5\).<br>
-    Para \(n\geq1\), cada termo de grau \(<5\) é \(\leq n^5\) em módulo:<br>
-    \(|g(n)|\leq4n^5+5n^4+2n^3+n^2+3n+2\leq(4+5+2+1+3+2)n^5\) [circulado: (4+5+2+1+3+2)]<br>
-    \(c=17,\ m=1\Rightarrow|g(n)|\leq17n^5\). Logo \(g(n)=O(n^5)\). ∎
+    <strong>Ex.4:</strong> g(n)=4n⁵-5n⁴+2n³-n²+3n-2, f(n)=n⁵<br>
+    c≥4-5/n+2/n²-1/n³+3/n⁴-2/n⁵, ∀n≥1<br>
+    c≥4+2/n²+3/n⁴ vai ter valor máximo quando n for o valor mínimo (n=1).<br>
+    c≥4+2+3 ⟹ c≥9.<br>
+    Portanto com c=9 e m=1, temos que g(n)=O(f(n)). ∎
     </div>
   </div>
 
@@ -364,8 +396,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>Estratégia:</strong> expandir o produto, depois limitar por cima e por baixo separadamente.<br>
     <strong>Resolução — expansão:</strong>
     \[n(n+1)(n+2) = n(n^2+3n+2) = n^3+3n^2+2n\]
-    <strong>Parte O (cota superior):</strong> para \(n\geq1\), \(3n^2\leq3n^3\) e \(2n\leq2n^3\), logo
-    \(n^3+3n^2+2n \leq n^3+3n^3+2n^3 = 6n^3\). Assim, é \(O(n^3)\) com \(c_2=6,m=1\).<br>
+    <strong>Parte O (cota superior):</strong> \(h(n)\leq c_2\cdot n^3\), ∀n≥m. Dividindo por \(n^3\):
+    \(c_2\geq1+\dfrac3n+\dfrac2{n^2}\), decrescente em \(n\) → maior valor em \(n=1\): \(c_2\geq1+3+2=6\).
+    Assim, é \(O(n^3)\) com \(c_2=6,m=1\).<br>
     <strong>Parte Ω (cota inferior):</strong> como \(3n^2\geq0\) e \(2n\geq0\) para \(n\geq0\),
     \(n^3+3n^2+2n \geq n^3\). Assim, é \(\Omega(n^3)\) com \(c_1=1,m=1\).<br>
     <span class="answer-final">Θ(n³) com c₁=1, c₂=6, m=1.</span></div>
@@ -422,9 +455,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \cdot|n|,\forall n\geq0\). Logo \(n\,\text{sen}(n)=O(n)\). ∎<br><br>
 
     <strong>20c) \(n(n+1)(n+2)=\Theta(n^3)\):</strong> expandindo, \(h(n)=n^3+3n^2+2n\).<br>
-    <u>Parte O</u> — mostrar \(h(n)\leq c_2 n^3,\forall n\geq m\). Para \(n\geq1\): \(3n^2\leq3n^3\),
-    \(2n\leq2n^3\).<br>
-    \(h(n)\leq n^3+3n^3+2n^3=(1+3+2)n^3\) [circulado: (1+3+2)]. \(c_2=6,\ m=1\).<br>
+    <u>Parte O</u> — mostrar \(h(n)\leq c_2 n^3,\forall n\geq m\). Dividindo por \(n^3\):
+    \(c_2\geq1+3/n+2/n^2,\ \forall n\geq1\) [circulado: 1+3+2]. Decrescente → maior valor em \(n=1\):
+    \(c_2\geq6\). \(c_2=6,\ m=1\).<br>
     <u>Parte Ω</u> — mostrar \(h(n)\geq c_1 n^3,\forall n\geq m\). Para \(n\geq0\): \(3n^2\geq0,2n\geq0
     \Rightarrow h(n)\geq n^3\). \(c_1=1,\ m=1\).<br>
     Como \(c_1n^3\leq h(n)\leq c_2n^3\) para \(n\geq1\): \(c_1=1,c_2=6,m=1\Rightarrow h(n)=\Theta(n^3)\). ∎<br><br>
