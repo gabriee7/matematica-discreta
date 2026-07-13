@@ -210,35 +210,43 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     </ol>
     <div class="exercise">
       <h3>Exemplo do professor — três trechos de programa</h3>
-      <div class="enunciado">Três trechos de programa com tempos de execução \(O(n)\), \(O(n^2)\) e
-      \(O(n\log n)\). Qual a complexidade assintótica total do programa?</div>
+      <div class="enunciado">Suponha três trechos de programa cujos tempos de execução são \(O(m)\),
+      \(1000\cdot O(m^2)\) e \(10\cdot O(m\log m)\) (os fatores 1000 e 10 aparecem porque, na prática, cada
+      trecho pode ser executado um número diferente de vezes). Qual a complexidade assintótica total do
+      programa?</div>
       <div class="eli5">
         <span class="eli5-label">💡 Passo a passo bem simples</span>
-        <p>Pense em 3 pessoas caminhando: uma anda \(n\) passos, outra \(n^2\) passos, outra \(n\log n\)
-        passos. Se elas andam uma depois da outra (sequencialmente), o tempo TOTAL da caminhada, quando \(n\)
-        é bem grande, é basicamente igual ao tempo da pessoa MAIS LENTA — as outras duas "somem" perto dela,
-        porque \(n^2\) cresce muito mais rápido que \(n\) e que \(n\log n\).</p>
-        <p>Por isso, quando você soma complexidades diferentes, o resultado é sempre a MAIOR delas, nunca a
-        soma "de verdade" — regra prática: ache quem cresce mais rápido, e essa é a resposta.</p>
+        <p>Pense em 3 pessoas caminhando: uma anda \(m\) passos, outra \(m^2\) passos (mas repete o percurso
+        1000 vezes), outra \(m\log m\) passos (repetindo 10 vezes). Multiplicar por um número fixo (1000, 10)
+        não muda a "categoria de velocidade" de cada uma — é só um fator de escala. Depois disso, o tempo TOTAL,
+        quando \(m\) é bem grande, é basicamente igual ao da pessoa MAIS LENTA — as outras "somem" perto dela.</p>
+        <p>Por isso a resolução tem duas etapas: primeiro você "absorve" as constantes (1000, 10) dentro do
+        próprio O — elas não mudam a ordem; depois você soma as ordens e fica só com a maior.</p>
       </div>
-      <div class="step"><strong class="step-label">I. Resolução</strong>
-      Operação 5 (Aula 12): \(O(f)+O(g)=O(\max(f,g))\) — vale porque, para \(n\) grande, o termo que
-      cresce mais devagar fica desprezível perto do que cresce mais rápido, então a soma "se comporta"
-      como só o maior; aplicada duas vezes:<br>
-      1ª combinação: \(O(n) + O(n^2) \to O(\max(n,n^2)) = O(n^2)\) (\(n^2\) domina \(n\)).<br>
-      2ª combinação: \(O(n^2) + O(n\log n) \to O(\max(n^2, n\log n)) = O(n^2)\) (\(n^2\) cresce mais que \(n\log n\)).
-      <span class="answer-final">Complexidade total: O(n²).</span></div>
+      <div class="step"><strong class="step-label">I. Resolução (exatamente como no quadro)</strong>
+      Ponto de partida: \(O(m) + 1000\cdot O(m^2) + 10\cdot O(m\log m)\).<br><br>
+      <strong>Operação 2</strong> (Aula 12): \(c\cdot O(f(n))=O(f(n))\) — vale porque uma constante multiplicando
+      não muda a ordem de crescimento, só reescala o valor de \(c\) escondido dentro do próprio O; aplicando aos
+      dois termos com constante:<br>
+      \(1000\cdot O(m^2) = O(m^2)\) e \(10\cdot O(m\log m) = O(m\log m)\).<br>
+      Depois da Operação 2, a expressão fica: \(O(m) + O(m^2) + O(m\log m)\).<br><br>
+      <strong>Operação 5</strong> (Aula 12): \(O(f)+O(g)=O(\max(f,g))\) — vale porque, para \(m\) grande, o termo
+      que cresce mais devagar fica desprezível perto do que cresce mais rápido, então a soma "se comporta" como
+      só o maior; aplicada duas vezes (a expressão tem 3 termos):<br>
+      \(O(m) + O(m^2) + O(m\log m) = O\big(\max(m,\,m^2,\,m\log m)\big)\).<br>
+      <span class="answer-final">Complexidade total: \(O(m^2)\), pois \(m^2\) é o termo que cresce mais rápido entre os três.</span></div>
 
       <table class="variations">
         <tr><th>E se a condição fosse...?</th><th>Como muda a resolução</th></tr>
-        <tr><td>Trocar o trecho \(O(n^2)\) por \(O(n\log n)\) (ex.: Merge Sort em vez de Bolha)</td><td>Os três trechos ficam \(O(n)\), \(O(n\log n)\), \(O(\log n)\); o máximo agora é \(n\log n\), logo o programa fica \(O(n\log n)\) — mais rápido que o original.</td></tr>
-        <tr><td>Adicionar um quarto trecho \(O(2^n)\) (busca exaustiva)</td><td>Mesmo sendo só mais um trecho, ele domina os demais (exponencial vence qualquer polinomial), logo o programa inteiro passa a ser \(O(2^n)\).</td></tr>
+        <tr><td>Trocar o trecho \(O(m^2)\) por \(O(m\log m)\) (ex.: Merge Sort em vez de Bolha)</td><td>Os três trechos ficam \(O(m)\), \(O(m\log m)\), \(O(\log m)\); o máximo agora é \(m\log m\), logo o programa fica \(O(m\log m)\) — mais rápido que o original.</td></tr>
+        <tr><td>Adicionar um quarto trecho \(O(2^m)\) (busca exaustiva)</td><td>Mesmo sendo só mais um trecho, ele domina os demais (exponencial vence qualquer polinomial), logo o programa inteiro passa a ser \(O(2^m)\).</td></tr>
       </table>
 
       <div class="step"><strong class="step-label">II. Generalização</strong>
-      <span class="badge badge-pattern">🔁</span> Complexidade de blocos sequenciais é sempre o <em>máximo</em>
-      entre as complexidades dos blocos, nunca a soma literal — aplique a Operação 5 quantas vezes forem
-      necessárias para combinar mais de dois trechos.</div>
+      <span class="badge badge-pattern">🔁</span> Sempre que aparecerem constantes multiplicando um \(O(\cdot)\),
+      use primeiro a <strong>Operação 2</strong> para absorvê-las (elas somem, pois já fazem parte da constante
+      \(c\) escondida no O); só depois combine os termos restantes com a <strong>Operação 5</strong>, que dá
+      sempre o <em>máximo</em> entre as ordens, nunca a soma literal.</div>
     </div>
   </div>
 
