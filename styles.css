@@ -302,6 +302,35 @@ main h3 {
   margin: 1rem 0;
 }
 
+/* ── Explicação simples (nível "explica pra uma criança") ── */
+
+.eli5 {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid var(--success);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.2rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.eli5-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--success);
+  margin-bottom: 0.5rem;
+}
+
+.eli5 p { margin: 0 0 0.6rem; }
+.eli5 p:last-child { margin-bottom: 0; }
+.eli5 ul { margin: 0.4rem 0 0.6rem 1.2rem; padding: 0; }
+.eli5 li { margin-bottom: 0.3rem; }
+
 .example-box {
   border-left: 4px solid var(--accent);
   background: #f1f5f9;

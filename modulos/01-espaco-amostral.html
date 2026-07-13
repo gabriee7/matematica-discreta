@@ -47,6 +47,33 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <p class="subtitle">Base conceitual de toda a probabilidade discreta: sem isto, nada do resto faz sentido.</p>
 
   <h2 id="teoria">Teoria</h2>
+  <div class="eli5">
+    <span class="eli5-label">🧒 Explicando bem devagar</span>
+    <p>Imagine que você vai fazer alguma coisa que pode terminar de jeitos diferentes — jogar um dado, jogar
+    uma moeda, tirar uma carta de um baralho. Antes de falar de "probabilidade" (chance), a gente precisa
+    primeiro listar <strong>TODOS</strong> os jeitos possíveis que isso pode terminar. Essa lista completa tem
+    um nome: <strong>espaço amostral</strong>, e a gente escreve ela com a letra <strong>S</strong> (de
+    "space", espaço) dentro de chaves <code>{ }</code>, tipo uma caixa que guarda tudo o que pode acontecer.</p>
+    <p>Exemplo bem simples: se você joga um dado de 6 lados, os resultados possíveis são "cair 1", "cair 2",
+    ..., "cair 6". Então a caixa é \(S=\{1,2,3,4,5,6\}\). Cada número dentro da caixa é um resultado possível
+    (chamamos de "amostra"). Um <strong>evento</strong> é quando você escolhe um grupinho de resultados que te
+    interessam — por exemplo, "sair número par" é o grupinho \(\{2,4,6\}\), que mora dentro da caixa \(S\).</p>
+    <p>Agora, três símbolos que vão aparecer o tempo todo — pense neles como formas de <strong>misturar dois
+    grupinhos</strong>:</p>
+    <ul>
+      <li><strong>∪ (união) = "OU"</strong>: junte tudo que está em pelo menos um dos dois grupos. Se A =
+      {maçã, banana} e B = {banana, uva}, então A∪B = {maçã, banana, uva} — juntou tudo, sem repetir.</li>
+      <li><strong>∩ (interseção) = "E"</strong>: pegue só o que está nos DOIS grupos ao mesmo tempo. No mesmo
+      exemplo, A∩B = {banana} — é a única fruta que está nas duas listas.</li>
+      <li><strong>complemento (\(\bar{A}\) ou \(A^c\)) = "o contrário"</strong>: tudo que está na caixa S mas
+      NÃO está no grupo A. Se S = todas as frutas da fruteira e A = frutas amarelas, \(\bar{A}\) = todas as
+      frutas da fruteira que não são amarelas.</li>
+    </ul>
+    <p>É só isso! O resto da página é aplicar essas três ideias (OU, E, contrário) em situações diferentes —
+    dado, moeda, cartas — sempre do mesmo jeitinho direto que aparece nos quadros "No quadro" abaixo de cada
+    exercício, exatamente como se escreve numa prova.</p>
+  </div>
+
   <div class="theory-box">
     <p><span class="badge badge-prereq">📌</span> O <strong>espaço amostral</strong> \(S\) é o conjunto de todos os
     resultados possíveis de um experimento. Um elemento particular de \(S\) é uma <em>amostra</em>. Um
@@ -69,6 +96,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <h3>Exemplo 1a — Lançamento de um dado</h3>
     <div class="enunciado">Experimento: lançamento de um dado. Seja \(A=\{2,4,6\}\), \(B=\{1,3,5\}\) e
     \(C=\{2,3,5\}\). Defina \(S\), \(A\cup B\), \(B\cap C\) e \(\bar{C}\).</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>1) Primeiro, liste TUDO que pode acontecer ao jogar um dado: \(S=\{1,2,3,4,5,6\}\). É a caixa com
+      tudo.</p>
+      <p>2) \(A\cup B\) é "OU": ajunte os números de A={2,4,6} com os de B={1,3,5}. Como A tem só os pares e B
+      tem só os ímpares, juntando os dois você pega TODOS os números de 1 a 6 — ou seja, \(A\cup B = S\).</p>
+      <p>3) \(B\cap C\) é "E": quais números aparecem tanto em B={1,3,5} quanto em C={2,3,5}? Só o 3 e o 5.
+      Então \(B\cap C=\{3,5\}\).</p>
+      <p>4) \(\bar{C}\) é "o contrário de C": tudo que está na caixa S mas não está em C={2,3,5}. Sobra
+      \(\{1,4,6\}\).</p>
+      <p>Repare que isso é exatamente o que aparece na resolução técnica abaixo e no quadro "No quadro" —
+      são a mesma conta, só que aqui explicada devagar.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Dados</strong>
     Um dado de 6 faces é lançado uma vez; os resultados possíveis são os números de 1 a 6 — fixar isso primeiro
@@ -105,6 +146,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A=\){duas ou mais caras aparecem} e \(B=\){todos os lances são iguais}. Defina \(A\), \(B\) e
     \(A \cap B\).</div>
 
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>1) Jogar uma moeda 3 vezes seguidas: cada jogada dá Cara (C) ou Coroa (K). Para listar TODOS os
+      resultados possíveis, pense numa árvore: na 1ª jogada, 2 caminhos (C ou K); para cada um desses, a 2ª
+      jogada abre mais 2 caminhos; e a 3ª jogada, mais 2. No total: \(2\times2\times2=8\) sequências possíveis
+      — essa é a caixa \(S\).</p>
+      <p>2) A = "saíram 2 ou 3 caras". Olhe cada uma das 8 sequências e marque as que têm 2 ou 3 letras "C":
+      CCC (3 caras ✓), CCK, CKC, KCC (2 caras cada ✓). As outras (CKK, KCK, KKC, KKK) têm só 0 ou 1 cara, não
+      contam.</p>
+      <p>3) B = "as 3 jogadas deram o mesmo resultado" — só CCC (3 caras iguais) e KKK (3 coroas iguais).</p>
+      <p>4) \(A\cap B\)="E": qual sequência está nas duas listas ao mesmo tempo? Só CCC. Repare que KKK está em
+      B mas NÃO está em A (0 caras não é "2 ou mais caras") — esse é o erro mais comum aqui, por isso vira uma
+      "armadilha" ⚠️ abaixo.</p>
+    </div>
+
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Experimento composto (3 lançamentos independentes de uma moeda) — o espaço amostral é o produto
     cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\), com \(2^3=8\) resultados — usar o produto cartesiano
@@ -137,6 +193,21 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Sejam A, B e C eventos. Reescreva usando notação de conjuntos:
     a) A e B, mas C não ocorre. b) A ou C, mas B não ocorre. c) Nenhum dos eventos ocorre.
     d) Pelo menos dois eventos ocorrem.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>Aqui não tem número nenhum — é só transformar uma frase em português em símbolos de conjunto. Truque
+      fácil: toda vez que você ler <strong>"e"</strong>, escreve ∩. Toda vez que ler <strong>"ou"</strong>,
+      escreve ∪. Toda vez que ler <strong>"não ocorre"</strong>, coloca uma barrinha em cima da letra (o
+      "contrário" daquele evento).</p>
+      <p>a) "A e B, mas C não ocorre" → A ocorre <u>e</u> B ocorre <u>e</u> C não ocorre → \(A\cap B\cap C^c\).</p>
+      <p>b) "A ou C, mas B não ocorre" → (A <u>ou</u> C) <u>e</u> B não ocorre → \((A\cup C)\cap B^c\).</p>
+      <p>c) "Nenhum dos três ocorre" → A não ocorre <u>e</u> B não ocorre <u>e</u> C não ocorre →
+      \(A^c\cap B^c\cap C^c\).</p>
+      <p>d) "Pelo menos dois" é a mais difícil: significa que existe algum par (dois deles) acontecendo junto.
+      Então lista-se cada par possível (A-e-B, A-e-C, B-e-C) e junta tudo com "ou": se qualquer um desses
+      pares acontecer, já vale.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
     Não há números — o problema pede a <em>tradução</em> de linguagem natural para operações de conjuntos
@@ -187,6 +258,23 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Um dado e duas moedas são jogados. a) Descreva um espaço amostral conveniente S e
     ache n(S). b) Expresse A={duas caras e um número par}, B={2 ocorre}, C={exatamente uma cara e um número
     ímpar}. c) Expresse (i) A e B, (ii) apenas B, (iii) B e C.</div>
+
+    <div class="eli5">
+      <span class="eli5-label">🧒 Passo a passo bem simples</span>
+      <p>1) Jogar 2 moedas e 1 dado ao mesmo tempo. Cada moeda dá C ou K (2 opções), o dado dá 1 a 6
+      (6 opções). Um resultado completo é tipo "cara, coroa, número 4" — escrevemos como KC4. Quantos
+      resultados diferentes existem? Multiplica as opções: \(2\times2\times6=24\).</p>
+      <p>2) Para achar cada grupo (A, B, C), é só ler a condição e ir cortando: "duas caras" já fixa as duas
+      moedas em K e K (só falta o número); "número par" corta os números possíveis pra {2,4,6}. Juntando as
+      duas condições sobra \(A=\{KK2,KK4,KK6\}\) — só 3 resultados.</p>
+      <p>3) Para "A e B" (interseção), procure o(s) resultado(s) que aparecem nas DUAS listas ao mesmo tempo —
+      é como achar o nome que se repete em duas listas de chamada.</p>
+      <p>4) Para "apenas B" (só B, sem A), pegue a lista de B e risque quem também está em A — o que sobrar é
+      a resposta.</p>
+      <p>5) Se duas condições pedem coisas que se contradizem na MESMA posição (uma quer número par, outra
+      quer número ímpar), elas nunca podem acontecer juntas — a resposta é o conjunto vazio ∅, e está tudo
+      certo, não é erro nenhum.</p>
+    </div>
 
     <div class="step"><strong class="step-label">I. Dados</strong>
     Experimento composto: 2 moedas (K/C cada) + 1 dado (1 a 6). Resultado é uma tripla ordenada
