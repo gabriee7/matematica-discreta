@@ -238,7 +238,8 @@ aside.toc {
   overflow-y: auto;
 }
 
-aside.toc h2 {
+aside.toc h2,
+aside.toc summary {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -255,6 +256,45 @@ aside.toc ul {
 aside.toc li { margin-bottom: 0.35rem; }
 aside.toc a { text-decoration: none; color: var(--text-muted); }
 aside.toc a:hover { color: var(--primary); }
+
+/* ── TOC como <details> — sempre expandido no desktop, recolhível no mobile ── */
+
+aside.toc summary {
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  padding: 0.3rem 0.5rem;
+  margin: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+aside.toc summary::-webkit-details-marker { display: none; }
+aside.toc summary::marker { content: ""; }
+
+aside.toc summary::after {
+  content: " ▾";
+  float: right;
+}
+
+aside.toc details[open] > summary::after { content: " ▴"; }
+
+aside.toc details[open] > summary { margin-bottom: 0.6rem; }
+
+/* No desktop a lista fica sempre visivel, independente do atributo open —
+   o <summary> vira so um rotulo, sem interatividade. */
+@media (min-width: 769px) {
+  aside.toc summary {
+    cursor: default;
+    pointer-events: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  aside.toc summary::after { content: ""; }
+  aside.toc details > ul { display: block !important; }
+}
 
 main {
   min-width: 0;
