@@ -635,14 +635,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Cada dígito sorteado é independente e pode repetir: \(|S| = 10^3 = 1000\) sequências ordenadas possíveis.
     "Sequência" exige ordem exata; "lote" aceita qualquer ordem dos mesmos números.</div>
 
-    <div class="step"><strong class="step-label">III–IV. Resolução</strong>
+    <div class="step"><strong class="step-label">III–IV. Resolução (exatamente como no quadro — liste os arranjos, não pule para a fórmula)</strong>
     <strong>a)</strong> Uma única sequência entre 1000 é a apostada:
     \[P = \frac{1}{1000}\]
-    <strong>b)</strong> Se os 3 números sorteados são distintos, existem \(3! = 6\) ordens diferentes em que
-    podem ter saído, e qualquer uma delas faz o apostador (jogando "em lote") ganhar:
+    <strong>b)</strong> Se os 3 números sorteados são distintos — digamos que saíram A, B e C — o apostador
+    jogando "em lote" ganha com qualquer ordem deles. Liste todas as ordens possíveis de A, B, C:<br>
+    ABC, ACB, BAC, BCA, CAB, CBA — <strong>6 arranjos</strong>.<br>
     \[P = \frac{6}{1000} = \frac{3}{500}\]
-    <strong>c)</strong> Se dois dos números sorteados são iguais (ex.: \(a,a,b\) com \(a\neq b\)), o número de
-    ordens distintas dessa tripla é \(3!/2! = 3\) (permutação com repetição):
+    <strong>c)</strong> Se dois dos números sorteados são iguais — digamos que saíram A, A e B — liste as ordens
+    possíveis de A, A, B:<br>
+    AAB, ABA, BAA — <strong>3 arranjos</strong> (metade de 6, porque trocar as duas posições com A não gera uma
+    ordem nova).<br>
     \[P = \frac{3}{1000}\]</div>
 
     <table class="variations">
@@ -662,10 +665,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="board-solve">
     <span class="board-label">No quadro</span>
-    DAILY3: \(|S| = 10^3 = 1000\)<br>
-    a) \(P = 1/1000 = 0,001 = 0,1\%\)<br>
-    b) \(3! = 6\) → \(P = 6/1000 = 3/500 = 0,006 = 0,6\%\)<br>
-    c) \(3!/2! = 3\) → \(P = 3/1000 = 0,003 = 0,3\%\)
+    10) a) 1/1000 &nbsp; (000 ... 999)<br>
+    b) ABC &nbsp; ACB &nbsp; BAC &nbsp; BCA &nbsp; CAB &nbsp; CBA &nbsp; → 6/1000 = 3/500<br>
+    c) AAB &nbsp; ABA &nbsp; BAA &nbsp; → 3/1000
     </div>
   </div>
 

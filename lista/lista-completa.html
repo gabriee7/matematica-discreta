@@ -465,40 +465,52 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="q10">
     <h3>10. Loteria Daily3</h3>
     <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sequência exata" = a ordem tem que bater
-    certinho (1 jeito só). "Lote" = ganha em qualquer ordem — conte quantos jeitos diferentes dá pra
-    embaralhar os números sorteados (6 se todos distintos, 3 se dois são iguais). Explicação completa no
+    certinho (1 jeito só). "Lote" = ganha em qualquer ordem — para contar, <strong>liste no papel</strong> todas
+    as formas de embaralhar os números sorteados (não use só a fórmula; escreva cada arranjo, exatamente como
+    no quadro). Explicação completa no
     <a href="../modulos/02-espacos-equiprovaveis.html#ex10">Módulo 2</a>.</div>
-    <table class="data-table">
-      <tr><th>Item</th><th>Resposta</th></tr>
-      <tr><td>a) Sequência exata</td><td>1/1000</td></tr>
-      <tr><td>b) Lote, 3 números distintos</td><td>3/500</td></tr>
-      <tr><td>c) Lote, dois números iguais</td><td>3/1000</td></tr>
-    </table>
+
+    <div class="step"><strong class="step-label">I. Espaço amostral</strong>
+    O sorteio é uma sequência de 3 dígitos de 0 a 9, então \(n(S) = 10^3 = 1000\) — todas as sequências de
+    "000" até "999".</div>
+
+    <div class="step"><strong class="step-label">II. a) Sequência exata (a ordem sorteada tem que bater certinho)</strong>
+    Só existe 1 sequência que acerta na ordem exata dentre as 1000 possíveis:
+    <span class="answer-final">P = 1/1000</span></div>
+
+    <div class="step"><strong class="step-label">III. b) Lote com 3 dígitos distintos, ex.: sorteou A, B, C (todos diferentes)</strong>
+    Ganha o lote se os 3 números sorteados saírem em <em>qualquer ordem</em>. Liste todos os jeitos de
+    embaralhar A, B, C:<br>
+    ABC, ACB, BAC, BCA, CAB, CBA — <strong>6 arranjos</strong>.<br>
+    <span class="answer-final">P = 6/1000 = 3/500</span></div>
+
+    <div class="step"><strong class="step-label">IV. c) Lote com 2 dígitos iguais, ex.: sorteou A, A, B</strong>
+    Agora só 2 dos 3 dígitos são diferentes entre si (A aparece duas vezes). Liste os jeitos de embaralhar A, A, B:<br>
+    AAB, ABA, BAA — <strong>3 arranjos</strong> (a repetição de A corta pela metade os 6 arranjos do item anterior).<br>
+    <span class="answer-final">P = 3/1000</span></div>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
-      <tr><td>4 dígitos em vez de 3 (Daily4)</td><td>\(n(S)=10^4=10000\); "sequência exata" = 1/10000; "3 distintos" passa a ter mais subcasos (todos iguais, 2 iguais, 3 distintos, 4 distintos).</td></tr>
+      <tr><td>4 dígitos em vez de 3 (Daily4)</td><td>\(n(S)=10^4=10000\); "sequência exata" = 1/10000; "3 distintos" passa a ter mais subcasos (todos iguais, 2 iguais, 3 distintos, 4 distintos) — ver questão A2 em Provas Anteriores, que lista todos os 12 arranjos do padrão {A,A,B,C}.</td></tr>
       <tr><td>"todos os três iguais" em vez de "dois iguais"</td><td>Só 10 sequências (000,111,...,999) de 1000, então P=10/1000=1/100, bem menor.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">I. Verificação</strong>
+    <div class="step"><strong class="step-label">V. Verificação</strong>
     todos iguais 10 + dois iguais 270 + todos distintos 720 = 1000 = n(S) ✓
     <span class="answer-final">Consistente com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">II. Generalização</strong>
+    <div class="step"><strong class="step-label">VI. Generalização</strong>
     <span class="badge badge-pattern">🔁</span> "Sequência exata" trata a ordem como relevante (n(S)=10^k);
-    "lote" agrupa sequências equivalentes por composição de dígitos, exigindo contar arranjos por tipo
-    (todos iguais / dois iguais / todos distintos). <span class="badge badge-trap">❗</span> Não confundir
-    "número do lote" (sem ordem) com "sequência exata" (com ordem) — são espaços amostrais efetivamente
-    diferentes para fins de contagem, mesmo usando o mesmo \(n(S)=1000\).</div>
+    "lote" agrupa sequências equivalentes por composição de dígitos — para contar cada tipo, <strong>liste
+    explicitamente os arranjos</strong> (não pule direto para uma fórmula fechada). <span class="badge badge-trap">❗</span>
+    Não confundir "número do lote" (sem ordem) com "sequência exata" (com ordem) — são espaços amostrais
+    efetivamente diferentes para fins de contagem, mesmo usando o mesmo \(n(S)=1000\).</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex10">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
-    n(S) = 10³ = 1000<br>
-    a) P(sequência) = 1/1000 = 0,001 = 0,1%<br>
-    b) LOTE, 3 distintos: P = 3/500 = 0,006 = 0,6%<br>
-    c) LOTE, 2 iguais: P = 3/1000 = 0,003 = 0,3%<br>
-    verif: casos somam n(S) = 1000
+    10) a) 1/1000 &nbsp; (000 ... 999)<br>
+    b) ABC &nbsp; ACB &nbsp; BAC &nbsp; BCA &nbsp; CAB &nbsp; CBA &nbsp; → 6/1000 = 3/500<br>
+    c) AAB &nbsp; ABA &nbsp; BAA &nbsp; → 3/1000
     </div>
   </div>
 
