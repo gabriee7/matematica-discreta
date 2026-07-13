@@ -74,6 +74,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q1">
     <h3>1. Sejam A, B, C eventos — notação de conjuntos</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Truque de tradução: "e"→∩, "ou"→∪, "não
+    ocorre"→complemento (barra em cima da letra). "Pelo menos dois" quer dizer "algum par acontece junto" —
+    liste os pares possíveis (A-e-B, A-e-C, B-e-C) e junte tudo com "ou". Explicação completa, devagar, no
+    <a href="../modulos/01-espaco-amostral.html#ex1">Módulo 1</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) A e B, mas C não ocorre</td><td>\(A \cap B \cap C^c\)</td></tr>
@@ -112,6 +116,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q2">
     <h3>2. Um dado e duas moedas são jogados</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Um resultado completo é (moeda1, moeda2,
+    número): existem \(2\times2\times6=24\) combinações. Para montar cada grupo (A, B, C), leia a condição
+    igual quem monta uma lista de compras, uma exigência de cada vez. Explicação completa no
+    <a href="../modulos/01-espaco-amostral.html#ex2">Módulo 1</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) S, n(S)</td><td>\(S=\{K,C\}\times\{K,C\}\times\{1,\dots,6\}\), n(S) = 24</td></tr>
@@ -157,6 +165,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q3">
     <h3>3. Probabilidades básicas</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Toda vez que aparecer "pelo menos um" ou
+    "uma ou mais", é quase sempre mais fácil calcular o CONTRÁRIO ("nenhum") e fazer \(1-\)isso. Explicação
+    completa no <a href="../modulos/02-espacos-equiprovaveis.html#ex3">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Ímpar no dado</td><td>1/2</td></tr>
@@ -193,6 +204,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q4">
     <h3>4. Carta numerada de 1 a 50</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Maior que 10 OU divisível por 5" não é
+    só somar as duas chances — isso contaria duas vezes quem é as duas coisas. Some as duas e tire a
+    parte repetida (regra do "ou", Módulo 3). Explicação completa no
+    <a href="../modulos/02-espacos-equiprovaveis.html#ex4">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Maior que 10</td><td>4/5</td></tr>
@@ -230,6 +245,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q5">
     <h3>5. 10 garotas, 3 de olhos azuis, escolhem-se 2</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Escolher 2 pessoas sem ligar pra ordem é
+    combinação. Separe o grupo "azul" (3) do "não-azul" (7) e escolha dentro de cada um conforme a condição
+    pedida. Explicação completa no <a href="../modulos/02-espacos-equiprovaveis.html#ex5">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Ambas azuis</td><td>1/15</td></tr>
@@ -269,6 +287,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q6">
     <h3>6. 3 meninos e 3 meninas em fila</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Ficar junto" = tratar o grupo como um
+    bloco só e depois multiplicar pelas trocas de ordem internas do bloco. "Alternado" = contar quantos
+    "moldes" existem (2: começar com menino ou menina) e multiplicar pelas trocas de cada gênero. Explicação
+    completa no <a href="../modulos/02-espacos-equiprovaveis.html#ex6">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) As 3 meninas juntas</td><td>1/5</td></tr>
@@ -305,6 +327,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q7">
     <h3>7. Três moedas</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Só coroas E só caras" ao mesmo tempo é
+    impossível — as 3 moedas não podem ser as duas coisas juntas, então a chance é 0. Explicação completa no
+    <a href="../modulos/02-espacos-equiprovaveis.html#ex7">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Tamanho de S</td><td>8</td></tr>
@@ -342,6 +367,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q8">
     <h3>8. Dois dados</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Pense numa tabela 6×6 (dado 1 nas linhas,
+    dado 2 nas colunas) — 36 quadradinhos. Para cada item, procure quais quadradinhos satisfazem a condição e
+    conte. Explicação completa no <a href="../modulos/02-espacos-equiprovaveis.html#ex8">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Tamanho de S</td><td>36</td></tr>
@@ -384,6 +412,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q9">
     <h3>9. Mãos de 2 cartas de um baralho de 52</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Mesmo padrão da Questão 5, agora com
+    espadas (13) vs. não-espadas (39). No item h), cuidado: "figuras de espadas" já está DENTRO de "figuras" —
+    use a regra do "ou" (soma menos a parte repetida). Explicação completa no
+    <a href="../modulos/02-espacos-equiprovaveis.html#ex9">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Tamanho de S</td><td>1326</td></tr>
@@ -429,6 +461,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q10">
     <h3>10. Loteria Daily3</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sequência exata" = a ordem tem que bater
+    certinho (1 jeito só). "Lote" = ganha em qualquer ordem — conte quantos jeitos diferentes dá pra
+    embaralhar os números sorteados (6 se todos distintos, 3 se dois são iguais). Explicação completa no
+    <a href="../modulos/02-espacos-equiprovaveis.html#ex10">Módulo 2</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Sequência exata</td><td>1/1000</td></tr>
@@ -465,6 +501,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q11">
     <h3>11. Qual função é uma probabilidade válida em S={a₁,a₂,a₃}?</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Dois testes simples: (1) nenhum valor
+    pode ser negativo; (2) somando tudo, tem que dar exatamente 1 (100%). Se um valor já é negativo, reprova
+    na hora, nem precisa somar o resto. Explicação completa no
+    <a href="../modulos/03-teoremas-adicao.html#ex11">Módulo 3</a>.</div>
     <div class="step"><strong class="step-label">I. Estratégia</strong>
     Uma função \(P\) só é uma distribuição de probabilidade válida em S se (i) \(P(a_i)\ge 0\) para todo
     \(i\), e (ii) \(\sum_i P(a_i) = 1\). Basta checar essas duas condições em cada opção candidata.</div>
@@ -499,6 +539,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q12">
     <h3>12. Distribuição de probabilidade dada</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Este dado não é "honesto" — cada número
+    tem uma chance diferente escrita na tabela. Para achar a chance de um grupo, SOME as chances dos números
+    que estão dentro dele (não dá pra usar "quantos eu quero / quantos existem" aqui). Explicação completa no
+    <a href="../modulos/03-teoremas-adicao.html#ex12">Módulo 3</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) P(A), P(B), P(C)</td><td>0.6, 0.8, 0.5</td></tr>
@@ -533,6 +577,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q13">
     <h3>13. P(A)=0.6, P(B̄)=0.3, P(A∪B)=0.8</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Cuidado: o enunciado dá \(P(\bar B)\)
+    (chance de B NÃO acontecer), não \(P(B)\)! Primeiro passo obrigatório: \(P(B)=1-P(\bar B)=0,7\). Só depois
+    disso é que dá pra usar a regra do "ou". Explicação completa no
+    <a href="../modulos/03-teoremas-adicao.html#ex13">Módulo 3</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) P(A∩B)</td><td>0.5</td></tr>
@@ -569,6 +617,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q14">
     <h3>14. Dado lançado — A={2,4,6}, B={1,2}, C={1,2,3,4}</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> \(P(A|B)\) e \(P(B|A)\) são coisas
+    diferentes — o "de baixo da fração" (a caixa que encolhe) muda de qual letra vem primeiro. Para saber se
+    dois eventos são independentes, compare \(P(A\cap B)\) com \(P(A)\times P(B)\): se bater, são
+    independentes. Explicação completa no
+    <a href="../modulos/04-probabilidade-condicional.html#ex14">Módulo 4</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) P(A∩B), P(A∪C)</td><td>1/6, 5/6</td></tr>
@@ -612,6 +665,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q15">
     <h3>15. P(A)=0.6, P(B)=0.3, P(A∩B)=0.2</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Aqui os três números já estão prontos —
+    é só encaixar na fórmula \(P(A|B)=P(A\cap B)/P(B)\) (a caixa encolhe pro tamanho de B). Explicação completa
+    no <a href="../modulos/04-probabilidade-condicional.html#ex15">Módulo 4</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) P(A∪B)</td><td>0.7</td></tr>
@@ -647,6 +703,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q16">
     <h3>16. Par de dados, sabendo que os números são distintos</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sabendo que os números são distintos" já
+    encolhe a caixa: dos 36 pares, tire os 6 que repetem o mesmo número (1-1, 2-2...), sobram 30. TUDO se
+    conta dentro desses 30 daqui pra frente. Explicação completa no
+    <a href="../modulos/04-probabilidade-condicional.html#ex16">Módulo 4</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Soma par</td><td>2/5</td></tr>
@@ -680,6 +740,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q17">
     <h3>17. Cavalos a, b, c — 3 corridas</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "O mesmo cavalo ganha as 3": some a
+    chance de cada cavalo ganhar 3 vezes seguidas (multiplique a chance dele por ele mesmo 3 vezes). "Cada
+    cavalo vence 1 vez": pense em arrumar 3 coisas numa fila (\(3!=6\) jeitos), multiplicando as 3 chances uma
+    vez e depois por 6. Explicação completa no
+    <a href="../modulos/05-independencia-tentativas.html#ex17">Módulo 5</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Mesmo cavalo ganha as 3</td><td>0.16</td></tr>
@@ -713,6 +778,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q18">
     <h3>18. Antônio, lance de 3 pontos, p=0.4, 5 tentativas</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Escreva cada tentativa como "a" (acertou)
+    ou "e" (errou). "Exatamente 2 acertos em 5" = quantas sequências de 5 letras têm exatamente 2 "a"s
+    (\(\binom{5}{2}=10\)), multiplicado pela chance de cada sequência específica. "Pelo menos 1" = 1 menos a
+    chance de errar tudo. Explicação completa no
+    <a href="../modulos/05-independencia-tentativas.html#ex18">Módulo 5</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Exatamente duas vezes</td><td>0.3456</td></tr>
@@ -749,6 +819,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q19">
     <h3>19. Jogador de baseball, média 0.3, 4 tentativas</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Mesmíssima receita da Questão 18, só
+    trocando os números (\(n=4\), \(p=0,3\)). Uma vez que você entende o padrão de acerto/erro em sequências,
+    os números são só substituição. Explicação completa no
+    <a href="../modulos/05-independencia-tentativas.html#ex19">Módulo 5</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resposta</th></tr>
       <tr><td>a) Exatamente uma vez</td><td>0.4116</td></tr>
@@ -784,6 +858,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q20">
     <h3>20. Cinco demonstrações de O, Ω, Θ (sem gabarito oficial)</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Para provar O (teto): troque cada termo
+    pequeno pela maior potência de n e some — é sempre válido para n≥1. Para provar Ω (chão): jogue fora os
+    termos positivos "extras", que só ajudam. Para Θ: faça as duas provas e use o maior m das duas.
+    Explicação completa no <a href="../modulos/06-comportamento-assintotico.html#ex20">Módulo 6</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resultado</th></tr>
       <tr><td>a) n² é O(n⁴)</td><td>c=1, m=1</td></tr>
@@ -823,6 +901,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q21">
     <h3>21. Complexidade de programa com O(n), O(n²), O(log n)</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Três partes do programa rodam uma depois
+    da outra. A parte mais lenta (aqui, \(n^2\)) "engole" as outras quando n fica grande — o programa inteiro
+    fica com a complexidade da parte mais lenta, nunca a soma literal. Explicação completa no
+    <a href="../modulos/06-comportamento-assintotico.html#ex21">Módulo 6</a>.</div>
     <div class="step"><strong class="step-label">I. Estratégia</strong>
     Quando trechos de complexidades diferentes são executados em sequência (não aninhados), a complexidade
     total é dominada pelo termo assintoticamente maior: \(O(f)+O(g) = O(\max(f,g))\).</div>
@@ -853,6 +935,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="q22">
     <h3>22. Transitividade: f=O(g), g=O(h) ⟹ f=O(h)</h3>
+    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Se f nunca ultrapassa muito g, e g nunca
+    ultrapassa muito h, então f também nunca ultrapassa muito h. Para provar, "encaixe" as duas desigualdades
+    uma dentro da outra: troque o "g" da primeira pelo valor que a segunda te dá. A nova constante é o
+    PRODUTO das duas antigas. Explicação completa no
+    <a href="../modulos/06-comportamento-assintotico.html#ex22">Módulo 6</a>.</div>
     <div class="step"><strong class="step-label">I. Estratégia</strong>
     Por hipótese, existem \(c_1, m_1\) tais que \(|f(n)|\le c_1|g(n)|\) para \(n\ge m_1\), e \(c_2, m_2\) tais
     que \(|g(n)|\le c_2|h(n)|\) para \(n\ge m_2\). Basta encadear as duas desigualdades.</div>
