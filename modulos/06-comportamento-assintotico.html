@@ -222,7 +222,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
         soma "de verdade" — regra prática: ache quem cresce mais rápido, e essa é a resposta.</p>
       </div>
       <div class="step"><strong class="step-label">I. Resolução</strong>
-      Regra 5: \(O(f)+O(g)=O(\max(f,g))\), aplicada duas vezes.<br>
+      Operação 5 (Aula 12): \(O(f)+O(g)=O(\max(f,g))\) — vale porque, para \(n\) grande, o termo que
+      cresce mais devagar fica desprezível perto do que cresce mais rápido, então a soma "se comporta"
+      como só o maior; aplicada duas vezes:<br>
       1ª combinação: \(O(n) + O(n^2) \to O(\max(n,n^2)) = O(n^2)\) (\(n^2\) domina \(n\)).<br>
       2ª combinação: \(O(n^2) + O(n\log n) \to O(\max(n^2, n\log n)) = O(n^2)\) (\(n^2\) cresce mais que \(n\log n\)).
       <span class="answer-final">Complexidade total: O(n²).</span></div>
@@ -235,7 +237,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
       <div class="step"><strong class="step-label">II. Generalização</strong>
       <span class="badge badge-pattern">🔁</span> Complexidade de blocos sequenciais é sempre o <em>máximo</em>
-      entre as complexidades dos blocos, nunca a soma literal — aplique a regra 5 quantas vezes forem
+      entre as complexidades dos blocos, nunca a soma literal — aplique a Operação 5 quantas vezes forem
       necessárias para combinar mais de dois trechos.</div>
     </div>
   </div>
@@ -490,7 +492,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     </div>
 
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
-    Soma de três trechos de complexidades diferentes — aplica-se a regra 5 das operações com O:
+    Soma de três trechos de complexidades diferentes — aplica-se a Operação 5 das operações com O:
     \(O(f)+O(g) = O(\max(f,g))\), estendida para três parcelas.</div>
 
     <div class="step"><strong class="step-label">III–IV. Resolução</strong>
@@ -502,7 +504,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><th>E se a condição fosse...?</th><th>Como muda a resolução</th></tr>
       <tr><td>Trocar (b) Bolha \(O(n^2)\) por Quick Sort médio \(O(n\log n)\)</td><td>O máximo entre \(n\), \(n\log n\) e \(\log n\) passa a ser \(n\log n\); a complexidade total cai de \(O(n^2)\) para \(O(n\log n)\).</td></tr>
       <tr><td>Trocar (c) busca binária \(O(\log n)\) por busca linear \(O(n)\)</td><td>Não muda o resultado final — \(O(\max(n,n^2,n))=O(n^2)\) continua o mesmo, pois o gargalo já era a ordenação, não a busca.</td></tr>
-      <tr><td>Os três trechos rodarem em <em>paralelo</em> (não sequencialmente) em processadores distintos</td><td>A regra 5 (soma de complexidades = máximo) só vale para execução sequencial; em paralelo, o tempo total seria o próprio \(\max\) de cada trecho isoladamente, mas o raciocínio de "qual domina" muda de interpretação (tempo de parede vs. trabalho total).</td></tr>
+      <tr><td>Os três trechos rodarem em <em>paralelo</em> (não sequencialmente) em processadores distintos</td><td>A Operação 5 (soma de complexidades = máximo) só vale para execução sequencial; em paralelo, o tempo total seria o próprio \(\max\) de cada trecho isoladamente, mas o raciocínio de "qual domina" muda de interpretação (tempo de parede vs. trabalho total).</td></tr>
     </table>
 
     <div class="step"><strong class="step-label">V–VI. Verificação e generalização</strong>

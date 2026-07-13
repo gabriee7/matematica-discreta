@@ -363,15 +363,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">I. Dados</strong> \(100\cdot O(\log_2 n) + 5\cdot O(n) +
     2\cdot O(n\log_2 n)\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Regra da soma de complexidades: um
-    número constante de chamadas a uma função \(O(f(n))\) continua sendo \(O(f(n))\) (a constante é absorvida
-    pela definição de O); a complexidade total do algoritmo é a soma das complexidades, e essa soma é
-    dominada pelo termo assintoticamente maior.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> \(100\cdot O(\log_2 n)=O(\log_2 n)\);
-    \(5\cdot O(n)=O(n)\); \(2\cdot O(n\log_2 n)=O(n\log_2 n)\). Comparar o crescimento de \(\log_2 n\), \(n\)
-    e \(n\log_2 n\): para \(n\) grande, \(\log_2 n \le n \le n\log_2 n\).</div>
+    <div class="step"><strong class="step-label">II. Classificação</strong> Duas operações da lista oficial
+    (Aula 12) se aplicam em sequência: primeiro a <strong>Operação 2</strong> (\(c\cdot O(f(n))=O(f(n))\) —
+    vale porque a constante de repetição pode ser incorporada dentro da própria constante \(c\) da definição
+    de O, então "chamar 100 vezes uma função O(f)" continua sendo O(f), não \(O(100f)\)), depois a
+    <strong>Operação 5</strong> (\(O(f(n))+O(g(n))=O(\max(f(n),g(n)))\) — vale porque, para \(n\) grande, o
+    termo menor fica desprezível perto do maior, então a soma "se comporta como" só o maior).</div>
+    <div class="step"><strong class="step-label">III. Estratégia</strong> Operação 2: \(100\cdot O(\log_2 n)=
+    O(\log_2 n)\); \(5\cdot O(n)=O(n)\); \(2\cdot O(n\log_2 n)=O(n\log_2 n)\). Operação 5: comparar o
+    crescimento de \(\log_2 n\), \(n\) e \(n\log_2 n\): para \(n\) grande, \(\log_2 n \le n \le n\log_2 n\).</div>
     <div class="step"><strong class="step-label">IV. Resolução</strong>
-    Soma \(O(\log_2n)+O(n)+O(n\log_2n)\) dominada pelo maior termo, \(n\log_2 n\).<br>
+    Soma \(O(\log_2n)+O(n)+O(n\log_2n)\) dominada pelo maior termo, \(n\log_2 n\) — é o único dos três que
+    cresce mais rápido que os outros dois simultaneamente.<br>
     Algoritmo é \(O(n\log_2 n)\).</div>
     <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> O número de vezes que cada função é chamada (100, 5, 2) é uma
@@ -381,7 +384,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     100·O(log₂n) + 5·O(n) + 2·O(n log₂n)<br>
-    log₂n ≤ n ≤ n log₂n (n grande)<br>
+    Operação 2 (c·O(f)=O(f)): = O(log₂n) + O(n) + O(n log₂n)<br>
+    Operação 5 (O(f)+O(g)=O(max(f,g))): log₂n ≤ n ≤ n log₂n (n grande)<br>
     domina n log₂n → algoritmo é O(n log₂n)
     </div>
     <div class="answer-final">Complexidade do algoritmo: O(n log₂n)</div>
@@ -682,12 +686,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">I. Dados</strong> \(1\cdot O(n^2) + 5\cdot O(n) + 2\cdot
     O(n\log_2 n)\) — atenção: aqui é A, não B ou C, quem tem o maior expoente, o oposto do padrão da versão A7.</div>
-    <div class="step"><strong class="step-label">II. Estratégia</strong> Cada termo, multiplicado por uma
-    constante, permanece na mesma classe: \(O(n^2)\), \(O(n)\), \(O(n\log_2n)\). Comparar crescimento:
-    para \(n\) grande, \(n \le n\log_2n \le n^2\) (a partir de \(n\ge4\), \(\log_2n\le n\), e \(n^2\) sempre
-    cresce mais rápido que \(n\log_2n\)).</div>
+    <div class="step"><strong class="step-label">II. Estratégia</strong> <strong>Operação 2</strong> (Aula
+    12), vale porque a constante de chamadas cabe dentro da própria constante \(c\) da definição de O: cada
+    termo, multiplicado por uma constante, permanece na mesma classe: \(O(n^2)\), \(O(n)\),
+    \(O(n\log_2n)\). <strong>Operação 5</strong>, vale porque o termo menor vira desprezível perto do
+    maior quando \(n\) cresce: comparar crescimento — para \(n\) grande, \(n \le n\log_2n \le n^2\) (a
+    partir de \(n\ge4\), \(\log_2n\le n\), e \(n^2\) sempre cresce mais rápido que \(n\log_2n\)).</div>
     <div class="step"><strong class="step-label">III. Resolução</strong>
-    Termo dominante: \(n^2\) (de A), mesmo executada 1 vez — importa complexidade por chamada, não o nº de chamadas.<br>
+    Termo dominante: \(n^2\) (de A), mesmo executada 1 vez — importa complexidade por chamada, não o nº de
+    chamadas, porque a Operação 2 já absorveu as constantes de repetição antes de comparar.<br>
     Algoritmo é \(O(n^2)\).</div>
     <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> Diferente da versão A (onde B/C dominavam), aqui é A — mesmo
@@ -696,7 +703,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     1·O(n²) + 5·O(n) + 2·O(n log₂n)<br>
-    n ≤ n log₂n ≤ n² (n grande)<br>
+    Operação 2: = O(n²) + O(n) + O(n log₂n)<br>
+    Operação 5: n ≤ n log₂n ≤ n² (n grande)<br>
     domina n² → algoritmo é O(n²)
     </div>
     <div class="answer-final">Complexidade do algoritmo: O(n²)</div>
@@ -972,10 +980,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">I. Dados</strong> \(1\cdot O(n^2) + 3\cdot O(\log_2n) +
     10\cdot O(n)\).</div>
-    <div class="step"><strong class="step-label">II. Estratégia</strong> Constantes de repetição não mudam a
-    classe: \(O(n^2)\), \(O(\log_2n)\), \(O(n)\). Comparar: \(\log_2n \le n \le n^2\) para \(n\) grande.</div>
+    <div class="step"><strong class="step-label">II. Estratégia</strong> <strong>Operação 2</strong> (Aula
+    12), \(c\cdot O(f(n))=O(f(n))\): constantes de repetição não mudam a classe — por que ela vale: o
+    coeficiente constante já é absorvido dentro da própria definição de O (basta ajustar a constante
+    \(c\) da definição para incluí-lo). Restam \(O(n^2)\), \(O(\log_2n)\), \(O(n)\).
+    <strong>Operação 5</strong>, \(O(f)+O(g)=O(\max(f,g))\): comparar os três termos — \(\log_2n \le n
+    \le n^2\) para \(n\) grande.</div>
     <div class="step"><strong class="step-label">III. Resolução</strong>
-    Termo dominante: \(n^2\) (de A), assim como em B7.<br>
+    Termo dominante: \(n^2\) (de A), assim como em B7 — por que ele domina mesmo executado só 1 vez: a
+    Operação 2 já eliminou a diferença de "quantas vezes" cada função roda, então o que decide é apenas
+    qual função cresce mais rápido por chamada, e \(n^2\) cresce mais rápido que \(n\) e \(\log_2n\).<br>
     Algoritmo é \(O(n^2)\).</div>
     <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
     <span class="badge badge-trap">❗</span> As 10 execuções de C (\(O(n)\)) não superam a única execução de A
@@ -984,7 +998,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     1·O(n²) + 3·O(log₂n) + 10·O(n)<br>
-    log₂n ≤ n ≤ n² (n grande)<br>
+    Operação 2: = O(n²) + O(log₂n) + O(n)<br>
+    Operação 5: log₂n ≤ n ≤ n² (n grande)<br>
     domina n² → algoritmo é O(n²)
     </div>
     <div class="answer-final">Complexidade do algoritmo: O(n²)</div>

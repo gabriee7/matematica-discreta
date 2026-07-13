@@ -909,8 +909,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     fica com a complexidade da parte mais lenta, nunca a soma literal. Explicação completa no
     <a href="../modulos/06-comportamento-assintotico.html#ex21">Módulo 6</a>.</div>
     <div class="step"><strong class="step-label">I. Estratégia</strong>
-    Quando trechos de complexidades diferentes são executados em sequência (não aninhados), a complexidade
-    total é dominada pelo termo assintoticamente maior: \(O(f)+O(g) = O(\max(f,g))\).</div>
+    Aplica-se a <strong>Operação 5</strong> das operações com O (Aula 12): \(O(f(n))+O(g(n))=
+    O(\max(f(n),g(n)))\) — vale porque, para \(n\) suficientemente grande, o termo de crescimento menor
+    fica desprezível diante do maior, então a soma "se comporta" como só o maior. Quando trechos de
+    complexidades diferentes são executados em sequência (não aninhados), a complexidade total é dominada
+    pelo termo assintoticamente maior.</div>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
