@@ -473,23 +473,27 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Separe o grupo por curso (Ciência da Computação vs. Sistemas de Informação) e depois por gênero dentro de cada curso — a regra do "ou" junta os dois casos sem contar ninguém duas vezes.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Primeiro transforme as frações em
+    número de pessoas de verdade. Depois é só aplicar a regra do "ou": some os dois grupos e tire quem foi
+    contado duas vezes.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Turma com 40 estudantes: 30 CC + 10 SI.
-    CC: \(1/10\) mulheres → 3 mulheres, 27 homens. SI: \(4/5\) homens → 8 homens, 2 mulheres.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Espaço equiprovável finito de 40
-    estudantes; evento pedido é uma união (mulher OU CC) → inclusão-exclusão.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> \(P(\text{mulher})=7\)? Não — total de
-    mulheres = 3 (CC) + 2 (SI) = 5. \(P(\text{mulher})=5/40\). \(P(\text{CC})=30/40\).
-    \(P(\text{mulher}\cap\text{CC})=3/40\) (as 3 mulheres de CC). Aplicar
-    \(P(M\cup CC)=P(M)+P(CC)-P(M\cap CC)\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    \(P(M\cup CC)=\dfrac{5}{40}+\dfrac{30}{40}-\dfrac{3}{40}=\dfrac{32}{40}=\dfrac{4}{5}=80\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> A interseção "mulher e CC" não é 0 — são justamente as 3 mulheres
-    de Ciência da Computação; esquecer de subtrair essa interseção (somando 5/40+30/40=35/40) é o erro mais
-    comum. <span class="badge badge-pattern">🔁</span> Sempre converta frações de subgrupos ("1/10 das
-    mulheres de CC") em contagens absolutas antes de montar a fração final sobre o total da turma.</div>
+    <div class="step"><strong class="step-label">Passo 1 — transformar frações em pessoas</strong>
+    Turma tem 40 alunos: 30 de CC + 10 de SI.<br>
+    CC: 1/10 são mulheres → \(30\times\tfrac{1}{10}=3\) mulheres, 27 homens.<br>
+    SI: 4/5 são homens → \(10\times\tfrac{4}{5}=8\) homens, 2 mulheres.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — contar cada grupo pedido</strong>
+    Total de mulheres na turma: 3 (CC) + 2 (SI) = 5 → \(P(\text{mulher})=5/40\).<br>
+    Total de CC: 30 → \(P(\text{CC})=30/40\).<br>
+    Mulheres que também são de CC: as mesmas 3 de antes → \(P(\text{mulher e CC})=3/40\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — somar sem contar ninguém 2 vezes</strong>
+    "Mulher OU CC" = soma dos dois grupos menos quem está nos dois ao mesmo tempo:<br>
+    \(P=\dfrac{5}{40}+\dfrac{30}{40}-\dfrac{3}{40}=\dfrac{32}{40}=\dfrac{4}{5}=80\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> As 3 mulheres de CC estão nos dois grupos ao mesmo tempo — se você
+    só somar 5/40+30/40=35/40 sem subtrair essa sobreposição, conta essas 3 pessoas duas vezes.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     CC=30 (3M,27H) ; SI=10 (2M,8H) ; total=40<br>
@@ -509,22 +513,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Exatamente dois números iguais" entre 3 dados: escolha QUAIS dois dados serão iguais, o valor que se repete, e o valor do terceiro (diferente) — três escolhas encadeadas.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Exatamente dois iguais" entre 3
+    dados: decida (1) qual número vai se repetir, (2) quais 2 dos 3 dados vão dar esse número, (3) o que o
+    terceiro dado (diferente) vai dar. Três escolhas encadeadas, multiplica tudo.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Três dados de 6 faces; \(n(S)=6^3=216\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Contagem por padrão de repetição
-    (par + um valor diferente), análogo ao "one pair" com dados.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Escolher o valor do par: 6 formas.
-    Escolher quais 2 das 3 posições formam o par: \(\binom{3}{2}=3\). Escolher o valor do terceiro dado,
-    diferente do par: 5 formas restantes.</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    Casos favoráveis \(=6\times3\times5=90\).<br>
+    <div class="step"><strong class="step-label">Passo 1 — o total de jogadas possíveis</strong>
+    3 dados de 6 faces: \(n(S)=6^3=216\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — contar as jogadas com exatamente 2 iguais</strong>
+    Qual número se repete: 6 opções.<br>
+    Quais 2 dos 3 dados dão esse número repetido: 3 formas de escolher a dupla (\(\{1,2\},\{1,3\},\{2,3\}\)).<br>
+    O terceiro dado tem que dar um número diferente do repetido: sobram 5 opções.<br>
+    Multiplicando: \(6\times3\times5=90\) jogadas favoráveis.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — a probabilidade</strong>
     \(P=90/216=5/12\approx41,67\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> "Exatamente dois iguais" exclui o caso dos três iguais (que teria
-    apenas 6 casos, \(6/216=1/36\)) — não incluir esse caso no meio da contagem por engano.
-    <span class="badge badge-pattern">🔁</span> Padrão de contagem: (valor do grupo repetido) × (posições do
-    grupo) × (valor(es) restante(s) distinto(s)).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Exatamente dois iguais" NÃO inclui o caso dos três iguais (esse
+    caso à parte teria só 6 jogadas, \(6/216=1/36\)) — não misture os dois casos na contagem.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     n(S) = 216<br>
@@ -545,22 +552,28 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Aqui os três números (P(A), P(B), P(A∪B)) já estão prontos — encaixe direto nas fórmulas de complemento e interseção, sem precisar contar elementos de conjunto.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Os três números do enunciado (P(A),
+    P(B), P(A∪B)) já dão tudo que você precisa — cada item é só reorganizar essas três peças numa fórmula
+    diferente.</div>
 
-    <div class="step"><strong class="step-label">I. Estratégia</strong> a) complemento direto; b) isolar
-    \(P(A\cap B)\) de \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\); c) De Morgan; d) comparar \(P(A\cap B)\) com
-    \(P(A)P(B)\) — cada item usa diretamente a identidade algébrica que isola a quantidade pedida a partir dos três dados fornecidos, sem precisar de espaço amostral explícito.</div>
-    <div class="step"><strong class="step-label">II. Resolução</strong>
-    a) \(P(\bar A)=1-3/5=2/5\).<br>
-    b) \(P(A\cap B)=P(A)+P(B)-P(A\cup B)=\tfrac{12}{20}+\tfrac{5}{20}-\tfrac{13}{20}=\tfrac{4}{20}=\tfrac15\).<br>
-    c) \(P(\bar A\cap\bar B)=1-P(A\cup B)=1-13/20=7/20\).<br>
-    d) \(P(A)P(B)=\tfrac35\cdot\tfrac14=\tfrac{3}{20}\); \(P(A\cap B)=\tfrac15=\tfrac{4}{20}\ne\tfrac{3}{20}\)
-    — <strong>não são independentes</strong>.</div>
-    <div class="step"><strong class="step-label">III. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> É tentador achar que, como todos os números "batem bonito", A e B
-    são independentes — sempre confira numericamente \(P(A\cap B)\) contra \(P(A)P(B)\), não "no olho".
-    <span class="badge badge-pattern">🔁</span> Trabalhar com denominador comum 20 evita erro de fração ao
-    longo de toda a questão.</div>
+    <div class="step"><strong class="step-label">Passo 1 — item a) P(Ā)</strong>
+    \(P(\bar A)=1-P(A)=1-3/5=2/5\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item b) P(A∩B)</strong>
+    Da fórmula \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\), isolo \(P(A\cap B)\):<br>
+    \(P(A\cap B)=P(A)+P(B)-P(A\cup B)=\tfrac{12}{20}+\tfrac{5}{20}-\tfrac{13}{20}=\tfrac{4}{20}=\tfrac15\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item c) nem A nem B</strong>
+    "Nem A nem B" é o contrário de "A ou B": \(P(\bar A\cap\bar B)=1-P(A\cup B)=1-13/20=7/20\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — item d) são independentes?</strong>
+    Testa se \(P(A)\cdot P(B)=P(A\cap B)\): \(\tfrac35\cdot\tfrac14=\tfrac{3}{20}\), mas achamos
+    \(P(A\cap B)=\tfrac15=\tfrac{4}{20}\) no passo 2. Como \(3/20\ne4/20\), <strong>não são
+    independentes</strong>.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> É tentador supor independência só porque os números "parecem
+    bonitos" — sempre confira \(P(A\cap B)\) contra \(P(A)P(B)\) numericamente, nunca no olho.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) P(Ā) = 1-3/5 = 2/5 = 40%<br>
@@ -582,27 +595,24 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sabendo que Dayan não foi escolhido" encolhe o grupo de candidatos — refaça a contagem só com quem sobrou.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Sabendo que Dayan não foi escolhido"
+    já elimina ele da lista de candidatos — refaça a contagem só com quem sobrou, esqueça o total original.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 5 professores; comissão de 3, escolhida ao
-    acaso; condição: Dayan (D) não está na comissão.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Probabilidade condicional com espaço
-    amostral reduzido a combinações — condicionar em "D ∉ comissão" restringe as comissões possíveis às
-    formadas pelos 4 professores restantes.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Sem a condição, \(n(S)=\binom{5}{3}=10\)
-    comissões, igualmente prováveis. Condicionando em "D não escolhido", o novo espaço amostral são as
-    comissões de 3 formadas só com {Antônio, Bruno, Clayton, Edmar}: \(\binom{4}{3}=4\) comissões, igualmente
-    prováveis entre si. Contar quantas dessas 4 incluem Bruno: fixar Bruno e escolher 2 dos 3 restantes
-    (Antônio, Clayton, Edmar): \(\binom{3}{2}=3\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    D excluído → sobram Antônio (A), Bruno (B), Clayton (C), Edmar (E); comissões de 3 dentre esses 4:<br>
-    {A,B,C}, {A,B,E}, {A,C,E}, {B,C,E} → 4 comissões, \(n(S')=4\)<br>
-    contêm Bruno: <strong>{A,B,C}</strong>, <strong>{A,B,E}</strong>, <strong>{B,C,E}</strong> → 3 favoráveis<br>
-    \(P(\text{Bruno}\mid D\notin\text{comissão})=\dfrac{3}{4}=75\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Depois de condicionar, o denominador correto é 4 (comissões
-    possíveis sem Dayan), não 10 (total sem condicionar) — usar o espaço amostral original ignorando a
-    informação dada é o erro mais frequente em probabilidade condicional.</div>
+    <div class="step"><strong class="step-label">Passo 1 — quem sobra depois de excluir Dayan?</strong>
+    Ficam 4 candidatos: Antônio (A), Bruno (B), Clayton (C), Edmar (E). Toda comissão de 3 que ainda é possível
+    vem só desses 4. Listando todas: {A,B,C}, {A,B,E}, {A,C,E}, {B,C,E} → <strong>4 comissões possíveis</strong>
+    (esse é o denominador).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — quantas dessas 4 têm o Bruno?</strong>
+    {A,B,C}, {A,B,E}, {B,C,E} → <strong>3 favoráveis</strong>.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — a probabilidade</strong>
+    \(P=\dfrac{3}{4}=75\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Depois de saber que Dayan não está, o denominador certo é 4, não
+    10 (o total de comissões possíveis sem essa informação) — ignorar o que já foi dado é o erro mais comum
+    aqui.</div>
     <p><a href="../modulos/04-probabilidade-condicional.html">Ver teoria no Módulo 4 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     C(5,3) = 10 (sem condição)<br>
@@ -626,28 +636,27 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Pelo menos uma das duas provas ganha" = 1 menos a chance de perder as duas (multiplicando as chances de perda de cada uma, pois são independentes).</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Em cada prova só há 3 resultados
+    (Juliana ganha, Valéria ganha, ou outra pessoa ganha), com chances diferentes entre si — não são
+    igualmente prováveis, então não dá pra só contar casos e dividir por 9.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Por prova: \(P(J)=0,4\), \(P(V)=0,3\),
-    logo \(P(\text{outra nadadora}, O)=1-0,4-0,3=0,3\). Duas provas, resultados independentes entre si.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Espaço produto de duas tentativas
-    independentes, cada uma com 3 resultados <em>não</em> equiprováveis (\(J,V,O\)).</div>
-    <div class="step"><strong class="step-label">III. Estratégia (a)</strong>
-    \(S=\{J,V,O\}\times\{J,V,O\}\), 9 pares ordenados (prova 1, prova 2); a probabilidade de cada par é o
-    produto das probabilidades individuais, por independência.</div>
-    <div class="step"><strong class="step-label">IV. Resolução (a)</strong>
-    (J,J)=0,16 ; (J,V)=(V,J)=(J,O)=(O,J)=0,12 ; (V,V)=(V,O)=(O,V)=(O,O)=0,09<br>
-    Soma \(=0,16+4(0,12)+4(0,09)=0,16+0,48+0,36=1\) ✓.</div>
-    <div class="step"><strong class="step-label">V. Estratégia (b)</strong> "Pelo menos uma prova ganha por
-    Juliana ou Valéria" é o complemento de "nenhuma das duas venceu nenhuma prova", isto é, complemento de
-    (O,O).</div>
-    <div class="step"><strong class="step-label">VI. Resolução (b)</strong>
-    \(P(\text{pelo menos uma}) = 1-P(O,O)=1-0,09=0,91=91\%\).</div>
-    <div class="step"><strong class="step-label">VII. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> As 9 células do espaço amostral <strong>não</strong> são
-    equiprováveis (\(P(J)\ne P(V)\ne P(O)\)) — não dividir por 9 no item b). <span class="badge
-    badge-pattern">🔁</span> "Pelo menos um evento X em n tentativas" quase sempre é mais rápido via
-    complemento "nenhuma vez X".</div>
+    <div class="step"><strong class="step-label">Passo 1 — achar a 3ª probabilidade</strong>
+    \(P(J)=0,4\), \(P(V)=0,3\). A chance de outra nadadora ganhar (O) é o que sobra: \(P(O)=1-0,4-0,3=0,3\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item a) montar o espaço amostral</strong>
+    Cada prova tem 3 resultados possíveis (J, V ou O), e são 2 provas independentes: 9 pares possíveis
+    (prova1, prova2). A chance de cada par é o produto das duas provas:<br>
+    (J,J)=0,16 · (J,V)=(V,J)=(J,O)=(O,J)=0,12 · (V,V)=(V,O)=(O,V)=(O,O)=0,09<br>
+    Conferindo: \(0,16+4(0,12)+4(0,09)=1\) ✓ (soma de todas as chances tem que dar 100%).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item b) pelo menos uma prova para Juliana ou Valéria</strong>
+    O único jeito de NEM Juliana NEM Valéria vencer nenhuma prova é o par (O,O), que vale 0,09. "Pelo menos
+    uma" é o contrário disso: \(P=1-0,09=0,91=91\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Os 9 pares NÃO têm todos a mesma chance — não dá pra contar
+    quantos pares "servem" e dividir por 9; cada par tem sua própria probabilidade calculada por
+    multiplicação.</div>
     <p><a href="../modulos/05-independencia-tentativas.html">Ver teoria no Módulo 5 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     P(J)=0,4 ; P(V)=0,3 ; P(O)=0,3<br>
@@ -668,29 +677,29 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Mesmo padrão de sempre: para O, majore cada termo pequeno pela maior potência; para Ω, descarte os termos positivos que só ajudam.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesmo método da A6: escreva a
+    desigualdade, divida pela função de referência para isolar o \(c\), veja se decresce, pegue o pior caso.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução a) \(O(n^3)\)</strong>
-    \(3n^3-2n^2+1\le c\cdot n^3,\ \forall n\ge m\). Dividindo por \(n^3\):
-    \(c\ge3-\dfrac{2}{n}+\dfrac{1}{n^3},\ \forall n\ge1\)<br>
-    O termo \(-2/n\) só ajuda — descartando-o: \(c\ge3+\dfrac{1}{n^3}\), decrescente, maior valor em \(n=1\):
-    \(c\ge3+1\Rightarrow c\ge4\).
+    <div class="step"><strong class="step-label">Item a) — provar que \(3n^3-2n^2+1\) é \(O(n^3)\)</strong>
+    Quero \(3n^3-2n^2+1\le c\cdot n^3\). Dividindo por \(n^3\): \(c\ge3-\dfrac{2}{n}+\dfrac{1}{n^3}\).<br>
+    O termo \(-2/n\) só ajuda (deixa o lado direito menor), então descarto: sobra \(c\ge3+\dfrac{1}{n^3}\),
+    que decresce com \(n\) — pior caso em \(n=1\): \(c\ge3+1=4\).
     <span class="answer-final">c=4, m=1 → O(n³).</span></div>
-    <div class="step"><strong class="step-label">II. Resolução b) \(\Omega(n^2)\)</strong>
-    \(n\ge0\): \(4n^2+3n+2\ge4n^2\) (pois \(3n+2\ge0\), termos positivos descartados).
+
+    <div class="step"><strong class="step-label">Item b) — provar que \(4n^2+3n+2\) é \(\Omega(n^2)\)</strong>
+    Como \(3n+2\) é sempre positivo para \(n\ge0\), direto: \(4n^2+3n+2\ge4n^2\).
     <span class="answer-final">c=4, m=0 → Ω(n²).</span></div>
-    <div class="step"><strong class="step-label">III. Resolução c) \(\Theta(n)\)</strong>
-    Cota sup.: \(\dfrac{n+4}{3}\le c_2\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_2\ge\dfrac13+\dfrac{4}{3n},\ \forall n\ge1\), decrescente → maior valor em \(n=1\):
-    \(c_2\ge\tfrac13+\tfrac43=\tfrac53\).<br>
-    Cota inf.: \(\dfrac{n+4}{3}\ge c_1\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_1\le\dfrac13+\dfrac{4}{3n}\) — com \(c_1=\tfrac13\), vale para qualquer \(n\ge1\).
+
+    <div class="step"><strong class="step-label">Item c) — provar que \(\dfrac{n+4}{3}\) é \(\Theta(n)\)</strong>
+    Teto: \(\dfrac{n+4}{3}\le c_2\cdot n\). Dividindo por \(n\): \(c_2\ge\dfrac13+\dfrac{4}{3n}\), decresce —
+    pior caso em \(n=1\): \(c_2\ge\tfrac13+\tfrac43=\tfrac53\).<br>
+    Chão: \(\dfrac{n+4}{3}\ge c_1\cdot n\). Dividindo por \(n\): \(c_1\le\dfrac13+\dfrac{4}{3n}\) — com
+    \(c_1=\tfrac13\), vale para todo \(n\ge1\).
     <span class="answer-final">c₁=1/3, c₂=5/3, m=1 → Θ(n).</span></div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Em (a), o termo \(-2/n\) (vindo de \(-2n^2\) dividido por \(n^3\))
-    só ajuda — descarta-se direto, sem precisar "cobri-lo" com outro termo, diferente dos termos positivos.
-    <span class="badge badge-pattern">🔁</span> Mesmo método de A6, dividir por \(f(n)\) para isolar \(c\); só
-    trocam os números.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Θ só está provado quando você mostra as duas pontas (teto E chão)
+    — provar só uma não basta.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) c≥3-2/n+1/n³, ∀n≥1 → descarta -2/n → c≥3+1/n³ → n=1: c≥4 → O(n³) c=4,m=1<br>
@@ -712,24 +721,29 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Multiplique cada complexidade pelo número de vezes que a função roda, some tudo, e o termo que mais pesa dita a complexidade final.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesma ideia da A7: quantas vezes cada
+    função roda é só uma constante, não muda a ordem dela. Quem manda no total é quem tem a maior complexidade
+    por chamada — aqui é diferente da A7, cuidado.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(1\cdot O(n^2) + 5\cdot O(n) + 2\cdot
-    O(n\log_2 n)\) — atenção: aqui é A, não B ou C, quem tem o maior expoente, o oposto do padrão da versão A7.</div>
-    <div class="step"><strong class="step-label">II. Estratégia</strong> <strong>Operação 2</strong> (Aula
-    12), vale porque a constante de chamadas cabe dentro da própria constante \(c\) da definição de O: cada
-    termo, multiplicado por uma constante, permanece na mesma classe: \(O(n^2)\), \(O(n)\),
-    \(O(n\log_2n)\). <strong>Operação 5</strong>, vale porque o termo menor vira desprezível perto do
-    maior quando \(n\) cresce: comparar crescimento — para \(n\) grande, \(n \le n\log_2n \le n^2\) (a
-    partir de \(n\ge4\), \(\log_2n\le n\), e \(n^2\) sempre cresce mais rápido que \(n\log_2n\)).</div>
-    <div class="step"><strong class="step-label">III. Resolução</strong>
-    Termo dominante: \(n^2\) (de A), mesmo executada 1 vez — importa complexidade por chamada, não o nº de
-    chamadas, porque a Operação 2 já absorveu as constantes de repetição antes de comparar.<br>
-    Algoritmo é \(O(n^2)\).</div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Diferente da versão A (onde B/C dominavam), aqui é A — mesmo
-    executada uma única vez — que domina, porque \(n^2\) cresce mais rápido que \(n\log_2n\). Não deduzir a
-    resposta "de cabeça" olhando quem é chamada mais vezes; sempre compare as funções de crescimento.</div>
+    <div class="step"><strong class="step-label">Passo 1 — monte a soma total</strong>
+    \(1\cdot O(n^2) + 5\cdot O(n) + 2\cdot O(n\log_2 n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — tire as constantes (Operação 2)</strong>
+    Cada termo multiplicado por uma constante continua na mesma ordem: \(O(n^2)\), \(O(n)\),
+    \(O(n\log_2n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — some pelo maior (Operação 5)</strong>
+    Comparando o crescimento dos três: para \(n\) grande, \(n \le n\log_2n \le n^2\) — quem cresce mais rápido
+    é \(n^2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a resposta</strong>
+    O termo \(n^2\) vem da função A, que roda só 1 vez — mas isso não importa, o que importa é que \(n^2\)
+    cresce mais rápido que \(n\log_2n\) e que \(n\). Algoritmo é \(O(n^2)\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Diferente da A7 (onde quem dominava era B e C), aqui é A — mesmo
+    rodando só 1 vez — que domina, porque \(n^2\) cresce mais rápido. Não adivinhe pela quantidade de
+    chamadas; sempre compare o crescimento das funções.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     1·O(n²) + 5·O(n) + 2·O(n log₂n)<br>
@@ -750,17 +764,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Prova de transitividade: encadeie as duas desigualdades dadas, uma dentro da outra, e multiplique as constantes.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Idêntica à A8: encaixe uma
+    desigualdade dentro da outra e multiplique as constantes.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução</strong> (idêntica à A8)<br>
-    \(h(n)\le c_1g(n)\), \(n\ge m_1\) ; \(g(n)\le c_2f(n)\), \(n\ge m_2\)<br>
-    \(m=\max(m_1,m_2)\), \(c=c_1c_2\) → \(h(n)\le c_1g(n)\le c\,f(n)\)<br>
-    \(h(n)=O(f(n))\). \(\blacksquare\)</div>
-    <div class="step"><strong class="step-label">II. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Mesmo cuidado da versão A: usar \(m=\max(m_1,m_2)\), nunca um dos
-    dois isoladamente. <span class="badge badge-pattern">🔁</span> A transitividade de O é o que garante que
-    "está em O de alguma função polinomial/log/etc." forma uma hierarquia consistente de comparação entre
-    algoritmos.</div>
+    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses</strong>
+    \(h(n)\le c_1g(n)\) para todo \(n\ge m_1\); \(g(n)\le c_2f(n)\) para todo \(n\ge m_2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — encaixe uma na outra</strong>
+    Para \(n\ge m=\max(m_1,m_2)\): \(h(n)\le c_1g(n)\le c_1c_2f(n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
+    Com \(c=c_1c_2\), fica \(h(n)\le c\,f(n)\) para todo \(n\ge m\) — ou seja, \(h(n)=O(f(n))\). \(\blacksquare\)</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Use \(m=\max(m_1,m_2)\), nunca um dos dois isolado.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     h(n) ≤ c₁g(n), n≥m₁ ; g(n) ≤ c₂f(n), n≥m₂<br>
