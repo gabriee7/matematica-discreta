@@ -101,17 +101,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Só A ocorre (nem B nem C)</td><td>\(A\cap \overline{B}\cap \overline{C}\) — cada "não ocorre" adicional vira mais um complemento interseccionado.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    Cada expressão pode ser conferida testando um elemento hipotético em cada evento e checando se a fórmula
-    lógica coincide com a descrição da questão. <span class="answer-final">Todas as quatro traduções batem
-    com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Toda tradução de frase em teoria dos conjuntos segue o mesmo
-    dicionário: "e"→∩, "ou"→∪, "não ocorre"→complemento, "pelo menos k de n"→união de interseções cobrindo os
-    casos com k, k+1, …, n eventos ocorrendo. <span class="badge badge-trap">❗</span> "Pelo menos dois" inclui
-    o caso em que os três ocorrem — os termos da união em (d) não são mutuamente exclusivos, mas isso não
-    atrapalha a união (não é preciso subtrair sobreposição para apenas descrever o evento).</div>
+    <div class="step"><strong class="step-label">Passo 1 — traduza palavra por palavra</strong>
+    "E" vira ∩, "ou" vira ∪, "não ocorre" vira complemento (traço em cima da letra). Em a) "A e B, mas C não
+    ocorre" é literalmente A ∩ B ∩ (não-C): \(A \cap B \cap \overline{C}\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — "nenhum ocorre" é o complemento de "algum ocorre"</strong>
+    Em c), "nenhum dos três ocorre" é o complemento da união dos três: \(\overline{A\cup B\cup C}\), que também
+    pode ser escrito como interseção dos complementos: \(\overline{A}\cap \overline{B}\cap \overline{C}\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — "pelo menos dois" é uma união de pares</strong>
+    Em d), liste os pares que podem estar juntos (A-e-B, A-e-C, B-e-C) e junte tudo com "ou":
+    \((A\cap B)\cup(A\cap C)\cup(B\cap C)\). Isso já inclui o caso dos três juntos — não precisa tratar à parte.
+    <span class="answer-final">As quatro traduções batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Pelo menos dois" também é verdade quando os três acontecem ao
+    mesmo tempo — não confunda com "exatamente dois" (que precisaria excluir o caso dos três).</div>
     <p><a href="../modulos/01-espaco-amostral.html#ex1">Ver resolução completa no Módulo 1 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -148,20 +150,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"pelo menos uma cara" em vez de "exatamente uma"</td><td>C passaria a incluir também casos com duas caras, exigindo somar mais elementos ou usar o complemento "nenhuma cara".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    n(S) = 2·2·6 = 24<br>
-    A∩B = {KK2}<br>
-    B∖A = {KC2,CK2,CC2}<br>
-    B∩C = ∅ (par e ímpar não coexistem)<br>
-    → conferido elemento a elemento. <span class="answer-final">Bate com o
-    gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Experimento composto por sub-experimentos independentes ⇒
-    espaço amostral é o produto cartesiano e \(n(S)\) é o produto das cardinalidades.
-    <span class="badge badge-trap">❗</span> \(B\cap C=\emptyset\) porque B exige número par e C exige número
-    ímpar — sempre cheque se duas condições do enunciado se referem à mesma coordenada do resultado antes de
-    tentar listar interseções.</div>
+    <div class="step"><strong class="step-label">Passo 1 — monte o espaço amostral</strong>
+    Cada resultado é (moeda1, moeda2, número do dado). Moeda tem 2 opções, dado tem 6: \(n(S)=2\times2\times6=24\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — monte cada evento lendo a condição literalmente</strong>
+    A = "duas caras e número par" → fixa as duas moedas em cara, varia só o número entre os pares: {KK2,KK4,KK6}.<br>
+    B = "sai o número 2" → qualquer combinação de moedas, número travado em 2: {KK2,KC2,CK2,CC2}.<br>
+    C = "exatamente uma cara e número ímpar" → uma moeda cara e outra coroa (2 jeitos), número ímpar (3 opções): 6 elementos.</div>
+    <div class="step"><strong class="step-label">Passo 3 — combine os eventos</strong>
+    A∩B = só o elemento que está nos dois: {KK2}.<br>
+    "Apenas B" = está em B mas não em A: {KC2,CK2,CC2}.<br>
+    B∩C = ∅, porque B exige número PAR (2) e C exige número ÍMPAR — nenhum elemento pode ter as duas coisas.
+    <span class="answer-final">Bate com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Antes de listar uma interseção, confira se as duas condições podem
+    coexistir fisicamente — aqui "par" e "ímpar" se excluem, então nem precisa comparar elemento por elemento.</div>
     <p><a href="../modulos/01-espaco-amostral.html#ex2">Ver resolução completa no Módulo 1 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -200,17 +202,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"ambos excedem 4" em vez de "um ou ambos"</td><td>Vira interseção em vez de união: P(ambos > 4) = P(A∩B) = (2/6)² = 1/9, bem menor que 5/9.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    a) 3/6 = 1/2<br>
-    b) 1−(1/2)⁴ = 15/16<br>
-    c) inclusão-exclusão: 2/6+2/6−1/9 = 5/9<br>
-    → cada item recalculado isoladamente. <span class="answer-final">Todos batem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> "Um ou mais"/"pelo menos um" quase sempre se resolve mais
-    rápido pelo complemento: \(P(\text{pelo menos um})=1-P(\text{nenhum})\).
-    <span class="badge badge-trap">❗</span> Em (c), "um ou ambos" é união, não interseção — usar
-    inclusão-exclusão \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\) e não apenas somar.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) número ímpar num dado</strong>
+    3 dos 6 números são ímpares (1,3,5): \(P=3/6=1/2\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) uma ou mais caras em 4 moedas</strong>
+    É mais fácil calcular o contrário: "nenhuma cara" (as 4 são coroa) só acontece de 1 jeito em \(2^4=16\):
+    \(P(\text{nenhuma})=1/16\). Então \(P(\text{uma ou mais})=1-1/16=15/16\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — c) um ou ambos os dados passam de 4</strong>
+    P(1º>4) = 2/6, P(2º>4) = 2/6, e P(ambos>4) = 2/6·2/6 = 1/9 (eventos independentes). Some os dois e tire a
+    parte contada duas vezes: \(P=2/6+2/6-1/9=5/9\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Toda vez que aparecer "um ou mais"/"pelo menos um", teste primeiro
+    o complemento ("nenhum") — quase sempre é mais rápido. E "um ou ambos" é união: soma menos a interseção,
+    nunca soma direta.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex3">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -246,15 +250,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Divisível por 5 e por 2 (por 10)</td><td>P = 5/50 = 1/10, evento mais restrito que "só por 5", exige interseção em vez de um único critério.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    Inclusão-exclusão: P(>10 ∪ div5) = 4/5+1/5−4/25 = 21/25<br>
-    → confere com a soma direta das cartas {15,20,...,50}. <span class="answer-final">Bate com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Em espaços equiprováveis finitos, \(P(E)=n(E)/n(S)\); para
-    "ou" use inclusão-exclusão, para "e" use interseção direta dos conjuntos de múltiplos/intervalos.
-    <span class="badge badge-trap">❗</span> "Maior que 10" exclui o 10 — atenção a limites estritos vs.
-    inclusivos ao contar o intervalo.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) e b), contagem direta</strong>
+    De 1 a 50, quantos são maiores que 10? De 11 a 50 são 40 cartas: \(P=40/50=4/5\). Quantos são múltiplos de
+    5? São 10 (5,10,...,50): \(P=10/50=1/5\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — c) "e" é interseção</strong>
+    Maior que 10 E múltiplo de 5 ao mesmo tempo: 15,20,...,50 → 8 cartas: \(P=8/50=4/25\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — d) "ou" é soma menos a parte repetida</strong>
+    Somar 4/5+1/5 contaria duas vezes quem já é as duas coisas (o item c). Por isso se subtrai essa parte:
+    \(P=4/5+1/5-4/25=21/25\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Maior que 10" não inclui o 10 — sempre confira se o limite é
+    estrito (>) ou inclusivo (≥) antes de contar o intervalo.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex4">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -291,16 +298,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Escolha com reposição (a mesma garota pode repetir)</td><td>Deixaria de ser combinação sem reposição; seria \((3/10)^2\) para "ambas azuis" em vez de \(\binom{3}{2}/\binom{10}{2}\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(0 azul)+P(1 azul)+P(2 azuis) deveria somar 1 (partição do espaço)<br>
-    a)+b)+d): 1/15+7/15+7/15 = 15/15 = 1 ✓
-    <span class="answer-final">Consistente com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Escolha sem reposição e sem ordem ⇒ contar com combinações
-    \(\binom{n}{k}\); "pelo menos uma" = \(1-P(\text{nenhuma})\).
-    <span class="badge badge-trap">❗</span> "Exatamente uma" não é o mesmo que "pelo menos uma" — aqui
-    coincidem numericamente (7/15) por acaso dos números da questão, não por identidade geral.</div>
+    <div class="step"><strong class="step-label">Passo 1 — quantos jeitos de escolher 2 garotas no total?</strong>
+    Escolher 2 de 10 sem ligar pra ordem: \(\binom{10}{2}=45\). Esse é o denominador de tudo.</div>
+    <div class="step"><strong class="step-label">Passo 2 — a) e b), escolher dentro de um grupo só</strong>
+    "Ambas azuis": escolher 2 das 3 azuis, \(\binom{3}{2}=3\) jeitos → \(P=3/45=1/15\).<br>
+    "Nenhuma azul": escolher 2 das 7 não-azuis, \(\binom{7}{2}=21\) jeitos → \(P=21/45=7/15\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — c) pelo contrário</strong>
+    "Pelo menos uma azul" é o contrário de "nenhuma azul": \(P=1-7/15=8/15\).</div>
+    <div class="step"><strong class="step-label">Passo 4 — d) misturando os dois grupos</strong>
+    "Exatamente uma azul" = 1 das 3 azuis E 1 das 7 não-azuis: \(\binom{3}{1}\binom{7}{1}=21\) jeitos →
+    \(P=21/45=7/15\).
+    <span class="answer-final">Confere: 1/15+7/15+7/15=1 (os três casos cobrem tudo).</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Aqui "exatamente uma" deu o mesmo número que "pelo menos uma"
+    (7/15) só por coincidência dos valores desta questão — não são a mesma coisa em geral.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex5">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -336,17 +347,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"Meninos juntos E meninas juntas" (dois blocos)</td><td>Trata-se agora de 2 blocos permutáveis entre si: \(2\cdot3!\cdot3!/6! = 1/10\), igual ao caso alternado por coincidência numérica, mas o raciocínio é de blocos, não de alternância.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    a) 4!·3!/6! = 24·6/720 = 1/5<br>
-    b) 2·3!·3!/6! = 72/720 = 1/10
-    <span class="answer-final">Batem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> "Elementos de um tipo juntos" ⇒ tratar o grupo como um único
-    bloco e multiplicar pelas permutações internas do bloco. "Alternados" ⇒ fixar os dois padrões possíveis
-    (MFMFMF / FMFMFM) e permutar dentro de cada gênero.
-    <span class="badge badge-trap">❗</span> Não esquecer de multiplicar pelas permutações internas do
-    bloco/grupo — contar só as posições do bloco e não os arranjos internos é um erro comum.</div>
+    <div class="step"><strong class="step-label">Passo 1 — quantas filas diferentes existem no total?</strong>
+    6 pessoas em fila: \(6!=720\) filas possíveis. Esse é o denominador.</div>
+    <div class="step"><strong class="step-label">Passo 2 — a) meninas juntas: vira 1 bloco</strong>
+    Trate as 3 meninas como um "pacote" único. Agora são 4 "coisas" pra arrumar (o pacote + 3 meninos):
+    \(4!=24\) jeitos. Mas dentro do pacote as 3 meninas também podem trocar de ordem: \(3!=6\) jeitos. Multiplica
+    os dois: \(24\times6=144\) filas favoráveis. \(P=144/720=1/5\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — b) alternados: só 2 moldes possíveis</strong>
+    Alternado só pode ser MFMFMF ou FMFMFM — 2 moldes. Dentro de cada molde, os 3 meninos podem trocar de
+    posição entre si (\(3!\)) e as 3 meninas também (\(3!\)): \(2\times3!\times3!=72\) filas favoráveis.
+    \(P=72/720=1/10\).
+    <span class="answer-final">Ambos batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Não esqueça de multiplicar pelas trocas de ordem DENTRO do bloco —
+    contar só as posições do bloco/molde e esquecer os arranjos internos é o erro mais comum aqui.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex6">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -383,14 +397,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"pelo menos duas caras" em vez de "uma cara e duas coroas"</td><td>Soma os casos com 2 e 3 caras: \((\binom{3}{2}+\binom{3}{3})/8 = 4/8 = 1/2\), diferente do exato.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(0)+P(1)+P(2)+P(3 caras) = 1/8+3/8+3/8+1/8 = 8/8 = 1 ✓
-    <span class="answer-final">Distribuição consistente com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Número de caras em n moedas segue \(\binom{n}{k}/2^n\)
-    (distribuição binomial com p=1/2). <span class="badge badge-trap">❗</span> "Só coroas ou só caras" são
-    eventos disjuntos (mutuamente excludentes), então P(e) = 0 — não confundir com independência.</div>
+    <div class="step"><strong class="step-label">Passo 1 — monte o espaço amostral</strong>
+    3 moedas, cada uma cara ou coroa: \(2^3=8\) resultados possíveis, todos igualmente prováveis.</div>
+    <div class="step"><strong class="step-label">Passo 2 — b), c), d): conte quantos resultados servem</strong>
+    "Uma cara e duas coroas": 3 dos 8 resultados (a cara pode estar em qualquer uma das 3 posições) → 3/8.<br>
+    "Só coroas": só 1 resultado (KKK) → 1/8.<br>
+    "Só coroas ou só caras": soma os 2 casos únicos (KKK e CCC) → 2/8=1/4.</div>
+    <div class="step"><strong class="step-label">Passo 3 — e) por que a resposta é 0</strong>
+    "Só coroas E só caras ao mesmo tempo" é fisicamente impossível — as 3 moedas não podem ser as duas coisas
+    juntas. Então \(P=0\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Só coroas" e "só caras" nunca acontecem juntos (são eventos
+    disjuntos) — isso não tem nada a ver com independência, é só impossibilidade física.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex7">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -431,15 +450,22 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Dados viciados (não equiprováveis)</td><td>A fórmula n(E)/n(S) deixa de valer; seria necessário somar P(i)·P(j) para cada par favorável usando a distribuição real de cada dado.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    distribuição completa de somas (2 a 12): Σ P(soma=s) = 1<br>
-    → d) e f) consistentes com essa distribuição. <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Com dois dados equiprováveis, \(n(S)=36\) e a contagem de pares
-    com soma \(s\) segue o "triângulo" \(6-|s-7|\) para \(2\le s\le12\).
-    <span class="badge badge-trap">❗</span> "1 em pelo menos um dado" não é \(2\cdot(1/6)\) — isso conta
-    (1,1) duas vezes; use inclusão-exclusão ou o complemento \(1-(5/6)^2=11/36\).</div>
+    <div class="step"><strong class="step-label">Passo 1 — monte a tabela 6×6</strong>
+    Dado 1 nas linhas, dado 2 nas colunas: 36 quadradinhos possíveis, todos igualmente prováveis.</div>
+    <div class="step"><strong class="step-label">Passo 2 — conte quadradinhos direto (b, c, d, f, g)</strong>
+    "Dois valores = 1": só o quadradinho (1,1) → 1/36.<br>
+    "Par" (mesmo valor nos dois): (1,1),(2,2)...(6,6) → 6 quadradinhos → 6/36=1/6.<br>
+    "Soma 7": (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) → 6 quadradinhos → 1/6.<br>
+    "Soma > 10": (5,6),(6,5),(6,6) → 3 quadradinhos → 3/36=1/12.<br>
+    "Soma ímpar": metade da tabela (soma ímpar só quando um dado é par e outro ímpar) → 18/36=1/2.</div>
+    <div class="step"><strong class="step-label">Passo 3 — e) "pelo menos um dado dá 1" é mais fácil pelo contrário</strong>
+    O contrário de "pelo menos um 1" é "nenhum dos dois dá 1": cada dado tem 5/6 de chance de não dar 1, os dois
+    juntos \((5/6)^2=25/36\). Então \(P=1-25/36=11/36\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Não dá pra fazer \(2\times(1/6)\) para "pelo menos um dado dá 1" —
+    isso conta o caso (1,1) duas vezes. Sempre que "pelo menos um" envolver dois eventos que podem coincidir,
+    vá pelo complemento.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex8">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -483,15 +509,24 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Cartas retiradas com reposição</td><td>Deixa de ser combinação; P(ambas espadas) = \((13/52)^2=1/16\) em vez de \(\binom{13}{2}/\binom{52}{2}=1/17\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    Inclusão-exclusão: P(f∪g) = P(f)+P(g)−P(f∩g) = 11/221+1/442−1/442 = 47/442<br>
-    → confere com contagem direta de mãos que satisfazem f) ou g). <span class="answer-final">Bate com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Mãos de cartas (sem reposição, sem ordem) sempre usam
-    \(\binom{n}{k}\); "nenhuma" costuma ser mais fácil de contar e depois complementar.
-    <span class="badge badge-trap">❗</span> "Ambas figuras de espadas" já está contido em "ambas figuras" —
-    em h) a interseção não é vazia, então inclusão-exclusão é obrigatória, não basta somar f) e g).</div>
+    <div class="step"><strong class="step-label">Passo 1 — quantas mãos de 2 cartas existem no total?</strong>
+    Escolher 2 cartas de 52 sem ligar pra ordem: \(\binom{52}{2}=1326\). Esse é o denominador de tudo.</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) e c), escolher dentro de um grupo só</strong>
+    "Ambas espadas": escolher 2 das 13 espadas, \(\binom{13}{2}=78\) → \(P=78/1326=1/17\).<br>
+    "Nenhuma espada": escolher 2 das 39 não-espadas, \(\binom{39}{2}=741\) → \(P=741/1326=19/34\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — d) e e), misturando e pelo contrário</strong>
+    "Exatamente uma espada": 1 espada E 1 não-espada, \(13\times39=507\) → \(P=507/1326=13/34\).<br>
+    "Pelo menos uma espada" é o contrário de "nenhuma": \(P=1-19/34=15/34\).</div>
+    <div class="step"><strong class="step-label">Passo 4 — f), g), h): mesma lógica com figuras</strong>
+    "Ambas figuras" (só as 12 figuras: valete, dama, rei de cada naipe): \(\binom{12}{2}=66\) → \(P=66/1326=11/221\).<br>
+    "Ambas figuras de espadas" (só as 3 figuras de espadas): \(\binom{3}{2}=3\) → \(P=3/1326=1/442\).<br>
+    "Ambas figuras OU ambas espadas": esses dois grupos se sobrepõem (uma mão de 2 figuras de espadas conta nos
+    dois), então some e tire a repetição: \(P=11/221+1/442-1/442=47/442\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Em h), "figuras de espadas" já está dentro de "figuras" e também
+    dentro de "espadas" — a interseção não é vazia, então é obrigatório usar soma-menos-repetição, nunca somar
+    f) e g) direto.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex9">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -520,23 +555,24 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     no quadro). Explicação completa no
     <a href="../modulos/02-espacos-equiprovaveis.html#ex10">Módulo 2</a>.</div>
 
-    <div class="step"><strong class="step-label">I. Espaço amostral</strong>
+    <div class="step"><strong class="step-label">Passo 1 — quantos sorteios possíveis existem?</strong>
     O sorteio é uma sequência de 3 dígitos de 0 a 9, então \(n(S) = 10^3 = 1000\) — todas as sequências de
-    "000" até "999".</div>
+    "000" até "999". Esse é o denominador de tudo.</div>
 
-    <div class="step"><strong class="step-label">II. a) Sequência exata (a ordem sorteada tem que bater certinho)</strong>
+    <div class="step"><strong class="step-label">Passo 2 — a) sequência exata</strong>
     Só existe 1 sequência que acerta na ordem exata dentre as 1000 possíveis:
     <span class="answer-final">P = 1/1000</span></div>
 
-    <div class="step"><strong class="step-label">III. b) Lote com 3 dígitos distintos, ex.: sorteou A, B, C (todos diferentes)</strong>
-    Ganha o lote se os 3 números sorteados saírem em <em>qualquer ordem</em>. Liste todos os jeitos de
+    <div class="step"><strong class="step-label">Passo 3 — b) lote com 3 dígitos distintos</strong>
+    Suponha que saíram A, B, C (todos diferentes). Ganha o lote em qualquer ordem — liste todos os jeitos de
     embaralhar A, B, C:<br>
     ABC, ACB, BAC, BCA, CAB, CBA — <strong>6 arranjos</strong>.<br>
     <span class="answer-final">P = 6/1000 = 3/500</span></div>
 
-    <div class="step"><strong class="step-label">IV. c) Lote com 2 dígitos iguais, ex.: sorteou A, A, B</strong>
-    Agora só 2 dos 3 dígitos são diferentes entre si (A aparece duas vezes). Liste os jeitos de embaralhar A, A, B:<br>
-    AAB, ABA, BAA — <strong>3 arranjos</strong> (a repetição de A corta pela metade os 6 arranjos do item anterior).<br>
+    <div class="step"><strong class="step-label">Passo 4 — c) lote com 2 dígitos iguais</strong>
+    Suponha que saíram A, A, B (um número repetido). Liste os jeitos de embaralhar A, A, B:<br>
+    AAB, ABA, BAA — <strong>3 arranjos</strong> (a repetição de A corta pela metade os 6 arranjos do passo
+    anterior, porque trocar as duas posições com A não cria uma jogada nova).<br>
     <span class="answer-final">P = 3/1000</span></div>
 
     <table class="variations">
@@ -545,16 +581,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"todos os três iguais" em vez de "dois iguais"</td><td>Só 10 sequências (000,111,...,999) de 1000, então P=10/1000=1/100, bem menor.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    todos iguais 10 + dois iguais 270 + todos distintos 720 = 1000 = n(S) ✓
-    <span class="answer-final">Consistente com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> "Sequência exata" trata a ordem como relevante (n(S)=10^k);
-    "lote" agrupa sequências equivalentes por composição de dígitos — para contar cada tipo, <strong>liste
-    explicitamente os arranjos</strong> (não pule direto para uma fórmula fechada). <span class="badge badge-trap">❗</span>
-    Não confundir "número do lote" (sem ordem) com "sequência exata" (com ordem) — são espaços amostrais
-    efetivamente diferentes para fins de contagem, mesmo usando o mesmo \(n(S)=1000\).</div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Lote" nunca se resolve com fórmula fechada direto — liste os
+    arranjos na mão, do jeito que o quadro mostra. Confira somando os três tipos: todos iguais (10) + dois
+    iguais (270) + todos distintos (720) = 1000 = n(S). ✓</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html#ex10">Ver resolução completa no Módulo 2 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -575,9 +605,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     pode ser negativo; (2) somando tudo, tem que dar exatamente 1 (100%). Se um valor já é negativo, reprova
     na hora, nem precisa somar o resto. Explicação completa no
     <a href="../modulos/03-teoremas-adicao.html#ex11">Módulo 3</a>.</div>
-    <div class="step"><strong class="step-label">Como resolver</strong>
-    Uma função \(P\) só é uma distribuição de probabilidade válida em S se (i) \(P(a_i)\ge 0\) para todo
-    \(i\), e (ii) \(\sum_i P(a_i) = 1\). Basta checar essas duas condições em cada opção candidata.</div>
+    <div class="step"><strong class="step-label">Passo 1 — teste 1: algum valor é negativo?</strong>
+    Se qualquer \(P(a_i)\) for menor que 0, já reprova na hora — nem precisa olhar o resto.</div>
+    <div class="step"><strong class="step-label">Passo 2 — teste 2: a soma dá exatamente 1?</strong>
+    Se passou no teste 1, some os três valores. Se não der 1 (100%), também reprova.</div>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
@@ -586,16 +617,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>S tivesse 4 elementos em vez de 3</td><td>O mesmo teste se aplica, só que somando 4 termos em vez de 3.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    c): todos P(aᵢ)≥0, soma=1 → válida<br>
-    d): todos P(aᵢ)≥0, soma=1 → válida<br>
-    a), b): falha em pelo menos uma condição → inválidas. <span class="answer-final">Opções corretas: c) e d).</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Para validar qualquer função candidata a distribuição de
-    probabilidade discreta, sempre teste as duas condições dos axiomas: não-negatividade e soma total igual
-    a 1. <span class="badge badge-trap">❗</span> Não basta a soma dar 1 — um único valor negativo já
-    invalida a função, mesmo que compense outro valor maior que 1.</div>
+    <div class="step"><strong class="step-label">Passo 3 — aplique nas 4 opções</strong>
+    a) soma ≠ 1 → reprova.<br>
+    b) tem valor negativo → reprova.<br>
+    c) todos ≥0 e soma=1 → válida.<br>
+    d) todos ≥0 e soma=1 → válida.
+    <span class="answer-final">Opções corretas: c) e d).</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Não basta a soma dar 1 — um único valor negativo já invalida a
+    função, mesmo que outro valor "compense" ficando maior que deveria.</div>
     <p><a href="../modulos/03-teoremas-adicao.html#ex11">Ver resolução completa no Módulo 3 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -630,16 +660,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedissem P(A∪B∪C)</td><td>Exige inclusão-exclusão com três eventos: soma dos individuais, menos pares, mais a interseção tripla.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(A∪C) = P(A)+P(C)−P(A∩C) → substituindo os valores obtidos, recupera-se o dado original.
-    <span class="answer-final">Valores consistentes com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Quando a distribuição de probabilidade pontual é dada
-    explicitamente, qualquer \(P(E)\) é apenas a soma dos pesos dos elementos de \(E\); uniões/interseções de
-    eventos se resolvem somando/interceptando os conjuntos de índices correspondentes.
-    <span class="badge badge-trap">❗</span> Não usar inclusão-exclusão às cegas quando já se tem a
-    distribuição pontual — muitas vezes é mais direto somar diretamente os elementos do evento.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) P de cada evento é a soma das chances dos números que ele contém</strong>
+    A tabela já dá a chance de cada número sair. Para achar P(A), P(B) ou P(C), some as chances dos números que
+    estão dentro de cada evento — não tem fórmula, é soma direta.</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) uniões e interseções: some/cruze os números correspondentes</strong>
+    Para P(A∩B), veja quais números estão nos dois eventos ao mesmo tempo e some as chances deles. Para
+    P(A∪C), use soma menos repetição: \(P(A)+P(C)-P(A\cap C)\).
+    <span class="answer-final">Valores batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Como já se tem a tabela de chances de cada número, quase sempre é
+    mais rápido somar direto os números do evento do que sair aplicando fórmulas de inclusão-exclusão.</div>
     <p><a href="../modulos/03-teoremas-adicao.html#ex12">Ver resolução completa no Módulo 3 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -675,15 +705,18 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>A e B fossem independentes</td><td>Poderíamos checar \(P(A\cap B) = P(A)P(B)\) como atalho — aqui 0.6·0.7=0.42≠0.5, logo A e B NÃO são independentes.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    De Morgan: P(Ā∪B̄) = 1−P(A∩B) = 1−0,5 = 0,5<br>
-    → confirma d) sem recomputar do zero. <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Complementos e De Morgan simplificam muito: \(\bar
-    A\cup\bar B = \overline{A\cap B}\), então \(P(\bar A\cup\bar B)=1-P(A\cap B)\) evita recalcular tudo do
-    zero. <span class="badge badge-trap">❗</span> \(P(B̄)\) dado no enunciado não é \(P(B)\) — sempre
-    converter primeiro (\(P(B)=1-P(\bar B)\)) antes de usar inclusão-exclusão.</div>
+    <div class="step"><strong class="step-label">Passo 1 — converta P(B̄) para P(B)</strong>
+    O enunciado dá a chance de B NÃO acontecer, 0,3. Então \(P(B)=1-0,3=0,7\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — a) ache a interseção pela regra do "ou"</strong>
+    \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\) — isolando: \(P(A\cap B)=0,6+0,7-0,8=0,5\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — b), c), d): daqui em diante é só encaixar os números</strong>
+    b) "A e não-B" = A inteiro menos a parte que também é B: \(0,6-0,5=0,1\).<br>
+    c) "nem A nem B" é o complemento de "A ou B": \(1-0,8=0,2\).<br>
+    d) "não-A ou não-B" é o complemento de "A e B" (regra de De Morgan): \(1-0,5=0,5\).
+    <span class="answer-final">Todos os itens batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> O enunciado dá \(P(\bar B)\), não \(P(B)\) — sempre converta
+    primeiro (\(P(B)=1-P(\bar B)\)) antes de usar a regra do "ou".</div>
     <p><a href="../modulos/03-teoremas-adicao.html#ex13">Ver resolução completa no Módulo 3 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
