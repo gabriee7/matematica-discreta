@@ -112,16 +112,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (1 a 6) lançados juntos: \(S=\{H,K\}\times\{1,\dots,6\}\), \(n(S)=12\).</div>
     <div class="step"><strong class="step-label">Que tipo de problema é esse</strong> Espaço equiprovável finito;
     montar cada evento filtrando os 12 pares por suas condições.</div>
-    <div class="step"><strong class="step-label">III. Resolução (a)</strong>
+    <div class="step"><strong class="step-label">Passo 1 — monte cada evento filtrando os 12 pares</strong>
     Primos maiores que 1 entre 1–6: {2,3,5}.<br>
     \(A=\{H1,H3,H5\}\)<br>
     \(B=\{H2,H3,H5,K2,K3,K5\}\)<br>
     \(C=\{K1,K3,K5\}\)</div>
-    <div class="step"><strong class="step-label">IV. Resolução (b)</strong>
+    <div class="step"><strong class="step-label">Passo 2 — combine os eventos</strong>
     "A ou B": \(A\cup B=\{H1,H2,H3,H5,K2,K3,K5\}\) (7 elementos, H3 e H5 não repetem).<br>
     "B e C": \(B\cap C=\{K3,K5\}\).<br>
     "Apenas B" (B e não A e não C): \(B\setminus(A\cup C)=\{H2,K2\}\).</div>
-    <div class="step"><strong class="step-label">V. Resolução (c)</strong>
+    <div class="step"><strong class="step-label">Passo 3 — teste quais pares nunca acontecem juntos</strong>
     \(A\cap C\): A exige cara, C exige coroa — nunca ocorrem juntos: \(A\cap C=\emptyset\). A e C são
     <strong>mutuamente exclusivos</strong>. (A e B se cruzam em {H3,H5}; B e C se cruzam em {K3,K5} —
     nenhum desses pares é exclusivo.)</div>
@@ -243,14 +243,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">O que o enunciado dá</strong> \(A=\{2,4,6\}\), \(B=\{2,3,4,5\}\),
     \(C=\{1,2\}\), \(D=\emptyset\) (nenhum resultado do dado é maior que 7).</div>
-    <div class="step"><strong class="step-label">II. Resolução (a)</strong>
+    <div class="step"><strong class="step-label">Passo 1 — a) some as chances dos números de cada grupo</strong>
     \(P(A)=0,3+0,1+0,2=0,6\)<br>
     \(P(B)=0,3+0,2+0,1+0,1=0,7\)<br>
     \(P(C)=0,1+0,3=0,4\)<br>
-    \(P(D)=0\) (evento impossível, Teorema 3(i) da Aula 11).</div>
-    <div class="step"><strong class="step-label">III. Resolução (b)</strong>
+    \(P(D)=0\) (D é vazio, evento impossível).</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) complemento é 1 menos o valor de cima</strong>
     \(P(\bar A)=1-0,6=0,4\) ; \(P(\bar B)=1-0,7=0,3\) ; \(P(\bar C)=1-0,4=0,6\) ; \(P(\bar D)=1-0=1\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução (c)</strong>
+    <div class="step"><strong class="step-label">Passo 3 — c) cruze os conjuntos e some as chances do que sobrar</strong>
     \(A\cap B=\{2,4\}\): \(P=0,3+0,1=0,4\).<br>
     \(A\cup C=\{1,2,4,6\}\): \(P=0,1+0,3+0,1+0,2=0,7\).<br>
     \(B\cap C=\{2\}\): \(P=0,3\).</div>
@@ -305,13 +305,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     forma diferente: (a) fixa só o primeiro dado; (b) aceita o 5 em qualquer um dos dois — a segunda
     caixa é bem maior que a primeira, então a resposta muda bastante.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução (a)</strong> Condição: 1º dado = 5. Espaço
-    reduzido: \(S'=\{(5,1),(5,2),(5,3),(5,4),(5,5),(5,6)\}\), \(n(S')=6\). Soma \(\geq10\) exige 2º
+    <div class="step"><strong class="step-label">Passo 1 — a) encolha a caixa: só os pares com 1º dado = 5</strong>
+    Espaço reduzido: \(S'=\{(5,1),(5,2),(5,3),(5,4),(5,5),(5,6)\}\), \(n(S')=6\). Soma \(\geq10\) exige 2º
     dado \(\geq5\): \((5,5)\) e \((5,6)\), 2 favoráveis.
     \[P(\text{soma}\geq10\mid \text{1º}=5)=\frac{2}{6}=\frac13\]</div>
-    <div class="step"><strong class="step-label">II. Resolução (b)</strong> Condição: 5 aparece em pelo
-    menos um dos dois dados. Espaço reduzido: \(S''=\{(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(1,5),(2,5),
-    (3,5),(4,5),(6,5)\}\), \(n(S'')=11\) (o par (5,5) conta uma única vez). Soma \(\geq10\) dentro
+    <div class="step"><strong class="step-label">Passo 2 — b) agora a caixa aceita o 5 em qualquer dado</strong>
+    Espaço reduzido: \(S''=\{(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(1,5),(2,5),
+    (3,5),(4,5),(6,5)\}\), \(n(S'')=11\) (o par (5,5) conta uma única vez, não duas). Soma \(\geq10\) dentro
     desse conjunto: \((5,5)=10\), \((5,6)=11\), \((6,5)=11\) → 3 favoráveis.
     \[P(\text{soma}\geq10\mid \text{algum}=5)=\frac{3}{11}\]</div>
     <div class="step"><strong class="step-label">Cuidado</strong>
@@ -340,20 +340,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     ou "X" (erro). Para "exatamente 2 em 6", conte quantas sequências de 6 letras têm exatamente 2 "A"s.
     "5 ou mais" soma dois casos (exatamente 5 e exatamente 6). "Pelo menos uma" é 1 menos errar tudo.</div>
 
-    <div class="step"><strong class="step-label">O que o enunciado dá</strong> \(P(A)=1/4\) (acerto),
-    \(P(X)=3/4\) (erro), \(n=6\) tentativas independentes.</div>
-    <div class="step"><strong class="step-label">II. Resolução (a)</strong> Sequências de 6 letras com
-    exatamente 2 "A"s: \(\binom{6}{2}=15\) — AAXXXX, AXAXXX, AXXAXX, AXXXAX, AXXXXA, XAAXXX, XAXAXX,
+    <div class="step"><strong class="step-label">Passo 1 — monte os dados: acerto/erro por tiro</strong>
+    \(P(A)=1/4\) (acerto), \(P(X)=3/4\) (erro), \(n=6\) tentativas independentes.</div>
+    <div class="step"><strong class="step-label">Passo 2 — a) liste as sequências com exatamente 2 acertos</strong>
+    Sequências de 6 letras com exatamente 2 "A"s: \(\binom{6}{2}=15\) — AAXXXX, AXAXXX, AXXAXX, AXXXAX, AXXXXA, XAAXXX, XAXAXX,
     XAXXAX, XAXXXA, XXAAXX, XXAXAX, XXAXXA, XXXAAX, XXXAXA, XXXXAA.
     \[P(2A)=\binom{6}{2}\left(\frac14\right)^2\left(\frac34\right)^4=15\cdot\frac{1}{16}\cdot
     \frac{81}{256}=\frac{1215}{4096}\approx29,66\%\]</div>
-    <div class="step"><strong class="step-label">III. Resolução (b)</strong> "5 ou mais" = exatamente 5
-    OU exatamente 6, eventos disjuntos, soma-se:
+    <div class="step"><strong class="step-label">Passo 3 — b) "5 ou mais" soma dois casos</strong>
+    "5 ou mais" = exatamente 5 OU exatamente 6, eventos disjuntos, soma-se:
     \[P(5A)+P(6A)=\binom{6}{5}\left(\frac14\right)^5\left(\frac34\right)+\binom{6}{6}\left(\frac14\right)^6
     =6\cdot\frac{1}{1024}\cdot\frac34+\frac{1}{4096}\]
     \[=\frac{18}{4096}+\frac{1}{4096}=\frac{19}{4096}\approx0,46\%\]</div>
-    <div class="step"><strong class="step-label">IV. Resolução (c)</strong> "Pelo menos uma vez" =
-    complemento de "nenhum acerto" (0A):
+    <div class="step"><strong class="step-label">Passo 4 — c) pelo menos uma vez = 1 menos errar tudo</strong>
+    "Pelo menos uma vez" = complemento de "nenhum acerto" (0A):
     \[P(\geq1)=1-P(0A)=1-\left(\frac34\right)^6=1-\frac{729}{4096}=\frac{3367}{4096}\approx82,2\%\]</div>
     <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> "5 ou mais" não é apenas \(P(5A)\) — precisa somar também
