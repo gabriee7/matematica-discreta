@@ -97,28 +97,37 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Dados são ORDENADOS (dado1, dado2, dado3 são diferentes entre si) — conte trincas ordenadas que somam 7, não combinações.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Você joga 3 dados. Cada um dá um
+    número de 1 a 6. Quer saber a chance da SOMA dar exatamente 7. Não existe fórmula mágica: conta-se quantos
+    resultados possíveis existem no total, depois quantos desses dão soma 7, e divide um pelo outro.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Três dados de 6 faces, lançados de forma
-    independente; interessa a soma dos três valores.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Espaço equiprovável finito:
-    \(n(S)=6^3=216\) triplas ordenadas igualmente prováveis.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Listar por extenso, agrupadas por
-    "tipo" de trinca (quais valores repetem), todas as trincas \((a,b,c)\) com \(1\le a,b,c\le6\) e
-    \(a+b+c=7\) — do mesmo jeito enumerativo usado em todos os exemplos do professor (arranjos de moedas,
-    cavalos, etc.): nunca uma fórmula fechada, sempre a lista explícita.</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    Tipo {1,1,5}: 115, 151, 511 → 3 trincas<br>
-    Tipo {1,2,4}: 124, 142, 214, 241, 412, 421 → 6 trincas<br>
-    Tipo {1,3,3}: 133, 313, 331 → 3 trincas<br>
-    Tipo {2,2,3}: 223, 232, 322 → 3 trincas<br>
-    Total: \(3+6+3+3=15\) trincas favoráveis.<br>
-    \(P(\text{soma}=7)=15/216=5/72\approx6,94\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Dados são <em>ordenados</em> (dado 1, dado 2, dado 3 são
-    distinguíveis) — (1,2,4), (2,1,4), (4,1,2) etc. são triplas diferentes e todas contam. Tratar os dados
-    como indistinguíveis e contar "combinações" em vez de arranjos é o erro mais comum aqui — por isso cada
-    tipo {x,y,z} precisa ser listado com TODAS as suas permutações, não só uma.</div>
+    <div class="step"><strong class="step-label">Passo 1 — quantos resultados possíveis existem no total?</strong>
+    Cada dado tem 6 faces, são 3 dados jogados juntos: \(6\times6\times6=216\) resultados possíveis. Esse é o
+    número que vai embaixo na conta (denominador).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — quantos desses 216 dão soma 7?</strong>
+    Listei à mão todo trio de números de 1 a 6 que soma 7, e para cada trio contei todas as ORDENS possíveis
+    (dado1=1,dado2=2,dado3=4 é uma jogada diferente de dado1=4,dado2=1,dado3=2 — são jogadas distintas, cada
+    uma conta separado):<br><br>
+    1+1+5 = 7 → pode sair como 115, 151 ou 511 → <strong>3 jeitos</strong><br>
+    1+2+4 = 7 → pode sair como 124, 142, 214, 241, 412, 421 → <strong>6 jeitos</strong><br>
+    1+3+3 = 7 → 133, 313, 331 → <strong>3 jeitos</strong><br>
+    2+2+3 = 7 → 223, 232, 322 → <strong>3 jeitos</strong><br><br>
+    Por que 6 jeitos para 1+2+4 e só 3 para os outros? Porque 1,2,4 são três números diferentes, então dá pra
+    embaralhar de \(3!=6\) formas. Os outros três trios têm um número repetido, então trocar o número repetido
+    de posição não cria uma jogada nova — sobram só 3 formas.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — soma tudo</strong>
+    \(3+6+3+3=15\) jeitos de dar soma 7 (esse é o numerador).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a probabilidade</strong>
+    15 favoráveis dividido por 216 possíveis: \(P=15/216=5/72\approx6{,}94\%\). Não veio de fórmula nenhuma —
+    veio de listar na mão e contar.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Os 3 dados contam como jogadas diferentes mesmo trocando a ordem —
+    (1,2,4), (2,1,4) e (4,1,2) são 3 jogadas diferentes, todas contam. O erro mais comum é tratar essas 3 como
+    "a mesma coisa" e esquecer de listar todas as ordens de cada trio.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     n(S) = 6³ = 216<br>
