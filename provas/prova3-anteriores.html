@@ -802,19 +802,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Mesmo tipo da B1 — separe por curso e por gênero, depois use a regra do "ou" (soma menos a parte repetida).</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesmo tipo da B1, só que a turma de SI
+    tem 20 alunos (não 10) — recalcule tudo do zero, não reaproveite os números da B1.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Turma com 50 estudantes: 30 CC + 20 SI.
-    CC: \(1/10\) mulheres → 3 mulheres, 27 homens. SI: \(4/5\) homens → 16 homens, 4 mulheres.</div>
-    <div class="step"><strong class="step-label">II. Estratégia</strong> Total de mulheres = 3+4 = 7.
-    \(P(M)=7/50\), \(P(CC)=30/50\), \(P(M\cap CC)=3/50\) (mulheres de CC) — como "mulher" e "CC" se sobrepõem (mulheres de CC), a soma direta contaria essa interseção duas vezes, exigindo inclusão-exclusão.</div>
-    <div class="step"><strong class="step-label">III. Resolução</strong>
-    \(P(M\cup CC)=\dfrac{7}{50}+\dfrac{30}{50}-\dfrac{3}{50}=\dfrac{34}{50}=\dfrac{17}{25}=68\%\).</div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Mesma armadilha de B1: o total de estudantes muda (50, não 40)
-    porque SI tem 20 alunos nesta versão — recalcular do zero, não reaproveitar números de outra versão.
-    <span class="badge badge-pattern">🔁</span> Mesma estrutura de B1: converter frações de subgrupo em
-    contagem absoluta antes de aplicar inclusão-exclusão.</div>
+    <div class="step"><strong class="step-label">Passo 1 — transformar frações em pessoas</strong>
+    Turma tem 50 alunos: 30 de CC + 20 de SI.<br>
+    CC: 1/10 são mulheres → 3 mulheres, 27 homens.<br>
+    SI: 4/5 são homens → 16 homens, 4 mulheres.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — contar cada grupo pedido</strong>
+    Total de mulheres: 3+4=7 → \(P(\text{mulher})=7/50\).<br>
+    Total de CC: 30 → \(P(\text{CC})=30/50\).<br>
+    Mulheres de CC (estão nos dois grupos): 3 → \(P(\text{mulher e CC})=3/50\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — somar sem contar 2 vezes</strong>
+    \(P=\dfrac{7}{50}+\dfrac{30}{50}-\dfrac{3}{50}=\dfrac{34}{50}=\dfrac{17}{25}=68\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> O total de alunos muda entre as versões da prova (40 na B1, 50
+    aqui) — sempre recalcule com os números do enunciado que você tem na mão.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     CC=30 (3M,27H) ; SI=20 (4M,16H) ; total=50<br>
@@ -837,26 +843,32 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Mesmo tipo" pode ser mesmo número, mesma figura, ou as duas serem ás — conte cada categoria separadamente antes de somar.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Mesmo tipo" aqui significa mesma
+    CATEGORIA (as duas numeradas, ou as duas figuras, ou as duas ás) — não precisa ser o mesmo número exato.
+    Conte cada categoria separada e some no final.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 52 cartas: 36 numeradas (9×4 naipes), 4 ases,
-    12 figuras (3×4 naipes). Escolha sem reposição, sem ordem: \(n(S)=\binom{52}{2}=1326\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> a) espaço equiprovável — cada mão de
-    2 cartas é igualmente provável. b) evento "mesmo tipo" = união disjunta de três categorias
-    (numerada+numerada, ás+ás, figura+figura) — a leitura do enunciado indica "mesmo tipo" como categoria,
-    não necessariamente mesmo número.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> a) \(1/n(S)\). b) somar
-    \(\binom{36}{2}+\binom{4}{2}+\binom{12}{2}\) (categorias mutuamente excludentes, não há sobreposição
-    entre "numerada", "ás" e "figura") e dividir por \(n(S)\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    a) \(P=1/1326\).<br>
-    b) \(\binom{36}{2}=630\), \(\binom{4}{2}=6\), \(\binom{12}{2}=66\); soma \(=702\).
-    \(P=\dfrac{702}{1326}=\dfrac{117}{221}=\dfrac{9}{17}\approx52,94\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> As três categorias (numerada, ás, figura) são disjuntas — basta
-    somar as combinações de cada uma, sem inclusão-exclusão. O erro comum é interpretar "mesmo tipo" como
-    "mesmo número exato" (ex.: duas cartas "7"), o que daria uma resposta bem menor
-    (\(13\binom{4}{2}/1326=78/1326=1/17\)) — releia o enunciado: aqui "tipo" agrupa por categoria (numerada/ás/figura), não por valor exato.</div>
+    <div class="step"><strong class="step-label">Passo 1 — quantas mãos de 2 cartas existem no total?</strong>
+    Baralho tem 52 cartas: 36 numeradas (9 valores × 4 naipes), 4 ases, 12 figuras (3 × 4 naipes). Escolhendo 2
+    cartas sem repetir e sem se importar com a ordem: \(n(S)=\binom{52}{2}=1326\). Esse é o denominador dos
+    dois itens.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item a) probabilidade de uma mão específica</strong>
+    Cada mão de 2 cartas é igualmente provável: \(P=1/1326\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item b) contar cada categoria "mesmo tipo"</strong>
+    Duas numeradas: \(\binom{36}{2}=630\).<br>
+    Dois ases: \(\binom{4}{2}=6\).<br>
+    Duas figuras: \(\binom{12}{2}=66\).<br>
+    Essas três categorias não se misturam (uma carta não é numerada e figura ao mesmo tempo), então só soma:
+    \(630+6+66=702\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a probabilidade</strong>
+    \(P=\dfrac{702}{1326}=\dfrac{9}{17}\approx52,94\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Mesmo tipo" não é "mesmo número exato" (tipo duas cartas "7") —
+    isso daria uma resposta bem menor (\(13\binom{4}{2}/1326=1/17\)). Aqui "tipo" agrupa por categoria
+    (numerada/ás/figura), releia o enunciado com atenção.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     n(S) = C(52,2) = 1326<br>
@@ -878,17 +890,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Três números prontos de novo: aplique direto as fórmulas de complemento (\(1-P\)) e da regra do "ou" isolando a interseção.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Três números prontos de novo (P(A),
+    P(B), P(A∪B)) — mesmas 4 fórmulas da A3/B3, só troque os valores. Atenção ao denominador comum: aqui é 60.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução</strong> (LCD = 60)<br>
-    a) \(P(\bar A)=1-2/5=3/5\).<br>
-    b) \(P(A\cap B)=\tfrac{24}{60}+\tfrac{10}{60}-\tfrac{25}{60}=\tfrac{9}{60}=\tfrac{3}{20}\).<br>
-    c) \(P(\bar A\cap\bar B)=1-5/12=7/12\).<br>
-    d) \(P(A)P(B)=\tfrac25\cdot\tfrac16=\tfrac{2}{30}=\tfrac{1}{15}=\tfrac{4}{60}\); \(P(A\cap
-    B)=\tfrac{9}{60}\ne\tfrac{4}{60}\) — <strong>não são independentes</strong>.</div>
-    <div class="step"><strong class="step-label">II. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Denominador comum de 5, 6 e 12 é 60, não 30 — usar um LCD errado
-    é a fonte mais comum de erro numérico nesta questão em todas as versões.</div>
+    <div class="step"><strong class="step-label">Passo 1 — item a) P(Ā)</strong>
+    \(P(\bar A)=1-2/5=3/5\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item b) P(A∩B)</strong>
+    Colocando tudo com denominador 60: \(P(A\cap B)=P(A)+P(B)-P(A\cup B)=\tfrac{24}{60}+\tfrac{10}{60}-\tfrac{25}{60}=\tfrac{9}{60}=\tfrac{3}{20}\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item c) nem A nem B</strong>
+    \(P(\bar A\cap\bar B)=1-P(A\cup B)=1-5/12=7/12\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — item d) são independentes?</strong>
+    \(P(A)\cdot P(B)=\tfrac25\cdot\tfrac16=\tfrac{4}{60}\); mas achamos \(P(A\cap B)=\tfrac{9}{60}\) no passo
+    2. Como \(4/60\ne9/60\), <strong>não são independentes</strong>.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> O denominador comum de 5, 6 e 12 é 60, não 30 — usar o mínimo
+    múltiplo errado é a fonte mais comum de erro nesta questão.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) P(Ā) = 1-2/5 = 3/5 = 60%<br>
@@ -913,23 +933,28 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Cuidado com qual fração é de quem: a fração dada para as mulheres é de TROMPETE, não de saxofone — o grupo de saxofonistas mulheres é o complementar dessa fração.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Cuidado logo de cara: a fração dada
+    para as mulheres (5/8) é de quem toca TROMPETE, não saxofone. As saxofonistas mulheres são o restante
+    (3/8), não os 5/8.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 16 homens, 16 mulheres. Homens: \(5/8\)
-    tocam sax → 10 sax, 6 trompete. Mulheres: \(5/8\) tocam trompete → 10 trompete, 6 sax.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Probabilidade condicional; espaço
-    reduzido aos que tocam saxofone.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Total de saxofonistas = homens-sax +
-    mulheres-sax = \(10+6=16\). Dentro desse grupo, contar quantas são mulheres.</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
+    <div class="step"><strong class="step-label">Passo 1 — transformar frações em pessoas</strong>
+    16 homens, 16 mulheres.<br>
+    Homens: 5/8 tocam sax → 10 sax, 6 trompete.<br>
+    Mulheres: 5/8 tocam TROMPETE (não sax!) → 10 trompete, e as outras 3/8 = 6 tocam sax.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — quantos saxofonistas existem no total?</strong>
+    Homens-sax + mulheres-sax = \(10+6=16\). Esse é o novo denominador, já que sabemos que a pessoa escolhida
+    toca sax.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — quantos desses 16 são mulheres?</strong>
+    6 mulheres tocam sax (do passo 1).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a probabilidade</strong>
     \(P(\text{mulher}\mid\text{sax})=\dfrac{6}{16}=\dfrac{3}{8}=37,5\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> A fração \(5/8\) dada para as mulheres é de quem toca
-    <em>trompete</em>, não saxofone — as mulheres saxofonistas são o complemento, \(3/8\) de 16 = 6, não
-    \(5/8\) de 16. Trocar essa fração é o erro mais comum da questão.
-    <span class="badge badge-pattern">🔁</span> \(P(\text{mulher}\mid\text{sax}) =
-    \dfrac{n(\text{mulher}\cap\text{sax})}{n(\text{sax})}\) — contar direto no espaço reduzido evita erro de
-    fórmula.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> A fração 5/8 do enunciado, para as mulheres, é de TROMPETE — usar
+    5/8 como se fosse a fração de saxofonistas mulheres é o erro mais comum aqui.</div>
     <p><a href="../modulos/04-probabilidade-condicional.html">Ver teoria no Módulo 4 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     H=16 (10 sax, 6 tromp) ; M=16 (6 sax, 10 tromp)<br>
@@ -952,18 +977,24 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Pelo menos uma prova ganha" = 1 menos a chance de perder as duas provas (multiplicando as chances de perda, pois são independentes).</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesmo raciocínio da B5: "pelo menos
+    uma vitória" é mais fácil pelo caminho contrário — ache a chance de nenhum dos dois vencer nenhuma prova.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Por prova: \(P(E)=0,5\), \(P(A)=0,3\),
-    \(P(\text{outro},O)=1-0,5-0,3=0,2\). 2 provas independentes — como em B5, o terceiro resultado (O) precisa ser calculado por complemento, pois só duas probabilidades são dadas diretamente.</div>
-    <div class="step"><strong class="step-label">II. Resolução (a)</strong> \(S=\{E,A,O\}^2\), 9 pares:<br>
-    (E,E)=0,25 ; (E,A)=(A,E)=0,15 ; (E,O)=(O,E)=0,10 ; (A,A)=0,09 ; (A,O)=(O,A)=0,06 ; (O,O)=0,04<br>
-    Soma \(=0,25+0,15\cdot2+0,10\cdot2+0,09+0,06\cdot2+0,04=1\) ✓.</div>
-    <div class="step"><strong class="step-label">III. Resolução (b)</strong>
-    \(P(\text{pelo menos uma})=1-P(O,O)=1-0,04=0,96=96\%\).</div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Igual à B5: os 9 pares não são equiprováveis; usar o complemento
-    de "(O,O) nas duas provas", não de "Erick ou André perde uma prova" isoladamente.</div>
+    <div class="step"><strong class="step-label">Passo 1 — achar a 3ª probabilidade</strong>
+    \(P(E)=0,5\), \(P(A)=0,3\). Sobra pra "outro nadador vence": \(P(O)=1-0,5-0,3=0,2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item a) montar o espaço amostral</strong>
+    9 pares possíveis (prova1, prova2), cada um com a chance multiplicada:<br>
+    (E,E)=0,25 · (E,A)=(A,E)=0,15 · (E,O)=(O,E)=0,10 · (A,A)=0,09 · (A,O)=(O,A)=0,06 · (O,O)=0,04<br>
+    Conferindo: soma de tudo dá 1 ✓.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item b) pelo menos uma vitória de Erick ou André</strong>
+    O único par onde nem Erick nem André vencem nenhuma prova é (O,O)=0,04. "Pelo menos uma" é o contrário:
+    \(P=1-0,04=0,96=96\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Os 9 pares NÃO têm todos a mesma chance — não conte quantos
+    "servem" e divida por 9; use o complemento do par (O,O) especificamente.</div>
     <p><a href="../modulos/05-independencia-tentativas.html">Ver teoria no Módulo 5 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     P(E)=0,5 ; P(A)=0,3 ; P(O)=0,2<br>
@@ -983,25 +1014,29 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Sempre o mesmo padrão: O é teto (majorar termos pequenos), Ω é chão (descartar termos positivos extras).</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesmo método de sempre: divida pela
+    função de referência para isolar o \(c\), veja se decresce, pegue o pior caso.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução a) \(O(n^3)\)</strong> (mesmos números de A6a)<br>
-    \(c\ge3-\dfrac{4}{n^2}+\dfrac{2}{n^3},\ \forall n\ge1\) (dividindo \(3n^3-4n+2\le c\cdot n^3\) por
-    \(n^3\)). Descartando \(-4/n^2\): \(c\ge3+2/n^3\), decrescente → \(n=1\): \(c\ge5\).
+    <div class="step"><strong class="step-label">Item a) — provar que \(3n^3-4n+2\) é \(O(n^3)\)</strong>
+    (mesmos números da A6a). Dividindo \(3n^3-4n+2\le c\cdot n^3\) por \(n^3\):
+    \(c\ge3-\dfrac{4}{n^2}+\dfrac{2}{n^3}\). Descartando \(-4/n^2\) (só ajuda): \(c\ge3+2/n^3\), decresce —
+    pior caso em \(n=1\): \(c\ge5\).
     <span class="answer-final">c=5, m=1 → O(n³).</span></div>
-    <div class="step"><strong class="step-label">II. Resolução b) \(\Omega(n^2)\)</strong>
-    \(n\ge0\): \(2n^2+3n+5\ge2n^2\) (pois \(3n+5\ge0\)).
+
+    <div class="step"><strong class="step-label">Item b) — provar que \(2n^2+3n+5\) é \(\Omega(n^2)\)</strong>
+    Como \(3n+5\) é sempre positivo para \(n\ge0\): \(2n^2+3n+5\ge2n^2\) direto.
     <span class="answer-final">c=2, m=0 → Ω(n²).</span></div>
-    <div class="step"><strong class="step-label">III. Resolução c) \(\Theta(n)\)</strong>
-    Cota sup.: \(\dfrac{2n+1}{3}\le c_2\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_2\ge\dfrac23+\dfrac{1}{3n},\ \forall n\ge1\), decrescente → \(n=1\): \(c_2\ge\tfrac23+\tfrac13=1\).<br>
-    Cota inf.: \(\dfrac{2n+1}{3}\ge c_1\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_1\le\dfrac23+\dfrac{1}{3n}\) — com \(c_1=\tfrac23\), vale para qualquer \(n\ge1\).
+
+    <div class="step"><strong class="step-label">Item c) — provar que \(\dfrac{2n+1}{3}\) é \(\Theta(n)\)</strong>
+    Teto: \(\dfrac{2n+1}{3}\le c_2\cdot n\). Dividindo por \(n\): \(c_2\ge\dfrac23+\dfrac{1}{3n}\), decresce —
+    pior caso em \(n=1\): \(c_2\ge\tfrac23+\tfrac13=1\).<br>
+    Chão: \(\dfrac{2n+1}{3}\ge c_1\cdot n\). Dividindo por \(n\): \(c_1\le\dfrac23+\dfrac{1}{3n}\) — com
+    \(c_1=\tfrac23\), vale para todo \(n\ge1\).
     <span class="answer-final">c₁=2/3, c₂=1, m=1 → Θ(n).</span></div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> O coeficiente 2 de \(2n\) no numerador de (c) muda as constantes
-    \(c_1,c_2\) em relação a A6c/B6c — não copiar as constantes de outra versão sem refazer a conta (dividir
-    por \(f(n)=n\) de novo).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> O coeficiente 2 em \(2n\) muda as constantes em relação à A6c/B6c
+    — não copie constantes de outra versão, refaça a divisão por \(f(n)=n\) com os números certos.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) c≥3-4/n²+2/n³, ∀n≥1 → descarta -4/n² → c≥3+2/n³ → n=1: c≥5 → O(n³) c=5,m=1<br>
@@ -1023,25 +1058,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Multiplique cada complexidade pelo número de execuções, some, e o maior termo dita a complexidade total do algoritmo.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Mesma ideia de A7/B7: quantas vezes
+    cada função roda é só uma constante — não muda a ordem. Quem manda é quem cresce mais rápido por chamada.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(1\cdot O(n^2) + 3\cdot O(\log_2n) +
-    10\cdot O(n)\).</div>
-    <div class="step"><strong class="step-label">II. Estratégia</strong> <strong>Operação 2</strong> (Aula
-    12), \(c\cdot O(f(n))=O(f(n))\): constantes de repetição não mudam a classe — por que ela vale: o
-    coeficiente constante já é absorvido dentro da própria definição de O (basta ajustar a constante
-    \(c\) da definição para incluí-lo). Restam \(O(n^2)\), \(O(\log_2n)\), \(O(n)\).
-    <strong>Operação 5</strong>, \(O(f)+O(g)=O(\max(f,g))\): comparar os três termos — \(\log_2n \le n
-    \le n^2\) para \(n\) grande.</div>
-    <div class="step"><strong class="step-label">III. Resolução</strong>
-    Termo dominante: \(n^2\) (de A), assim como em B7 — por que ele domina mesmo executado só 1 vez: a
-    Operação 2 já eliminou a diferença de "quantas vezes" cada função roda, então o que decide é apenas
-    qual função cresce mais rápido por chamada, e \(n^2\) cresce mais rápido que \(n\) e \(\log_2n\).<br>
-    Algoritmo é \(O(n^2)\).</div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Passo 1 — monte a soma total</strong>
+    \(1\cdot O(n^2) + 3\cdot O(\log_2n) + 10\cdot O(n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — tire as constantes (Operação 2)</strong>
+    Cada termo multiplicado por constante continua na mesma ordem: sobra \(O(n^2) + O(\log_2n) + O(n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — some pelo maior (Operação 5)</strong>
+    Comparando o crescimento: \(\log_2n \le n \le n^2\) para \(n\) grande. \(n^2\) domina.</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a resposta</strong>
+    Algoritmo é \(O(n^2)\) — mesmo A rodando só 1 vez, o \(n^2\) dela cresce mais rápido que o \(10n\) de C.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> As 10 execuções de C (\(O(n)\)) não superam a única execução de A
-    (\(O(n^2)\)) assintoticamente — \(10n\) é \(O(n)\), que cresce mais devagar que \(n^2\) para \(n\)
-    suficientemente grande, mesmo com a constante 10 na frente.</div>
+    (\(O(n^2)\)) — \(10n\) continua \(O(n)\), que cresce mais devagar que \(n^2\) quando \(n\) fica grande,
+    mesmo com a constante 10 na frente.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     1·O(n²) + 3·O(log₂n) + 10·O(n)<br>
@@ -1062,22 +1097,26 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Diferente da transitividade (A8/B8): aqui as duas cotas são para a MESMA função de referência, então elas se SOMAM (constante final = soma das duas, não produto).</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Diferente da transitividade (A8/B8):
+    aqui as duas cotas são para a MESMA função \(f(n)\), então elas se SOMAM (a constante final é a soma das
+    duas, c₁+c₂ — não o produto).</div>
 
-    <div class="step"><strong class="step-label">I. Estratégia</strong> Usar a definição de O para cada
-    hipótese separadamente e somar as duas desigualdades — como as duas cotas se referem à mesma função \(f(n)\), somá-las é o caminho natural para cotar a soma \(h(n)+g(n)\).</div>
-    <div class="step"><strong class="step-label">II. Resolução</strong>
-    \(\exists\,c_1>0,m_1\ge0\): \(h(n)\le c_1f(n)\), \(n\ge m_1\)<br>
-    \(\exists\,c_2>0,m_2\ge0\): \(g(n)\le c_2f(n)\), \(n\ge m_2\)<br>
-    \(m=\max(m_1,m_2)\) → para \(n\ge m\), soma as desigualdades:<br>
-    \(h(n)+g(n)\le c_1f(n)+c_2f(n)=(c_1+c_2)f(n)\)<br>
-    \(c=c_1+c_2>0\) → \(h(n)+g(n)\le c\,f(n)\) → \(h(n)+g(n)=O(f(n))\). \(\blacksquare\)</div>
-    <div class="step"><strong class="step-label">III. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Diferente da transitividade (A8/B8), aqui as duas hipóteses são
-    cotas para \(f(n)\) — a mesma função — e por isso se <em>somam</em> (\(c=c_1+c_2\)); na transitividade as
-    cotas se <em>compõem/multiplicam</em> (\(c=c_1c_2\)) porque uma cota é para \(g\) em função de \(f\), e a
-    outra para \(h\) em função de \(g\). Confundir esses dois padrões de prova é comum quando as duas
-    aparecem na mesma prova (como em A8 e C8).</div>
+    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses</strong>
+    \(h(n)\le c_1f(n)\) para todo \(n\ge m_1\); \(g(n)\le c_2f(n)\) para todo \(n\ge m_2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — some as duas desigualdades</strong>
+    Para \(n\ge m=\max(m_1,m_2)\), as duas valem ao mesmo tempo, então posso somar lado a lado:<br>
+    \(h(n)+g(n)\le c_1f(n)+c_2f(n)=(c_1+c_2)f(n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
+    Com \(c=c_1+c_2\), fica \(h(n)+g(n)\le c\,f(n)\) para todo \(n\ge m\) — ou seja,
+    \(h(n)+g(n)=O(f(n))\). \(\blacksquare\)</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Aqui a constante final é a SOMA (\(c_1+c_2\)), porque as duas
+    cotas são para a mesma \(f(n)\). Na transitividade (A8/B8) a constante é o PRODUTO (\(c_1c_2\)), porque lá
+    uma cota é para \(g\) em função de \(f\), e a outra para \(h\) em função de \(g\) — não confunda os dois
+    padrões.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     h(n) ≤ c₁f(n), n≥m₁ ; g(n) ≤ c₂f(n), n≥m₂<br>
