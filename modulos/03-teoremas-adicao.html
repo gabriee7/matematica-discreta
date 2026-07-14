@@ -95,7 +95,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       uma vez: \(30+20-10=40\) alunos fazem matemática OU química. Como são 100 alunos no total,
       \(P=40/100=0,4=40\%\).</p>
     </div>
-    <div class="step"><strong class="step-label">I. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     \(P(M) = 30/100 = 0.3\)<br>
     \(P(Q) = 20/100 = 0.2\)<br>
     \(P(M\cap Q) = 10/100 = 0.1\) (não excludentes → forma geral do Teorema 4)<br>
@@ -156,10 +156,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Enunciado pede também \(P(a_1\text{ ou }a_2)\) na opção válida c)</td><td>Basta somar \(P(a_1)+P(a_2)=\frac16+\frac13=\frac12\), pois pontos amostrais são sempre mutuamente excludentes entre si.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: opções corretas são c) e d). <span class="answer-final">Bate com o gabarito.</span></div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Ao validar uma distribuição, checar primeiro a não-negatividade
     (é uma rejeição instantânea, como em b) e só depois somar tudo — economiza esforço quando alguma
     probabilidade já é claramente negativa.</div>
@@ -211,12 +211,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Perguntar \(P(A\cup B\cup C)\)</td><td>Precisa da regra da adição para três eventos: \(P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\), não apenas somar os pares.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 0.6, 0.8, 0.5; b) 0.5, 0.7, 0.4. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check via princípio da adição: \(P(A\cup C) = P(A)+P(C)-P(A\cap C) = 0.6+0.5-P(\{2\}) =
     1.1-0.4=0.7\) ✓.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-trap">❗</span> Armadilha comum: aplicar \(|E|/|S|\) mesmo quando a distribuição
     não é uniforme — aqui \(|B|=4\) mas \(P(B)=0.8\), muito diferente de \(4/6\). A fórmula de espaço
     equiprovável só vale quando todos os \(p_i\) são iguais.</div>
@@ -258,7 +258,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Teorema 2, \(P(B) = 1-P(\bar{B}) = 1-0.3 = 0.7\). Esse é o primeiro passo obrigatório antes de qualquer
     outra conta.</div>
 
-    <div class="step"><strong class="step-label">II. Classificação</strong>
+    <div class="step"><strong class="step-label">Que tipo de problema é esse</strong>
     Uso combinado do princípio da adição (Teorema 4) e das leis de De Morgan para complementos de uniões e
     interseções — a questão pede quatro probabilidades diferentes derivadas dos mesmos dados, então
     identificar de saída quais ferramentas se combinam evita tentar "adivinhar" cada item isoladamente.</div>
@@ -280,11 +280,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedisse \(P(\bar A\cap B)\) em vez de \(P(A\cap \bar B)\)</td><td>Troca-se o papel de A e B na partição: \(P(\bar A\cap B)=P(B)-P(A\cap B)=0.7-0.5=0.2\) — atenção a qual conjunto está sendo "recortado".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 0.5, b) 0.1, c) 0.2, d) 0.5. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check: \(P(A\cap B)+P(A\cap\bar B) = 0.5+0.1=0.6=P(A)\) ✓ (partição consistente).</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> As leis de De Morgan transformam complemento de união em
     interseção de complementos e vice-versa: \(\overline{A\cup B}=\bar A\cap\bar B\) e
     \(\overline{A\cap B}=\bar A\cup\bar B\). <span class="badge badge-trap">❗</span> A armadilha desta

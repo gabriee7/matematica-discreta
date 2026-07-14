@@ -115,11 +115,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <p>Ideia-chave que vai se repetir MUITO: sempre que ver "pelo menos um", pense no contrário ("nenhum") —
       quase sempre é mais fácil de contar.</p>
     </div>
-    <div class="step"><strong class="step-label">I. Dados</strong>
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong>
     3 lançamentos independentes de uma moeda; observa-se o número de caras — identificar o experimento exato
     evita confundir "número de caras" com "sequência de caras e coroas", que teria outro espaço amostral.</div>
 
-    <div class="step"><strong class="step-label">II. Classificação</strong>
+    <div class="step"><strong class="step-label">Que tipo de problema é esse</strong>
     Espaço equiprovável finito: \(|S|=2^3=8\), cada resultado com \(P(a_i)=1/8\) — confirmar a equiprobabilidade
     é o que permite usar contagem simples em vez de somar probabilidades distintas.</div>
 
@@ -134,11 +134,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>B = "exatamente 2 caras" em vez de "todas iguais"</td><td>Deixa de ser complemento direto: conta-se \(\binom{3}{2}=3\) casos, \(P(B)=3/8\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">IV. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     \(P(A)+P(\text{nenhuma cara})=7/8+1/8=1\) ✓ (eventos complementares).
     <span class="answer-final">P(A) = 7/8; P(B) = 1/4.</span></div>
 
-    <div class="step"><strong class="step-label">V. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> "Pelo menos uma cara" é o complemento de "nenhuma cara" —
     calcular o complemento é quase sempre mais rápido que somar todos os casos favoráveis diretamente.</div>
 
@@ -171,11 +171,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <p>Repare que precisamos contar \(A\cap B\) separadamente porque uma carta pode ser as duas coisas ao
       mesmo tempo (espadas E figura) — isso vai ser importante no Módulo 3, quando juntamos "ou".</p>
     </div>
-    <div class="step"><strong class="step-label">I. Dados</strong>
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong>
     Baralho padrão de 52 cartas, uma carta selecionada ao acaso — fixar o tamanho do baralho antes de contar
     evita erros de contagem nos itens seguintes.</div>
 
-    <div class="step"><strong class="step-label">II. Classificação</strong>
+    <div class="step"><strong class="step-label">Que tipo de problema é esse</strong>
     Espaço equiprovável finito, \(|S|=52\). A e B não são mutuamente excludentes (há espadas que são figuras),
     então \(A\cap B\) precisa ser contado à parte.</div>
 
@@ -190,12 +190,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Perguntar \(P(A\cup B)\)</td><td>Exige o princípio da adição (Módulo 3): \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=13/52+12/52-3/52=22/52=11/26\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">IV. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     \(A\cap B\) (3 figuras de espadas) é subconjunto tanto de A (13 espadas) quanto de B (12 figuras) — 3 ≤ 13
     e 3 ≤ 12, consistente.
     <span class="answer-final">P(A) = 1/4; P(B) = 3/13; P(A∩B) = 3/52.</span></div>
 
-    <div class="step"><strong class="step-label">V. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Sempre que dois eventos sobre um baralho se sobrepõem (aqui,
     "espadas" e "figura"), identifique explicitamente a interseção antes de somar probabilidades — ela é
     necessária tanto para \(P(A\cap B)\) quanto para aplicar o princípio da adição depois.</div>
@@ -249,11 +249,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Item (b) com 5 moedas em vez de 4</td><td>\(|S|=2^5=32\); \(P=1-1/32=31/32\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 1/2, b) 15/16, c) 5/9. <span class="answer-final">Bate com o gabarito.</span> — conferir com
     o gabarito garante que nenhum caso foi contado a mais ou a menos no complemento.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Toda vez que o enunciado contém "pelo menos" ou "um ou mais",
     considere calcular o complemento ("nenhum"/"zero"). É quase sempre a conta mais simples.</div>
 
@@ -302,11 +302,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Cartas numeradas de 1 a 100 em vez de 1 a 50</td><td>\(|S|=100\); todas as contagens dobram proporcionalmente, mas as probabilidades individuais permanecem as mesmas por simetria.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 4/5, b) 1/5, c) 4/25, d) 21/25. <span class="answer-final">Bate com o gabarito.</span> —
     confirmar os quatro valores juntos garante que a interseção usada em (d) foi contada corretamente.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> "X ou Y" em espaços equiprováveis é sempre um caso do princípio
     da adição \(P(A\cup B)=P(A)+P(B)-P(A\cap B)\); calcule primeiro os três ingredientes separadamente (aqui,
     itens a, b, c) e só então combine.
@@ -345,11 +345,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
     Escolher 2 pessoas de um grupo de 10 sem se importar com a ordem → combinação. \(|S| = C(10,2) = 45\).</div>
 
-    <div class="step"><strong class="step-label">III. Estratégia</strong>
+    <div class="step"><strong class="step-label">Como resolver</strong>
     Para cada evento, conte quantas formas de escolher 2 pessoas satisfazem a condição, usando \(C(n,k)\)
     separadamente no grupo de azuis (3) e no grupo de não-azuis (7).</div>
 
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     \(|S| = \binom{10}{2} = 45\).<br>
     <strong>a)</strong> Ambas azuis: \(\binom{3}{2} = 3\): \(P = 3/45 = 1/15\).<br>
     <strong>b)</strong> Nenhuma azul (ambas dentre as 7 não-azuis): \(\binom{7}{2} = 21\): \(P = 21/45 = 7/15\).<br>
@@ -365,11 +365,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Escolha COM reposição em vez de sem</td><td>\(|S|=10^2=100\) (pares ordenados com repetição); as contagens de casos favoráveis usam potências em vez de combinações.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 1/15, b) 7/15, c) 8/15, d) 7/15. <span class="answer-final">Bate com o gabarito.</span>
     Sanity-check: (b)+(c) = 7/15+8/15 = 1 ✓ (nenhuma azul e pelo menos uma azul são complementares).</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Problemas de "grupo dividido em duas categorias, escolha sem
     reposição" seguem sempre este padrão: combine \(\binom{\text{categoria}}{k}\) dentro de cada grupo e use
     a regra do produto entre grupos quando a condição mistura as duas categorias.</div>
@@ -416,11 +416,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Apenas 2 das 3 meninas precisam ficar juntas</td><td>Não é mais o bloco inteiro: escolhe-se qual par fica junto (\(\binom{3}{2}\) opções), forma-se o bloco desse par e recombina com os demais.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 1/5, b) 1/10. <span class="answer-final">Bate com o gabarito.</span> — confirma que as
     técnicas de bloco e de padrões alternados foram aplicadas com o multiplicador correto.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> "Elementos de um grupo devem ficar juntos" → técnica do bloco
     (agrupar e multiplicar pelas permutações internas). "Elementos devem alternar" → contar os padrões de
     alternância possíveis (aqui, 2: começando com menino ou menina) e multiplicar pelas permutações internas
@@ -465,11 +465,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Item (d) fosse "só coroas OU uma cara" em vez de "só coroas ou só caras"</td><td>Deixa de ser um caso trivial de 2 pontos: {CCC} ∪ {uma cara} tem \(1+3=4\) casos, \(P=4/8=1/2\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 8, b) 3/8, c) 1/8, d) 1/4, e) 0. <span class="answer-final">Bate com o gabarito.</span> —
     conferir os cinco itens juntos evita confundir "ou" com "e" entre (d) e (e).</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Antes de somar probabilidades de dois eventos descritos em
     palavras, verifique se eles podem ocorrer juntos: se são mutuamente excludentes (como "só coroas" e "só
     caras"), \(P(A\cup B)=P(A)+P(B)\) sem subtrair nada.
@@ -524,12 +524,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Item (f) pedisse "soma ≥ 10" em vez de "> 10"</td><td>Inclui soma 10: (4,6),(5,5),(6,4), mais os 3 de soma>10, total 6: \(P=6/36=1/6\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 36, b) 1/36, c) 1/6, d) 1/6, e) 11/36, f) 1/12, g) 1/2.
     <span class="answer-final">Bate com o gabarito.</span> — conferir todos os itens juntos ajuda a
     detectar enumerações de pares feitas incorretamente.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Para eventos sobre "soma de dois dados", é mais rápido listar
     os pares por soma-alvo do que enumerar os 36 pares completos. Para "pelo menos um X", o complemento
     "nenhum X" volta a ser o caminho mais curto.</div>
@@ -589,11 +589,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Item (h) pedisse "ambas figuras E ambas espadas" (interseção, não união)</td><td>É exatamente o item (g): \(P=1/442\), sem precisar do princípio da adição.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 1326, b) 1/17, c) 19/34, d) 13/34, e) 15/34, f) 11/221, g) 1/442, h) 47/442.
     <span class="answer-final">Bate com o gabarito.</span> Sanity-check: (c)+(e) = 19/34+15/34=1 ✓.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-trap">❗</span> Em (h), a armadilha é esquecer que "ambas figuras" e "ambas
     espadas" não são mutuamente excludentes — existe a mão de duas figuras de espadas, que está nas duas
     categorias. Ignorar a interseção conta esse caso duas vezes.</div>
@@ -654,11 +654,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Loteria com 4 dígitos em vez de 3</td><td>\(|S|=10^4=10000\); "lote" com dígitos distintos passa a ter \(4!=24\) ordens: \(P=24/10000=3/1250\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Gabarito: a) 1/1000, b) 3/500, c) 3/1000. <span class="answer-final">Bate com o gabarito.</span> —
     confirma que o número de permutações distintas usado em cada item foi o correto.</div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> "Jogar em lote" multiplica a probabilidade da sequência exata
     pelo número de permutações distintas dos dígitos sorteados — que depende de haver ou não repetição entre
     eles (\(3!\) se todos distintos, \(3!/2!\) se há um par, \(1\) se os três são iguais).</div>

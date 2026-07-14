@@ -68,22 +68,22 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Sejam A e B eventos. Ache uma expressão e exiba o diagrama de Venn para os
     eventos: a) A, mas não B; b) nem A e nem B; c) A ou B, mas não ambos.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Mas não" é sempre um "E" com o
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Mas não" é sempre um "E" com o
     complemento do outro. "Nem...nem" é o complemento da união (ou, por De Morgan, a interseção dos
     complementos). "Ou...mas não ambos" (ou exclusivo) é a união dos dois "só um deles".</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Dois eventos genéricos A e B, sem
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong> Dois eventos genéricos A e B, sem
     espaço amostral numérico — é um exercício de tradução de linguagem natural para notação de
     conjuntos, igual à Questão 1 da Lista III (Módulo 1).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Álgebra de eventos: união,
+    <div class="step"><strong class="step-label">Que tipo de problema é esse</strong> Álgebra de eventos: união,
     interseção, complemento e diferença de conjuntos.</div>
-    <div class="step"><strong class="step-label">III. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     a) "A, mas não B" = A ocorre e B não ocorre: \[A\cap\bar B\] (região de A fora da interseção com B).<br>
     b) "Nem A e nem B" = nenhum dos dois ocorre: \[\bar A\cap\bar B=\overline{A\cup B}\] (região fora
     dos dois círculos).<br>
     c) "A ou B, mas não ambos" (ou exclusivo): \[(A\cap\bar B)\cup(\bar A\cap B)\] (as duas "luas",
     excluindo a interseção do meio).</div>
-    <div class="step"><strong class="step-label">IV. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> Não confundir (b) com o complemento de "A e B"
     (\(\overline{A\cap B}=\bar A\cup\bar B\)) — "nem A nem B" é bem mais restrito, exige os dois de fora.
     <span class="badge badge-pattern">🔁</span> O item (c) é a diferença simétrica \(A\triangle B\),
@@ -104,13 +104,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     1}, C = {coroa e um número ímpar}. b) Expresse explicitamente "A ou B", "B e C", "Apenas B". c)
     Qual(is) par(es) de eventos são mutuamente exclusivos?</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Escreva cada resultado como
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Escreva cada resultado como
     (moeda, número). B não depende da moeda — vale para os dois lados. Dois eventos são mutuamente
     exclusivos se, ao escrever as duas listas, nenhum elemento aparece nas duas.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> Moeda (H=cara, K=coroa) e dado
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong> Moeda (H=cara, K=coroa) e dado
     (1 a 6) lançados juntos: \(S=\{H,K\}\times\{1,\dots,6\}\), \(n(S)=12\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Espaço equiprovável finito;
+    <div class="step"><strong class="step-label">Que tipo de problema é esse</strong> Espaço equiprovável finito;
     montar cada evento filtrando os 12 pares por suas condições.</div>
     <div class="step"><strong class="step-label">III. Resolução (a)</strong>
     Primos maiores que 1 entre 1–6: {2,3,5}.<br>
@@ -125,7 +125,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A\cap C\): A exige cara, C exige coroa — nunca ocorrem juntos: \(A\cap C=\emptyset\). A e C são
     <strong>mutuamente exclusivos</strong>. (A e B se cruzam em {H3,H5}; B e C se cruzam em {K3,K5} —
     nenhum desses pares é exclusivo.)</div>
-    <div class="step"><strong class="step-label">VI. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> B não menciona a moeda — inclui os dois lados (H2,K2,H3,K3,
     H5,K5), diferente de A e C que fixam um lado específico. Esquecer a metade "K" ou "H" de B é o erro
     mais comum.</div>
@@ -146,14 +146,14 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     confiáveis. c) Uma bola de gude vermelha é retirada aleatoriamente de uma caixa contendo quatro
     bolas brancas, três vermelhas e cinco azuis.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Uma ou mais" de novo é o truque do
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Uma ou mais" de novo é o truque do
     contrário: 1 menos a chance de zero. Na caixa de bolas, é só "quantas eu quero / quantas existem".</div>
 
-    <div class="step"><strong class="step-label">I. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     a) Ímpares em \(\{1,\dots,6\}=\{1,3,5\}\): \(P=3/6=1/2\).<br>
     b) "1 ou mais caras" em 3 moedas = complemento de "nenhuma cara": \(P=1-1/8=7/8\).<br>
     c) Caixa com \(4+3+5=12\) bolas, 3 vermelhas: \(P=3/12=1/4\).</div>
-    <div class="step"><strong class="step-label">II. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-pattern">🔁</span> Mesmo padrão de sempre: "pelo menos um" vira complemento
     de "nenhum"; contagem direta (\(|E|/|S|\)) resolve o resto sem precisar de fórmulas extras.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 →</a></p>
@@ -171,20 +171,20 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     de: a) A carta ser um rei; b) A carta ser uma figura (dama, valete ou rei); c) A carta ser de copas;
     d) A carta ser uma figura de copas; e) A carta ser uma figura ou ser de copas.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Figura" e "copas" se sobrepõem
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Figura" e "copas" se sobrepõem
     (existem figuras de copas) — no item (e), use a regra do "ou" (soma menos a parte repetida), não
     some direto.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 52 cartas, 4 naipes de 13, 3 figuras
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong> 52 cartas, 4 naipes de 13, 3 figuras
     por naipe (12 no total), 13 cartas de copas.</div>
-    <div class="step"><strong class="step-label">II. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     a) \(P(\text{rei})=4/52=1/13\).<br>
     b) \(P(\text{figura})=12/52=3/13\).<br>
     c) \(P(\text{copas})=13/52=1/4\).<br>
     d) \(P(\text{figura de copas})=3/52\) (valete, dama, rei de copas).<br>
     e) \(P(\text{figura}\cup\text{copas})=P(\text{figura})+P(\text{copas})-P(\text{figura}\cap\text{copas})
     =\dfrac{12}{52}+\dfrac{13}{52}-\dfrac{3}{52}=\dfrac{22}{52}=\dfrac{11}{26}\).</div>
-    <div class="step"><strong class="step-label">III. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> Somar \(12/52+13/52=25/52\) sem subtrair a interseção (item
     e) conta as 3 figuras de copas duas vezes — mesmo erro clássico do princípio da adição.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 →</a></p>
@@ -206,10 +206,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     P(d)=\tfrac12\); c) \(P(a)=\tfrac12,P(b)=\tfrac14,P(c)=\tfrac18,P(d)=\tfrac18\); d)
     \(P(a)=\tfrac12,P(b)=\tfrac14,P(c)=\tfrac14,P(d)=0\).</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Dois testes: nenhum valor negativo,
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Dois testes: nenhum valor negativo,
     e a soma tem que dar exatamente 1. Falhar em qualquer um dos dois já reprova.</div>
 
-    <div class="step"><strong class="step-label">I. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     a) \(\tfrac12+\tfrac13+\tfrac14+\tfrac15=\tfrac{30+20+15+12}{60}=\tfrac{77}{60}\neq1\) →
     <strong>inválida</strong> (soma passa de 1).<br>
     b) \(P(c)=-\tfrac14<0\) → <strong>inválida</strong> (viola não-negatividade).<br>
@@ -217,7 +217,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <strong>válida</strong>.<br>
     d) \(\tfrac12+\tfrac14+\tfrac14+0=1\), todos \(\geq0\) (zero é permitido) →
     <strong>válida</strong>.</div>
-    <div class="step"><strong class="step-label">II. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-pattern">🔁</span> Mesmo padrão da Questão 11 da Lista III (Módulo 3) — o
     teste de não-negatividade é mais rápido e reprova b) na hora, sem precisar somar tudo.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
@@ -237,11 +237,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Considere os eventos: A = {número par}, B = {2,3,4,5}, C = {x: x&lt;3}, D = {x: x&gt;7}. Ache: a)
     P(A), P(B), P(C) e P(D); b) P(Ā), P(B̄), P(C̄) e P(D̄); c) P(A∩B), P(A∪C) e P(B∩C).</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Dado viciado — some as chances dos
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Dado viciado — some as chances dos
     números que estão dentro de cada grupo, não use "quantos eu quero / quantos existem". D = {x&gt;7} é
     vazio (não existe número maior que 7 num dado de 6 faces), então P(D)=0 e P(D̄)=1.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(A=\{2,4,6\}\), \(B=\{2,3,4,5\}\),
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong> \(A=\{2,4,6\}\), \(B=\{2,3,4,5\}\),
     \(C=\{1,2\}\), \(D=\emptyset\) (nenhum resultado do dado é maior que 7).</div>
     <div class="step"><strong class="step-label">II. Resolução (a)</strong>
     \(P(A)=0,3+0,1+0,2=0,6\)<br>
@@ -254,7 +254,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A\cap B=\{2,4\}\): \(P=0,3+0,1=0,4\).<br>
     \(A\cup C=\{1,2,4,6\}\): \(P=0,1+0,3+0,1+0,2=0,7\).<br>
     \(B\cap C=\{2\}\): \(P=0,3\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> D = {x&gt;7} é o conjunto vazio no contexto de um dado de 6
     faces — não é "quase impossível", é literalmente impossível, \(P(D)=0\) exato (Teorema 3 da apostila).
     <span class="badge badge-pattern">🔁</span> Idêntico em estrutura à Questão 12 da Lista III (Módulo
@@ -275,15 +275,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(P(A\cap B)=0,2\). Ache a probabilidade de: a) A não ocorrer; b) B não ocorrer; c) A ou B
     ocorrerem; d) Nem A e nem B ocorrerem.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Os três números já vêm prontos —
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Os três números já vêm prontos —
     encaixe direto no complemento e na regra do "ou". Item (d) é o complemento do item (c).</div>
 
-    <div class="step"><strong class="step-label">I. Resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     a) \(P(\bar A)=1-0,6=0,4\).<br>
     b) \(P(\bar B)=1-0,3=0,7\).<br>
     c) \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=0,6+0,3-0,2=0,7\).<br>
     d) \(P(\bar A\cap\bar B)=1-P(A\cup B)=1-0,7=0,3\) (De Morgan).</div>
-    <div class="step"><strong class="step-label">II. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-pattern">🔁</span> Item (d) não precisa ser recalculado do zero — é sempre
     \(1-P(A\cup B)\), o complemento direto do item (c).</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
@@ -301,7 +301,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="enunciado">Dois dados são jogados. Ache a probabilidade da soma ser igual ou maior a 10,
     sabendo que: a) No primeiro dado saiu 5; b) Em pelo menos um dos dados caiu 5.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Cada condição encolhe a caixa de
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Cada condição encolhe a caixa de
     forma diferente: (a) fixa só o primeiro dado; (b) aceita o 5 em qualquer um dos dois — a segunda
     caixa é bem maior que a primeira, então a resposta muda bastante.</div>
 
@@ -314,7 +314,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     (3,5),(4,5),(6,5)\}\), \(n(S'')=11\) (o par (5,5) conta uma única vez). Soma \(\geq10\) dentro
     desse conjunto: \((5,5)=10\), \((5,6)=11\), \((6,5)=11\) → 3 favoráveis.
     \[P(\text{soma}\geq10\mid \text{algum}=5)=\frac{3}{11}\]</div>
-    <div class="step"><strong class="step-label">III. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> O espaço condicionante de (b) tem 11 elementos, não 12 —
     contar \((5,5)\) duas vezes (uma para "1º=5" e outra para "2º=5") é o erro mais comum ao montar
     S''. <span class="badge badge-pattern">🔁</span> Sempre liste o espaço reduzido primeiro, depois
@@ -336,11 +336,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Durante um treinamento Edmar atira 6 vezes. Ache a probabilidade de que ele atinja o alvo: a)
     Exatamente duas vezes; b) Cinco ou mais vezes; c) Pelo menos uma vez.</div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Escreva cada tiro como "A" (acerto)
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Escreva cada tiro como "A" (acerto)
     ou "X" (erro). Para "exatamente 2 em 6", conte quantas sequências de 6 letras têm exatamente 2 "A"s.
     "5 ou mais" soma dois casos (exatamente 5 e exatamente 6). "Pelo menos uma" é 1 menos errar tudo.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(P(A)=1/4\) (acerto),
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong> \(P(A)=1/4\) (acerto),
     \(P(X)=3/4\) (erro), \(n=6\) tentativas independentes.</div>
     <div class="step"><strong class="step-label">II. Resolução (a)</strong> Sequências de 6 letras com
     exatamente 2 "A"s: \(\binom{6}{2}=15\) — AAXXXX, AXAXXX, AXXAXX, AXXXAX, AXXXXA, XAAXXX, XAXAXX,
@@ -355,7 +355,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">IV. Resolução (c)</strong> "Pelo menos uma vez" =
     complemento de "nenhum acerto" (0A):
     \[P(\geq1)=1-P(0A)=1-\left(\frac34\right)^6=1-\frac{729}{4096}=\frac{3367}{4096}\approx82,2\%\]</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> "5 ou mais" não é apenas \(P(5A)\) — precisa somar também
     \(P(6A)\), o caso de acertar todos os 6 tiros. <span class="badge badge-pattern">🔁</span> Mesma
     estrutura das Questões 18/19 da Lista III (Módulo 5) e da A4/B4 das Provas Anteriores — sempre a

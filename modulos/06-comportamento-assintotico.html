@@ -158,7 +158,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Trocar \(f(n)=n^5\) por \(f(n)=n^6\) no Exemplo 4</td><td>Dividir por \(n^6\) em vez de \(n^5\) dá termos ainda menores (todos com \(n\) a mais no denominador); o c necessário fica menor, pois \(n^6\) cresce mais rápido — a prova de O nunca é única para um dado g.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Padrão-mestre de toda prova de O de um polinômio: (1) escreva
     \(g(n)\leq c\cdot f(n)\); (2) divida os dois lados por \(f(n)\) para isolar \(c\); (3) verifique que a
     expressão resultante (soma de termos \(1/n^k\)) é decrescente em \(n\); (4) avalie no menor \(n\) do
@@ -242,7 +242,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
         <tr><td>Adicionar um quarto trecho \(O(2^m)\) (busca exaustiva)</td><td>Mesmo sendo só mais um trecho, ele domina os demais (exponencial vence qualquer polinomial), logo o programa inteiro passa a ser \(O(2^m)\).</td></tr>
       </table>
 
-      <div class="step"><strong class="step-label">II. Generalização</strong>
+      <div class="step"><strong class="step-label">Padrão geral</strong>
       <span class="badge badge-pattern">🔁</span> Sempre que aparecerem constantes multiplicando um \(O(\cdot)\),
       use primeiro a <strong>Operação 2</strong> para absorvê-las (elas somem, pois já fazem parte da constante
       \(c\) escondida no O); só depois combine os termos restantes com a <strong>Operação 5</strong>, que dá
@@ -294,7 +294,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedir a prova de Ω para \(g(n)=4n^5-5n^4+2n^3-n^2+3n-2\) com \(f(n)=n^4\) em vez de \(n^5\)</td><td>Continua sendo Ω, mas agora com c e m diferentes — de fato \(g(n)\) também é Ω(n^4) já que n^5 domina n^4; qualquer f de grau menor ou igual ao grau real de g também serve como piso.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">IV. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Em provas de Ω de um polinômio com coeficiente líder positivo,
     descarte (subestime para 0) apenas os termos não-negativos no domínio considerado, mantendo o termo de
     maior grau isolado como piso.
@@ -361,7 +361,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>g(n) tivesse coeficiente líder negativo, ex. \(g(n)=-4n^5+5n^4+\dots\)</td><td>g(n) não seria Θ(n⁵) no sentido usual de crescimento positivo — a definição com valor absoluto ainda permitiria O(n⁵), mas a prova de Ω como piso positivo falharia, pois g(n)→−∞; nesse caso a análise deve considerar \(|g(n)|\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">IV. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Toda prova de Θ é a junção de uma prova de O (cota superior)
     e uma de Ω (cota inferior) já feitas separadamente; o \(m\) final é o maior entre os dois \(m\) individuais,
     pois ambas as desigualdades precisam valer simultaneamente.
@@ -439,7 +439,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Fazer as duas provas e casar o maior m</td><td>Provas de Θ — sempre reporte o m que satisfaz simultaneamente O e Ω.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">VI. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Conferindo cada item: (a) \(1\leq n^2\) para \(n\geq1\) ✓; (b) \(|\text{sen}(n)|\leq1\) é identidade
     trigonométrica básica ✓; (c) a expansão \(n^3+3n^2+2n\) foi limitada por \(6n^3\) por cima e \(n^3\) por
     baixo, ambas válidas para \(n\geq1\) ✓; (d) \(5n\geq0\) para \(n\geq0\) ✓; (e) \(2n^2,n,5\geq0\) para
@@ -448,7 +448,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="answer-final">(a) O(n⁴); (b) O(n); (c) Θ(n³); (d) Ω(n²); (e) Ω(n³) — todas demonstradas com
     c e m explícitos.</span></div>
 
-    <div class="step"><strong class="step-label">VII. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> O padrão de prova em toda esta questão é o mesmo: (1) expandir
     a expressão se necessário; (2) para O, majorar cada termo de grau menor pelo termo de maior grau
     (funciona para \(n\geq1\)); (3) para Ω, descartar (ou seja, subestimar para 0) os termos que só ajudam a
@@ -542,7 +542,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Prova formal usando diretamente a definição de O — não é uma questão numérica, é uma demonstração geral
     válida para quaisquer \(f, g, h\).</div>
 
-    <div class="step"><strong class="step-label">III. Estratégia</strong>
+    <div class="step"><strong class="step-label">Como resolver</strong>
     Escrever as duas hipóteses em termos de suas constantes (\(c_1,m_1\) e \(c_2,m_2\)), substituir uma
     desigualdade dentro da outra, e mostrar que o resultado tem exatamente a forma da definição de O — essa
     substituição funciona porque a definição de O é transitiva por natureza: uma cota sobre uma cota ainda é
@@ -564,7 +564,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>\(g\) ou \(h\) pudesse ser negativa para algum \(n\)</td><td>É preciso usar \(|f(n)|\leq c_1|g(n)|\) e \(|g(n)|\leq c_2|h(n)|\) (com valor absoluto) para que a substituição \(|f(n)|\leq c_1c_2|h(n)|\) permaneça válida — sem o valor absoluto a cadeia de desigualdades pode quebrar.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">V. Verificação</strong>
+    <div class="step"><strong class="step-label">Conferindo</strong>
     Sanity-check: as constantes exibidas (\(c_1c_2\), \(\max(m_1,m_2)\)) são ambas positivas, como exige a
     definição, e a desigualdade final vale para todo \(n\) na interseção dos domínios onde as hipóteses
     valem — que é exatamente \(n\geq\max(m_1,m_2)\).</div>
@@ -580,7 +580,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(f(n)=O(h(n))\). ∎
     </div>
 
-    <div class="step"><strong class="step-label">VI. Generalização</strong>
+    <div class="step"><strong class="step-label">Padrão geral</strong>
     <span class="badge badge-pattern">🔁</span> Este é o <strong>padrão-mestre de toda prova de transitividade
     assintótica</strong>: (1) escreva as hipóteses com constantes distintas; (2) substitua uma dentro da
     outra; (3) tome o produto das constantes multiplicativas e o máximo das constantes de corte \(m\). O
