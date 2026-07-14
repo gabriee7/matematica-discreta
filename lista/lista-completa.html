@@ -755,17 +755,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Perguntassem P(A∩B∩C)</td><td>\(A\cap B\cap C = \{2\}\), P=1/6 — não basta multiplicar os três marginais mesmo que os pares sejam independentes, pois independência par a par não implica independência conjunta.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(A∩B) = P(A)P(B): 1/6 = (1/2)(1/3) ✓ → A,B independentes<br>
-    P(B∩C) = 1/3, mas P(B)P(C) = (1/3)(2/3) = 2/9 ≠ 1/3 → B,C não independentes
+    <div class="step"><strong class="step-label">Passo 1 — condicional é só reduzir a caixa</strong>
+    \(P(A|B)\) é a chance de A acontecer, mas contando só dentro de B: \(P(A|B)=P(A\cap B)/P(B)\). Trocar A e B
+    de lugar muda o resultado — \(P(A|B)\) e \(P(B|A)\) não são a mesma coisa.</div>
+    <div class="step"><strong class="step-label">Passo 2 — teste de independência: compare P(A∩B) com P(A)·P(B)</strong>
+    A∩B={2}, chance 1/6. P(A)·P(B) = (1/2)(1/3) = 1/6 — bateu, então A e B são independentes.<br>
+    B∩C tem chance 1/3, mas P(B)·P(C) = (1/3)(2/3) = 2/9 — não bateu, então B e C NÃO são independentes.
     <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Para testar independência de dois eventos, compare
-    \(P(A\cap B)\) com \(P(A)P(B)\) — ou equivalentemente, \(P(A|B)\) com \(P(A)\); se coincidirem, os
-    eventos são independentes. <span class="badge badge-trap">❗</span> Independência não é o mesmo que
-    disjunção — dois eventos disjuntos (com probabilidade positiva) são sempre dependentes, pois um ocorrer
-    torna o outro impossível.</div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Independência não é o mesmo que "não têm nada em comum" — dois
+    eventos disjuntos são, na verdade, sempre dependentes (se um acontece, o outro vira impossível).</div>
     <p><a href="../modulos/04-probabilidade-condicional.html#ex14">Ver resolução completa no Módulo 4 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -804,16 +803,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>A e B fossem mutuamente excludentes</td><td>\(P(A\cap B)=0\), logo \(P(A|B)=P(B|A)=0\) e \(P(A\cup B)=P(A)+P(B)=0.9\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(A|B)·P(B) = (2/3)(0,3) = 0,2 = P(A∩B) ✓<br>
-    P(B|A)·P(A) = (1/3)(0,6) = 0,2 ✓
+    <div class="step"><strong class="step-label">Passo 1 — os três números já estão prontos, é só encaixar</strong>
+    \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=0,6+0,3-0,2=0,7\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — condicional é dividir pela caixa que encolheu</strong>
+    \(P(A|B)=P(A\cap B)/P(B)=0,2/0,3=2/3\). \(P(B|A)=0,2/0,6=1/3\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — confira multiplicando de volta</strong>
+    \(P(A|B)\cdot P(B) = (2/3)(0,3) = 0,2\), bate com \(P(A\cap B)\) dado. \(P(B|A)\cdot P(A) = (1/3)(0,6) =
+    0,2\), também bate.
     <span class="answer-final">Todos os itens conferem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> A definição \(P(A|B) = P(A\cap B)/P(B)\) é o ponto de partida
-    de toda questão de probabilidade condicional; sempre confira o resultado multiplicando de volta.
-    <span class="badge badge-trap">❗</span> \(P(A|B)\ne P(B|A)\) em geral — aqui \(2/3 \ne 1/3\); não inverter
-    o condicionamento por engano.</div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> \(P(A|B)\) e \(P(B|A)\) quase nunca são iguais — aqui \(2/3\ne1/3\);
+    não inverta o condicionamento por engano.</div>
     <p><a href="../modulos/04-probabilidade-condicional.html#ex15">Ver resolução completa no Módulo 4 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -847,16 +847,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"soma excede 8" em vez de "excede 9"</td><td>Mais pares entram no evento (soma 9,10,11,12), aumentando a probabilidade condicional para 6/30=1/5.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    espaço reduzido: 6·6−6 = 30 pares distintos<br>
-    a) 12/30 = 2/5 ✓ b) 4/30 = 2/15 ✓ (contagem direta no espaço reduzido)
+    <div class="step"><strong class="step-label">Passo 1 — encolha a caixa: tire os pares repetidos</strong>
+    Dos 36 pares (i,j) possíveis, tire os 6 em que os dois dados dão o mesmo número (1-1, 2-2, ..., 6-6):
+    \(36-6=30\) pares restam. Esses 30 são o novo "total" — tudo se conta dentro deles daqui pra frente.</div>
+    <div class="step"><strong class="step-label">Passo 2 — conte direto dentro dos 30</strong>
+    a) Dos 30 pares distintos, 12 somam par: \(12/30=2/5\).<br>
+    b) Dos 30, 4 somam mais que 9: \(4/30=2/15\).
     <span class="answer-final">Batem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Condicionar a um evento B reduz o espaço amostral a B; depois
-    conta-se favoráveis/total dentro desse novo espaço reduzido, sem precisar da fórmula \(P(A\cap B)/P(B)\)
-    quando é mais fácil listar diretamente. <span class="badge badge-trap">❗</span> Esquecer de excluir os 6
-    pares (i,i) do espaço condicionante é o erro mais comum aqui — "distintos" remove a diagonal.</div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Esquecer de tirar os 6 pares repetidos (i,i) é o erro mais comum
+    aqui — "números distintos" remove exatamente esses 6 do total.</div>
     <p><a href="../modulos/04-probabilidade-condicional.html#ex16">Ver resolução completa no Módulo 4 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -890,16 +890,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Cavalos com mesma probabilidade (p=1/3 cada)</td><td>P(mesmo cavalo ganha as 3) = \(3\cdot(1/3)^3=1/9\); P(cada vence uma vez) = \(3!\cdot(1/3)^3=6/27=2/9\).</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    b) 6 permutações de vencedores (abc,acb,bac,bca,cab,cba), cada uma com prob. pₐp_b p_c<br>
-    6·pₐp_b p_c = 0,18 ✓
-    <span class="answer-final">Bate com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Corridas independentes ⇒ probabilidades se multiplicam;
-    "cada evento distinto ocorre uma vez em ordens diferentes" ⇒ somar sobre todas as permutações válidas
-    (aqui 3! = 6). <span class="badge badge-trap">❗</span> Não esquecer que as corridas são independentes
-    entre si — o resultado de uma corrida não altera as probabilidades da próxima.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) mesmo cavalo ganha as 3: some cada cavalo ao cubo</strong>
+    Corridas são independentes, então a chance de um cavalo ganhar as 3 é a chance dele elevada ao cubo. Some
+    isso para os 3 cavalos: \(p_a^3+p_b^3+p_c^3=0,16\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) cada um vence uma vez: liste as ordens possíveis</strong>
+    Os 3 cavalos podem vencer nas 3 corridas em 6 ordens diferentes (abc, acb, bac, bca, cab, cba — são
+    \(3!=6\) jeitos de arrumar 3 coisas). Cada ordem tem a mesma chance \(p_a\cdot p_b\cdot p_c\), então some as
+    6: \(6\cdot p_a p_b p_c=0,18\).
+    <span class="answer-final">Ambos batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> As corridas são independentes — o resultado de uma não muda a
+    chance da próxima. Sem essa independência não daria pra simplesmente multiplicar as probabilidades.</div>
     <p><a href="../modulos/05-independencia-tentativas.html#ex17">Ver resolução completa no Módulo 5 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -934,16 +935,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"no máximo uma vez" em vez de "pelo menos uma"</td><td>Soma \(P(0)+P(1) = (0.6)^5+5(0.4)(0.6)^4 = 0.07776+0.2592=0.33696\), evento oposto ao de "duas ou mais".</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(pelo menos uma) = 1−P(0) = 1−(0,6)⁵ = 1−0,07776 = 0,92224
-    <span class="answer-final">0.92224 confere pelo cálculo do complemento binomial.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Tentativas independentes de Bernoulli repetidas ⇒ distribuição
-    binomial \(P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\); "pelo menos uma vez" quase sempre é mais rápido pelo
-    complemento \(1-(1-p)^n\). <span class="badge badge-trap">❗</span> O gabarito oficial desta questão
-    apresenta 0.92224 mas a origem do valor 0.4 vs. 0.6 (p do sucesso) deve ser conferida com atenção — ver
-    nota detalhada no Módulo 5 sobre qual evento é "sucesso".</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) escreva cada tentativa como acerto ou erro</strong>
+    Cada uma das 5 tentativas é "a" (acerta, chance 0,4) ou "e" (erra, chance 0,6). "Exatamente 2 acertos" =
+    quantas sequências de 5 letras têm exatamente 2 "a"s (\(\binom{5}{2}=10\): aaeee, aeaee, aeeae, aeeea,
+    eaaee, eaeae, eaeea, eeaae, eeaea, eeeaa), vezes a chance de cada uma: \(10\cdot(0,4)^2(0,6)^3=0,3456\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) pelo menos uma vez = 1 menos errar tudo</strong>
+    Errar as 5 tentativas é só 1 sequência (eeeee), chance \((0,6)^5=0,07776\). "Pelo menos uma vez" é tudo
+    menos esse caso: \(1-0,07776=0,92224\).
+    <span class="answer-final">Ambos batem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Pelo menos uma vez" quase sempre é mais rápido pelo caminho do
+    complemento (1 menos "nenhuma vez") do que somando P(1)+P(2)+P(3)+P(4)+P(5) direto.</div>
     <p><a href="../modulos/05-independencia-tentativas.html#ex18">Ver resolução completa e nota sobre o
     gabarito no Módulo 5 →</a></p>
     <div class="board-solve">
@@ -978,15 +980,15 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>"exatamente duas vezes" em vez de "exatamente uma"</td><td>\(\binom{4}{2}(0.3)^2(0.7)^2=6\cdot0.09\cdot0.49=0.2646\), menor que P(exatamente uma) neste caso.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    P(0) = (0,7)⁴ = 0,2401 → 1−0,2401 = 0,7599<br>
-    → consistente com o item b) via complemento. <span class="answer-final">0.4116 e 0.7599 conferem com o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Mesmo padrão binomial de tentativas independentes com
-    probabilidade fixa \(p\) por tentativa: \(P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\).
-    <span class="badge badge-trap">❗</span> "Média de rebatidas" 0.3 já é a probabilidade de sucesso por
-    tentativa — não precisa (nem deve) ser reinterpretada como taxa por jogo ou por temporada.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a) mesma receita da Questão 18, números diferentes</strong>
+    4 tentativas, chance de acerto 0,3. "Exatamente 1 acerto" = quantas sequências de 4 letras têm exatamente 1
+    "a" (aeee, eaee, eeae, eeea — são 4), vezes a chance de cada uma: \(4\cdot(0,3)^1(0,7)^3=0,4116\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — b) pelo menos uma vez = 1 menos errar tudo</strong>
+    Errar as 4 é \((0,7)^4=0,2401\). Pelo menos uma vez: \(1-0,2401=0,7599\).
+    <span class="answer-final">0,4116 e 0,7599 conferem com o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> "Média de rebatidas" 0,3 já É a chance de acerto por tentativa —
+    não precisa reinterpretar isso como taxa por jogo ou por temporada.</div>
     <p><a href="../modulos/05-independencia-tentativas.html#ex19">Ver resolução completa no Módulo 5 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -1006,9 +1008,11 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <img src="img/q20.jpg" alt="Foto do enunciado original — questão 20 da Lista III" loading="lazy">
       <span class="exam-photo-caption">Enunciado original — Lista de Exercícios III</span>
     </div>
-    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Para provar O (teto): troque cada termo
-    pequeno pela maior potência de n e some — é sempre válido para n≥1. Para provar Ω (chão): jogue fora os
-    termos positivos "extras", que só ajudam. Para Θ: faça as duas provas e use o maior m das duas.
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Para provar O (teto): escreva
+    \(g(n)\le c\cdot f(n)\), divida os dois lados por \(f(n)\) e o \(c\) fica sozinho de um lado, igual a uma
+    soma de frações \(1/n^k\) — como cada uma decresce quando \(n\) cresce, o pior caso é sempre no menor \(n\)
+    permitido (geralmente \(n=1\)). Para provar Ω (chão): jogue fora os termos positivos "extras", que só
+    ajudam a desigualdade. Para Θ: faça as duas provas e use o maior m das duas.
     Explicação completa no <a href="../modulos/06-comportamento-assintotico.html#ex20">Módulo 6</a>.</div>
     <table class="data-table">
       <tr><th>Item</th><th>Resultado</th></tr>
@@ -1026,16 +1030,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Pedissem n(n+1)(n+2) é O(n²) (cota errada)</td><td>Seria falso: o termo dominante é n³, então nenhuma constante c torna n³≤c·n² para todo n suficientemente grande — bom exercício de refutação por contra-exemplo.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    testar n crescente em cada item → desigualdade com c, m encontrados se mantém para todo n≥m.
-    <span class="answer-final">Constantes válidas em todos os
-    itens conforme o gabarito.</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Para provar \(f=O(g)\), basta exibir UM par (c,m) que
-    funcione; para \(f=\Omega(g)\), idem, mas com a desigualdade invertida; para \(f=\Theta(g)\), exigem-se
-    ambas simultaneamente (duas constantes, c₁ e c₂). <span class="badge badge-trap">❗</span> Uma cota O não
-    prova automaticamente uma cota Θ — Θ exige limitar por cima E por baixo com a mesma ordem de grandeza.</div>
+    <div class="step"><strong class="step-label">Passo 1 — a), b): prova de O, direto pela divisão</strong>
+    a) \(n^2\le c\cdot n^4\), divida por \(n^4\): \(c\ge 1/n^2\), que decresce — pior caso em \(n=1\): \(c\ge1\).
+    b) \(|n\cdot\text{sen}(n)|\le c\cdot n\): como \(|\text{sen}(n)|\le1\) sempre, basta \(c=1\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — c): Θ precisa das duas pontas</strong>
+    Expandindo \(n(n+1)(n+2)=n^3+3n^2+2n\): por cima, \(n^3+3n^2+2n\le6n^3\) para \(n\ge1\) (c₂=6); por baixo,
+    \(n^3+3n^2+2n\ge n^3\) já que os outros termos são positivos (c₁=1). As duas pontas dão Θ(n³).</div>
+    <div class="step"><strong class="step-label">Passo 3 — d), e): prova de Ω, jogando fora o que só ajuda</strong>
+    d) \(n(n+5)/2 = (n^2+5n)/2 \ge n^2/2\), já que \(5n/2\ge0\) só aumenta o lado esquerdo (c=1/2).<br>
+    e) \(n^3+2n^2+n+5\ge n^3\), pelo mesmo motivo — os termos extras são positivos e só ajudam (c=1).
+    <span class="answer-final">Constantes válidas em todos os itens conforme o gabarito.</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Uma prova de O não vale como prova de Θ — Θ exige limitar por cima
+    E por baixo com a mesma ordem de grandeza, as duas ao mesmo tempo.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html#ex20">Ver demonstrações completas no Módulo 6 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -1058,12 +1065,10 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     da outra. A parte mais lenta (aqui, \(n^2\)) "engole" as outras quando n fica grande — o programa inteiro
     fica com a complexidade da parte mais lenta, nunca a soma literal. Explicação completa no
     <a href="../modulos/06-comportamento-assintotico.html#ex21">Módulo 6</a>.</div>
-    <div class="step"><strong class="step-label">Como resolver</strong>
-    Aplica-se a <strong>Operação 5</strong> das operações com O (Aula 12): \(O(f(n))+O(g(n))=
-    O(\max(f(n),g(n)))\) — vale porque, para \(n\) suficientemente grande, o termo de crescimento menor
-    fica desprezível diante do maior, então a soma "se comporta" como só o maior. Quando trechos de
-    complexidades diferentes são executados em sequência (não aninhados), a complexidade total é dominada
-    pelo termo assintoticamente maior.</div>
+    <div class="step"><strong class="step-label">Passo 1 — some as três complexidades usando a Operação 5</strong>
+    Os três trechos rodam um depois do outro (sequencial, não aninhado). A Operação 5 (Aula 12) diz que
+    \(O(f)+O(g)=O(\max(f,g))\) — a soma de ordens diferentes vira só a maior delas, porque a menor fica
+    desprezível quando \(n\) é grande. Aplicando aos três: \(O(n)+O(n^2)+O(\log n)=O(\max(n,n^2,\log n))\).</div>
 
     <table class="variations">
       <tr><th>E se...</th><th>Mudança no caminho</th></tr>
@@ -1071,15 +1076,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <tr><td>Houvesse também um trecho O(2ⁿ)</td><td>O termo exponencial dominaria todos os demais: resultado final seria O(2ⁿ), pois cresce muito mais rápido que n² para n grande.</td></tr>
     </table>
 
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    teste n=1000: n²=10⁶ ≫ n=1000 ≫ log n≈10<br>
-    → n² domina. <span class="answer-final">O(n²)</span> — o termo de maior ordem domina a soma.</div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Em soma de complexidades de trechos sequenciais, descarte
-    todos os termos exceto o de maior ordem de crescimento. <span class="badge badge-trap">❗</span> Esse
-    atalho só vale para trechos executados em sequência — laços aninhados multiplicam as ordens em vez de
-    tomar o máximo.</div>
+    <div class="step"><strong class="step-label">Passo 2 — quem é o maior? teste com um n grande</strong>
+    Com n=1000: n²=1.000.000, n=1000, log n≈10. O n² dispara muito na frente dos outros dois.
+    <span class="answer-final">Complexidade total: O(n²).</span></div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Esse atalho (somar = pegar o maior) só vale para trechos em
+    sequência — se fossem laços aninhados, as ordens se multiplicam em vez de tomar o máximo.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html#ex21">Ver resolução completa no Módulo 6 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
@@ -1101,26 +1103,19 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     uma dentro da outra: troque o "g" da primeira pelo valor que a segunda te dá. A nova constante é o
     PRODUTO das duas antigas. Explicação completa no
     <a href="../modulos/06-comportamento-assintotico.html#ex22">Módulo 6</a>.</div>
-    <div class="step"><strong class="step-label">Como resolver</strong>
-    Por hipótese, existem \(c_1, m_1\) tais que \(|f(n)|\le c_1|g(n)|\) para \(n\ge m_1\), e \(c_2, m_2\) tais
-    que \(|g(n)|\le c_2|h(n)|\) para \(n\ge m_2\). Basta encadear as duas desigualdades.</div>
-
-    <table class="variations">
-      <tr><th>E se...</th><th>Mudança no caminho</th></tr>
-      <tr><td>Provar a mesma transitividade para Ω</td><td>Mesma estrutura de prova, mas com as desigualdades invertidas: \(|f(n)|\ge c_1|g(n)|\) e \(|g(n)|\ge c_2|h(n)|\), gerando \(c=c_1c_2\) do mesmo jeito.</td></tr>
-      <tr><td>Provar a transitividade para Θ</td><td>Precisa combinar as provas de O e Ω simultaneamente, com duas constantes superiores e duas inferiores.</td></tr>
-    </table>
-
-    <div class="step"><strong class="step-label">Conferindo</strong>
-    |f(n)| ≤ c₁|g(n)| ≤ c₁c₂|h(n)|, ∀n≥max(m₁,m₂) (onde ambas hipóteses valem)
+    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses que você já tem</strong>
+    \(f=O(g)\) significa que existe \(c_1,m_1\) com \(|f(n)|\le c_1|g(n)|\) para \(n\ge m_1\). \(g=O(h)\)
+    significa que existe \(c_2,m_2\) com \(|g(n)|\le c_2|h(n)|\) para \(n\ge m_2\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — encaixe uma desigualdade dentro da outra</strong>
+    Troque o \(|g(n)|\) da primeira desigualdade pelo valor que a segunda te dá:
+    \(|f(n)|\le c_1|g(n)|\le c_1c_2|h(n)|\), válido para \(n\ge\max(m_1,m_2)\) (o ponto onde as DUAS hipóteses
+    já valem ao mesmo tempo).</div>
+    <div class="step"><strong class="step-label">Passo 3 — nomeie a nova constante e conclua</strong>
+    Chame \(c=c_1c_2\) e \(m=\max(m_1,m_2)\): \(|f(n)|\le c|h(n)|\) para todo \(n\ge m\), ou seja, \(f=O(h)\).
     <span class="answer-final">Demonstrado com c = c₁c₂ e m = max(m₁,m₂).</span></div>
-
-    <div class="step"><strong class="step-label">Padrão geral</strong>
-    <span class="badge badge-pattern">🔁</span> Toda prova de transitividade de uma relação assintótica segue
-    o mesmo padrão: encadear as duas desigualdades e tomar o produto das constantes multiplicativas e o
-    máximo dos limiares. <span class="badge badge-trap">❗</span> É essencial usar \(m=\max(m_1,m_2)\), não
-    \(m_1\) nem \(m_2\) isoladamente — a desigualdade combinada só é garantida quando ambas as hipóteses
-    originais já estão em vigor.</div>
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Use \(m=\max(m_1,m_2)\), nunca \(m_1\) ou \(m_2\) isolado — a
+    desigualdade combinada só vale a partir do ponto onde as duas hipóteses originais já estão em vigor.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html#ex22">Ver demonstração completa no Módulo 6 →</a></p>
     <div class="board-solve">
     <span class="board-label">No quadro</span>
