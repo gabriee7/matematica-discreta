@@ -155,28 +155,28 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sequência" = ordem exata (1 jeito só). "Lote" = ganha em qualquer ordem — conte quantos jeitos diferentes dá pra embaralhar os números sorteados.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> São sorteados 4 dígitos de 0 a 9 (podem
+    repetir). "Sequência" = você acerta só se a ordem bater certinho (1 jeito só). "Lote" = você ganha não
+    importa a ordem — para contar quantos jeitos existem, liste no papel cada arrumação, não pule pra
+    fórmula.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 4 dígitos sorteados de 0 a 9, com repetição
-    permitida e ordem relevante no sorteio: \(n(S)=10^4=10000\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Espaço equiprovável de sequências
-    ordenadas; item (b) exige contar quantas sequências ordenadas correspondem a um lote (multiconjunto) com
-    o padrão "dois iguais e dois outros distintos entre si e do par".</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> a) Uma sequência específica escolhida
-    pelo apostador corresponde a exatamente 1 dos 10000 resultados possíveis. b) Um lote com "exatamente dois
-    números iguais" tem o padrão \(\{A,A,B,C\}\) (A repetido, B e C distintos entre si e de A) — do mesmo
-    jeito que o quadro resolve a Loteria Daily3: <strong>listar por extenso</strong> todas as arrumações
-    (permutações) possíveis desse padrão, não aplicar a fórmula \(4!/2!\) direto sem mostrar a lista.</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    a) \(P=\dfrac{1}{10000}=0,01\%\).<br>
-    b) Arrumações de A,A,B,C (A repete, B e C não):<br>
-    AABC, AACB, ABAC, ACAB, ABCA, ACBA, BAAC, CAAB, BACA, CABA, BCAA, CBAA → 12 arrumações.<br>
+    <div class="step"><strong class="step-label">Passo 1 — quantos resultados possíveis existem?</strong>
+    4 dígitos, cada um de 0 a 9, podendo repetir: \(10\times10\times10\times10=10000\). Esse é o denominador
+    dos dois itens.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item a) sequência exata</strong>
+    Só 1 das 10000 sequências é exatamente a que o apostador marcou: \(P=\dfrac{1}{10000}=0,01\%\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item b) lote com exatamente 2 números iguais</strong>
+    Digamos que saíram A, A, B, C (A repetido, B e C diferentes entre si e de A). Liste todas as arrumações
+    possíveis dessas 4 letras:<br><br>
+    AABC, AACB, ABAC, ACAB, ABCA, ACBA, BAAC, CAAB, BACA, CABA, BCAA, CBAA → <strong>12 arrumações</strong>.<br><br>
     \(P=\dfrac{12}{10000}=\dfrac{3}{2500}=0,12\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> "Lote" não pergunta pela distribuição do sorteio em si, e sim pela
-    chance de o apostador <em>acertar</em> apostando em um lote com aquele padrão de repetição — por isso o
-    numerador é o número de arrumações do padrão apostado, não uma contagem de "quantos sorteios têm
-    exatamente um par". O aluno da versão manuscrita confundiu os dois tipos de contagem nesta questão.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> A pergunta não é "quantos sorteios têm um par?" — é "de quantas
+    formas o padrão que eu apostei (A,A,B,C) pode sair?". O numerador é o número de arrumações do padrão
+    apostado, não uma contagem à parte do sorteio.</div>
     <p><a href="../modulos/02-espacos-equiprovaveis.html">Ver teoria no Módulo 2 (compare com a Loteria Daily3 da Lista) →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     n(S) = 10⁴ = 10000<br>
@@ -203,27 +203,31 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Cuidado: o enunciado dá \(P(\bar A)\), não \(P(A)\)! Primeiro converta com \(P(A)=1-P(\bar A)\), só depois use a regra do "ou".</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Cuidado logo de cara: o enunciado dá
+    \(P(\bar A)\) (chance de A NÃO acontecer), não \(P(A)\). Primeiro inverte isso, só depois mexe no resto.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(P(A)=1-1/2=1/2\); \(P(B)=2/5\);
-    \(P(A\cap\bar B)=3/10\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Álgebra de eventos com complemento e
-    princípio da adição — não é necessário espaço amostral explícito.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Usar \(P(\bar B)=1-P(B)\); depois
-    \(A=(A\cap B)\cup(A\cap\bar B)\) (união disjunta) para isolar \(P(A\cap B)\); depois De Morgan
-    \(P(\bar A\cap\bar B)=1-P(A\cup B)\); por fim comparar \(P(A\cap B)\) com \(P(A)P(B)\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    a) \(P(\bar B)=1-2/5=3/5\).<br>
-    b) \(P(A\cap B)=P(A)-P(A\cap\bar B)=1/2-3/10=5/10-3/10=2/10=1/5\).<br>
-    c) \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=1/2+2/5-1/5=5/10+4/10-2/10=7/10\); logo
-    \(P(\bar A\cap\bar B)=1-7/10=3/10\).<br>
-    d) \(P(A)\cdot P(B)=\tfrac12\cdot\tfrac25=\tfrac{1}{5}=P(A\cap B)\) — <strong>iguais</strong>, logo A e B
-    <strong>são independentes</strong>.</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> O dado é \(P(\bar A)\), não \(P(A)\) — inverter essa conversão no
-    início derruba todos os itens seguintes. <span class="badge badge-pattern">🔁</span> \(A=(A\cap
-    B)\cup(A\cap\bar B)\) é sempre uma partição de A, então \(P(A\cap B)=P(A)-P(A\cap\bar B)\) é mais direto
-    aqui do que tentar montar inclusão-exclusão de outra forma.</div>
+    <div class="step"><strong class="step-label">Passo 1 — achar P(A)</strong>
+    O enunciado deu \(P(\bar A)=1/2\) (chance de A não ocorrer). Então \(P(A)=1-1/2=1/2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — item a) P(B̄)</strong>
+    \(P(\bar B)=1-P(B)=1-2/5=3/5\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — item b) P(A∩B)</strong>
+    O evento A se divide em duas partes que não se sobrepõem: "A e B" e "A e não-B". Ou seja
+    \(P(A)=P(A\cap B)+P(A\cap\bar B)\). Isolando: \(P(A\cap B)=P(A)-P(A\cap\bar B)=1/2-3/10=2/10=1/5\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — item c) nem A nem B</strong>
+    Primeiro a chance de A OU B: \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=1/2+2/5-1/5=7/10\). "Nem A nem B" é o
+    contrário de "A ou B", então \(P(\bar A\cap\bar B)=1-7/10=3/10\).</div>
+
+    <div class="step"><strong class="step-label">Passo 5 — item d) são independentes?</strong>
+    Dois eventos são independentes quando \(P(A)\cdot P(B)=P(A\cap B)\). Aqui:
+    \(\tfrac12\cdot\tfrac25=\tfrac{1}{5}\), que é exatamente o \(P(A\cap B)=1/5\) que achamos no passo 3 —
+    <strong>bateu, então são independentes</strong>.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> O enunciado dá \(P(\bar A)\), não \(P(A)\) — se você usar 1/2
+    direto como se fosse \(P(A)\) sem inverter, todos os itens seguintes saem errados.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     P(A) = 1 - 1/2 = 1/2<br>
@@ -246,27 +250,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Sabendo que a 3ª moeda é cara" encolhe a caixa: fixe essa moeda em cara e conte só nas outras 3 livres.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Sabendo que a 3ª moeda é cara" já
+    fixa uma das 4 moedas — você não precisa mais considerar ela como incerta, só as outras 3.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> 4 moedas justas; condição: moeda 3 = cara.
-    Evento de interesse: exatamente 2 coroas entre as 4 (equivalente a exatamente 2 caras).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Probabilidade condicional com espaço
-    amostral reduzido: fixando a moeda 3 = C, restam 3 moedas livres, \(n(S')=2^3=8\) igualmente prováveis.</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Com a moeda 3 já cara, "exatamente duas
-    coroas no total" exige que, entre as outras 3 moedas, exatamente 1 seja coroa (a 3ª já não é coroa) —
-    ou equivalentemente, 1 seja cara e 2 sejam coroas... cuidado: "duas coroas" com a moeda 3 = cara
-    (não-coroa) exige que as 2 coroas estejam entre as outras 3 moedas.</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    moeda3 = C fixa → sobram moeda1, moeda2, moeda4 livres (ordem 1-2-4):<br>
-    CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK → 8 sequências, \(n(S')=8\)<br>
-    exatamente 2 K no total ⇒ exatamente 2 K entre as 3 livres: <strong>CKK</strong>, <strong>KCK</strong>,
-    <strong>KKC</strong> → 3 favoráveis<br>
+    <div class="step"><strong class="step-label">Passo 1 — travar a moeda 3 em cara e ver o que sobra</strong>
+    Moeda 3 = cara (C), fixa. As outras 3 moedas (1, 2 e 4) ainda podem dar cara ou coroa livremente:
+    \(2\times2\times2=8\) combinações possíveis. Esse é o denominador.</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — quantas dessas 8 têm exatamente 2 coroas no total?</strong>
+    Como a moeda 3 já é cara (não é coroa), as 2 coroas que precisamos têm que estar todas entre as outras 3
+    moedas. Listando as 8 combinações das moedas 1-2-4:<br>
+    CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK<br>
+    As que têm exatamente 2 K: <strong>CKK, KCK, KKC</strong> → 3 favoráveis.</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — a probabilidade</strong>
     \(P=3/8=37,5\%\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Condicionar em "moeda 3 = cara" reduz o espaço amostral de 16
-    para 8 — usar \(n(S)=16\) no denominador (esquecendo a condição) é o erro típico. Também é fácil trocar
-    "duas coroas entre as 4" por "duas coroas entre as 3 restantes" — releia com cuidado qual é o total
-    de coroas pedido.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Já sabendo que a moeda 3 é cara, o espaço todo passa a ser 8 (não
+    16) — usar 16 no denominador é o erro mais comum aqui.</div>
     <p><a href="../modulos/04-probabilidade-condicional.html">Ver teoria no Módulo 4 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     moeda3 = C fixa → n(S') = 2³ = 8<br>
@@ -288,22 +290,28 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> "Pelo menos uma vitória em 2 jogos" — pense no contrário: a chance de perder OU empatar as duas vezes, e faça 1 menos isso.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> "Pelo menos uma vitória em 2 jogos" é
+    mais fácil de calcular pelo caminho contrário: ache a chance de NÃO vencer nenhuma das duas, e faça 1 menos
+    isso.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(P(\text{vitória})=0,3\);
-    \(P(\text{derrota})=0,5\); logo \(P(\text{empate})=1-0,3-0,5=0,2\). Duas partidas, resultados
-    independentes.</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Tentativas independentes repetidas;
-    "pelo menos uma vitória em duas" resolve-se mais rápido pelo complemento "nenhuma vitória".</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> \(P(\text{não vence uma partida})=1-0,3=0,7\).
-    Por independência, \(P(\text{não vence nenhuma das duas})=0,7\times0,7=0,49\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    \(P(\text{vence pelo menos uma})=1-0,49=0,51\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> As probabilidades de vitória e derrota não somam 1 (30%+50%=80%);
-    os 20% restantes são empate, e "não vencer" inclui empate e derrota — não é apenas \(1-0,5=0,5\) (isso
-    seria "não perder"). <span class="badge badge-pattern">🔁</span> "Pelo menos um sucesso em n tentativas
-    independentes" = \(1-(1-p)^n\).</div>
+    <div class="step"><strong class="step-label">Passo 1 — achar P(empate)</strong>
+    O enunciado só dá vitória (30%) e derrota (50%). Como as três possibilidades (vitória/derrota/empate) têm
+    que somar 100%: \(P(\text{empate})=1-0,3-0,5=0,2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — P(não vencer 1 jogo)</strong>
+    "Não vencer" é qualquer coisa que não seja vitória (empate ou derrota juntos):
+    \(P(\text{não vence})=1-0,3=0,7\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — P(não vencer nenhum dos 2 jogos)</strong>
+    Os dois jogos são independentes, então multiplica: \(0,7\times0,7=0,49\).</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a resposta</strong>
+    "Vencer pelo menos um" é o contrário de "não vencer nenhum": \(P=1-0,49=0,51=51\%\).</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Vitória e derrota não somam 100% (30%+50%=80%) — sobram 20% de
+    empate, e "não vencer" inclui esse empate. Usar \(1-0,5=0,5\) direto seria calcular "não perder", que é
+    outra coisa.</div>
     <p><a href="../modulos/05-independencia-tentativas.html">Ver teoria no Módulo 5 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     P(V)=0,3 ; P(D)=0,5 ; P(E)=0,2<br>
@@ -324,36 +332,34 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Para O (teto): troque cada termo pequeno pela maior potência de n e some. Para Ω (chão): jogue fora os termos positivos extras.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Prova de O/Ω/Θ sempre funciona igual:
+    escreva a desigualdade que você quer provar, DIVIDA os dois lados pela função de referência (\(f(n)\)) para
+    isolar o \(c\) sozinho, veja se o que sobrou cresce ou decresce com \(n\), e pegue o pior caso.</div>
 
-    <div class="step"><strong class="step-label">I. Estratégia</strong> Em cada item, escrever a desigualdade
-    alvo e <strong>dividir por \(f(n)\)</strong> para isolar \(c\) — exatamente o método do quadro (Módulo 6):
-    isso transforma o problema em analisar se a expressão resultante cresce ou decresce em \(n\), e avaliar
-    no extremo do domínio.</div>
-    <div class="step"><strong class="step-label">II. Resolução a) \(O(n^3)\)</strong>
-    \(3n^3-4n+2\le c\cdot n^3,\ \forall n\ge m\). Dividindo por \(n^3\):
-    \(c\ge3-\dfrac{4}{n^2}+\dfrac{2}{n^3},\ \forall n\ge1\)<br>
-    O termo \(-4/n^2\) só ajuda (torna o lado direito menor) — descartando-o: \(c\ge3+\dfrac{2}{n^3}\),
-    decrescente, maior valor em \(n=1\): \(c\ge3+2\Rightarrow c\ge5\).
+    <div class="step"><strong class="step-label">Item a) — provar que \(3n^3-4n+2\) é \(O(n^3)\)</strong>
+    Quero achar \(c\) e \(m\) tais que \(3n^3-4n+2\le c\cdot n^3\) para todo \(n\ge m\). Divido os dois lados
+    por \(n^3\): \(c\ge3-\dfrac{4}{n^2}+\dfrac{2}{n^3}\).<br>
+    O termo \(-4/n^2\) só está ajudando (deixa o lado direito menor), então posso jogá-lo fora sem perder a
+    desigualdade: sobra \(c\ge3+\dfrac{2}{n^3}\). Essa expressão diminui conforme \(n\) cresce, então o pior
+    caso (maior valor de \(c\) necessário) é em \(n=1\): \(c\ge3+2=5\).
     <span class="answer-final">c=5, m=1 → O(n³).</span></div>
-    <div class="step"><strong class="step-label">III. Resolução b) \(\Omega(n^2)\)</strong>
-    \(5n^2+n+3\ge c\cdot n^2,\ \forall n\ge m\). Dividindo por \(n^2\):
-    \(c\le5+\dfrac1n+\dfrac{3}{n^2}\) — como \(n+3\ge0\) para \(n\ge0\), já vale \(5n^2+n+3\ge5n^2\)
-    diretamente.
+
+    <div class="step"><strong class="step-label">Item b) — provar que \(5n^2+n+3\) é \(\Omega(n^2)\)</strong>
+    Quero \(5n^2+n+3\ge c\cdot n^2\). Como \(n+3\) é sempre positivo para \(n\ge0\), já dá pra afirmar direto
+    que \(5n^2+n+3\ge5n^2\) sem precisar dividir nada.
     <span class="answer-final">c=5, m=0 → Ω(n²).</span></div>
-    <div class="step"><strong class="step-label">IV. Resolução c) \(\Theta(n)\)</strong>
-    Cota sup.: \(\dfrac{n+1}{2}\le c_2\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_2\ge\dfrac12+\dfrac{1}{2n},\ \forall n\ge1\), decrescente → maior valor em \(n=1\):
-    \(c_2\ge\tfrac12+\tfrac12=1\).<br>
-    Cota inf.: \(\dfrac{n+1}{2}\ge c_1\cdot n,\ \forall n\ge m\). Dividindo por \(n\):
-    \(c_1\le\dfrac12+\dfrac{1}{2n}\) — com \(c_1=\tfrac12\), vale para qualquer \(n\ge1\) (a expressão nunca
-    chega a \(1/2\), só se aproxima).
+
+    <div class="step"><strong class="step-label">Item c) — provar que \(\dfrac{n+1}{2}\) é \(\Theta(n)\)</strong>
+    Θ pede as duas pontas: um teto (O) e um chão (Ω) com a mesma ordem \(n\).<br>
+    Teto: \(\dfrac{n+1}{2}\le c_2\cdot n\). Dividindo por \(n\): \(c_2\ge\dfrac12+\dfrac{1}{2n}\), que decresce
+    com \(n\) — pior caso em \(n=1\): \(c_2\ge\tfrac12+\tfrac12=1\).<br>
+    Chão: \(\dfrac{n+1}{2}\ge c_1\cdot n\). Dividindo por \(n\): \(c_1\le\dfrac12+\dfrac{1}{2n}\) — usando
+    \(c_1=\tfrac12\), a desigualdade vale para todo \(n\ge1\) (o lado direito nunca cai abaixo de 1/2).
     <span class="answer-final">c₁=1/2, c₂=1, m=1 → Θ(n).</span></div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> Θ exige provar as duas cotas (O <em>e</em> Ω) com o mesmo par
-    \((m,\) intervalo de validade\()\) — provar só a cota superior não basta para Θ.
-    <span class="badge badge-pattern">🔁</span> Padrão do quadro: dividir por \(f(n)\) para isolar \(c\),
-    verificar se a expressão resultante decresce em \(n\), e avaliar no menor \(n\) do domínio.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Θ só fica provado quando você mostra o teto (O) E o chão (Ω) —
+    provar só um dos dois não é suficiente.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) c≥3-4/n²+2/n³, ∀n≥1 → descarta -4/n² → c≥3+2/n³ → n=1: c≥5 → O(n³) c=5,m=1<br>
@@ -375,28 +381,31 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> Cada função é executada um número de vezes diferente — multiplique cada complexidade pelo número de execuções e some; quem "pesa" mais no total dita a resposta.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Cada função roda um número fixo de
+    vezes (100, 5, 2 — são só constantes) e depois soma tudo. Constante multiplicando não muda a "categoria de
+    velocidade" de ninguém; quem manda no total é só quem cresce mais rápido.</div>
 
-    <div class="step"><strong class="step-label">I. Dados</strong> \(100\cdot O(\log_2 n) + 5\cdot O(n) +
-    2\cdot O(n\log_2 n)\).</div>
-    <div class="step"><strong class="step-label">II. Classificação</strong> Duas operações da lista oficial
-    (Aula 12) se aplicam em sequência: primeiro a <strong>Operação 2</strong> (\(c\cdot O(f(n))=O(f(n))\) —
-    vale porque a constante de repetição pode ser incorporada dentro da própria constante \(c\) da definição
-    de O, então "chamar 100 vezes uma função O(f)" continua sendo O(f), não \(O(100f)\)), depois a
-    <strong>Operação 5</strong> (\(O(f(n))+O(g(n))=O(\max(f(n),g(n)))\) — vale porque, para \(n\) grande, o
-    termo menor fica desprezível perto do maior, então a soma "se comporta como" só o maior).</div>
-    <div class="step"><strong class="step-label">III. Estratégia</strong> Operação 2: \(100\cdot O(\log_2 n)=
-    O(\log_2 n)\); \(5\cdot O(n)=O(n)\); \(2\cdot O(n\log_2 n)=O(n\log_2 n)\). Operação 5: comparar o
-    crescimento de \(\log_2 n\), \(n\) e \(n\log_2 n\): para \(n\) grande, \(\log_2 n \le n \le n\log_2 n\).</div>
-    <div class="step"><strong class="step-label">IV. Resolução</strong>
-    Soma \(O(\log_2n)+O(n)+O(n\log_2n)\) dominada pelo maior termo, \(n\log_2 n\) — é o único dos três que
-    cresce mais rápido que os outros dois simultaneamente.<br>
+    <div class="step"><strong class="step-label">Passo 1 — monte a soma total</strong>
+    \(100\cdot O(\log_2 n) + 5\cdot O(n) + 2\cdot O(n\log_2 n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — tire as constantes (Operação 2)</strong>
+    A Operação 2 (\(c\cdot O(f(n))=O(f(n))\)) diz que multiplicar por uma constante não muda a ordem — a
+    constante só é absorvida dentro do próprio O. Aplicando aos três termos:<br>
+    \(100\cdot O(\log_2 n)=O(\log_2 n)\); \(5\cdot O(n)=O(n)\); \(2\cdot O(n\log_2 n)=O(n\log_2 n)\).<br>
+    Sobra: \(O(\log_2n)+O(n)+O(n\log_2n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — some pelo maior (Operação 5)</strong>
+    A Operação 5 (\(O(f)+O(g)=O(\max(f,g))\)) diz que a soma de ordens diferentes vira só a maior delas —
+    para \(n\) grande, quem cresce mais devagar fica desprezível perto de quem cresce mais rápido. Comparando
+    os três: \(\log_2 n \le n \le n\log_2 n\), então \(n\log_2n\) é quem manda.</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — a resposta</strong>
     Algoritmo é \(O(n\log_2 n)\).</div>
-    <div class="step"><strong class="step-label">V. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> O número de vezes que cada função é chamada (100, 5, 2) é uma
-    constante e <strong>não altera</strong> a classe assintótica — multiplicar \(O(n\log_2n)\) por 2 continua
-    \(O(n\log_2n)\). O erro comum é achar que "a função chamada mais vezes" (A, 100×) domina; o que domina é
-    quem tem a maior complexidade <em>por chamada</em>.</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Quantas vezes cada função roda (100, 5, 2) NÃO importa para a
+    resposta — é só uma constante e some dentro do O. O erro comum é achar que a função chamada mais vezes
+    (A, 100×) manda; quem manda é quem tem a maior complexidade POR chamada.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     100·O(log₂n) + 5·O(n) + 2·O(n log₂n)<br>
@@ -417,22 +426,27 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       <span class="exam-photo-caption">Foto da prova original</span>
     </div>
 
-    <div class="eli5"><span class="eli5-label">💡 Dica rápida</span> É a receita de "encaixar uma desigualdade dentro da outra": troque o termo do meio pela cota que a segunda hipótese te dá.</div>
+    <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> É "encaixar uma desigualdade dentro da
+    outra": pega a cota que a segunda hipótese te dá e usa ela pra trocar o termo do meio da primeira.</div>
 
-    <div class="step"><strong class="step-label">I. Estratégia</strong> Usar a definição formal de O duas vezes
-    (uma para cada hipótese) e compor as duas desigualdades para obter a definição de \(h=O(f)\).</div>
-    <div class="step"><strong class="step-label">II. Resolução</strong>
-    \(h(n)=O(g(n))\): \(\exists\,c_1>0,m_1\ge0\): \(h(n)\le c_1g(n)\), \(n\ge m_1\)<br>
-    \(g(n)=O(f(n))\): \(\exists\,c_2>0,m_2\ge0\): \(g(n)\le c_2f(n)\), \(n\ge m_2\)<br>
-    \(m=\max(m_1,m_2)\) → para \(n\ge m\), ambas valem:<br>
-    \(h(n)\le c_1g(n)\le c_1c_2f(n)\)<br>
-    \(c=c_1c_2>0\) → \(h(n)\le c\,f(n)\), \(n\ge m\) → \(h(n)=O(f(n))\). \(\blacksquare\)</div>
-    <div class="step"><strong class="step-label">III. Pontos de atenção</strong>
-    <span class="badge badge-trap">❗</span> É preciso tomar \(m=\max(m_1,m_2)\), não \(m_1\) nem \(m_2\)
-    isoladamente — a desigualdade só está garantida quando <em>ambas</em> as hipóteses valem ao mesmo tempo.
-    <span class="badge badge-pattern">🔁</span> Esse é o padrão-modelo de toda prova de propriedade de O/Ω/Θ:
-    escrever as definições com constantes explícitas, combinar as desigualdades algebricamente, e exibir a
-    nova constante e o novo \(m\) no final.</div>
+    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses como desigualdades</strong>
+    \(h(n)=O(g(n))\) quer dizer que existe \(c_1>0\) e \(m_1\ge0\) tais que \(h(n)\le c_1g(n)\) para todo
+    \(n\ge m_1\).<br>
+    \(g(n)=O(f(n))\) quer dizer que existe \(c_2>0\) e \(m_2\ge0\) tais que \(g(n)\le c_2f(n)\) para todo
+    \(n\ge m_2\).</div>
+
+    <div class="step"><strong class="step-label">Passo 2 — encaixe uma dentro da outra</strong>
+    Para \(n\ge m=\max(m_1,m_2)\) as duas desigualdades valem ao mesmo tempo. Troco o \(g(n)\) da primeira
+    desigualdade pelo limite que a segunda me dá:<br>
+    \(h(n)\le c_1g(n)\le c_1c_2f(n)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
+    Chamando \(c=c_1c_2>0\), ficou provado que \(h(n)\le c\,f(n)\) para todo \(n\ge m\) — que é exatamente a
+    definição de \(h(n)=O(f(n))\). \(\blacksquare\)</div>
+
+    <div class="step"><strong class="step-label">Cuidado</strong>
+    <span class="badge badge-trap">❗</span> Tem que usar \(m=\max(m_1,m_2)\), nunca \(m_1\) ou \(m_2\)
+    isolados — a desigualdade só é garantida quando as DUAS hipóteses já valem ao mesmo tempo.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     h(n) ≤ c₁g(n), n≥m₁<br>
