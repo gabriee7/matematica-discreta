@@ -164,10 +164,9 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       "armadilha" ⚠️ abaixo.</p>
     </div>
 
-    <div class="step"><strong class="step-label">I–II. Dados e classificação</strong>
-    Experimento composto (3 lançamentos independentes de uma moeda) — o espaço amostral é o produto
-    cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\), com \(2^3=8\) resultados — usar o produto cartesiano
-    garante contar cada sequência de resultados exatamente uma vez.</div>
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong>
+    3 lançamentos de uma moeda, um atrás do outro. Cada jogada tem 2 resultados (C ou K), e são 3 jogadas:
+    \(2^3=8\) sequências possíveis — o espaço amostral é o produto cartesiano \(\{C,K\}\times\{C,K\}\times\{C,K\}\).</div>
 
     <div class="step"><strong class="step-label">Resolvendo</strong>
     \(S = \{CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK\}\).<br>
@@ -176,7 +175,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     \(A \cap B = \{CCC\}\) — o único elemento comum é o caso de 3 caras, que está tanto em "2 ou mais caras"
     quanto em "todos iguais".</div>
 
-    <div class="step"><strong class="step-label">IV. Armadilha</strong>
+    <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> \(KKK\) está em \(B\) mas não em \(A\) (0 caras não é "duas ou
     mais"). É fácil incluir \(KKK\) em \(A\cap B\) por engano ao ler rápido demais o enunciado de \(B\).</div>
 
@@ -212,7 +211,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       pares acontecer, já vale.</p>
     </div>
 
-    <div class="step"><strong class="step-label">I. Leitura e extração de dados</strong>
+    <div class="step"><strong class="step-label">O que o enunciado dá</strong>
     Não há números — o problema pede a <em>tradução</em> de linguagem natural para operações de conjuntos
     (∪, ∩, complemento).</div>
 
@@ -220,7 +219,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-prereq">📌</span> Problema de tradução lógica: "e" → ∩; "ou" → ∪; "não ocorre" →
     complemento. "Pelo menos dois" exige decompor em casos (união de interseções par a par).</div>
 
-    <div class="step"><strong class="step-label">III–IV. Estratégia e resolução</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     Traduzir: "e"→∩, "ou"→∪, "não ocorre"→complemento.<br>
     <strong>a)</strong> A ∩ B ∩ (C não ocorre) → \[A \cap B \cap \overline{C}\]
     <strong>b)</strong> (A ∪ C) ∩ (B não ocorre) → \[(A \cup C) \cap \overline{B}\]
@@ -295,7 +294,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     elementos que satisfazem a condição descrita — assim evita-se contar ou perder resultados ao tentar montar
     os eventos diretamente sem passar por \(S\).</div>
 
-    <div class="step"><strong class="step-label">IV. Resolução passo a passo</strong>
+    <div class="step"><strong class="step-label">Resolvendo</strong>
     <strong>a)</strong> \(n(S) = 2 \cdot 2 \cdot 6 = 24\)<br>
     <strong>b)</strong> resultado = (moeda1 moeda2)(número)<br>
     \(A\) = duas caras, par → \[A = \{KK2, KK4, KK6\}\]
