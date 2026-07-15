@@ -229,7 +229,12 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
     <div class="step"><strong class="step-label">Passo 4 — item c) nem A nem B</strong>
     Primeiro a chance de A OU B: \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=1/2+2/5-1/5=7/10\). "Nem A nem B" é o
-    contrário de "A ou B", então \(P(\bar A\cap\bar B)=1-7/10=3/10\).</div>
+    contrário de "A ou B", então \(P(\bar A\cap\bar B)=1-7/10=3/10\).<br><br>
+    <strong>Forma alternativa (mais direta, aproveitando o item b):</strong> Ā também se divide em duas partes
+    que não se sobrepõem: "Ā e B" e "Ā e não-B". Ou seja \(P(\bar A)=P(\bar A\cap B)+P(\bar A\cap\bar B)\).
+    Isolando e usando o \(P(\bar A\cap B)=1/5\) que já achamos no item b):
+    \[P(\bar A\cap\bar B)=P(\bar A)-P(\bar A\cap B)=\frac12-\frac15=\frac{5}{10}-\frac{2}{10}=\frac{3}{10}\]
+    Mesma resposta, sem precisar passar por \(P(A\cup B)\).</div>
 
     <div class="step"><strong class="step-label">Passo 5 — item d) são independentes?</strong>
     Dois eventos são independentes quando \(P(A)\cdot P(B)=P(A\cap B)\) (repare: é o \(P(A\cap B)=1/5\)
