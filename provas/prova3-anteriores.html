@@ -195,8 +195,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
   <div class="exercise" id="a3">
     <h3>A3. \(P(\bar A)=\tfrac12\), \(P(B)=\tfrac25\), \(P(A\cap\bar B)=\tfrac{3}{10}\)</h3>
     <div class="enunciado">(2 pontos) Suponha que A e B sejam eventos com \(P(\bar A)=1/2\), \(P(B)=2/5\) e
-    \(P(A\cap\bar B)=3/10\). Determine: a) Probabilidade que B não ocorra; b) Probabilidade que A e B ocorram;
-    c) Probabilidade que nem A e nem B ocorra; d) A e B são independentes? Justifique.</div>
+    \(P(A\cap\bar B)=3/10\). Determine: a) Probabilidade que B não ocorra; b) Probabilidade que A não ocorra e
+    B ocorra; c) Probabilidade que nem A e nem B ocorra; d) A e B são independentes? Justifique.</div>
 
     <div class="exam-photo">
       <img src="img/A3.jpg" alt="Foto do enunciado original — questão A3" loading="lazy">
@@ -212,31 +212,40 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="step"><strong class="step-label">Passo 2 — item a) P(B̄)</strong>
     \(P(\bar B)=1-P(B)=1-2/5=3/5\).</div>
 
-    <div class="step"><strong class="step-label">Passo 3 — item b) P(A∩B)</strong>
-    O evento A se divide em duas partes que não se sobrepõem: "A e B" e "A e não-B". Ou seja
-    \(P(A)=P(A\cap B)+P(A\cap\bar B)\). Isolando: \(P(A\cap B)=P(A)-P(A\cap\bar B)=1/2-3/10=2/10=1/5\).</div>
+    <div class="step"><strong class="step-label">Passo 3 — item b) P(Ā∩B) — A não ocorre e B ocorre</strong>
+    Antes de chegar no que o item pede, preciso de um valor auxiliar: \(P(A\cap B)\). O evento A se divide em
+    duas partes que não se sobrepõem: "A e B" e "A e não-B". Ou seja \(P(A)=P(A\cap B)+P(A\cap\bar B)\).
+    Isolando: \(P(A\cap B)=P(A)-P(A\cap\bar B)=1/2-3/10=2/10=1/5\).<br><br>
+    Agora sim, o item b) pede \(P(\bar A\cap B)\) — a parte de B que NÃO está em A. O evento B também se
+    divide em duas partes que não se sobrepõem: "A e B" e "não-A e B", ou seja
+    \(P(B)=P(A\cap B)+P(\bar A\cap B)\). Isolando:
+    \(P(\bar A\cap B)=P(B)-P(A\cap B)=2/5-1/5=4/10-2/10=2/10=1/5\).</div>
 
     <div class="step"><strong class="step-label">Passo 4 — item c) nem A nem B</strong>
     Primeiro a chance de A OU B: \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=1/2+2/5-1/5=7/10\). "Nem A nem B" é o
     contrário de "A ou B", então \(P(\bar A\cap\bar B)=1-7/10=3/10\).</div>
 
     <div class="step"><strong class="step-label">Passo 5 — item d) são independentes?</strong>
-    Dois eventos são independentes quando \(P(A)\cdot P(B)=P(A\cap B)\). Aqui:
-    \(\tfrac12\cdot\tfrac25=\tfrac{1}{5}\), que é exatamente o \(P(A\cap B)=1/5\) que achamos no passo 3 —
-    <strong>bateu, então são independentes</strong>.</div>
+    Dois eventos são independentes quando \(P(A)\cdot P(B)=P(A\cap B)\) (repare: é o \(P(A\cap B)=1/5\)
+    auxiliar do passo 3, não o \(P(\bar A\cap B)\) do item b). Aqui: \(\tfrac12\cdot\tfrac25=\tfrac{1}{5}\), que
+    é exatamente esse \(P(A\cap B)=1/5\) — <strong>bateu, então são independentes</strong>.</div>
 
     <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> O enunciado dá \(P(\bar A)\), não \(P(A)\) — se você usar 1/2
-    direto como se fosse \(P(A)\) sem inverter, todos os itens seguintes saem errados.</div>
+    direto como se fosse \(P(A)\) sem inverter, todos os itens seguintes saem errados.
+    <span class="badge badge-trap">❗</span> Não confunda \(P(A\cap B)\) (auxiliar, passo 3) com
+    \(P(\bar A\cap B)\) (resposta do item b) — aqui os dois valores coincidem em 1/5, mas são conceitos
+    diferentes e isso é coincidência dos números desta questão, não uma regra geral.</div>
     <p><a href="../modulos/03-teoremas-adicao.html">Ver teoria no Módulo 3 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     P(A) = 1 - 1/2 = 1/2<br>
     a) P(B̄) = 1 - 2/5 = 3/5 = 60%<br>
-    b) P(A∩B) = 1/2 - 3/10 = 1/5 = 20%<br>
+    P(A∩B) = 1/2 - 3/10 = 1/5 (auxiliar)<br>
+    b) P(Ā∩B) = P(B) - P(A∩B) = 2/5 - 1/5 = 1/5 = 20%<br>
     c) P(A∪B) = 1/2+2/5-1/5 = 7/10 → P(nem) = 1-7/10 = 3/10 = 30%<br>
     d) P(A)P(B) = 1/2·2/5 = 1/5 = P(A∩B) → independentes: SIM
     </div>
-    <div class="answer-final">a) 3/5 &nbsp; b) 1/5 &nbsp; c) 3/10 &nbsp; d) Sim, A e B são independentes.</div>
+    <div class="answer-final">a) 3/5 &nbsp; b) P(Ā∩B) = 1/5 &nbsp; c) 3/10 &nbsp; d) Sim, A e B são independentes.</div>
   </div>
 
   <div class="exercise" id="a4">
