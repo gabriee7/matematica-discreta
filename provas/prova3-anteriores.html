@@ -219,7 +219,13 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     Agora sim, o item b) pede \(P(\bar A\cap B)\) — a parte de B que NÃO está em A. O evento B também se
     divide em duas partes que não se sobrepõem: "A e B" e "não-A e B", ou seja
     \(P(B)=P(A\cap B)+P(\bar A\cap B)\). Isolando:
-    \(P(\bar A\cap B)=P(B)-P(A\cap B)=2/5-1/5=4/10-2/10=2/10=1/5\).</div>
+    \(P(\bar A\cap B)=P(B)-P(A\cap B)=2/5-1/5=4/10-2/10=2/10=1/5\).<br><br>
+    <strong>Forma alternativa (mais direta, sem passo auxiliar separado):</strong> como
+    \(P(A\cap B)=P(A)-P(A\cap\bar B)\), basta substituir isso direto na fórmula de cima e já sai tudo em uma
+    conta só:
+    \[P(\bar A\cap B)=P(B)-P(A\cap B)=P(B)-\big[P(A)-P(A\cap\bar B)\big]=P(B)-P(A)+P(A\cap\bar B)\]
+    \[P(\bar A\cap B)=\frac{2}{5}-\frac{1}{2}+\frac{3}{10}=\frac{4}{10}-\frac{5}{10}+\frac{3}{10}=\frac{2}{10}=\frac15\]
+    Mesma resposta, uma fórmula só, direto dos três números do enunciado.</div>
 
     <div class="step"><strong class="step-label">Passo 4 — item c) nem A nem B</strong>
     Primeiro a chance de A OU B: \(P(A\cup B)=P(A)+P(B)-P(A\cap B)=1/2+2/5-1/5=7/10\). "Nem A nem B" é o
