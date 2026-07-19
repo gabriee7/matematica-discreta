@@ -365,9 +365,37 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="answer-final">c=5, m=1 → O(n³).</span></div>
 
     <div class="step"><strong class="step-label">Item b) — provar que \(5n^2+n+3\) é \(\Omega(n^2)\)</strong>
-    Quero \(5n^2+n+3\ge c\cdot n^2\). Como \(n+3\) é sempre positivo para \(n\ge0\), já dá pra afirmar direto
-    que \(5n^2+n+3\ge5n^2\) sem precisar dividir nada.
-    <span class="answer-final">c=5, m=0 → Ω(n²).</span></div>
+    Quero achar \(c\) e \(m\) tais que \(g(n)\ge c\cdot f(n)\) para todo \(n\ge m\), com \(g(n)=5n^2+n+3\) e
+    \(f(n)=n^2\). Vou fazer linha a linha, no mesmo formato do item a) — só que aqui a desigualdade é de
+    \(\Omega\) (\(\geq\)), não de O (\(\leq\)):<br><br>
+
+    \(g(n) \ge c\cdot f(n)\), para todo \(n\ge m\)<br>
+    \(5n^2+n+3 \ge c\cdot n^2\), para todo \(n\ge m\)<br><br>
+
+    Divido os dois lados por \(n^2\) (válido pois \(n^2>0\) para \(n\ge1\)) para isolar o \(c\):<br>
+    \(\dfrac{5n^2+n+3}{n^2} \ge c\)<br>
+    \(5+\dfrac{n}{n^2}+\dfrac{3}{n^2} \ge c\)<br>
+    \(c \le 5+\dfrac{1}{n}+\dfrac{3}{n^2}\), para todo \(n\ge1\)<br><br>
+
+    Repare que aqui os dois termos extras (\(1/n\) e \(3/n^2\)) são <strong>positivos</strong> — e, como
+    estou provando \(\Omega\) (preciso que \(g(n)\) seja grande o bastante, não pequeno), um termo positivo
+    "ajuda" \(g(n)\) a crescer, então NÃO posso simplesmente descartá-lo como fiz com o termo negativo no
+    item a) (descartar um termo positivo aqui deixaria a expressão menor, o que enfraqueceria a prova, não a
+    fortaleceria — ver o quadro-comparativo no <a href="../modulos/06-comportamento-assintotico.html">Módulo
+    6</a>). Em vez disso, uso o próprio fato de que \(1/n>0\) e \(3/n^2>0\) para todo \(n\ge1\):<br><br>
+
+    \(5+\dfrac{1}{n}+\dfrac{3}{n^2} > 5\), para todo \(n\ge1\)<br><br>
+
+    Ou seja, o lado direito da desigualdade original é <em>sempre estritamente maior que 5</em> — nunca
+    chega a ser menor. Então basta escolher \(c=5\): a desigualdade \(c\le5+\tfrac1n+\tfrac3{n^2}\) fica
+    \(5\le5+\tfrac1n+\tfrac3{n^2}\), que é verdadeira para todo \(n\ge1\) (o lado direito só soma coisas
+    positivas a 5).<br><br>
+
+    Voltando à desigualdade original: com \(c=5\) e \(m=1\), \(5n^2+n+3\ge5n^2\) vale para todo \(n\ge1\).
+    <span class="answer-final">c=5, m=1 → Ω(n²).</span>
+    <p class="nota">Atalho equivalente (sem dividir): como \(n+3>0\) para todo \(n\ge0\), dá pra ver direto
+    que \(5n^2+n+3\ge5n^2\) já vale a partir de \(n=0\), então \(c=5,\ m=0\) também é uma resposta válida —
+    o \(m\) não precisa ser único, só precisa funcionar.</p></div>
 
     <div class="step"><strong class="step-label">Item c) — provar que \(\dfrac{n+1}{2}\) é \(\Theta(n)\)</strong>
     Θ pede as duas pontas: um teto (O) e um chão (Ω) com a mesma ordem \(n\).<br>
@@ -383,7 +411,7 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
     a) c≥3-4/n²+2/n³, ∀n≥1 → descarta -4/n² → c≥3+2/n³ → n=1: c≥5 → O(n³) c=5,m=1<br>
-    b) 5n²+n+3≥5n² (n≥0) → c=5, m=0 → Ω(n²)<br>
+    b) c≤5+1/n+3/n², ∀n≥1 → 5+1/n+3/n²>5 sempre → c=5 → Ω(n²) c=5,m=1 (atalho direto: 5n²+n+3≥5n², m=0)<br>
     c) c₂≥1/2+1/(2n) → n=1: c₂≥1 · c₁≤1/2+1/(2n), vale c₁=1/2 ∀n≥1 → Θ(n) c₁=1/2,c₂=1,m=1
     </div>
     <div class="answer-final">a) O(n³) com c=5, m=1 &nbsp; b) Ω(n²) com c=5, m=0 &nbsp; c) Θ(n) com c₁=1/2, c₂=1, m=1</div>
