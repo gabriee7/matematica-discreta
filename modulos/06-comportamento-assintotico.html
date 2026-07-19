@@ -115,6 +115,25 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
       dá o \(c\) mínimo necessário, não uma estimativa frouxa.</p>
     </div>
 
+    <div class="theory-box">
+      <p><strong>Por que aparece "\(\forall n\geq1\)" logo depois de dividir por \(f(n)\)? Não é uma fórmula —
+      são duas coisas do problema que coincidem:</strong></p>
+      <ol>
+        <li><strong>Domínio de \(n\):</strong> aqui \(n\) representa o tamanho da entrada de um algoritmo, um
+        número natural que começa em 1 (o curso não considera \(n=0\)). Então "\(n\geq1\)" já é, de saída, o
+        próprio domínio do problema — não foi escolhido à toa.</li>
+        <li><strong>A divisão por \(f(n)=n^k\) exige \(n>0\):</strong> ao dividir os dois lados de
+        \(g(n)\leq c\cdot f(n)\) por \(n^k\) para isolar o \(c\), essa divisão só é válida se \(n^k\neq0\), ou
+        seja, \(n>0\) — o que já bate com o domínio natural (\(n\geq1\)).</li>
+      </ol>
+      <p>Depois de dividir, sobra uma soma de termos \(1/n^k\), que é <strong>decrescente</strong> em \(n\)
+      (cada fração encolhe conforme \(n\) cresce). Uma função decrescente atinge seu valor máximo exatamente no
+      menor ponto do domínio — aqui, \(n=1\). Por isso substituímos \(n=1\): é o "pior caso" que o \(c\)
+      precisa cobrir. Como a expressão só diminui a partir daí, garantir a desigualdade em \(n=1\)
+      automaticamente garante para todo \(n\geq1\) — é isso, e não uma regra fixa, que justifica escrever
+      \(m=1\) no final.</p>
+    </div>
+
     <div class="step"><strong class="step-label">Exemplo 1: g(n)=(n+1)², f(n)=n²</strong>
     \(g(n)\leq c\cdot f(n),\ \forall n\geq m\)<br>
     \((n+1)^2\leq c\cdot n^2,\ \forall n\geq m\)<br>
