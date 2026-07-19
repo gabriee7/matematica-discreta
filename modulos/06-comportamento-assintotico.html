@@ -186,6 +186,69 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <span class="badge badge-trap">❗</span> Armadilha: esquecer o valor absoluto quando \(g(n)\) pode ser
     negativa para algum \(n\) — a definição exige \(|g(n)|\leq c|f(n)|\), não apenas \(g(n)\leq c f(n)\).</div>
 
+    <div class="theory-box">
+      <p><strong>Explicando em detalhe o "corte" de termos (Exemplo 4) — quando é permitido e quando não é.</strong></p>
+      <p>A frase "esse termo só está ajudando, então posso jogá-lo fora sem perder a desigualdade" não é uma
+      licença para descartar qualquer subtração. É válida só quando descartar o termo cria uma versão
+      <strong>mais difícil de provar</strong> (ou igualmente difícil) do que a original — nunca uma versão
+      mais fácil escondendo o problema real. A pergunta que decide tudo é sempre a mesma:</p>
+      <p style="text-align:center"><strong>"Se eu tirar esse termo, a expressão que sobra fica MAIOR ou MENOR
+      que a original — e essa mudança está a favor ou contra o que eu preciso provar?"</strong></p>
+
+      <p><strong>Caso O (provando \(g(n)\leq c\cdot f(n)\), um teto):</strong> você precisa que o lado
+      esquerdo (\(g(n)\), ou a expressão com \(c\) isolado) seja pequeno o bastante para caber sob o teto.
+      Um termo <em>negativo</em> (ex.: \(-5/n\)) já está fazendo esse trabalho de encolher a expressão. Se
+      você o descarta (troca por 0), a expressão que sobra fica <em>maior</em> que a original — ou seja, você
+      está testando uma versão mais rigorosa (mais difícil) da desigualdade. Se essa versão mais difícil ainda
+      cabe sob o teto \(c\), a original (que é menor) cabe com folga ainda maior. Por isso é seguro.</p>
+
+      <p><strong>Caso Ω (provando \(g(n)\geq c\cdot f(n)\), um chão):</strong> a lógica se inverte, porque
+      agora você precisa que \(g(n)\) seja grande o bastante para ficar acima do chão. Um termo
+      <em>positivo</em> (ex.: \(2n^3\) no Exemplo 1 de Ω) já está ajudando a crescer. Se você o descarta, a
+      expressão que sobra fica <em>menor</em> que a original — de novo, uma versão mais difícil de provar. Se
+      mesmo essa versão reduzida ainda supera o chão \(c\cdot f(n)\), a original (que é maior) supera com
+      folga ainda maior.</p>
+
+      <table class="variations">
+        <tr><th>Situação</th><th>Pode descartar?</th><th>Por quê</th></tr>
+        <tr><td>Provando <strong>O</strong>, termo <strong>negativo</strong> (\(-5/n\), \(-1/n^3\)…)</td>
+        <td>✅ Sim</td><td>Descartar deixa a expressão maior → versão mais difícil, ainda válida como teto.</td></tr>
+        <tr><td>Provando <strong>O</strong>, termo <strong>positivo</strong> (\(+2/n^2\), \(+3/n^4\)…)</td>
+        <td>❌ Não</td><td>Descartar deixaria a expressão menor → você provaria uma versão mais fácil, que não
+        garante nada sobre a original (que é maior e pode furar o teto).</td></tr>
+        <tr><td>Provando <strong>Ω</strong>, termo <strong>positivo</strong> (\(+2n^3\), \(+3n\)…)</td>
+        <td>✅ Sim</td><td>Descartar deixa a expressão menor → versão mais difícil, ainda válida como chão.</td></tr>
+        <tr><td>Provando <strong>Ω</strong>, termo <strong>negativo</strong> (\(-2n^2\)…)</td>
+        <td>❌ Não</td><td>Descartar deixaria a expressão maior → você provaria uma versão mais fácil, que não
+        garante nada sobre a original (que é menor e pode não alcançar o chão).</td></tr>
+      </table>
+
+      <p><strong>Não, não é "para todas as subtrações" — é para todas as subtrações CUJO SINAL SE MANTÉM em
+      todo o domínio \(n\geq m\) que você está considerando.</strong> Dois cuidados extras:</p>
+      <ol>
+        <li>O sinal do termo precisa ser constante (sempre negativo, ou sempre positivo) para todo \(n\) no
+        intervalo escolhido — não só em \(n=1\). Termos como \(-5/n\), \(-1/n^3\), \(-2/n^5\) são sempre
+        negativos para \(n\geq1\), então valem em todo o domínio.</li>
+        <li>Se um termo depende de uma expressão que muda de sinal (ex.: \(n(n-2)\) no Exemplo 2 de Ω, que é
+        negativo para \(0<n<2\) e positivo para \(n\geq2\)), o corte só é seguro a partir do ponto onde o
+        sinal se estabiliza — por isso naquele exemplo o \(m\) escolhido foi 2, não 1.</li>
+      </ol>
+
+      <p><strong>Forma mais simples de aplicar, na prática (o "atalho"):</strong></p>
+      <ol>
+        <li>Provando <strong>O</strong> → risque (zere) todo termo com sinal <strong>negativo</strong>; mantenha
+        só os positivos.</li>
+        <li>Provando <strong>Ω</strong> → risque (zere) todo termo com sinal <strong>positivo</strong>; mantenha
+        só os negativos.</li>
+        <li>Em ambos os casos, confirme que esse sinal vale para todo \(n\) a partir do \(m\) escolhido (quase
+        sempre \(n=1\); se algum termo trocar de sinal antes disso, ajuste o \(m\) para depois do ponto de
+        troca).</li>
+      </ol>
+      <p class="nota">Mnemônico: <strong>"O descarta o que sobra (negativo), Ω descarta o que soma
+      (positivo)"</strong> — cada notação descarta exatamente o tipo de termo que está do lado "fácil" da
+      desigualdade, deixando só o lado "difícil" para você provar.</p>
+    </div>
+
     <div class="board-solve">
     <span class="board-label">No quadro</span>
     <strong>Ex.1:</strong> g(n)=(n+1)²=n²+2n+1, f(n)=n²<br>
