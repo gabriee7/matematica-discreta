@@ -398,12 +398,53 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     o \(m\) não precisa ser único, só precisa funcionar.</p></div>
 
     <div class="step"><strong class="step-label">Item c) — provar que \(\dfrac{n+1}{2}\) é \(\Theta(n)\)</strong>
-    Θ pede as duas pontas: um teto (O) e um chão (Ω) com a mesma ordem \(n\).<br>
-    Teto: \(\dfrac{n+1}{2}\le c_2\cdot n\). Dividindo por \(n\): \(c_2\ge\dfrac12+\dfrac{1}{2n}\), que decresce
-    com \(n\) — pior caso em \(n=1\): \(c_2\ge\tfrac12+\tfrac12=1\).<br>
-    Chão: \(\dfrac{n+1}{2}\ge c_1\cdot n\). Dividindo por \(n\): \(c_1\le\dfrac12+\dfrac{1}{2n}\) — usando
-    \(c_1=\tfrac12\), a desigualdade vale para todo \(n\ge1\) (o lado direito nunca cai abaixo de 1/2).
-    <span class="answer-final">c₁=1/2, c₂=1, m=1 → Θ(n).</span></div>
+    <strong>Passo 0 — o que Θ exige.</strong> Θ não é uma terceira prova independente — é provar as
+    <strong>duas metades</strong> ao mesmo tempo: um teto (a parte O, \(g(n)\leq c_2\cdot n\)) e um chão (a
+    parte Ω, \(g(n)\geq c_1\cdot n\)). Faltar uma das duas invalida a prova inteira.<br><br>
+
+    <u><strong>PARTE 1 — Teto (metade O)</strong></u><br>
+    <strong>1.1 — Alvo:</strong> achar \(c_2\) e \(m\) tais que \(\dfrac{n+1}{2}\leq c_2\cdot n,\ \forall
+    n\geq m\).<br>
+    <strong>1.2 — Isolar \(c_2\)</strong> dividindo os dois lados por \(n\) (válido pois \(n>0\)):<br>
+    \(\dfrac{n+1}{2n}\leq c_2 \;\Rightarrow\; c_2\geq\dfrac12+\dfrac{1}{2n},\ \forall n\geq1\)<br>
+    <strong>1.3 — Cresce ou decresce?</strong> O termo \(1/(2n)\) encolhe conforme \(n\) cresce, então a
+    expressão toda é <strong>decrescente</strong>.<br>
+    <strong>1.4 — Pior caso:</strong> preciso que \(c_2\) cubra a expressão para TODO \(n\geq m\). Decrescente
+    → o valor mais alto (mais difícil de cobrir) está no <strong>menor \(n\)</strong>, ou seja, \(n=1\).<br>
+    <strong>1.5 — Calcular em \(n=1\):</strong> \(c_2\geq\tfrac12+\tfrac12=1\).<br>
+    <strong>1.6 — Conclusão da Parte 1:</strong> com \(c_2=1,\ m=1\): \(\dfrac{n+1}{2}\leq1\cdot n,\
+    \forall n\geq1\). ✅ Teto provado: \(O(n)\) com \(c_2=1,\ m=1\).<br><br>
+
+    <u><strong>PARTE 2 — Chão (metade Ω)</strong></u><br>
+    <strong>2.1 — Alvo (a desigualdade virou):</strong> achar \(c_1\) e \(m\) tais que
+    \(\dfrac{n+1}{2}\geq c_1\cdot n,\ \forall n\geq m\).<br>
+    <strong>2.2 — Isolar \(c_1\)</strong> dividindo por \(n>0\) (preserva a direção \(\geq\)):<br>
+    \(\dfrac{n+1}{2n}\geq c_1 \;\Rightarrow\; c_1\leq\dfrac12+\dfrac{1}{2n},\ \forall n\geq1\)<br>
+    <strong>2.3 — Cresce ou decresce?</strong> Mesma expressão da Parte 1, decrescente, se aproximando de
+    \(1/2\) conforme \(n\to\infty\) (nunca chega a tocar \(1/2\), só se aproxima por cima).<br>
+    <strong>2.4 — Pior caso (aqui é diferente da Parte 1!):</strong> preciso que \(c_1\) seja pequeno o
+    bastante para caber por baixo da expressão em TODO \(n\geq m\). Como a expressão decresce e nunca fica
+    menor que \(1/2\), o valor mais apertado é o <strong>limite \(1/2\)</strong> — não o valor em \(n=1\).<br>
+    <strong>2.5 — Checar que \(c_1=1/2\) funciona para todo \(n\geq1\):</strong>
+    \(\tfrac12\leq\tfrac12+\tfrac1{2n}\) equivale a \(0\leq\tfrac1{2n}\), verdadeiro para qualquer
+    \(n\geq1\).<br>
+    <strong>2.6 — Conclusão da Parte 2:</strong> com \(c_1=\tfrac12,\ m=1\): \(\dfrac{n+1}{2}\geq
+    \tfrac12\cdot n,\ \forall n\geq1\). ✅ Chão provado: \(\Omega(n)\) com \(c_1=\tfrac12,\ m=1\).<br><br>
+
+    <u><strong>PARTE 3 — Juntando em Θ</strong></u><br>
+    <strong>3.1</strong> — os dois \(m\) coincidem (\(m=1\) nas duas partes), então não é preciso tomar o
+    maior entre eles.<br>
+    <strong>3.2</strong> — como \(\dfrac{n+1}{2}\) é \(O(n)\) com \(c_2=1,m=1\) <em>e</em> \(\Omega(n)\) com
+    \(c_1=\tfrac12,m=1\), por definição:
+    <span class="answer-final">\(\dfrac{n+1}{2}=\Theta(n)\) com \(c_1=1/2,\ c_2=1,\ m=1\).</span>
+
+    <table class="variations">
+      <tr><th></th><th>Parte 1 (Teto/O)</th><th>Parte 2 (Chão/Ω)</th></tr>
+      <tr><td>Desigualdade após isolar c</td><td>\(c_2\geq\) expressão</td><td>\(c_1\leq\) expressão</td></tr>
+      <tr><td>Expressão decrescente → pior caso em</td><td><strong>menor n</strong> (n=1)</td><td><strong>limite quando n→∞</strong></td></tr>
+      <tr><td>Valor final</td><td>avaliar em n=1 → 1</td><td>pegar o valor-limite → 1/2</td></tr>
+    </table>
+    </div>
 
     <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> Θ só fica provado quando você mostra o teto (O) E o chão (Ω) —
