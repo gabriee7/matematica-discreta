@@ -518,32 +518,54 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> É "encaixar uma desigualdade dentro da
     outra": pega a cota que a segunda hipótese te dá e usa ela pra trocar o termo do meio da primeira.</div>
 
-    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses como desigualdades</strong>
-    \(h(n)=O(g(n))\) quer dizer que existe \(c_1>0\) e \(m_1\ge0\) tais que \(h(n)\le c_1g(n)\) para todo
-    \(n\ge m_1\).<br>
-    \(g(n)=O(f(n))\) quer dizer que existe \(c_2>0\) e \(m_2\ge0\) tais que \(g(n)\le c_2f(n)\) para todo
-    \(n\ge m_2\).</div>
+    <div class="step"><strong class="step-label">Passo 1 — traduzir a 1ª hipótese em desigualdade (I)</strong>
+    \(h(n)=O(g(n))\) significa, pela definição, que existe uma constante \(c_1>0\) e um ponto de corte
+    \(m_1\ge0\) tais que:<br><br>
+    \(h(n)\le c_1\,g(n),\quad \forall n\ge m_1\) &nbsp;&nbsp;<strong>(I)</strong><br><br>
+    Essa é só a definição de O escrita por extenso — nada foi feito ainda, é o ponto de partida.</div>
 
-    <div class="step"><strong class="step-label">Passo 2 — encaixe uma dentro da outra</strong>
-    Para \(n\ge m=\max(m_1,m_2)\) as duas desigualdades valem ao mesmo tempo. Troco o \(g(n)\) da primeira
-    desigualdade pelo limite que a segunda me dá:<br>
-    \(h(n)\le c_1g(n)\le c_1c_2f(n)\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — traduzir a 2ª hipótese em desigualdade (II)</strong>
+    Da mesma forma, \(g(n)=O(f(n))\) significa que existe \(c_2>0\) e \(m_2\ge0\) tais que:<br><br>
+    \(g(n)\le c_2\,f(n),\quad \forall n\ge m_2\) &nbsp;&nbsp;<strong>(II)</strong><br><br>
+    Repare que (II) relaciona \(g\) com \(f\) — é exatamente a peça que falta para trocar o \(g(n)\) que
+    aparece solto em (I).</div>
 
-    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
-    Chamando \(c=c_1c_2>0\), ficou provado que \(h(n)\le c\,f(n)\) para todo \(n\ge m\) — que é exatamente a
-    definição de \(h(n)=O(f(n))\). \(\blacksquare\)</div>
+    <div class="step"><strong class="step-label">Passo 3 — multiplicar (II) por \(c_1\)</strong>
+    Quero que o lado esquerdo de (II) fique igual ao \(g(n)\) que aparece em (I) multiplicado por \(c_1\), pra
+    poder encaixar uma dentro da outra. Multiplico os dois lados de (II) por \(c_1\) (pode multiplicar por
+    \(c_1\) sem inverter a desigualdade, pois \(c_1>0\)):<br><br>
+    \(c_1\,g(n)\le c_1c_2\,f(n),\quad \forall n\ge m_2\) &nbsp;&nbsp;<strong>(III)</strong></div>
+
+    <div class="step"><strong class="step-label">Passo 4 — juntar (I) com (III)</strong>
+    Agora (I) diz \(h(n)\le c_1g(n)\), e (III) diz \(c_1g(n)\le c_1c_2f(n)\). Como o meio bate
+    (\(c_1g(n)\) aparece nas duas), encadeio as duas desigualdades:<br><br>
+    \(h(n)\ \le\ c_1g(n)\ \le\ c_1c_2\,f(n)\)<br><br>
+    Mas isso só vale quando (I) <em>e</em> (III) valem ao mesmo tempo — ou seja, para
+    \(n\ge M=\max(m_1,m_2)\), o maior dos dois pontos de corte.</div>
+
+    <div class="step"><strong class="step-label">Passo 5 — concluir</strong>
+    Chamando \(C=c_1c_2>0\) (uma constante positiva, produto de duas constantes positivas), ficou provado
+    que:<br><br>
+    \(h(n)\le C\cdot f(n),\quad \forall n\ge M\)<br><br>
+    que é exatamente a definição de \(h(n)=O(f(n))\).
+    <span class="answer-final">∎ Demonstrado: C = c₁c₂, M = max(m₁, m₂).</span></div>
 
     <div class="step"><strong class="step-label">Cuidado</strong>
-    <span class="badge badge-trap">❗</span> Tem que usar \(m=\max(m_1,m_2)\), nunca \(m_1\) ou \(m_2\)
-    isolados — a desigualdade só é garantida quando as DUAS hipóteses já valem ao mesmo tempo.</div>
+    <span class="badge badge-trap">❗</span> Tem que usar \(M=\max(m_1,m_2)\), nunca \(m_1\) ou \(m_2\)
+    isolados — a desigualdade só é garantida quando as DUAS hipóteses já valem ao mesmo tempo (por isso o
+    professor circula o M no quadro: é o ponto onde as duas retas de corte se encontram).</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
-    h(n) ≤ c₁g(n), n≥m₁<br>
-    g(n) ≤ c₂f(n), n≥m₂<br>
-    m = max(m₁,m₂), n≥m: h(n) ≤ c₁g(n) ≤ c₁c₂f(n)<br>
-    c = c₁c₂ → h(n) = O(f(n)) ∎
+    h(n) ≤ c₁·g(n), ∀n≥m₁ &nbsp; (I)<br>
+    g(n) ≤ c₂·f(n), ∀n≥m₂ &nbsp; (II)<br><br>
+    Multiplicar (II) por c₁:<br>
+    c₁·g(n) ≤ c₁c₂·f(n), ∀n≥m₂ &nbsp; (III)<br><br>
+    Juntando (I) com (III):<br>
+    h(n) ≤ c₁g(n) ≤ (c₁c₂)·f(n), ∀n≥MAX(m₁,m₂)<br><br>
+    h(n) ≤ C·f(n), ∀n≥M<br>
+    h(n) = O(f(n)) ∎
     </div>
-    <div class="answer-final">Demonstrado: c = c₁c₂, m = max(m₁, m₂).</div>
+    <div class="answer-final">Demonstrado: C = c₁c₂, M = max(m₁, m₂).</div>
   </div>
 
   <!-- ============================= VERSÃO B ============================= -->
@@ -856,23 +878,46 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Idêntica à A8: encaixe uma
     desigualdade dentro da outra e multiplique as constantes.</div>
 
-    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses</strong>
-    \(h(n)\le c_1g(n)\) para todo \(n\ge m_1\); \(g(n)\le c_2f(n)\) para todo \(n\ge m_2\).</div>
+    <div class="step"><strong class="step-label">Passo 1 — traduzir a 1ª hipótese em desigualdade (I)</strong>
+    \(h(n)=O(g(n))\) significa que existe \(c_1>0\) e \(m_1\ge0\) tais que:<br><br>
+    \(h(n)\le c_1\,g(n),\quad \forall n\ge m_1\) &nbsp;&nbsp;<strong>(I)</strong></div>
 
-    <div class="step"><strong class="step-label">Passo 2 — encaixe uma na outra</strong>
-    Para \(n\ge m=\max(m_1,m_2)\): \(h(n)\le c_1g(n)\le c_1c_2f(n)\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — traduzir a 2ª hipótese em desigualdade (II)</strong>
+    \(g(n)=O(f(n))\) significa que existe \(c_2>0\) e \(m_2\ge0\) tais que:<br><br>
+    \(g(n)\le c_2\,f(n),\quad \forall n\ge m_2\) &nbsp;&nbsp;<strong>(II)</strong><br><br>
+    (II) é a peça que permite trocar o \(g(n)\) solto em (I).</div>
 
-    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
-    Com \(c=c_1c_2\), fica \(h(n)\le c\,f(n)\) para todo \(n\ge m\) — ou seja, \(h(n)=O(f(n))\). \(\blacksquare\)</div>
+    <div class="step"><strong class="step-label">Passo 3 — multiplicar (II) por \(c_1\)</strong>
+    Multiplico os dois lados de (II) por \(c_1>0\) (não inverte a desigualdade):<br><br>
+    \(c_1\,g(n)\le c_1c_2\,f(n),\quad \forall n\ge m_2\) &nbsp;&nbsp;<strong>(III)</strong></div>
+
+    <div class="step"><strong class="step-label">Passo 4 — juntar (I) com (III)</strong>
+    (I) diz \(h(n)\le c_1g(n)\); (III) diz \(c_1g(n)\le c_1c_2f(n)\). Encadeio pelo termo do meio, que
+    coincide:<br><br>
+    \(h(n)\ \le\ c_1g(n)\ \le\ c_1c_2\,f(n)\)<br><br>
+    Válido quando (I) e (III) valem juntas, ou seja, para \(n\ge M=\max(m_1,m_2)\).</div>
+
+    <div class="step"><strong class="step-label">Passo 5 — concluir</strong>
+    Chamando \(C=c_1c_2>0\):<br><br>
+    \(h(n)\le C\cdot f(n),\quad \forall n\ge M\)<br><br>
+    que é exatamente a definição de \(h(n)=O(f(n))\).
+    <span class="answer-final">∎ Demonstrado: C = c₁c₂, M = max(m₁, m₂).</span></div>
 
     <div class="step"><strong class="step-label">Cuidado</strong>
-    <span class="badge badge-trap">❗</span> Use \(m=\max(m_1,m_2)\), nunca um dos dois isolado.</div>
+    <span class="badge badge-trap">❗</span> Use \(M=\max(m_1,m_2)\), nunca um dos dois isolado — só a partir
+    de M as duas hipóteses valem simultaneamente.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
-    h(n) ≤ c₁g(n), n≥m₁ ; g(n) ≤ c₂f(n), n≥m₂<br>
-    m=max(m₁,m₂) → h(n) ≤ c₁c₂f(n) → c=c₁c₂ → h(n)=O(f(n)) ∎
+    h(n) ≤ c₁·g(n), ∀n≥m₁ &nbsp; (I)<br>
+    g(n) ≤ c₂·f(n), ∀n≥m₂ &nbsp; (II)<br><br>
+    Multiplicar (II) por c₁:<br>
+    c₁·g(n) ≤ c₁c₂·f(n), ∀n≥m₂ &nbsp; (III)<br><br>
+    Juntando (I) com (III):<br>
+    h(n) ≤ c₁g(n) ≤ (c₁c₂)·f(n), ∀n≥MAX(m₁,m₂)<br><br>
+    h(n) ≤ C·f(n), ∀n≥M<br>
+    h(n) = O(f(n)) ∎
     </div>
-    <div class="answer-final">Demonstrado: c = c₁c₂, m = max(m₁, m₂).</div>
+    <div class="answer-final">Demonstrado: C = c₁c₂, M = max(m₁, m₂).</div>
   </div>
 
   <!-- ============================= VERSÃO C ============================= -->
@@ -1178,8 +1223,8 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
 
   <div class="exercise" id="c8">
     <h3>C8. Soma de duas funções O(f(n))</h3>
-    <div class="enunciado">(1 ponto) Demonstre que se \(h(n)=O(f(n))\) e \(g(n)=O(f(n))\), então
-    \(h(n)+g(n)=O(f(n))\).</div>
+    <div class="enunciado">(1 ponto) Demonstre que se \(h_1(m)=O(f(m))\) e \(h_2(m)=O(f(m))\), e
+    \(h_3(m)=h_1(m)+h_2(m)\), então \(h_3(m)=O(f(m))\).</div>
 
     <div class="exam-photo">
       <img src="img/C8.jpg" alt="Foto do enunciado original — questão C8" loading="lazy">
@@ -1187,31 +1232,50 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     </div>
 
     <div class="eli5"><span class="eli5-label">💡 Direto ao ponto</span> Diferente da transitividade (A8/B8):
-    aqui as duas cotas são para a MESMA função \(f(n)\), então elas se SOMAM (a constante final é a soma das
-    duas, c₁+c₂ — não o produto).</div>
+    aqui as duas cotas são para a MESMA função \(f(m)\), então elas se SOMAM (a constante final é a soma das
+    duas, \(c_1+c_2\) — não o produto).</div>
 
-    <div class="step"><strong class="step-label">Passo 1 — escreva as duas hipóteses</strong>
-    \(h(n)\le c_1f(n)\) para todo \(n\ge m_1\); \(g(n)\le c_2f(n)\) para todo \(n\ge m_2\).</div>
+    <div class="step"><strong class="step-label">Passo 1 — traduzir a 1ª hipótese em desigualdade</strong>
+    \(h_1(m)=O(f(m))\) significa que existe \(c_1>0\) e \(m_1\ge0\) tais que:<br><br>
+    \(h_1(m)\le c_1\cdot f(m),\quad \forall m\ge m_1\)</div>
 
-    <div class="step"><strong class="step-label">Passo 2 — some as duas desigualdades</strong>
-    Para \(n\ge m=\max(m_1,m_2)\), as duas valem ao mesmo tempo, então posso somar lado a lado:<br>
-    \(h(n)+g(n)\le c_1f(n)+c_2f(n)=(c_1+c_2)f(n)\).</div>
+    <div class="step"><strong class="step-label">Passo 2 — traduzir a 2ª hipótese em desigualdade</strong>
+    Da mesma forma, \(h_2(m)=O(f(m))\) significa que existe \(c_2>0\) e \(m_2\ge0\) tais que:<br><br>
+    \(h_2(m)\le c_2\cdot f(m),\quad \forall m\ge m_2\)</div>
 
-    <div class="step"><strong class="step-label">Passo 3 — conclua</strong>
-    Com \(c=c_1+c_2\), fica \(h(n)+g(n)\le c\,f(n)\) para todo \(n\ge m\) — ou seja,
-    \(h(n)+g(n)=O(f(n))\). \(\blacksquare\)</div>
+    <div class="step"><strong class="step-label">Passo 3 — somar as duas desigualdades</strong>
+    As duas desigualdades valem ao mesmo tempo só a partir do maior dos dois pontos de corte,
+    \(M=\max(m_1,m_2)\). A partir daí, posso somar lado a lado (somar duas desigualdades de mesmo sentido é
+    sempre válido):<br><br>
+    \(h_1(m)+h_2(m)\ \le\ c_1\cdot f(m)+c_2\cdot f(m),\quad \forall m\ge M\)</div>
+
+    <div class="step"><strong class="step-label">Passo 4 — colocar \(f(m)\) em evidência</strong>
+    Como \(h_3(m)=h_1(m)+h_2(m)\) (dado do enunciado) e o lado direito tem \(f(m)\) repetido, coloco em
+    evidência:<br><br>
+    \(h_3(m)\ \le\ (c_1+c_2)\cdot f(m),\quad \forall m\ge M\)</div>
+
+    <div class="step"><strong class="step-label">Passo 5 — concluir</strong>
+    Chamando \(C=c_1+c_2>0\) (soma de duas constantes positivas):<br><br>
+    \(h_3(m)\le C\cdot f(m),\quad \forall m\ge M\)<br><br>
+    que é exatamente a definição de \(h_3(m)=O(f(m))\).
+    <span class="answer-final">∎ Demonstrado: C = c₁+c₂, M = max(m₁, m₂).</span></div>
 
     <div class="step"><strong class="step-label">Cuidado</strong>
     <span class="badge badge-trap">❗</span> Aqui a constante final é a SOMA (\(c_1+c_2\)), porque as duas
-    cotas são para a mesma \(f(n)\). Na transitividade (A8/B8) a constante é o PRODUTO (\(c_1c_2\)), porque lá
+    cotas são para a mesma \(f(m)\). Na transitividade (A8/B8) a constante é o PRODUTO (\(c_1c_2\)), porque lá
     uma cota é para \(g\) em função de \(f\), e a outra para \(h\) em função de \(g\) — não confunda os dois
     padrões.</div>
     <p><a href="../modulos/06-comportamento-assintotico.html">Ver teoria no Módulo 6 →</a></p>
     <div class="board-solve"><span class="board-label">No quadro</span>
-    h(n) ≤ c₁f(n), n≥m₁ ; g(n) ≤ c₂f(n), n≥m₂<br>
-    m=max(m₁,m₂) → h(n)+g(n) ≤ (c₁+c₂)f(n) → c=c₁+c₂ → h+g=O(f(n)) ∎
+    h₁=O(f), h₂=O(f), h₃=h₁+h₂ &nbsp;⟹&nbsp; h₃=O(f)<br><br>
+    h₁ ≤ c₁·f, ∀m≥m₁<br>
+    h₂ ≤ c₂·f, ∀m≥m₂<br>
+    h₁+h₂ ≤ c₁f+c₂f, ∀m≥MAX(m₁,m₂)<br><br>
+    h₃ ≤ (c₁+c₂)·f, ∀m≥M<br>
+    h₃ ≤ C·f, ∀m≥M<br>
+    h₃ = O(f) ∎
     </div>
-    <div class="answer-final">Demonstrado: c = c₁+c₂, m = max(m₁, m₂).</div>
+    <div class="answer-final">Demonstrado: C = c₁+c₂, M = max(m₁, m₂).</div>
   </div>
 
 </main>
