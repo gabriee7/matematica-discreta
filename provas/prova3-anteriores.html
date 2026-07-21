@@ -566,6 +566,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     h(n) = O(f(n)) ∎
     </div>
     <div class="answer-final">Demonstrado: C = c₁c₂, M = max(m₁, m₂).</div>
+
+    <div class="board-solve"><span class="board-label">Versão enxuta (cola de prova)</span>
+    h(n) ≤ c₁·g(n), ∀n≥m₁ &nbsp; (I)<br>
+    g(n) ≤ c₂·f(n), ∀n≥m₂ &nbsp; (II)<br><br>
+    Multiplicando (II) por c₁:<br>
+    c₁·g(n) ≤ c₁c₂·f(n), ∀n≥m₂ &nbsp; (III)<br><br>
+    Juntando (I) com (III):<br>
+    h(n) ≤ c₁g(n) ≤ c₁c₂·f(n), ∀n≥M, &nbsp;M=max(m₁,m₂)<br><br>
+    h(n) ≤ C·f(n), ∀n≥M, &nbsp;C=c₁c₂<br><br>
+    ∴ h(n) = O(f(n)) &nbsp;∎
+    </div>
   </div>
 
   <!-- ============================= VERSÃO B ============================= -->
@@ -918,6 +929,17 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     h(n) = O(f(n)) ∎
     </div>
     <div class="answer-final">Demonstrado: C = c₁c₂, M = max(m₁, m₂).</div>
+
+    <div class="board-solve"><span class="board-label">Versão enxuta (cola de prova)</span>
+    h(n) ≤ c₁·g(n), ∀n≥m₁ &nbsp; (I)<br>
+    g(n) ≤ c₂·f(n), ∀n≥m₂ &nbsp; (II)<br><br>
+    Multiplicando (II) por c₁:<br>
+    c₁·g(n) ≤ c₁c₂·f(n), ∀n≥m₂ &nbsp; (III)<br><br>
+    Juntando (I) com (III):<br>
+    h(n) ≤ c₁g(n) ≤ c₁c₂·f(n), ∀n≥M, &nbsp;M=max(m₁,m₂)<br><br>
+    h(n) ≤ C·f(n), ∀n≥M, &nbsp;C=c₁c₂<br><br>
+    ∴ h(n) = O(f(n)) &nbsp;∎
+    </div>
   </div>
 
   <!-- ============================= VERSÃO C ============================= -->
@@ -1276,6 +1298,16 @@ MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
     h₃ = O(f) ∎
     </div>
     <div class="answer-final">Demonstrado: C = c₁+c₂, M = max(m₁, m₂).</div>
+
+    <div class="board-solve"><span class="board-label">Versão enxuta (cola de prova)</span>
+    h₁(m) ≤ c₁·f(m), ∀m≥m₁<br>
+    h₂(m) ≤ c₂·f(m), ∀m≥m₂<br><br>
+    Somando (válido para m≥M, M=max(m₁,m₂)):<br>
+    h₁(m)+h₂(m) ≤ c₁·f(m)+c₂·f(m) = (c₁+c₂)·f(m)<br><br>
+    Como h₃=h₁+h₂:<br>
+    h₃(m) ≤ C·f(m), ∀m≥M, &nbsp;C=c₁+c₂<br><br>
+    ∴ h₃(m) = O(f(m)) &nbsp;∎
+    </div>
   </div>
 
 </main>
